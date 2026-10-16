@@ -286,26 +286,23 @@
       <h2 id="h-quality" class="h2" style="max-width:14ch;">{{ L.quality.h2 }}</h2>
       <p class="lead">{{ L.quality.lead }}</p>
     </div>
-    <div class="q-grid">
-      <article class="marine">
-        <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132" loading="lazy" decoding="async">
-        <div>
-          <h3>{{ L.quality.marine_h }}</h3>
-          <p>{{ L.quality.marine_p }}</p>
-          <ol class="layers" aria-label="{{ L.quality.layers_label }}">{% for ly in L.quality.layers %}<li>{{ ly }}</li>{% endfor %}</ol>
-          <p class="marine-data tnum">{{ L.quality.marine_data }}</p>
-        </div>
-      </article>
-      <div class="seals">
-        <figure><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="78" height="76" loading="lazy" decoding="async"><figcaption>{{ L.quality.seals[0][1] }}</figcaption></figure>
-        <figure><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" width="124" height="56" loading="lazy" decoding="async" class="seal-pending"><figcaption>{{ L.quality.seals[1][1] }}</figcaption></figure>
-        <figure><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" width="76" height="76" loading="lazy" decoding="async"><figcaption>{{ L.quality.seals[2][1] }}</figcaption></figure>
-        <figure>
-          <svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[3][0] }}" style="height:76px; width:auto;"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg>
-          <figcaption>{{ L.quality.seals[3][1] }}</figcaption>
-        </figure>
+    <article class="marine">
+      <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132" loading="lazy" decoding="async">
+      <div class="marine-t">
+        <h3>{{ L.quality.marine_h }}</h3>
+        <p>{{ L.quality.marine_p }}</p>
       </div>
-    </div>
+      <div class="marine-l">
+        <ol class="layers" aria-label="{{ L.quality.layers_label }}">{% for ly in L.quality.layers %}<li>{{ ly }}</li>{% endfor %}</ol>
+        <p class="marine-data tnum">{{ L.quality.marine_data }}</p>
+      </div>
+    </article>
+    <ul class="seal-row">
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="66" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[0][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" width="106" height="48" loading="lazy" decoding="async" class="seal-pending"></span><span class="seal-cap">{{ L.quality.seals[1][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" width="64" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[2][1] }}</span></li>
+      <li><span class="seal-logo"><svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[3][0] }}" width="88" height="56"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg></span><span class="seal-cap">{{ L.quality.seals[3][1] }}</span></li>
+    </ul>
     <p class="asterisk">{{ L.quality.note }}</p>
   </div>
   <div class="logos" aria-label="{{ L.quality.marquee_label }}" role="region">

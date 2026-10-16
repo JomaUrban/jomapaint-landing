@@ -318,20 +318,23 @@ select.input { padding: 0 10px; }
 
 /* ---------- Calidad ---------- */
 .quality { background: var(--paper); padding: clamp(72px, 9cqi, 136px) 0 0; }
-.quality-in { padding: 0 var(--pad-x); display: flex; flex-direction: column; gap: clamp(40px, 5cqi, 72px); }
-.q-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(560px, 100%), 1fr)); gap: 16px; }
-.marine { display: flex; gap: clamp(18px, 2.4cqi, 32px); align-items: center; padding: clamp(20px, 2.6cqi, 36px); background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; flex-wrap: wrap; }
-.marine > img { width: clamp(96px, 10cqi, 132px); height: auto; flex: none; }
-.marine > div { display: flex; flex-direction: column; gap: 12px; flex: 1 1 260px; min-width: 0; }
+.quality-in { max-width: calc(1280px + 2 * var(--pad-x)); padding: 0 var(--pad-x); display: flex; flex-direction: column; gap: clamp(40px, 5cqi, 72px); }
+.marine { display: grid; grid-template-columns: auto minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(20px, 3cqi, 48px); align-items: center; padding: clamp(20px, 2.6cqi, 36px); background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; }
+.marine > img { width: clamp(96px, 10cqi, 132px); height: auto; }
+.marine-t, .marine-l { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .marine h3 { font-weight: 600; font-stretch: 110%; font-size: 26px; letter-spacing: -0.01em; }
-.marine p { font-size: 17px; line-height: 1.55; color: var(--muted); }
+.marine p { font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 52ch; }
 .marine .marine-data { align-self: flex-start; padding: 6px 10px; border: 1px solid var(--ink); border-radius: 2px; font-size: 14px; font-weight: 600; color: var(--ink); }
-.seals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-.seals figure { background: #FFFFFF; padding: 22px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; }
-.seals img { width: auto; }
-.seals figcaption { font-size: 13px; color: var(--muted); }
+@container (max-width: 960px) { .marine { grid-template-columns: auto minmax(0, 1fr); } .marine-l { grid-column: 1 / -1; } }
+@container (max-width: 560px) { .marine { grid-template-columns: 1fr; } .marine > img { width: 96px; } }
+.seal-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px clamp(40px, 6cqi, 88px); margin-top: calc(-1 * clamp(8px, 1.6cqi, 24px)); }
+.seal-row li { display: flex; flex-direction: column; gap: 12px; }
+.seal-logo { height: 64px; display: flex; align-items: center; }
+.seal-logo img, .seal-logo svg { display: block; }
+.seal-cap { font-size: 13px; color: var(--muted); }
 .seal-pending { opacity: 0.5; filter: grayscale(1); }
-.asterisk { margin-top: -40px; font-size: 12.5px; color: var(--muted); }
+@container (max-width: 560px) { .seal-row li { flex: 0 0 calc(50% - 20px); } .seal-row { gap: 28px 40px; } }
+.asterisk { margin-top: calc(-1 * clamp(24px, 3.5cqi, 48px)); font-size: 12.5px; color: var(--muted); }
 .logos { margin-top: clamp(56px, 6cqi, 88px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #FFFFFF; display: flex; align-items: center; overflow: hidden; }
 .logos-l { flex: none; padding: 0 clamp(20px, 3cqi, 40px); font-size: 14px; font-weight: 600; white-space: nowrap; border-right: 1px solid var(--line); align-self: stretch; display: flex; align-items: center; background: #FFFFFF; position: relative; z-index: 2; }
 .logos-mask { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
