@@ -23,7 +23,7 @@ ES = {
         'skip': 'Saltar al contenido',
     },
     'nav': [('#servicios', 'Servicios'), ('#proceso', 'Proceso'), ('#colores', 'Colores'), ('#presupuesto', 'Presupuesto'), ('#seguimiento', 'Seguimiento')],
-    'nav_label': 'Principal', 'lang_label': 'Idioma', 'home_label': 'JomaPaint, inicio',
+    'nav_label': 'Principal', 'lang_label': 'Idioma', 'home_label': 'JomaPaint, inicio', 'since': 'Desde 1942',
     'cta': 'Pedir presupuesto',
     'hero': {
         'img_alt': 'Piezas metálicas colgadas recibiendo pintura en polvo amarilla en cabina',
@@ -215,7 +215,7 @@ EU = {
         'skip': 'Joan edukira',
     },
     'nav': [('#servicios', 'Zerbitzuak'), ('#proceso', 'Prozesua'), ('#colores', 'Koloreak'), ('#presupuesto', 'Aurrekontua'), ('#seguimiento', 'Jarraipena')],
-    'nav_label': 'Nagusia', 'lang_label': 'Hizkuntza', 'home_label': 'JomaPaint, hasiera',
+    'nav_label': 'Nagusia', 'lang_label': 'Hizkuntza', 'home_label': 'JomaPaint, hasiera', 'since': '1942tik',
     'cta': 'Eskatu aurrekontua',
     'hero': {
         'img_alt': 'Pieza metaliko eskegiak hauts-pintura horia jasotzen kabinan',
@@ -407,7 +407,7 @@ FR = {
         'skip': 'Aller au contenu',
     },
     'nav': [('#servicios', 'Services'), ('#proceso', 'Procédé'), ('#colores', 'Couleurs'), ('#presupuesto', 'Devis'), ('#seguimiento', 'Suivi')],
-    'nav_label': 'Principale', 'lang_label': 'Langue', 'home_label': 'JomaPaint, accueil',
+    'nav_label': 'Principale', 'lang_label': 'Langue', 'home_label': 'JomaPaint, accueil', 'since': 'Depuis 1942',
     'cta': 'Demander un devis',
     'hero': {
         'img_alt': 'Pièces métalliques suspendues recevant de la peinture poudre jaune en cabine',
