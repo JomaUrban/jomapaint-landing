@@ -44,7 +44,7 @@
   <canvas id="powder" aria-hidden="true"></canvas>
 
   <header class="topbar">
-    <a href="#inicio" class="brand-home" aria-label="{{ L.home_label }}"><span class="lockup" style="--h:34px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="" width="103" height="34"><span class="rule"></span><span class="paint">PAINT</span></span><span class="since">{{ L.since }}</span></a>
+    <a href="#inicio" class="lockup" style="--h:34px; color:#FAF9F6;" aria-label="{{ L.home_label }}"><span class="lk-mark"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="" width="103" height="34"><span class="since">{{ L.since }}</span></span><span class="rule"></span><span class="paint">PAINT</span></a>
     <nav aria-label="{{ L.nav_label }}" class="mainnav">
       {% for href, label in L.nav %}<a href="{{ href }}">{{ label }}</a>
       {% endfor %}
