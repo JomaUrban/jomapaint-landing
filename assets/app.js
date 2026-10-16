@@ -19,6 +19,8 @@
   var mix = function (a, b, t) { var x = hx(a), y = hx(b); return '#' + x.map(function (v, i) { return ('0' + Math.round(v + (y[i] - v) * t).toString(16)).slice(-2); }).join(''); };
   var rgba = function (h, a) { var c = hx(h); return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; };
   var lum = function (h) { var c = hx(h).map(function (v) { v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  /* Texto sobre un color: negro o blanco, el que dé más contraste (WCAG). */
+  var ink = function (h) { var L = lum(h); return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#000000' : '#FFFFFF'; };
   var norm = function (t) { return String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
   var scrollToId = function (id) { var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); };
 
@@ -39,7 +41,7 @@
     var cv = $('#powder'), root = $('.hero');
     if (!cv || !root || !cv.getContext) return;
     var ctx = cv.getContext('2d');
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     var W = 1, H = 1, P = [], t = 0, visible = true, mouse = null, sprite = null, color = '#F7B500';
     var rnd = Math.random;
     var target = function () { return W < 760 ? { x: W * 0.78, y: H * 0.34 } : { x: W * 0.71, y: H * 0.46 }; };
@@ -54,7 +56,8 @@
       W = Math.max(1, root.clientWidth); H = Math.max(1, root.clientHeight);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.round(Math.min(1150, Math.max(240, (W * H) / 1250)));
+      var small = W < 760;
+      var n = Math.round(Math.min(small ? 360 : 900, Math.max(small ? 160 : 240, (W * H) / (small ? 1700 : 1400))));
       while (P.length < n) P.push(spawn({}, true));
       P.length = n;
     };
@@ -107,13 +110,18 @@
       }
       ctx.globalAlpha = 1;
     };
-    resize();
-    if (window.ResizeObserver) new ResizeObserver(resize).observe(root); else window.addEventListener('resize', resize);
-    if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0] ? es[0].isIntersecting : true; }).observe(root);
-    root.addEventListener('pointermove', function (e) { var r = root.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
-    root.addEventListener('pointerleave', function () { mouse = null; });
-    if (reduce) { for (var n = 0; n < 220; n++) step(); draw(false); return; }
-    (function loop() { if (visible && !document.hidden) { step(); draw(true); } requestAnimationFrame(loop); })();
+    /* Arranca cuando la página ya ha cargado y el navegador está libre: no compite con el primer pintado. */
+    var start = function () {
+      resize();
+      if (window.ResizeObserver) new ResizeObserver(resize).observe(root); else window.addEventListener('resize', resize);
+      if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0] ? es[0].isIntersecting : true; }).observe(root);
+      root.addEventListener('pointermove', function (e) { var r = root.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
+      root.addEventListener('pointerleave', function () { mouse = null; });
+      if (reduce) { for (var n = 0; n < 220; n++) step(); draw(false); return; }
+      (function loop() { if (visible && !document.hidden) { step(); draw(true); } requestAnimationFrame(loop); })();
+    };
+    var idle = function () { if (window.requestIdleCallback) window.requestIdleCallback(start, { timeout: 2000 }); else setTimeout(start, 300); };
+    if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
   })();
 
   /* ---------- 2. estaciones del proceso ---------- */
@@ -192,7 +200,7 @@
       grid.innerHTML = list.map(function (x) {
         var on = x.c === state.ral.c;
         var lbl = 'RAL ' + x.c + ' ' + ralName(x) + (x.p ? ' (' + T.pearl + ')' : '') + (x.l ? ' (' + T.lum + ')' : '');
-        return '<button type="button" class="sw tnum" data-c="' + x.c + '" aria-pressed="' + on + '" aria-label="' + esc(lbl) + '" title="' + esc(lbl) + '" style="background:' + (x.p ? sheen : '') + x.h + ';color:' + (lum(x.h) > 0.36 ? 'rgba(26,26,26,0.82)' : 'rgba(255,255,255,0.9)') + '">' + x.c + (x.l ? '<span class="lum"></span>' : '') + '</button>';
+        return '<button type="button" class="sw tnum" data-c="' + x.c + '" aria-pressed="' + on + '" aria-label="' + esc(lbl) + '" title="' + esc(lbl) + '" style="background:' + (x.p ? sheen : '') + x.h + ';color:' + ink(x.h) + '">' + x.c + (x.l ? '<span class="lum"></span>' : '') + '</button>';
       }).join('');
       empty.hidden = list.length > 0;
       if (!list.length) empty.textContent = fmt(T.empty, { q: q });
@@ -256,7 +264,12 @@
     window.JPR = { paint: paintPlate };
     var first = RAL.filter(function (x) { return x.c === state.ral.c; })[0];
     if (first) state.ral = { c: first.c, n: ralName(first), h: first.h };
-    paintGrid(); paintPlate();
+    paintPlate();
+    /* La rejilla de 213 colores se pinta al acercarse a la sección. */
+    if (window.IntersectionObserver) {
+      var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); paintGrid(); } }, { rootMargin: '800px 0px' });
+      io.observe(grid);
+    } else paintGrid();
   })();
 
   /* ---------- 4. cotizador ---------- */

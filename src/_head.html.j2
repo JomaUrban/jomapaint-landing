@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ M.title }}</title>
+<meta name="description" content="{{ M.description }}">
+<meta name="robots" content="{{ 'index, follow, max-image-preview:large' if index else 'noindex' }}">
+<link rel="canonical" href="{{ M.url }}">
+{% for l in langs %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ l.abs }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ M.xdefault }}">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JomaPaint">
+<meta property="og:locale" content="{{ M.locale }}">
+{% for l in langs if not l.current %}<meta property="og:locale:alternate" content="{{ l.locale }}">
+{% endfor %}<meta property="og:title" content="{{ M.og_title }}">
+<meta property="og:description" content="{{ M.description }}">
+<meta property="og:url" content="{{ M.url }}">
+<meta property="og:image" content="{{ base }}{{ M.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ M.og_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ root }}assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ root }}assets/apple-touch-icon.png">
+<link rel="preload" href="{{ root }}assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+{% if M.preload_img %}<link rel="preload" as="image" href="{{ M.preload_img.src }}" imagesrcset="{{ M.preload_img.srcset }}" imagesizes="{{ M.preload_img.sizes }}" fetchpriority="high">
+{% endif %}<link rel="stylesheet" href="{{ root }}assets/style.css">
+<script type="application/ld+json">{{ jsonld }}</script>

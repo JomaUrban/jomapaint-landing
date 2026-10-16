@@ -1,35 +1,7 @@
 <!doctype html>
 <html lang="{{ L.meta.lang }}">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ L.meta.title }}</title>
-<meta name="description" content="{{ L.meta.description }}">
-<meta name="robots" content="{{ 'index, follow, max-image-preview:large' if index else 'noindex' }}">
-<link rel="canonical" href="{{ url }}">
-{% for l in langs %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ l.abs }}">
-{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ base }}">
-<meta name="theme-color" content="#1A1A1A">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="JomaPaint">
-<meta property="og:locale" content="{{ L.meta.locale }}">
-{% for l in langs if not l.current %}<meta property="og:locale:alternate" content="{{ l.locale }}">
-{% endfor %}<meta property="og:title" content="{{ L.meta.og_title }}">
-<meta property="og:description" content="{{ L.meta.description }}">
-<meta property="og:url" content="{{ url }}">
-<meta property="og:image" content="{{ base }}{{ L.meta.og_image }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{{ L.meta.og_alt }}">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="{{ root }}assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{{ root }}assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<link rel="preload" as="image" href="{{ root }}assets/img/hero-pulverizado.webp" fetchpriority="high">
-<link rel="stylesheet" href="{{ root }}assets/style.css">
-<script type="application/ld+json">{{ jsonld }}</script>
+{% include '_head.html.j2' %}
 </head>
 <body>
 <a class="skip" href="#contenido">{{ L.meta.skip }}</a>
@@ -37,25 +9,13 @@
 
 <!-- ============ HERO ============ -->
 <section id="inicio" class="hero">
-  <img class="hero-img" src="{{ root }}assets/img/hero-pulverizado.webp" width="2000" height="1331" alt="{{ L.hero.img_alt }}" fetchpriority="high">
+  <img class="hero-img" src="{{ root }}assets/img/hero-pulverizado.webp" srcset="{{ root }}assets/img/hero-pulverizado-800.webp 800w, {{ root }}assets/img/hero-pulverizado-1200.webp 1200w, {{ root }}assets/img/hero-pulverizado.webp 2000w" sizes="100vw" width="2000" height="1331" alt="{{ L.hero.img_alt }}" fetchpriority="high">
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-shade2" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <canvas id="powder" aria-hidden="true"></canvas>
 
-  <header class="topbar">
-    <a href="#inicio" class="lockup" style="--h:34px; color:#FAF9F6;" aria-label="{{ L.home_label }}"><span class="lk-mark"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="" width="103" height="34"><span class="since">{{ L.since }}</span></span><span class="rule"></span><span class="paint">PAINT</span></a>
-    <nav aria-label="{{ L.nav_label }}" class="mainnav">
-      {% for href, label in L.nav %}<a href="{{ href }}">{{ label }}</a>
-      {% endfor %}
-    </nav>
-    <div class="topbar-end">
-      <nav aria-label="{{ L.lang_label }}" class="langs">
-        {% for l in langs %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}" title="{{ l.name }}"{% if l.current %} aria-current="page"{% endif %}>{{ l.code|upper }}</a>{% endfor %}
-      </nav>
-      <a href="#presupuesto" class="btn btn-acc btn-sm">{{ L.cta }}</a>
-    </div>
-  </header>
+{% include '_topbar.html.j2' %}
 
   <div class="hero-body" id="contenido">
     <div class="hero-col">
@@ -114,7 +74,7 @@
       <p class="lead">{{ L.services.lead }}</p>
     </div>
     <ul class="serv-list">
-      {% for t, p in L.services['items'] %}<li><h3>{{ t }}</h3><p>{{ p }}</p></li>
+      {% for t, p, k in L.services['items'] %}<li><h3>{% if k %}<a href="{{ svc_href[k] }}">{{ t }}</a>{% else %}{{ t }}{% endif %}</h3><p>{{ p }}</p></li>
       {% endfor %}
     </ul>
     <p class="serv-sectors"><strong>{{ L.services.sectors_label }}.</strong> {{ L.services.sectors }}</p>
@@ -328,7 +288,7 @@
     </div>
     <div class="q-grid">
       <article class="marine">
-        <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132">
+        <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132" loading="lazy" decoding="async">
         <div>
           <h3>{{ L.quality.marine_h }}</h3>
           <p>{{ L.quality.marine_p }}</p>
@@ -337,9 +297,9 @@
         </div>
       </article>
       <div class="seals">
-        <figure><img src="{{ root }}assets/logos/iso9001.png" alt="{{ L.quality.seals[0][0] }}" height="76" loading="lazy"><figcaption>{{ L.quality.seals[0][1] }}</figcaption></figure>
-        <figure><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" height="56" loading="lazy" class="seal-pending"><figcaption>{{ L.quality.seals[1][1] }}</figcaption></figure>
-        <figure><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" height="76" loading="lazy"><figcaption>{{ L.quality.seals[2][1] }}</figcaption></figure>
+        <figure><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="78" height="76" loading="lazy" decoding="async"><figcaption>{{ L.quality.seals[0][1] }}</figcaption></figure>
+        <figure><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" width="124" height="56" loading="lazy" decoding="async" class="seal-pending"><figcaption>{{ L.quality.seals[1][1] }}</figcaption></figure>
+        <figure><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" width="76" height="76" loading="lazy" decoding="async"><figcaption>{{ L.quality.seals[2][1] }}</figcaption></figure>
         <figure>
           <svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[3][0] }}" style="height:76px; width:auto;"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg>
           <figcaption>{{ L.quality.seals[3][1] }}</figcaption>
@@ -353,14 +313,14 @@
     <div class="logos-mask">
       <div class="track" id="logo-track">
         <ul class="logo-set">
-          <li><img class="logo-item" src="{{ root }}assets/logos/interpon.png" alt="Interpon (AkzoNobel)" style="height:38px;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/axalta.svg" alt="Axalta" style="height:40px;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/tiger.svg" alt="Tiger Coatings" style="height:38px;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/igp.svg" alt="IGP Powder Coatings" style="height:36px;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/pulverit.png" alt="Pulverit" style="height:30px;"></li>
-          <li><img src="{{ root }}assets/logos/valresa.png" alt="Valresa" style="height:19px; filter:brightness(0); opacity:0.5;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/dilcas.png" alt="Dilcas" style="height:38px;"></li>
-          <li><img class="logo-item" src="{{ root }}assets/logos/adapta.png" alt="Adapta Powder Coatings" style="height:36px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/interpon.png" alt="Interpon (AkzoNobel)" width="98" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/axalta.svg" alt="Axalta" width="49" height="40" loading="lazy" decoding="async" style="height:40px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/tiger.svg" alt="Tiger Coatings" width="64" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/igp.svg" alt="IGP Powder Coatings" width="95" height="36" loading="lazy" decoding="async" style="height:36px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/pulverit.png" alt="Pulverit" width="110" height="30" loading="lazy" decoding="async" style="height:30px;"></li>
+          <li><img src="{{ root }}assets/logos/valresa.png" alt="Valresa" width="104" height="19" loading="lazy" decoding="async" style="height:19px; filter:brightness(0); opacity:0.5;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/dilcas.png" alt="Dilcas" width="111" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/adapta.webp" alt="Adapta Powder Coatings" width="136" height="36" loading="lazy" decoding="async" style="height:36px;"></li>
           <li class="logo-txt" style="font-stretch:115%; font-size:22px;">NEUCE</li>
           <li class="logo-txt" style="font-size:18px;">ST Powder Coatings</li>
         </ul>
@@ -411,7 +371,7 @@
         <li>
           <a href="https://joma.es" rel="noopener" class="unit">
             <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
-            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-logo-white.svg" alt="Joma" height="26" style="height:26px;"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-logo-white.svg" alt="Joma" width="79" height="26" style="height:26px;"></span>
             <span class="unit-d">{{ L.group.joma }}</span>
             <span class="unit-l">{{ L.group.visit }} joma.es</span>
           </a>
@@ -419,7 +379,7 @@
         <li>
           <a href="https://www.jomaurban.com" rel="noopener" class="unit">
             <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma-urban.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
-            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-urban-white.svg" alt="Joma Urban" height="22" style="height:22px; margin-top:2px;"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-urban.svg" alt="Joma Urban" width="140" height="22" style="height:22px; margin-top:2px;"></span>
             <span class="unit-d">{{ L.group.urban }}</span>
             <span class="unit-l">{{ L.group.visit }} jomaurban.com</span>
           </a>
@@ -427,7 +387,7 @@
         <li>
           <a href="https://normo.es" rel="noopener" class="unit">
             <span class="unit-img"><img src="{{ root }}assets/img/grupo-normo.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
-            <span class="unit-logo"><img src="{{ root }}assets/logos/normo-negativo.svg" alt="Normo" height="20" style="height:20px; margin-top:3px;"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/normo-negativo.svg" alt="Normo" width="109" height="20" style="height:20px; margin-top:3px;"></span>
             <span class="unit-d">{{ L.group.normo }}</span>
             <span class="unit-l">{{ L.group.visit }} normo.es</span>
           </a>
@@ -435,7 +395,7 @@
         <li>
           <div class="unit unit-here">
             <span class="unit-img"><img src="{{ root }}assets/img/grupo-jomapaint.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
-            <span class="unit-logo"><span class="lockup" style="--h:26px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma"><span class="rule"></span><span class="paint">PAINT</span></span></span>
+            <span class="unit-logo"><span class="lockup" style="--h:26px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma" width="79" height="26"><span class="rule"></span><span class="paint">PAINT</span></span></span>
             <span class="unit-d">{{ L.group.paint }}</span>
             <span class="unit-l">{{ L.group.here }}</span>
           </div>
@@ -443,28 +403,7 @@
       </ul>
     </div>
 
-    <div class="contact">
-      <div class="contact-head">
-        <h2 class="h-xl">{{ L.group.contact_h2 }}</h2>
-        <a href="#presupuesto" class="btn btn-acc btn-lg">{{ L.cta }}</a>
-      </div>
-      <div class="contact-grid">
-        <a href="tel:{{ phone_tel }}"><span class="c-l">{{ L.group.tel }}</span><span class="c-v tnum">{{ phone }}</span></a>
-        <a href="mailto:{{ email }}"><span class="c-l">{{ L.group.mail }}</span><span class="c-v">{{ email }}</span></a>
-        <div><span class="c-l">{{ L.group.plant }}</span><span class="c-v c-addr">{{ L.group.address }}</span></div>
-      </div>
-    </div>
-
-    <footer class="foot">
-      <div class="foot-l">
-        <span class="lockup" style="--h:24px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma"><span class="rule"></span><span class="paint">PAINT</span></span>
-        <span>{{ L.group.division }}</span>
-      </div>
-      <nav aria-label="{{ L.group.legal_label }}" class="foot-nav">
-        {% for x in L.group.legal %}<a href="#">{{ x }}</a>{% endfor %}
-        {% for l in langs if not l.current %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}">{{ l.name }}</a>{% endfor %}
-      </nav>
-    </footer>
+{% include '_end.html.j2' %}
   </div>
 </section>
 

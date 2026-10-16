@@ -1,0 +1,28 @@
+    <div class="contact">
+      <div class="contact-head">
+        <div class="contact-h">
+          <h2 class="h-xl">{{ L.group.contact_h2 }}</h2>
+          {% if contact_p %}<p class="lead">{{ contact_p }}</p>{% endif %}
+        </div>
+        <a href="{{ quote_href }}" class="btn btn-acc btn-lg">{{ L.cta }}</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:{{ phone_tel }}"><span class="c-l">{{ L.group.tel }}</span><span class="c-v tnum">{{ phone }}</span></a>
+        <a href="mailto:{{ email }}"><span class="c-l">{{ L.group.mail }}</span><span class="c-v">{{ email }}</span></a>
+        <div><span class="c-l">{{ L.group.plant }}</span><span class="c-v c-addr">{{ L.group.address }}</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="{{ L.svc.services }}" class="foot-svc">
+        {% for s in svc_links %}<a href="{{ s.href }}"{% if s.current %} aria-current="page"{% endif %}>{{ s.name }}</a>{% endfor %}
+      </nav>
+      <div class="foot-l">
+        <span class="lockup" style="--h:24px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma" width="73" height="24"><span class="rule"></span><span class="paint">PAINT</span></span>
+        <span>{{ L.group.division }}</span>
+      </div>
+      <nav aria-label="{{ L.group.legal_label }}" class="foot-nav">
+        {% for x in L.group.legal %}<a href="#">{{ x }}</a>{% endfor %}
+        {% for l in langs if not l.current %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}">{{ l.name }}</a>{% endfor %}
+      </nav>
+    </footer>

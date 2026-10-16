@@ -1,0 +1,13 @@
+  <header class="topbar">
+    <a href="{{ home_href }}" class="lockup" style="--h:34px; color:#FAF9F6;"><span class="lk-mark"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma" width="103" height="34"><span class="since">{{ L.since }}</span></span><span class="rule"></span><span class="paint">PAINT</span></a>
+    <nav aria-label="{{ L.nav_label }}" class="mainnav">
+      {% for href, label in L.nav %}<a href="{{ nav_prefix }}{{ href }}">{{ label }}</a>
+      {% endfor %}
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="{{ L.lang_label }}" class="langs">
+        {% for l in langs %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}" title="{{ l.name }}"{% if l.current %} aria-current="page"{% endif %}>{{ l.code|upper }}</a>{% endfor %}
+      </nav>
+      <a href="{{ quote_href }}" class="btn btn-acc btn-sm">{{ L.cta }}</a>
+    </div>
+  </header>
