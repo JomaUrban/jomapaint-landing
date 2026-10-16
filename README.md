@@ -65,5 +65,6 @@ python3 src/build.py --base https://DOMINIO-DEFINITIVO/ --index
 - **Hero y línea de proceso:** del deck interno de JomaPaint.
 - **Piezas colgadas y cabina:** Pexels (licencia libre).
 - **Nave y pieza terminada:** Unsplash (licencia libre).
-- **Línea de cataforesis de Legutio y fotos de marcas:** joma.es y jomaurban.com. La foto de la fábrica está retocada en color.
+- **Línea de cataforesis de Legutio:** jomaurban.com, retocada en color.
+- **Fotos de las marcas:** Joma (instalación Skyline negro mate), Joma Urban (pérgola y tumbona), Normo (web nueva, staging de Orygo) y JomaPaint (render del catálogo Joma 2025).
 - **Logotipos de proveedores, sellos y marcas:** pertenecen a sus propietarios. Aquí solo se usan como referencia y hay que confirmarlos antes de publicar.
