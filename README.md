@@ -8,11 +8,12 @@ Propuesta de web para **JomaPaint**, la división de termolacado y pintura en po
 
 ## Páginas
 
-15 páginas: la portada y cuatro páginas de servicio, en tres idiomas.
+18 páginas: la portada y cinco páginas de servicio, en tres idiomas.
 
 | Página | ES | EU | FR |
 |---|---|---|---|
 | Portada | `/` | `/eu/` | `/fr/` |
+| Termolacado de piezas y estructuras | `/termolacado-piezas-estructuras/` | `/eu/piezen-eta-egituren-termolakatzea/` | `/fr/thermolaquage-pieces-structures/` |
 | Cataforesis y sistema Marine C5-M | `/cataforesis/` | `/eu/kataforesia/` | `/fr/cataphorese/` |
 | Lacado de perfiles de aluminio | `/lacado-perfiles-aluminio/` | `/eu/aluminiozko-profilen-lakatzea/` | `/fr/thermolaquage-profiles-aluminium/` |
 | Termolacado de acero galvanizado | `/pintura-acero-galvanizado/` | `/eu/altzairu-galbanizatuaren-termolakatzea/` | `/fr/thermolaquage-acier-galvanise/` |
@@ -70,8 +71,8 @@ El build avisa si algún `title` pasa de 62 caracteres o alguna `description` se
 
 **Arquitectura**
 - Una URL por idioma y por servicio, con `hreflang` recíproco entre las tres versiones y `x-default`.
-- `sitemap.xml` con las 15 URL y sus alternativas de idioma.
-- Enlazado interno: los servicios de la portada y el pie de todas las páginas enlazan a cada servicio. Cada servicio enlaza a los otros tres.
+- `sitemap.xml` con las 18 URL y sus alternativas de idioma.
+- Enlazado interno: los servicios de la portada y el pie de todas las páginas enlazan a cada servicio. Cada servicio enlaza a los otros cuatro.
 
 **Palabras clave por idioma**
 - **ES:** termolacado, pintura en polvo, pintura electrostática, lacado al horno, cataforesis, lacado de aluminio, acero galvanizado. Siempre con Vitoria-Gasteiz y Álava.
@@ -107,7 +108,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 ## Antes de publicar
 
 **Datos pendientes `[XX]`:**
-- Cabina, peso máximo y plazo estándar.
+- Cabina, peso máximo, espesor de capa y plazo estándar (también en la página de termolacado).
 - Temperaturas, tiempos y espesores de cada estación.
 - Tamaño máximo de archivo y hora de corte.
 - Pedido mínimo, validez del presupuesto, recogidas y entregas, y política de reproceso.
@@ -148,6 +149,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - **JomaPaint:** aplicación de pintura en polvo, de Pexels (Full Blown Coatings, licencia libre).
 
 **Páginas de servicio**
+- **Termolacado:** pintura en polvo, del deck interno de JomaPaint.
 - **Cataforesis:** línea de cataforesis de Joma (jomaurban.com).
 - **Aluminio:** Andrey Soldatov en Unsplash.
 - **Galvanizado:** Bernard Hermant en Unsplash.

@@ -482,6 +482,11 @@ a.unit:hover .unit-img img { transform: scale(1.04); }
 .stack li:first-child { border-left-color: var(--ok); background: #E4F1EA; }
 .stack li:last-child { border-left-color: #8C9096; background: #ECEDEE; }
 @container (max-width: 560px) { .stack li { grid-template-columns: 1fr; } }
+.svc-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 0 clamp(16px, 2cqi, 28px); }
+.svc-steps li { display: flex; flex-direction: column; gap: 6px; padding: 16px 0 18px; border-top: 1px solid var(--ink); }
+.svc-step-n { font-weight: 600; font-stretch: 125%; font-size: 28px; line-height: 1; letter-spacing: -0.02em; color: transparent; -webkit-text-stroke: 1px var(--ink); margin-bottom: 6px; }
+.svc-steps strong { font-weight: 600; font-size: 17px; }
+.svc-steps li > span:last-child { font-size: 15px; line-height: 1.5; color: var(--muted); }
 .svc-badge { align-self: flex-start; padding: 6px 10px; border: 1px solid var(--ink); border-radius: 2px; font-size: 14px; font-weight: 600; }
 .svc-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; background: #FFFFFF; }
 .svc-table { width: 100%; border-collapse: collapse; font-size: 16px; }

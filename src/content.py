@@ -55,7 +55,7 @@ ES = {
         'h2': 'Qué pintamos.',
         'lead': 'Piezas y estructuras de acero, acero galvanizado y aluminio, de la pieza única a la serie. Y si lo necesitas, la pieza sale terminada.',
         'items': [
-            ('Termolacado de piezas y estructuras', 'Pintura en polvo epoxi, poliéster o epoxi-poliéster. Toda la carta RAL, lisa o texturada, del mate al brillante.', ''),
+            ('Termolacado de piezas y estructuras', 'Pintura en polvo epoxi, poliéster o epoxi-poliéster. Toda la carta RAL, lisa o texturada, del mate al brillante.', 'termolacado'),
             ('Termolacado de acero galvanizado', 'Preparación específica para que el zinc no suelte gases en el horno: sistema dúplex de zinc y pintura en polvo.', 'galvanizado'),
             ('Cataforesis y sistema Marine', 'Imprimación por inmersión que llega a cada rincón y capa final en polvo. Para costa y ambientes agresivos: clase C5-M.', 'cataforesis'),
             ('Lacado de perfiles de aluminio', 'Perfilería en el color y el acabado que necesites, con la misma línea y el mismo control.', 'aluminio'),
@@ -254,7 +254,7 @@ EU = {
         'h2': 'Zer pintatzen dugun.',
         'lead': 'Altzairuzko, altzairu galbanizatuzko eta aluminiozko piezak eta egiturak, pieza bakarretik seriera. Eta behar baduzu, pieza amaituta ateratzen da.',
         'items': [
-            ('Piezen eta egituren termolakatzea', 'Epoxi, poliester edo epoxi-poliester hauts-pintura. RAL karta osoa, leuna edo testuraduna, mateetik distiratsura.', ''),
+            ('Piezen eta egituren termolakatzea', 'Epoxi, poliester edo epoxi-poliester hauts-pintura. RAL karta osoa, leuna edo testuraduna, mateetik distiratsura.', 'termolacado'),
             ('Altzairu galbanizatuaren termolakatzea', 'Prestaketa berezia, zinkak labean gasik isur ez dezan: zinkaren eta hauts-pinturaren sistema duplexa.', 'galvanizado'),
             ('Kataforesia eta Marine sistema', 'Txoko guztietara iristen den murgiltze bidezko inprimazioa eta azken geruza hautsez. Kostalderako eta giro oldarkorretarako: C5-M klasea.', 'cataforesis'),
             ('Aluminiozko profilen lakatzea', 'Profilak behar duzun kolore eta akaberan, linea eta kontrol berarekin.', 'aluminio'),
@@ -453,7 +453,7 @@ FR = {
         'h2': 'Ce que nous peignons.',
         'lead': 'Pièces et structures en acier, acier galvanisé et aluminium, de la pièce unique à la série. Et si vous le souhaitez, la pièce sort finie.',
         'items': [
-            ('Thermolaquage de pièces et de structures', 'Peinture poudre époxy, polyester ou époxy-polyester. Tout le nuancier RAL, lisse ou texturé, du mat au brillant.', ''),
+            ('Thermolaquage de pièces et de structures', 'Peinture poudre époxy, polyester ou époxy-polyester. Tout le nuancier RAL, lisse ou texturé, du mat au brillant.', 'termolacado'),
             ('Thermolaquage sur acier galvanisé', 'Une préparation spécifique pour que le zinc ne dégaze pas au four : système duplex zinc et peinture poudre.', 'galvanizado'),
             ('Cataphorèse et système Marine', 'Primaire par immersion qui atteint chaque recoin, puis couche de finition en poudre. Pour le littoral et les milieux agressifs : classe C5-M.', 'cataforesis'),
             ('Laquage de profilés aluminium', 'Profilés dans la couleur et la finition voulues, avec la même ligne et le même contrôle.', 'aluminio'),
