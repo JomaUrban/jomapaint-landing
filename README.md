@@ -9,7 +9,7 @@ Propuesta de web para **JomaPaint**, la división de termolacado y pintura en po
 ## Qué incluye
 
 - **Hero** con subida de plano y presupuesto en 24 h, y partículas de polvo animadas.
-- **Servicios**: termolacado, cataforesis y sistema Marine, perfiles de aluminio, gran formato, tampografía, serigrafía y grabado láser, montaje y embalaje.
+- **Servicios**: termolacado, cataforesis y sistema Marine, perfiles de aluminio, gran formato, grabado láser, impresión UV, tampografía y serigrafía, montaje y embalaje.
 - **Proceso** en cinco estaciones, interactivo.
 - **Explorador RAL Classic** con los 213 colores, textura y brillo.
 - **Cotizador guiado** en tres pasos. Es una maqueta: todavía no envía datos.
