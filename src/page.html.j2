@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="{{ L.meta.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ L.meta.title }}</title>
+<meta name="description" content="{{ L.meta.description }}">
+<meta name="robots" content="{{ 'index, follow, max-image-preview:large' if index else 'noindex' }}">
+<link rel="canonical" href="{{ url }}">
+{% for l in langs %}<link rel="alternate" hreflang="{{ l.code }}" href="{{ l.abs }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ base }}">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JomaPaint">
+<meta property="og:locale" content="{{ L.meta.locale }}">
+{% for l in langs if not l.current %}<meta property="og:locale:alternate" content="{{ l.locale }}">
+{% endfor %}<meta property="og:title" content="{{ L.meta.og_title }}">
+<meta property="og:description" content="{{ L.meta.description }}">
+<meta property="og:url" content="{{ url }}">
+<meta property="og:image" content="{{ base }}{{ L.meta.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ L.meta.og_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ root }}assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ root }}assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="preload" as="image" href="{{ root }}assets/img/hero-pulverizado.webp" fetchpriority="high">
+<link rel="stylesheet" href="{{ root }}assets/style.css">
+<script type="application/ld+json">{{ jsonld }}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">{{ L.meta.skip }}</a>
+<div class="page">
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="hero">
+  <img class="hero-img" src="{{ root }}assets/img/hero-pulverizado.webp" width="2000" height="1331" alt="{{ L.hero.img_alt }}" fetchpriority="high">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-shade2" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <canvas id="powder" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a href="#inicio" class="lockup" style="--h:34px; color:#FAF9F6;" aria-label="{{ L.home_label }}"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="" width="103" height="34"><span class="rule"></span><span class="paint">PAINT</span></a>
+    <nav aria-label="{{ L.nav_label }}" class="mainnav">
+      {% for href, label in L.nav %}<a href="{{ href }}">{{ label }}</a>
+      {% endfor %}
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="{{ L.lang_label }}" class="langs">
+        {% for l in langs %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}" title="{{ l.name }}"{% if l.current %} aria-current="page"{% endif %}>{{ l.code|upper }}</a>{% endfor %}
+      </nav>
+      <a href="#presupuesto" class="btn btn-acc btn-sm">{{ L.cta }}</a>
+    </div>
+  </header>
+
+  <div class="hero-body" id="contenido">
+    <div class="hero-col">
+      {% if L.meta.draft %}<span class="draft">{{ L.meta.draft }}</span>{% endif %}
+      <h1 class="hero-h1"><span class="kicker">{{ L.hero.kicker }}</span> <span class="display">{{ L.hero.display }}</span></h1>
+      <p class="hero-lead">{{ L.hero.lead }}</p>
+
+      <div class="upload">
+        <label for="hero-file" class="upload-drop">
+          <span class="upload-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 15.5 V3.5 M7 8.5 L12 3.5 L17 8.5 M4 14 V20 H20 V14"></path></svg></span>
+          <span class="upload-txt">
+            <span id="hero-file-label" class="upload-t">{{ L.hero.upload }}</span>
+            <span class="upload-h">{{ L.hero.upload_hint }}</span>
+          </span>
+          <input id="hero-file" type="file" multiple class="sr-file">
+        </label>
+        <a href="#presupuesto" class="btn btn-acc btn-lg">{{ L.cta }}</a>
+      </div>
+
+      <div class="hero-foot">
+        <span class="lockline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M7 10.5 V7.5 A5 5 0 0 1 17 7.5 V10.5 M5 10.5 H19 V20.5 H5 Z"></path></svg>{{ L.hero.privacy }}</span>
+        <a href="#seguimiento">{{ L.hero.track }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <dl>
+      {% for label, value, note in L.hero.stats %}<div><dt>{{ label }}</dt><dd class="tnum">{{ value }}{% if note %}<span class="stat-note">{{ note }}</span>{% endif %}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section aria-labelledby="h-how" class="section" style="background:var(--paper);">
+  <div class="wrap split">
+    <h2 id="h-how" class="h2" style="max-width:15ch;">{{ L.how.h2 }}</h2>
+    <p class="lead">{{ L.how.lead }}</p>
+  </div>
+  <ol class="wrap steps3">
+    {% for t, p in L.how.steps %}<li>
+      <span aria-hidden="true" class="outline-num tnum">0{{ loop.index }}</span>
+      <h3>{{ t }}</h3>
+      <p>{{ p }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" aria-labelledby="h-serv" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap serv">
+    <div class="serv-head">
+      <h2 id="h-serv" class="h2">{{ L.services.h2 }}</h2>
+      <p class="lead">{{ L.services.lead }}</p>
+    </div>
+    <ul class="serv-list">
+      {% for t, p in L.services['items'] %}<li><h3>{{ t }}</h3><p>{{ p }}</p></li>
+      {% endfor %}
+    </ul>
+    <p class="serv-sectors"><strong>{{ L.services.sectors_label }}.</strong> {{ L.services.sectors }}</p>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section id="proceso" aria-labelledby="h-proc" class="section dark blueprint" style="position:relative; overflow:hidden;">
+  <div class="wrap">
+    <div class="split">
+      <h2 id="h-proc" class="h2" style="max-width:15ch;">{{ L.process.h2 }}</h2>
+      <p class="lead">{{ L.process.lead }}</p>
+    </div>
+
+    <div class="rail">
+      <div id="zones" class="rail-zones">{% for s in L.process.stations %}<div><span class="tnum">0{{ loop.index }}</span></div>{% endfor %}</div>
+      <div class="rail-ticks" aria-hidden="true"></div>
+      <div class="rail-line" aria-hidden="true"></div>
+      <div id="carriage" aria-hidden="true">
+        <div class="sway">
+          <svg width="160" height="200" viewBox="0 0 160 200" style="position:absolute; left:0; top:0; overflow:visible;">
+            <defs>
+              <pattern id="jp-speck" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.9" fill="#FFFFFF" opacity="0.55"></circle><circle cx="5" cy="4.5" r="0.7" fill="#000000" opacity="0.28"></circle><circle cx="3" cy="6" r="0.5" fill="#FFFFFF" opacity="0.35"></circle></pattern>
+              <linearGradient id="jp-gloss" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"></stop><stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.12"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+            </defs>
+            <path d="M80 0 V50" stroke="#A9A7A2" stroke-width="2" fill="none"></path>
+            <polygon id="pc-top" points="40,58 52,50 132,50 120,58" fill="#B7BBC0"></polygon>
+            <polygon id="pc-side" points="120,58 132,50 132,160 120,168" fill="#5D6167"></polygon>
+            <rect id="pc-front" x="40" y="58" width="80" height="110" fill="#8C9096"></rect>
+            <g id="pc-brush" opacity="0.24" stroke="#FFFFFF" stroke-width="0.6"><line x1="42" y1="72" x2="118" y2="72"></line><line x1="42" y1="84" x2="118" y2="84"></line><line x1="42" y1="97" x2="118" y2="97"></line><line x1="42" y1="111" x2="118" y2="111"></line><line x1="42" y1="126" x2="118" y2="126"></line><line x1="42" y1="140" x2="118" y2="140"></line><line x1="42" y1="155" x2="118" y2="155"></line></g>
+            <rect id="pc-speck" x="40" y="58" width="80" height="110" fill="url(#jp-speck)" opacity="0"></rect>
+            <polygon id="pc-gloss" points="40,58 86,58 40,128" fill="url(#jp-gloss)" opacity="0"></polygon>
+            <line x1="40" y1="58" x2="120" y2="58" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1"></line>
+            <circle cx="80" cy="70" r="6" fill="#141414"></circle>
+            <path d="M80 50 V64 C80 70 86 72 86 66" stroke="#CFCDC8" stroke-width="2" fill="none"></path>
+            <g stroke="rgba(250,249,246,0.45)" stroke-width="1" fill="none"><path d="M146 58 V168"></path><path d="M141 58 H151"></path><path d="M141 168 H151"></path></g>
+          </svg>
+          <div id="fx" class="fx"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="stations" role="tablist" aria-label="{{ L.process.group }}" class="st-tabs">
+      {% for name, text, data, cap in L.process.stations %}<button type="button" role="tab" id="st-tab-{{ loop.index0 }}" aria-controls="st-panel-{{ loop.index0 }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}"><span class="tnum">0{{ loop.index }}</span><span class="st-tab-name">{{ name }}</span></button>
+      {% endfor %}
+    </div>
+
+    <div class="st-detail">
+      <div class="st-panels">
+        {% for name, text, data, cap in L.process.stations %}<div role="tabpanel" id="st-panel-{{ loop.index0 }}" aria-labelledby="st-tab-{{ loop.index0 }}" class="st-panel"{% if not loop.first %} hidden{% endif %}>
+          <span aria-hidden="true" class="st-num tnum">0{{ loop.index }}</span>
+          <h3>{{ name }}</h3>
+          <p>{{ text }}</p>
+          <p class="st-data tnum">{{ data }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <figure id="st-photos" class="st-photos">
+        {% set imgs = ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'] %}
+        {% for im in imgs %}<img src="{{ root }}assets/img/{{ im }}.webp" alt="{{ L.process.alts[loop.index0] }}" loading="lazy" decoding="async" width="1400" height="933"{% if loop.first %} class="on"{% endif %}>
+        {% endfor %}
+        <figcaption id="st-cap">{{ L.process.stations[0][3] }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLORES (explorador RAL) ============ -->
+<section id="colores" aria-labelledby="h-ral" class="section on-light" style="background:var(--paper);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(36px,4.5cqi,64px);">
+    <div class="split">
+      <h2 id="h-ral" class="h2" style="max-width:17ch;">{{ L.ral.h2 }}</h2>
+      <p class="lead">{{ L.ral.lead }}</p>
+    </div>
+    <div class="ral">
+      <div class="ral-left">
+        <figure id="ral-field" class="ral-field">
+          <div class="ral-top ral-muted"><span>RAL Classic</span><span id="ral-fam"></span></div>
+          <div class="ral-plate">
+            <svg id="ral-svg" viewBox="0 0 440 470" role="img" aria-label="{{ L.ral.plate }}">
+              <defs>
+                <linearGradient id="jpr-face" x1="0" y1="0" x2="1" y2="1"><stop id="f0" offset="0"></stop><stop id="f1" offset="0.55"></stop><stop id="f2" offset="1"></stop></linearGradient>
+                <linearGradient id="jpr-spec" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="s1" offset="0.18" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="s2" offset="0.38" stop-color="#FFFFFF" stop-opacity="0.17"></stop><stop id="s3" offset="0.6" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+                <linearGradient id="jpr-pearl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFD9F2" stop-opacity="0"></stop><stop offset="0.38" stop-color="#D6F0FF" stop-opacity="0.55"></stop><stop offset="0.62" stop-color="#FFF4D2" stop-opacity="0.55"></stop><stop offset="1" stop-color="#FFD9F2" stop-opacity="0"></stop></linearGradient>
+                <clipPath id="jpr-clip"><polygon points="118,64 318,84 318,394 118,414"></polygon></clipPath>
+                <filter id="jpr-peel" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"></feTurbulence><feDiffuseLighting lighting-color="#FFFFFF" surfaceScale="1.6"><feDistantLight azimuth="225" elevation="55"></feDistantLight></feDiffuseLighting></filter>
+                <filter id="jpr-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7"></feTurbulence><feDiffuseLighting lighting-color="#FFFFFF" surfaceScale="2.6"><feDistantLight azimuth="225" elevation="42"></feDistantLight></feDiffuseLighting></filter>
+                <filter id="jpr-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter>
+              </defs>
+              <ellipse cx="224" cy="448" rx="132" ry="12" fill="#000000" opacity="0.38" filter="url(#jpr-blur)"></ellipse>
+              <path d="M218 0 V86" stroke="#B9B6BE" stroke-width="3" stroke-linecap="round"></path>
+              <polygon id="r-top" points="118,64 128,58 328,78 318,84"></polygon>
+              <polygon id="r-side" points="318,84 328,78 328,388 318,394"></polygon>
+              <polygon points="118,64 318,84 318,394 118,414" fill="url(#jpr-face)"></polygon>
+              <g clip-path="url(#jpr-clip)">
+                <rect id="r-peel" x="100" y="50" width="240" height="380" filter="url(#jpr-peel)" opacity="0.16" style="mix-blend-mode:multiply;"></rect>
+                <rect id="r-grain" x="100" y="50" width="240" height="380" filter="url(#jpr-grain)" opacity="0" style="mix-blend-mode:multiply;"></rect>
+                <rect id="r-pearl" x="100" y="50" width="240" height="380" fill="url(#jpr-pearl)" opacity="0" style="mix-blend-mode:screen;"></rect>
+                <rect x="100" y="50" width="240" height="380" fill="url(#jpr-spec)"></rect>
+                <polygon id="r-glint" points="284,80 296,81 296,392 284,393" fill="#FFFFFF" opacity="0.06"></polygon>
+              </g>
+              <line x1="118" y1="64" x2="318" y2="84" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.2"></line>
+              <circle id="r-hole" cx="218" cy="100" r="9"></circle>
+              <circle cx="218" cy="100" r="9" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="2"></circle>
+              <path d="M218 86 V96 C218 108 230 110 230 101" stroke="#D4D1D8" stroke-width="3" fill="none" stroke-linecap="round"></path>
+            </svg>
+            <span id="ral-sticker" aria-hidden="true" class="ral-sticker tnum"></span>
+          </div>
+          <figcaption class="ral-cap">
+            <span class="ral-cap-l"><span class="ral-muted">RAL</span><span id="ral-code" class="ral-code tnum">1023</span></span>
+            <span class="ral-cap-r"><span id="ral-name" class="ral-name"></span><span id="ral-hex" class="ral-muted tnum ral-hex"></span></span>
+          </figcaption>
+        </figure>
+
+        <div class="ral-ctrls">
+          <div role="group" aria-label="{{ L.ral.tex }}" class="ctrl">
+            <span class="ctrl-l">{{ L.ral.tex }}</span>
+            <div class="seg" id="seg-tex">{% for k, v in L.ral.tex_opts %}<button type="button" data-tex="{{ k }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ v }}</button>{% endfor %}</div>
+          </div>
+          <div role="group" aria-label="{{ L.ral.gloss }}" class="ctrl">
+            <span class="ctrl-l">{{ L.ral.gloss }}</span>
+            <div class="seg" id="seg-gloss">{% for k, v in L.ral.gloss_opts %}<button type="button" data-gloss="{{ k }}" aria-pressed="{{ 'true' if k == 'satinado' else 'false' }}">{{ v }}</button>{% endfor %}</div>
+          </div>
+        </div>
+        <div class="row-btns">
+          <button type="button" id="ral-use" class="btn btn-acc">{{ L.ral.use }}</button>
+          <a href="#contacto" class="btn btn-line">{{ L.ral.sample }}</a>
+        </div>
+        <p class="small-muted">{{ L.ral.disclaimer }}</p>
+      </div>
+
+      <div class="ral-right">
+        <label class="field" for="ral-q">{{ L.ral.search }}</label>
+        <span class="search-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5B58" stroke-width="1.75" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 0 0 10.5 4 Z M15.5 15.5 L20.5 20.5"></path></svg>
+          <input id="ral-q" type="search" class="input" placeholder="{{ L.ral.search_ph }}" autocomplete="off">
+        </span>
+        <div id="ral-fams" role="group" aria-label="{{ L.ral.fams_label }}" class="chips"></div>
+        <div class="sw-box">
+          <div id="ral-grid" class="sw-grid"></div>
+          <p id="ral-empty" hidden class="sw-empty"></p>
+        </div>
+        <div class="sw-foot">
+          <span id="ral-count" aria-live="polite"></span>
+          <span class="legend">
+            <span><span aria-hidden="true" class="lg-pearl"></span>{{ L.ral.pearl }}</span>
+            <span><span aria-hidden="true" class="lg-lum"></span>{{ L.ral.lum }}</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESUPUESTO (cotizador) ============ -->
+<section id="presupuesto" aria-labelledby="h-quote" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(32px,4cqi,56px);">
+    <div class="split">
+      <h2 id="h-quote" class="h2" style="max-width:14ch;">{{ L.quote.h2 }}</h2>
+      <p class="lead">{{ L.quote.lead|replace('{deadline}', '<strong class="q-deadline"></strong>') }}</p>
+    </div>
+    <noscript><p class="lead">{{ L.group.mail }}: <a href="mailto:{{ email }}">{{ email }}</a> · {{ L.group.tel }}: <a href="tel:{{ phone_tel }}">{{ phone }}</a></p></noscript>
+    <ol id="q-steps" aria-label="{{ L.quote.steps_label }}" class="q-steps"></ol>
+    <div class="q-body">
+      <div id="q-main" class="q-main"></div>
+      <aside id="q-aside" aria-label="{{ L.quote.aside_label }}" class="q-aside"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGUIMIENTO ============ -->
+<section id="seguimiento" aria-labelledby="h-track" class="section" style="background:var(--paper-2);">
+  <div class="wrap trk">
+    <div class="track-l">
+      <h2 id="h-track" class="h2" style="max-width:14ch;">{{ L.track.h2 }}</h2>
+      <p class="lead">{{ L.track.lead }}</p>
+      <form action="{{ root }}seguimiento.html" aria-label="{{ L.track.form_label }}" class="track-form">
+        <label class="field">{{ L.track.code }}<input type="text" name="codigo" class="input input-ink" placeholder="JP-26-0001"></label>
+        <label class="field">{{ L.track.email }}<input type="email" name="email" class="input input-ink" placeholder="{{ L.track.email_ph }}"></label>
+        <button type="submit" class="btn btn-ink">{{ L.track.btn }}</button>
+      </form>
+    </div>
+    <div class="track-card">
+      <div class="track-head">
+        <div><span class="tnum track-code">JP-26-0001</span><span class="small-muted">{{ L.track.demo_meta }} <span class="ral-current">1023</span></span></div>
+        <span class="pill-ok"><span class="dot-pulse"></span>{{ L.track.status }}</span>
+      </div>
+      <ol aria-label="{{ L.track.ms_label }}" class="ms">
+        {% for m in L.track.milestones %}<li title="{{ m }}" class="{{ 'done' if loop.index0 < 4 else ('now' if loop.index0 == 4 else '') }}"><span class="sr">{{ m }}</span></li>{% endfor %}
+      </ol>
+      <div class="track-grid">
+        <figure class="track-photo">
+          <img src="{{ root }}assets/img/piezas-colgadas.webp" alt="{{ L.track.photo_alt }}" loading="lazy" decoding="async" width="1400" height="933">
+          <figcaption>{{ L.track.photo_cap }}</figcaption>
+        </figure>
+        <ul class="track-events">
+          {% for t, w in L.track.events %}<li><span>{{ t }}</span><span class="small-muted">{{ w }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALIDAD ============ -->
+<section aria-labelledby="h-quality" class="quality">
+  <div class="wrap quality-in">
+    <div class="split">
+      <h2 id="h-quality" class="h2" style="max-width:14ch;">{{ L.quality.h2 }}</h2>
+      <p class="lead">{{ L.quality.lead }}</p>
+    </div>
+    <div class="q-grid">
+      <article class="marine">
+        <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132">
+        <div>
+          <h3>{{ L.quality.marine_h }}</h3>
+          <p>{{ L.quality.marine_p }}</p>
+          <ol class="layers" aria-label="{{ L.quality.layers_label }}">{% for ly in L.quality.layers %}<li>{{ ly }}</li>{% endfor %}</ol>
+          <p class="marine-data tnum">{{ L.quality.marine_data }}</p>
+        </div>
+      </article>
+      <div class="seals">
+        <figure><img src="{{ root }}assets/logos/iso9001.png" alt="{{ L.quality.seals[0][0] }}" height="76" loading="lazy"><figcaption>{{ L.quality.seals[0][1] }}</figcaption></figure>
+        <figure><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" height="56" loading="lazy" class="seal-pending"><figcaption>{{ L.quality.seals[1][1] }}</figcaption></figure>
+        <figure><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" height="76" loading="lazy"><figcaption>{{ L.quality.seals[2][1] }}</figcaption></figure>
+        <figure>
+          <svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[3][0] }}" style="height:76px; width:auto;"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg>
+          <figcaption>{{ L.quality.seals[3][1] }}</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="asterisk">{{ L.quality.note }}</p>
+  </div>
+  <div class="logos" aria-label="{{ L.quality.marquee_label }}" role="region">
+    <p class="logos-l">{{ L.quality.marquee }}</p>
+    <div class="logos-mask">
+      <div class="track" id="logo-track">
+        <ul class="logo-set">
+          <li><img class="logo-item" src="{{ root }}assets/logos/interpon.png" alt="Interpon (AkzoNobel)" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/axalta.svg" alt="Axalta" style="height:40px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/tiger.svg" alt="Tiger Coatings" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/igp.svg" alt="IGP Powder Coatings" style="height:36px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/pulverit.png" alt="Pulverit" style="height:30px;"></li>
+          <li><img src="{{ root }}assets/logos/valresa.png" alt="Valresa" style="height:19px; filter:brightness(0); opacity:0.5;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/dilcas.png" alt="Dilcas" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/adapta.png" alt="Adapta Powder Coatings" style="height:36px;"></li>
+          <li class="logo-txt" style="font-stretch:115%; font-size:22px;">NEUCE</li>
+          <li class="logo-txt" style="font-size:18px;">ST Powder Coatings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTES DE ENVIAR + PREGUNTAS ============ -->
+<section aria-labelledby="h-faq" class="section" style="background:var(--paper);">
+  <div class="wrap faq-grid">
+    <div class="dark prep">
+      <h2 class="h3">{{ L.prep.h2 }}</h2>
+      <ul>
+        {% for it in L.prep['items'] %}<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="1.75" aria-hidden="true"><path d="M4.5 12.5 L9.5 17.5 L19.5 6.5"></path></svg><span>{{ it }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="faq">
+      <h2 id="h-faq" class="h3">{{ L.faq.h2 }}</h2>
+      {% for q, a in L.faq['items'] %}<details><summary>{{ q }}<span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ GRUPO JOMA + CONTACTO ============ -->
+<section id="contacto" aria-labelledby="h-group" class="dark group">
+  <div class="wrap group-in">
+    <div class="group-top">
+      <div class="split">
+        <h2 id="h-group" class="h2" style="max-width:19ch;">{{ L.group.h2 }}</h2>
+        <p class="lead">{{ L.group.lead }}</p>
+      </div>
+      <ol class="timeline" aria-label="{{ L.group.timeline_label }}">
+        {% for y, t in L.group.timeline %}<li><span class="tl-y tnum">{{ y }}</span><span class="tl-x">{{ t }}</span></li>
+        {% endfor %}
+      </ol>
+      <figure class="plant">
+        <img src="{{ root }}assets/img/planta-legutio-cataforesis.webp" alt="{{ L.group.plant_alt }}" width="1600" height="681" loading="lazy" decoding="async">
+        <dl class="g-stats">
+          {% for label, value in L.group.stats %}<div><dt>{{ label }}</dt><dd class="tnum">{{ value }}</dd></div>
+          {% endfor %}
+        </dl>
+        <figcaption>{{ L.group.plant_cap }}</figcaption>
+      </figure>
+      <ul aria-label="{{ L.group.brands_label }}" class="units">
+        <li>
+          <a href="https://joma.es" rel="noopener" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-logo-white.svg" alt="Joma" height="26" style="height:26px;"></span>
+            <span class="unit-d">{{ L.group.joma }}</span>
+            <span class="unit-l">{{ L.group.visit }} joma.es</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.jomaurban.com" rel="noopener" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma-urban.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-urban-white.svg" alt="Joma Urban" height="22" style="height:22px; margin-top:2px;"></span>
+            <span class="unit-d">{{ L.group.urban }}</span>
+            <span class="unit-l">{{ L.group.visit }} jomaurban.com</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://normo.es" rel="noopener" class="unit">
+            <span class="unit-img unit-seal"><img src="{{ root }}assets/logos/normo-sello.svg" alt="" width="322" height="373"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/normo-negativo.svg" alt="Normo" height="20" style="height:20px; margin-top:3px;"></span>
+            <span class="unit-d">{{ L.group.normo }}</span>
+            <span class="unit-l">{{ L.group.visit }} normo.es</span>
+          </a>
+        </li>
+        <li>
+          <div class="unit unit-here">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-jomapaint.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><span class="lockup" style="--h:26px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma"><span class="rule"></span><span class="paint">PAINT</span></span></span>
+            <span class="unit-d">{{ L.group.paint }}</span>
+            <span class="unit-l">{{ L.group.here }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <div class="contact-head">
+        <h2 class="h-xl">{{ L.group.contact_h2 }}</h2>
+        <a href="#presupuesto" class="btn btn-acc btn-lg">{{ L.cta }}</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:{{ phone_tel }}"><span class="c-l">{{ L.group.tel }}</span><span class="c-v tnum">{{ phone }}</span></a>
+        <a href="mailto:{{ email }}"><span class="c-l">{{ L.group.mail }}</span><span class="c-v">{{ email }}</span></a>
+        <div><span class="c-l">{{ L.group.plant }}</span><span class="c-v c-addr">{{ L.group.address }}</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <div class="foot-l">
+        <span class="lockup" style="--h:24px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma"><span class="rule"></span><span class="paint">PAINT</span></span>
+        <span>{{ L.group.division }}</span>
+      </div>
+      <nav aria-label="{{ L.group.legal_label }}" class="foot-nav">
+        {% for x in L.group.legal %}<a href="#">{{ x }}</a>{% endfor %}
+        {% for l in langs if not l.current %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}">{{ l.name }}</a>{% endfor %}
+      </nav>
+    </footer>
+  </div>
+</section>
+
+</div>
+<script>window.JP = {{ jsdata }};</script>
+<script src="{{ root }}assets/ral-data.js" defer></script>
+<script src="{{ root }}assets/app.js" defer></script>
+</body>
+</html>

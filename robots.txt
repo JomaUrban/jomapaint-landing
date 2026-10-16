@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jomaurban.github.io/jomapaint-landing/sitemap.xml
