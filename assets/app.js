@@ -273,7 +273,7 @@
         io.disconnect();
         if (!window.WebGLRenderingContext) return;
         import(new URL(ROOT + 'assets/ral3d.js', location.href).href).then(function (m) {
-          plate3d = m.init(host, { reduce: reduce });
+          plate3d = m.init(host, { reduce: reduce, env: new URL(ROOT + 'assets/env/nave.hdr', location.href).href, envScale: 0.5 });
           paintPlate();
           requestAnimationFrame(function () { host.classList.add('is-3d'); });
         }).catch(function () {});

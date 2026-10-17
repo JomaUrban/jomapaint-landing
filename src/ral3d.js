@@ -10,8 +10,9 @@ import {
   RepeatWrapping, LinearMipmapLinearFilter, LinearFilter, NoColorSpace, SRGBColorSpace,
   NoToneMapping, PMREMGenerator, Vector2, Vector3, CatmullRomCurve3, TubeGeometry,
   DirectionalLight, Color, MathUtils, RGBAFormat, UnsignedByteType, SphereGeometry, MeshBasicMaterial,
-  BackSide, Float32BufferAttribute, SpotLight
+  BackSide, Float32BufferAttribute, SpotLight, EquirectangularReflectionMapping
 } from 'three';
+import { HDRLoader } from 'three/examples/jsm/loaders/HDRLoader.js';
 
 /* ---------- mapas de normales procedurales (repetibles) ---------- */
 function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -47,41 +48,44 @@ function normalTex(N, octaves, seed, strength, maxAniso) {
   return t;
 }
 
-/* ---------- ventana: lienzo con hojas y parteluces, bordes suaves ----------
-   Sirve para dos cosas: el reflejo en el entorno y la «luz de sol» que proyecta el foco. */
-function windowCanvas(w, h, cols, rows, blur, frame, alpha) {
-  const c = document.createElement('canvas'); c.width = w; c.height = h;
-  const g = c.getContext('2d');
-  const pad = frame * w, mull = Math.max(6, frame * 0.4 * w);
-  const pw = (w - 2 * pad - (cols - 1) * mull) / cols, ph = (h - 2 * pad - (rows - 1) * mull) / rows;
-  if ('filter' in g) g.filter = 'blur(' + blur + 'px)';
-  g.fillStyle = 'rgba(255,255,255,' + alpha + ')';
-  for (let x = 0; x < cols; x++) for (let y = 0; y < rows; y++) g.fillRect(pad + x * (pw + mull), pad + y * (ph + mull), pw, ph);
-  return c;
-}
-
 /* ---------- estudio para los reflejos ----------
-   Sala gris con degradado, un ventanal inclinado (sol de tarde) y dos rellenos.
-   El ventanal queda donde la placa lo refleja hacia la cámara: al moverse la luz,
-   su reflejo cruza la placa en diagonal (nítido en brillante, difuso en satinado, nada en mate). */
-function studio() {
+   Nave real (HDRI) o sala gris, una fila de regletas LED inclinadas (como un túnel
+   de inspección de pintura) y dos rellenos. Al moverse la placa y la luz, las regletas
+   cruzan la placa en diagonal: líneas nítidas en brillo, brillo difuso en satinado,
+   nada en mate. */
+function studio(hdr, hdrScale) {
   const env = new Scene();
+  if (hdr) {
+    // Nave real (HDRI de Poly Haven, CC0), casi en gris para no teñir el color RAL.
+    const k = hdrScale || 1;
+    env.add(new Mesh(new SphereGeometry(20, 64, 32), new MeshBasicMaterial({ map: hdr, color: new Color(k, k, k), side: BackSide })));
+  }
   const sg = new SphereGeometry(20, 48, 24), pos = sg.attributes.position, col = [];
   for (let i = 0; i < pos.count; i++) {
     const y = pos.getY(i) / 20, v = y > 0 ? 0.42 + 0.33 * y : 0.42 + 0.34 * y; // techo claro, suelo oscuro
     col.push(v, v, v * 1.01);
   }
   sg.setAttribute('color', new Float32BufferAttribute(col, 3));
-  env.add(new Mesh(sg, new MeshBasicMaterial({ side: BackSide, vertexColors: true })));
+  if (!hdr) env.add(new Mesh(sg, new MeshBasicMaterial({ side: BackSide, vertexColors: true })));
   function place(m, az, el, r, roll) {
     const a = az * Math.PI / 180, e = el * Math.PI / 180;
     m.position.set(Math.sin(a) * Math.cos(e) * r, Math.sin(e) * r, Math.cos(a) * Math.cos(e) * r);
     m.lookAt(0, 0, 0); if (roll) m.rotateZ(roll * Math.PI / 180); env.add(m);
   }
-  const winTex = new CanvasTexture(windowCanvas(512, 1024, 2, 3, 10, 0.06, 1));
-  winTex.colorSpace = SRGBColorSpace;
-  const win = new Mesh(new PlaneGeometry(3.6, 7.2), new MeshBasicMaterial({ map: winTex, color: new Color(7, 6.6, 6), transparent: true, depthWrite: false, side: 2 }));
-  place(win, 37, 8, 14, -24); // ventanal, frente-derecha, inclinado
+  /* Luz industrial: tres regletas LED largas e inclinadas, como las de una cabina de
+     inspección de pintura. En brillo se ven como líneas nítidas que cruzan la placa. */
+  const stripCanvas = document.createElement('canvas'); stripCanvas.width = 64; stripCanvas.height = 8;
+  const sg2 = stripCanvas.getContext('2d'), grd = sg2.createLinearGradient(0, 0, 64, 0);
+  grd.addColorStop(0, 'rgba(255,255,255,0)'); grd.addColorStop(0.3, 'rgba(255,255,255,0.9)'); grd.addColorStop(0.5, 'rgba(255,255,255,1)');
+  grd.addColorStop(0.7, 'rgba(255,255,255,0.9)'); grd.addColorStop(1, 'rgba(255,255,255,0)');
+  sg2.fillStyle = grd; sg2.fillRect(0, 0, 64, 8);
+  const stripTex = new CanvasTexture(stripCanvas); stripTex.colorSpace = SRGBColorSpace;
+  // [azimut, ancho, intensidad]: separación irregular para que no parezca una cebra
+  [[-2, 0.32, 0.8], [9, 0.22, 0.65], [21, 0.36, 1], [33, 0.26, 0.85], [42, 0.2, 0.6], [53, 0.34, 0.95], [66, 0.24, 0.7], [78, 0.3, 0.8]].forEach(function (a) {
+    const k = 5.2 * a[2];
+    const m = new Mesh(new PlaneGeometry(a[1], 13), new MeshBasicMaterial({ map: stripTex, color: new Color(k, k * 0.985, k * 0.96), transparent: true, depthWrite: false, side: 2 }));
+    place(m, a[0], 8, 14, -20);
+  });
   const fill = new Mesh(new PlaneGeometry(3.2, 9), new MeshBasicMaterial({ color: new Color(2.4, 2.4, 2.45), side: 2 }));
   place(fill, -24, 10, 14); // relleno, frente-izquierda
   const top = new Mesh(new PlaneGeometry(9, 5), new MeshBasicMaterial({ color: new Color(3, 3, 3), side: 2 }));
@@ -92,20 +96,21 @@ function studio() {
 /* ---------- acabados ---------- */
 // roughness: rugosidad de la capa; cc: barniz (clearcoat) y su rugosidad; spec: intensidad especular.
 const GLOSS = {
-  mate: { roughness: 0.9, cc: 0, ccr: 0.6, spec: 0.55, peel: 0.0 },
-  satinado: { roughness: 0.5, cc: 0.05, ccr: 0.32, spec: 0.6, peel: 0 },
-  brillante: { roughness: 0.45, cc: 1, ccr: 0.03, spec: 0.5, peel: 0 }
+  mate: { roughness: 0.93, cc: 0, ccr: 0.6, spec: 0.4, peel: 0.0 },
+  satinado: { roughness: 0.12, cc: 0, ccr: 0.3, spec: 0.6, peel: 0 },
+  brillante: { roughness: 0.5, cc: 1, ccr: 0.03, spec: 0.3, peel: 0 }
 };
 const TEXTURED = {
   mate: { roughness: 0.95, cc: 0, ccr: 0.6, spec: 0.5 },
   satinado: { roughness: 0.62, cc: 0.15, ccr: 0.45, spec: 0.8 },
-  brillante: { roughness: 0.42, cc: 0.5, ccr: 0.16, spec: 0.9 }
+  brillante: { roughness: 0.45, cc: 0.4, ccr: 0.2, spec: 0.6 }
 };
 
 export function init(host, opts) {
   opts = opts || {};
   const reduce = !!opts.reduce;
   let dirty = true;
+  const field = host.closest ? host.closest('.ral-field') : null;
   const canvas = document.createElement('canvas');
   canvas.className = 'ral-3d';
   canvas.setAttribute('role', 'img');
@@ -122,28 +127,48 @@ export function init(host, opts) {
 
   const scene = new Scene();
   const pmrem = new PMREMGenerator(renderer);
-  scene.environment = pmrem.fromScene(studio(), 0).texture;
+  /* Reflejos: el estudio provisional a 256; el definitivo (con la nave) a 512, para que las
+     regletas se reflejen nítidas en el brillo sin escalones. */
+  let envRT = pmrem.fromScene(studio(), 0, 0.1, 100, { size: 256 });
+  scene.environment = envRT.texture;
   scene.environmentIntensity = 1;
-  pmrem.dispose();
+  /* Entorno real: HDRI de estudio (Poly Haven, CC0). Mientras carga, el estudio procedural. */
+  let envBase = -0.32, envSweep = 0.36;
+  if (opts.env) {
+    pmrem.compileEquirectangularShader();
+    new HDRLoader().load(opts.env, function (tex) {
+      const rt = pmrem.fromScene(studio(tex, opts.envScale), 0, 0.1, 100, { size: 512 });
+      scene.environment = rt.texture; envRT.dispose(); envRT = rt;
+      tex.dispose(); pmrem.dispose();
+      if (opts.envIntensity != null) scene.environmentIntensity = opts.envIntensity;
+      if (opts.envYaw != null) envBase = opts.envYaw;
+      if (opts.envSweep != null) envSweep = opts.envSweep;
+      setSun(lastSun); dirty = true; kick();
+    }, undefined, function () { pmrem.dispose(); });
+  } else pmrem.dispose();
 
   const key = new DirectionalLight(0xffffff, 0.45);
   key.position.set(-2.5, 3, 4);
   scene.add(key);
 
-  /* Sol de ventana: foco cálido con la silueta del ventanal (cookie). Proyecta
-     un rectángulo de luz con parteluces que cruza la placa despacio; el gancho
-     deja su sombra. Para usar la máscara (.map) el foco tiene que proyectar sombras. */
+  /* Haz de luz: foco cálido y suave con una máscara (cookie) en banda diagonal, como
+     la luz que entra por un lucernario de nave. Cruza la placa despacio; el gancho deja
+     su sombra. La banda se dibuja con un degradado (sin filtro de desenfoque: el blur
+     del canvas deja dientes de sierra en algunos navegadores). Para usar la máscara
+     (.map) el foco tiene que proyectar sombras. */
   const cookie = new CanvasTexture((function () {
-    // dos haces de luz en diagonal, como el sol que entra por las dos hojas de un ventanal
     const c = document.createElement('canvas'); c.width = c.height = 512;
     const g = c.getContext('2d');
-    if ('filter' in g) g.filter = 'blur(7px)';
-    g.translate(256, 256); g.rotate(-24 * Math.PI / 180);
-    g.fillStyle = '#FFFFFF'; g.fillRect(-160, -300, 108, 600); g.fillRect(-10, -300, 66, 600);
+    const a = -24 * Math.PI / 180, dx = Math.cos(a) * 256, dy = Math.sin(a) * 256;
+    const gr = g.createLinearGradient(256 - dx, 256 - dy, 256 + dx, 256 + dy);
+    gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(0.36, 'rgba(255,255,255,0)');
+    gr.addColorStop(0.46, 'rgba(255,255,255,0.85)'); gr.addColorStop(0.5, 'rgba(255,255,255,1)');
+    gr.addColorStop(0.56, 'rgba(255,255,255,0.85)'); gr.addColorStop(0.68, 'rgba(255,255,255,0)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, 512, 512);
     return c;
   })());
   cookie.colorSpace = SRGBColorSpace;
-  const sun = new SpotLight(0xffe2bc, 2.4, 0, 0.16, 0.3, 0);
+  const sun = new SpotLight(0xfff0e0, 0.65, 0, 0.16, 0.4, 0);
   sun.position.set(-3.6, 3.1, 4.4);
   sun.map = cookie;
   sun.castShadow = true;
@@ -173,7 +198,7 @@ export function init(host, opts) {
 
   const mat = new MeshPhysicalMaterial({ color: 0xf7b500, roughness: 0.46, metalness: 0, clearcoat: 0, ior: 1.5 });
   const plate = new Mesh(geo, mat);
-  plate.receiveShadow = true; plate.castShadow = true;
+  plate.receiveShadow = true; // solo el gancho proyecta sombra (la placa sobre sí misma daría dientes de sierra)
 
   /* pivote = punto donde el canto superior del agujero apoya en el alambre */
   const pivot = new Group();
@@ -234,12 +259,16 @@ export function init(host, opts) {
     mat.emissive.set(cur.lum ? cur.hex : '#000000'); mat.emissiveIntensity = cur.lum ? 0.22 : 0;
     if (tx) {
       mat.normalMap = sandTex; mat.normalScale.set(1.1, 1.1);
-      mat.clearcoatNormalMap = g.cc ? sandTex : null; mat.clearcoatNormalScale.set(0.55, 0.55);
+      mat.clearcoatNormalMap = g.cc ? sandTex : null; mat.clearcoatNormalScale.set(0.35, 0.35);
     } else {
       const pe = GLOSS[cur.gloss].peel;
       mat.normalMap = pe ? peelTex : null; mat.normalScale.set(pe, pe);
       mat.clearcoatNormalMap = g.cc && pe ? peelTex : null; mat.clearcoatNormalScale.set(pe * 0.7, pe * 0.7);
     }
+    /* El sol de ventana (foco y haces del fondo) solo en brillo: ahí es donde se ve. */
+    const shine = cur.gloss === 'brillante';
+    sun.visible = shine; key.intensity = shine ? 0.68 : 0.8;
+    if (field) field.classList.toggle('ral-sunlit', shine);
     mat.needsUpdate = true;
     dirty = true;
   }
@@ -258,12 +287,13 @@ export function init(host, opts) {
 
   /* ---------- movimiento: vaivén lento y respuesta al puntero ---------- */
   const BASE = opts.yaw != null ? opts.yaw : 0.34, AMP = 0.14, PERIOD = 9, SUN = 13;
-  const field = host.closest ? host.closest('.ral-field') : null;
   let beam = null;
   if (field) { beam = document.createElement('div'); beam.className = 'ral-sun'; beam.setAttribute('aria-hidden', 'true'); field.insertBefore(beam, field.firstChild); }
+  let lastSun = 0.42;
   function setSun(p) {
+    lastSun = p;
     sun.target.position.set(-1.05 + 2.1 * p, 0.12, 0);
-    scene.environmentRotation.y = -0.32 + 0.64 * p;
+    scene.environmentRotation.y = envBase + envSweep * (p - 0.5);
     if (field) field.style.setProperty('--sun', p.toFixed(4));
   }
   setSun(opts.sun != null ? opts.sun : 0.42);
@@ -310,6 +340,8 @@ export function init(host, opts) {
       apply(); kick();
     },
     render() { renderer.render(scene, camera); },
-    sun(p) { setSun(p); dirty = true; kick(); }
+    sun(p) { setSun(p); dirty = true; kick(); },
+    env(base, sweep, intensity) { if (base != null) envBase = base; if (sweep != null) envSweep = sweep; if (intensity != null) scene.environmentIntensity = intensity; setSun(lastSun); dirty = true; kick(); },
+    light(k, s) { if (k != null) key.intensity = k; if (s != null) sun.intensity = s; dirty = true; kick(); }
   };
 }

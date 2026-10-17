@@ -45,7 +45,7 @@ SERVICES = [
                      ('Epoxi', 'Adherencia y resistencia química muy altas, pero al sol pierde brillo y se calea. Se usa en interior o como imprimación bajo una capa de poliéster.'),
                      ('Epoxi-poliéster (híbrido)', 'Para interior: maquinaria, mobiliario, iluminación o electrodomésticos. Buen acabado decorativo, pero no está pensado para exterior.'),
                  ]},
-                {'h2': 'Cómo pintamos tus piezas', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
+                {'h2': 'Cómo pintamos tus piezas', 'step_credit': 'Fotos de los pasos 03 y 05: OlgaBook y Grey and red fairy, en Wikimedia Commons (CC BY-SA 4.0). Paso 04: curva de curado orientativa.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
                     ('Pretratamiento', 'Desengrase y pretratamiento químico para que el polvo agarre.'),
                     ('Secado', 'Horno de secado: ni rastro de humedad bajo la capa.'),
                     ('Aplicación electrostática', 'El polvo envuelve la pieza, también en los cantos.'),
@@ -108,7 +108,7 @@ SERVICES = [
                      ('Epoxia', 'Atxikimendu eta erresistentzia kimiko oso handiak, baina eguzkitan distira galdu eta hauts zuria sortzen du. Barrualdean erabiltzen da, edo poliester-geruza baten azpiko inprimazio gisa.'),
                      ('Epoxi-poliesterra (hibridoa)', 'Barrualderako: makineria, altzariak, argiztapena edo etxetresna elektrikoak. Akabera dekoratibo ona, baina ez dago kanporako pentsatua.'),
                  ]},
-                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
+                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_credit': '03 eta 05 urratsetako argazkiak: OlgaBook eta Grey and red fairy, Wikimedia Commons-en (CC BY-SA 4.0). 04 urratsa: ontze-kurba orientagarria.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
                     ('Aurretratamendua', 'Koipegabetzea eta aurretratamendu kimikoa, hautsak ondo heltzeko.'),
                     ('Lehorketa', 'Lehortzeko labea: geruzaren azpian ez da hezetasunik geratzen.'),
                     ('Aplikazio elektrostatikoa', 'Hautsak pieza inguratzen du, ertzetan ere.'),
@@ -171,7 +171,7 @@ SERVICES = [
                      ('Époxy', 'Adhérence et résistance chimique très élevées, mais au soleil elle perd sa brillance et farine. Elle s’utilise en intérieur ou comme primaire sous une couche de polyester.'),
                      ('Époxy-polyester (hybride)', 'Pour l’intérieur : machines, mobilier, luminaires ou électroménager. Bel aspect décoratif, mais elle n’est pas conçue pour l’extérieur.'),
                  ]},
-                {'h2': 'Comment nous peignons vos pièces', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
+                {'h2': 'Comment nous peignons vos pièces', 'step_credit': 'Photos des étapes 03 et 05 : OlgaBook et Grey and red fairy, sur Wikimedia Commons (CC BY-SA 4.0). Étape 04 : courbe de cuisson indicative.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
                     ('Prétraitement', 'Dégraissage et prétraitement chimique pour que la poudre accroche.'),
                     ('Séchage', 'Four de séchage : aucune trace d’humidité sous le film.'),
                     ('Application électrostatique', 'La poudre enveloppe la pièce, arêtes comprises.'),

@@ -88,11 +88,11 @@ ES = {
         'stations': [
             ('Pretratamiento', 'Desengrase y pretratamiento químico de la superficie: la pieza entra limpia y preparada para que el polvo agarre. En el sistema Marine pasa además por cataforesis.', PH('[XX] etapas · [XX] °C'), 'Línea JomaPaint · Legutio'),
             ('Secado', 'Horno de secado antes de pintar: ni rastro de humedad bajo la capa.', PH('[XX] °C · [XX] min'), 'Imagen de referencia'),
-            ('Aplicación electrostática', 'El polvo, con carga electrostática, es atraído por la pieza conectada a tierra y la envuelve: capa uniforme, también en los cantos. Cabina de gran gálibo para piezas singulares.', PH('[XX]–[XX] µm de espesor'), 'Imagen de referencia'),
-            ('Polimerizado', 'En el horno de curado, la pieza alcanza la temperatura que pide el polvo, normalmente entre 180 y 200 °C durante 10 a 30 minutos, medidos en la pieza y no en el aire del horno. El polvo funde, se extiende y reticula en una película continua.', PH('[XX] °C · [XX] min'), 'Imagen de referencia'),
-            ('Control de calidad', 'Revisión del acabado de cada pieza antes de embalar.', PH('Ensayos y criterios: [a confirmar]'), 'Imagen de referencia'),
+            ('Aplicación electrostática', 'El polvo, con carga electrostática, es atraído por la pieza conectada a tierra y la envuelve: capa uniforme, también en los cantos. Cabina de gran gálibo para piezas singulares.', PH('[XX]–[XX] µm de espesor'), 'Imagen de referencia · Foto: OlgaBook, CC BY-SA 4.0'),
+            ('Polimerizado', 'En el horno de curado, la pieza alcanza la temperatura que pide el polvo, normalmente entre 180 y 200 °C durante 10 a 30 minutos, medidos en la pieza y no en el aire del horno. El polvo funde, se extiende y reticula en una película continua.', PH('[XX] °C · [XX] min'), 'Curva de curado orientativa, medida en la pieza'),
+            ('Control de calidad', 'Revisión del acabado de cada pieza antes de embalar.', PH('Ensayos y criterios: [a confirmar]'), 'Imagen de referencia · Foto: Grey and red fairy, CC BY-SA 4.0'),
         ],
-        'alts': ['Línea de pintura de JomaPaint con piezas colgadas', 'Piezas colgadas en el transportador camino del horno', 'Operario aplicando pintura en polvo en cabina', 'Nave industrial con iluminación cálida', 'Operario midiendo una pieza metálica con un calibre digital'],
+        'alts': ['Línea de pintura de JomaPaint con piezas colgadas', 'Piezas colgadas en el transportador camino del horno', 'Operarios aplicando pintura en polvo a piezas colgadas en una línea en cadena', 'Curva orientativa de curado: la pieza sube hasta 180–200 °C y se mantiene entre 10 y 30 minutos', 'Medición del espesor de capa sobre una superficie pintada'],
     },
     'ral': {
         'h2': 'Elige el color. Míralo en la pieza.',
@@ -307,11 +307,11 @@ EU = {
         'stations': [
             ('Aurretratamendua', 'Gainazala koipegabetu eta kimikoki aurretratatzen da: pieza garbi eta prest sartzen da, hautsak ondo heltzeko. Marine sisteman kataforesitik ere igarotzen da.', PH('[XX] etapa · [XX] °C'), 'JomaPaint linea · Legutio'),
             ('Lehorketa', 'Pintatu aurretik lehortzeko labea: geruzaren azpian ez da hezetasun arrastorik geratzen.', PH('[XX] °C · [XX] min'), 'Erreferentziazko irudia'),
-            ('Aplikazio elektrostatikoa', 'Lurrera konektatutako piezak karga elektrostatikoa duen hautsa erakartzen du, eta hautsak pieza osoa inguratzen du: geruza berdina, ertzetan ere. Pieza berezietarako kabina handia.', PH('[XX]–[XX] µm-ko lodiera'), 'Erreferentziazko irudia'),
-            ('Polimerizazioa', 'Ontze-labean, piezak hautsak eskatzen duen tenperatura hartzen du, normalean 180 eta 200 °C artean, 10-30 minutuz, piezan neurtuta eta ez labeko airean. Hautsa urtu, hedatu eta erretikulatu egiten da, film jarraitu bat osatuz.', PH('[XX] °C · [XX] min'), 'Erreferentziazko irudia'),
-            ('Kalitate-kontrola', 'Pieza bakoitzaren akabera berrikusten da paketatu aurretik.', PH('Saiakuntzak eta irizpideak: [berresteko]'), 'Erreferentziazko irudia'),
+            ('Aplikazio elektrostatikoa', 'Lurrera konektatutako piezak karga elektrostatikoa duen hautsa erakartzen du, eta hautsak pieza osoa inguratzen du: geruza berdina, ertzetan ere. Pieza berezietarako kabina handia.', PH('[XX]–[XX] µm-ko lodiera'), 'Erreferentziazko irudia · Argazkia: OlgaBook, CC BY-SA 4.0'),
+            ('Polimerizazioa', 'Ontze-labean, piezak hautsak eskatzen duen tenperatura hartzen du, normalean 180 eta 200 °C artean, 10-30 minutuz, piezan neurtuta eta ez labeko airean. Hautsa urtu, hedatu eta erretikulatu egiten da, film jarraitu bat osatuz.', PH('[XX] °C · [XX] min'), 'Ontze-kurba orientagarria, piezan neurtuta'),
+            ('Kalitate-kontrola', 'Pieza bakoitzaren akabera berrikusten da paketatu aurretik.', PH('Saiakuntzak eta irizpideak: [berresteko]'), 'Erreferentziazko irudia · Argazkia: Grey and red fairy, CC BY-SA 4.0'),
         ],
-        'alts': ['JomaPaint-en pintura-linea pieza eskegiekin', 'Pieza eskegiak garraiagailuan, labera bidean', 'Langilea hauts-pintura aplikatzen kabinan', 'Industria-pabiloia argi epelarekin', 'Langilea pieza metaliko bat kalibre digital batekin neurtzen'],
+        'alts': ['JomaPaint-en pintura-linea pieza eskegiekin', 'Pieza eskegiak garraiagailuan, labera bidean', 'Langileak hauts-pintura aplikatzen kate-linean eskegitako piezei', 'Ontze-kurba orientagarria: pieza 180–200 °C-ra igotzen da eta 10-30 minutuz mantentzen da', 'Geruzaren lodiera neurtzen pintatutako gainazal batean'],
     },
     'ral': {
         'h2': 'Aukeratu kolorea. Ikusi piezan.',
@@ -526,11 +526,11 @@ FR = {
         'stations': [
             ('Prétraitement', 'Dégraissage et prétraitement chimique de la surface : la pièce entre propre et prête à accrocher la poudre. Dans le système Marine, elle passe aussi par la cataphorèse.', PH('[XX] étapes · [XX] °C'), 'Ligne JomaPaint · Legutio'),
             ('Séchage', 'Four de séchage avant peinture : aucune trace d’humidité sous le film.', PH('[XX] °C · [XX] min'), 'Image d’illustration'),
-            ('Application électrostatique', 'Chargée électrostatiquement, la poudre est attirée par la pièce reliée à la terre et l’enveloppe : couche régulière, arêtes comprises. Cabine grand gabarit pour les pièces hors normes.', PH('[XX]–[XX] µm d’épaisseur'), 'Image d’illustration'),
-            ('Polymérisation', 'Dans le four de cuisson, la pièce atteint la température exigée par la poudre, en général 180 à 200 °C pendant 10 à 30 minutes, mesurés sur la pièce et non dans l’air du four. La poudre fond, se tend et réticule en un film continu.', PH('[XX] °C · [XX] min'), 'Image d’illustration'),
-            ('Contrôle qualité', 'Contrôle de la finition de chaque pièce avant emballage.', PH('Essais et critères : [à confirmer]'), 'Image d’illustration'),
+            ('Application électrostatique', 'Chargée électrostatiquement, la poudre est attirée par la pièce reliée à la terre et l’enveloppe : couche régulière, arêtes comprises. Cabine grand gabarit pour les pièces hors normes.', PH('[XX]–[XX] µm d’épaisseur'), 'Image d’illustration · Photo : OlgaBook, CC BY-SA 4.0'),
+            ('Polymérisation', 'Dans le four de cuisson, la pièce atteint la température exigée par la poudre, en général 180 à 200 °C pendant 10 à 30 minutes, mesurés sur la pièce et non dans l’air du four. La poudre fond, se tend et réticule en un film continu.', PH('[XX] °C · [XX] min'), 'Courbe de cuisson indicative, mesurée sur la pièce'),
+            ('Contrôle qualité', 'Contrôle de la finition de chaque pièce avant emballage.', PH('Essais et critères : [à confirmer]'), 'Image d’illustration · Photo : Grey and red fairy, CC BY-SA 4.0'),
         ],
-        'alts': ['Ligne de peinture JomaPaint avec des pièces suspendues', 'Pièces suspendues sur le convoyeur, en route vers le four', 'Opérateur appliquant de la peinture poudre en cabine', 'Atelier industriel sous un éclairage chaud', 'Opérateur mesurant une pièce métallique au pied à coulisse numérique'],
+        'alts': ['Ligne de peinture JomaPaint avec des pièces suspendues', 'Pièces suspendues sur le convoyeur, en route vers le four', 'Opérateurs appliquant de la peinture poudre sur des pièces suspendues à un convoyeur', 'Courbe de cuisson indicative : la pièce monte à 180–200 °C et y reste de 10 à 30 minutes', 'Mesure de l’épaisseur du revêtement sur une surface peinte'],
     },
     'ral': {
         'h2': 'Choisissez la couleur. Voyez-la sur la pièce.',

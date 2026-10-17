@@ -28,7 +28,9 @@ Además, `seguimiento.html` es la página de ejemplo del seguimiento de pedido (
 - **Hero** con subida de plano y presupuesto en 24 h, y partículas de polvo animadas.
 - **Servicios**, con enlace a cada página de servicio.
 - **Proceso** en cinco estaciones, interactivo.
-- **Explorador RAL Classic** con los 216 colores, textura y brillo.
+- **Explorador RAL Classic** con los 216 colores, textura y brillo. La placa es 3D (three.js, `src/ral3d.js`) y se carga al acercarse a la sección:
+  - **Mate:** sin reflejos. **Satinado:** reflejo difuso. **Brillo:** barniz con reflejos nítidos de una fila de regletas LED, como un túnel de inspección de pintura, y un haz de luz cálido que cruza la placa. **Texturado:** relieve real con mapa de normales.
+  - Los reflejos usan una nave real (HDRI) casi en gris, para no teñir el color RAL. El mate está calibrado contra el valor RAL.
 - **Cotizador guiado** en tres pasos. Arranca con una referencia vacía y envía la solicitud por email con FormSubmit (adjuntos hasta 10 MB). El destino está en `FORM_ENDPOINT` (`src/content.py`): ahora, el correo de pruebas de Jox; después, marimar@joma.es. El plazo se calcula en horario de oficina (L–V, 7:00–17:00, hora de Madrid).
 - **Dónde trabajamos**: zonas de servicio con los núcleos industriales, sin listas de topónimos (Google lo considera *keyword stuffing*). Las mismas zonas van en `areaServed`.
 - **Seguimiento de pedido** (vista previa).
@@ -76,6 +78,13 @@ python3 src/build.py --base https://DOMINIO-DEFINITIVO/
 ```
 
 Para una copia de pruebas que Google no indexe: `--noindex`.
+
+La placa 3D se compila aparte (three.js 0.185.1 con esbuild):
+
+```bash
+npm install
+npm run build:3d   # src/ral3d.js → assets/ral3d.js
+```
 
 El build avisa si algún `title` pasa de 62 caracteres o alguna `description` se sale de 110–165.
 
@@ -141,7 +150,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - **Marine:** el sistema de capas y las 1.000 h de niebla salina salen de jomaurban.com y de Joma. Hay que confirmar que el servicio a terceros usa el mismo sistema.
 - **QUALICOAT (aluminio):** la página de perfiles explica que muchos pliegos de arquitectura lo exigen, sin decir que JomaPaint lo tenga.
 
-**Para que el cotizador funcione:** conectar el formulario a un destino real. Por ejemplo, un lead en Odoo CRM o un email al equipo.
+**Para que el cotizador funcione:** activar FormSubmit con el clic del primer email que llega al correo de pruebas y, cuando la prueba esté bien, cambiar `FORM_ENDPOINT` a marimar@joma.es.
 
 **Fuera de la web:**
 - Ficha de Google Business Profile en Legutio.
@@ -152,11 +161,14 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 ## Imágenes y logotipos
 
 **Portada**
-- **Hero y línea de proceso:** del deck interno de JomaPaint.
-- **Piezas colgadas y cabina:** Pexels (licencia libre).
-- **Nave:** Unsplash (licencia libre).
-- **Control de calidad (calibre digital):** Hans Westbeek en Unsplash (licencia Unsplash).
+- **Hero y pretratamiento (línea de proceso):** del deck interno de JomaPaint.
+- **Secado (piezas colgadas):** Pexels (licencia libre).
+- **Aplicación electrostática en cadena:** [«Цех окраски»](https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B5%D1%85_%D0%BE%D0%BA%D1%80%D0%B0%D1%81%D0%BA%D0%B8_.jpg), de OlgaBook, en Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recortada y reducida; el crédito va en el pie de foto. Sale un operario reconocible.
+- **Polimerizado:** curva de curado orientativa (temperatura en la pieza), gráfico propio. Cambiar por una foto del horno de Legutio en cuanto la haya.
+- **Control de calidad (espesor de capa):** [«Ultraschallschichtdickenmessung»](https://commons.wikimedia.org/wiki/File:Ultraschallschichtdickenmessung.jpg), de Grey and red fairy, en Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recortada y reducida; el crédito va en el pie de foto.
 - **Fachada de la fábrica de Legutio:** Joma.
+- **Reflejos de la placa 3D:** HDRI [Industrial Workshop Foundry](https://polyhaven.com/a/industrial_workshop_foundry) de Poly Haven (CC0), casi en gris y reducido a 512 × 256 (`assets/env/nave.hdr`).
+- **Acabados de la página de termolacado** (`assets/img/acabado-*.webp`): renders de la propia placa 3D.
 
 **Fotos de las marcas**
 - **Joma:** instalación Skyline negro mate.
@@ -172,5 +184,6 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - **Marcaje:** buzones Joma Skyline con numeración láser.
 
 **Logotipos**
+- Favicon: el pájaro de Joma en negro (en blanco con el modo oscuro), para distinguir la pestaña de la web de Joma.
 - Joma Urban va en su rojo oficial #E44132.
 - Los logotipos de proveedores, sellos y marcas pertenecen a sus propietarios. Aquí solo se usan como referencia y hay que confirmarlos antes de publicar.

@@ -132,7 +132,7 @@
         {% endfor %}
       </div>
       <figure id="st-photos" class="st-photos">
-        {% set imgs = ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'] %}
+        {% set imgs = ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'] %}
         {% for im in imgs %}<img src="{{ root }}assets/img/{{ im }}.webp" alt="{{ L.process.alts[loop.index0] }}" loading="lazy" decoding="async" width="1400" height="933"{% if loop.first %} class="on"{% endif %}>
         {% endfor %}
         <figcaption id="st-cap">{{ L.process.stations[0][3] }}</figcaption>

@@ -617,6 +617,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .svc-steps-img li:first-child { border-top: 1px solid var(--ink); }
 .svc-steps-img img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; background: #262626; display: block; }
 .svc-steps-img li > div { display: flex; flex-direction: column; gap: 6px; }
+.svc-body > p.svc-credit { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); max-width: none; }
 .svc-steps-img strong { font-weight: 600; font-size: 18px; }
 .svc-steps-img li > div > span:last-child { font-size: 15.5px; line-height: 1.5; color: var(--muted); }
 @container (max-width: 520px) { .svc-steps-img li { grid-template-columns: 1fr; } }
@@ -636,8 +637,9 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
    desplazan con el sol de la escena 3D (--sun, de 0 a 1, lo fija assets/ral3d.js). */
 .ral-sun { position: absolute; top: -12%; bottom: -12%; left: -70%; width: 240%; z-index: 0; pointer-events: none;
   background:
-    linear-gradient(112deg, transparent 0 40%, rgba(255,226,190,0.13) 42.5%, rgba(255,226,190,0.2) 45.5%, rgba(255,226,190,0.13) 48%, transparent 50.5%),
-    linear-gradient(112deg, transparent 0 51.5%, rgba(255,226,190,0.1) 53%, rgba(255,226,190,0.15) 55%, rgba(255,226,190,0.08) 57%, transparent 58.5%);
-  filter: blur(12px); mix-blend-mode: screen; transform: translateX(calc((var(--sun, 0.42) - 0.5) * 20%)); }
+    linear-gradient(112deg, transparent 0 41%, rgba(255,232,205,0.07) 44%, rgba(255,232,205,0.12) 47%, rgba(255,232,205,0.07) 50%, transparent 53%);
+  filter: blur(18px); mix-blend-mode: screen; transform: translateX(calc((var(--sun, 0.42) - 0.5) * 20%)); }
 .ral-field > :not(.ral-sun) { position: relative; z-index: 1; }
 .q-steps button:not([aria-current]):not(:disabled):hover { border-color: var(--ink); }
+.ral-sun { opacity: 0; transition: opacity 600ms ease; }
+.ral-field.ral-sunlit .ral-sun { opacity: 1; }
