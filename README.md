@@ -154,7 +154,8 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 **Portada**
 - **Hero y línea de proceso:** del deck interno de JomaPaint.
 - **Piezas colgadas y cabina:** Pexels (licencia libre).
-- **Nave y pieza terminada:** Unsplash (licencia libre).
+- **Nave:** Unsplash (licencia libre).
+- **Control de calidad (calibre digital):** Hans Westbeek en Unsplash (licencia Unsplash).
 - **Fachada de la fábrica de Legutio:** Joma.
 
 **Fotos de las marcas**

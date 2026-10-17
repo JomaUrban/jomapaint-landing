@@ -45,17 +45,17 @@ SERVICES = [
                      ('Epoxi', 'Adherencia y resistencia química muy altas, pero al sol pierde brillo y se calea. Se usa en interior o como imprimación bajo una capa de poliéster.'),
                      ('Epoxi-poliéster (híbrido)', 'Para interior: maquinaria, mobiliario, iluminación o electrodomésticos. Buen acabado decorativo, pero no está pensado para exterior.'),
                  ]},
-                {'h2': 'Cómo pintamos tus piezas', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
+                {'h2': 'Cómo pintamos tus piezas', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
                     ('Pretratamiento', 'Desengrase y pretratamiento químico para que el polvo agarre.'),
                     ('Secado', 'Horno de secado: ni rastro de humedad bajo la capa.'),
                     ('Aplicación electrostática', 'El polvo envuelve la pieza, también en los cantos.'),
                     ('Polimerizado', 'En el horno de curado, el polvo funde y reticula.'),
                     ('Control de calidad', 'Revisión del acabado de cada pieza antes de embalar.'),
                  ]},
-                {'h2': 'Colores y acabados', 'finishes': [('mate', 'Mate', 'Hasta 30 GU'), ('satinado', 'Satinado', '31–70 GU'), ('brillante', 'Brillante', '71–100 GU'), ('texturado', 'Texturado', 'Disimula marcas')], 'finishes_cap': 'RAL 7016 en cuatro acabados. Brillo medido a 60° (ISO 2813).', 'list': [
+                {'h2': 'Colores y acabados', 'finishes': [('mate', 'Mate', 'Hasta 30 GU'), ('satinado', 'Satinado', '31–70 GU'), ('brillante', 'Brillo', '71–100 GU'), ('texturado', 'Texturado', 'Disimula marcas')], 'finishes_cap': 'RAL 7016 en cuatro acabados. Brillo medido a 60° (ISO 2813).', 'list': [
                     'Toda la carta RAL Classic y referencias concretas de fabricante de polvo.',
                     'Liso, texturado fino o gofrado. La textura resiste mejor los arañazos y disimula pequeñas imperfecciones del soporte, y lleva algo más de espesor que el liso.',
-                    'Tres niveles de brillo medidos a 60° (ISO 2813): mate hasta 30 GU, satinado de 31 a 70 y brillante de 71 a 100, según las categorías de QUALICOAT. El valor exacto lo da la ficha técnica del polvo.',
+                    'Tres niveles de brillo medidos a 60° (ISO 2813): mate hasta 30 GU, satinado de 31 a 70 y brillo de 71 a 100, según las categorías de QUALICOAT. El valor exacto lo da la ficha técnica del polvo.',
                     'Metalizados y perlados, como titanio o dorado. Se aprueban sobre muestra y conviene pintar todo el pedido con un mismo lote.',
                     'Si dudas, te enviamos una placa de muestra en el color y el acabado que elijas.',
                 ]},
@@ -108,7 +108,7 @@ SERVICES = [
                      ('Epoxia', 'Atxikimendu eta erresistentzia kimiko oso handiak, baina eguzkitan distira galdu eta hauts zuria sortzen du. Barrualdean erabiltzen da, edo poliester-geruza baten azpiko inprimazio gisa.'),
                      ('Epoxi-poliesterra (hibridoa)', 'Barrualderako: makineria, altzariak, argiztapena edo etxetresna elektrikoak. Akabera dekoratibo ona, baina ez dago kanporako pentsatua.'),
                  ]},
-                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
+                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
                     ('Aurretratamendua', 'Koipegabetzea eta aurretratamendu kimikoa, hautsak ondo heltzeko.'),
                     ('Lehorketa', 'Lehortzeko labea: geruzaren azpian ez da hezetasunik geratzen.'),
                     ('Aplikazio elektrostatikoa', 'Hautsak pieza inguratzen du, ertzetan ere.'),
@@ -171,7 +171,7 @@ SERVICES = [
                      ('Époxy', 'Adhérence et résistance chimique très élevées, mais au soleil elle perd sa brillance et farine. Elle s’utilise en intérieur ou comme primaire sous une couche de polyester.'),
                      ('Époxy-polyester (hybride)', 'Pour l’intérieur : machines, mobilier, luminaires ou électroménager. Bel aspect décoratif, mais elle n’est pas conçue pour l’extérieur.'),
                  ]},
-                {'h2': 'Comment nous peignons vos pièces', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
+                {'h2': 'Comment nous peignons vos pièces', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'control-calidad'], 'steps': [
                     ('Prétraitement', 'Dégraissage et prétraitement chimique pour que la poudre accroche.'),
                     ('Séchage', 'Four de séchage : aucune trace d’humidité sous le film.'),
                     ('Application électrostatique', 'La poudre enveloppe la pièce, arêtes comprises.'),
@@ -218,16 +218,16 @@ SERVICES = [
         'img': 'svc-cataforesis', 'img_w': 1200, 'img_h': 800,
         'es': {
             'slug': 'cataforesis/',
-            'title': 'Cataforesis y sistema Marine C5 (antes C5-M) | JomaPaint',
-            'description': 'Cataforesis (KTL) y pintura en polvo en Legutio, cerca de Vitoria-Gasteiz: imprimación por inmersión que llega a cavidades y cantos. Sistema Marine C5 (antes C5-M).',
-            'og_title': 'Cataforesis y sistema Marine C5 (antes C5-M) · JomaPaint',
-            'name': 'Cataforesis y sistema Marine C5', 'crumb': 'Cataforesis', 'service_type': 'Cataforesis',
+            'title': 'Cataforesis y sistema Marine C5-M en Álava | JomaPaint',
+            'description': 'Cataforesis (KTL) y pintura en polvo en Legutio, cerca de Vitoria-Gasteiz: imprimación por inmersión que llega a cavidades y cantos. Sistema Marine C5-M.',
+            'og_title': 'Cataforesis y sistema Marine C5-M · JomaPaint',
+            'name': 'Cataforesis y sistema Marine C5-M', 'crumb': 'Cataforesis', 'service_type': 'Cataforesis',
             'kicker': 'Cataforesis en Legutio (Álava), cerca de Vitoria-Gasteiz',
-            'h1': 'Cataforesis y sistema Marine para ambientes C5',
+            'h1': 'Cataforesis y sistema Marine C5-M',
             'lead': 'Una imprimación por inmersión que llega donde no llega la pistola: interiores, cavidades, soldaduras y cantos. Encima, la capa final en pintura en polvo. Es la base del sistema Marine de Joma para costa y ambientes agresivos.',
             'img_alt': 'Línea de cataforesis de Joma con un bastidor de piezas sobre las cubas',
             'img_cap': 'Línea de cataforesis de Joma',
-            'facts': [('Niebla salina', '1.000 h', 'UNE-EN ISO 9227 · ' + PH('[informe a confirmar]')), ('Ambiente', 'C5', 'Antes C5-M · ISO 12944-2'), ('Sistema', '3 capas', 'Cataforesis, imprimación y polvo')],
+            'facts': [('Niebla salina', '1.000 h', 'UNE-EN ISO 9227 · ' + PH('[informe a confirmar]')), ('Clasificación', 'C5-M', 'C5 · durabilidad media'), ('Sistema', '3 capas', 'Cataforesis, imprimación y polvo')],
             'sections': [
                 {'h2': 'Qué es la cataforesis', 'p': [
                     'La cataforesis, también llamada KTL o e-coat, es una pintura por electrodeposición. La pieza, desengrasada y pretratada, se sumerge en un baño de pintura al agua y se conecta como cátodo. Al pasar la corriente, la pintura se deposita sobre toda la superficie que toca el baño.',
@@ -242,11 +242,13 @@ SERVICES = [
                      ('Acero', 'Desengrasado y pretratado por inmersión antes de pintar. ' + PH('[¿También sobre galvanizado? Confirmar]')),
                  ],
                  'note': '1.000 h de niebla salina neutra (UNE-EN ISO 9227) ' + PH('[informe a confirmar: laboratorio, fecha y n.º]')},
-                {'h2': 'C5, C5-M y la norma ISO 12944', 'p': [
+                {'h2': 'C5-M y la norma ISO 12944', 'p': [
                     'La norma ISO 12944-2 clasifica los ambientes según su corrosividad, de C1 (interior seco) a CX (extremo). C5 es corrosividad muy alta: industria húmeda y agresiva y costa de alta salinidad.',
-                    'C5-M es el nombre antiguo. En la edición de 1998 había una C5-M (marina) y una C5-I (industrial); en la de 2017 se unificaron en C5 y se añadió CX para offshore y ambientes extremos. Hoy, además, «C5-M» se lee como «C5, durabilidad media», que es otra cosa. Por eso hablamos de ambientes C5 (antes C5-M).',
-                    'La serie ISO 12944 está pensada para pinturas líquidas que curan a temperatura ambiente y deja fuera la pintura en polvo. Por eso no decimos que el sistema «cumple» la norma: la usamos para definir el ambiente. Para sistemas en polvo sobre acero, el esquema de referencia es QUALISTEELCOAT. Si tu pliego pide una categoría concreta, indícalo al pedir presupuesto y te decimos qué ensayos podemos aportar.',
-                    'El ensayo de niebla salina neutra (UNE-EN ISO 9227) expone probetas rayadas a una niebla de agua salada en cámara y mide cuánto avanza el óxido desde la raya y si aparecen ampollas. Sirve para controlar un sistema concreto; sus horas no equivalen a años de exposición real y no sirve para comparar recubrimientos de distinto tipo.',
+                    'Desde 2017, la categoría se escribe junto a la durabilidad prevista (ISO 12944-1): L, hasta 7 años; M, de 7 a 15; H, de 15 a 25, y VH, más de 25. El sistema Marine es C5-M: ambiente C5 con durabilidad media. La durabilidad es un dato para planificar el mantenimiento, no una garantía.',
+                    'Para C5-M, la parte 6 de la norma pide 720 h de niebla salina neutra y 480 h de condensación. El sistema Marine está ensayado a 1.000 h de niebla salina ' + PH('[informe y ensayo de condensación: a confirmar]') + '.',
+                    'Ojo con los pliegos antiguos: en la edición de 1998, C5-M era la clase marina y C5-I, la industrial; en 2017 se unificaron en C5. Si tu pliego cita C5-M, dinos de qué edición es y te confirmamos el sistema.',
+                    'La serie ISO 12944 se escribió para pinturas líquidas; en sistemas en polvo se usan sus categorías y sus métodos de ensayo. Para certificar un sistema en polvo sobre acero, el esquema de referencia es QUALISTEELCOAT.',
+                    'El ensayo de niebla salina neutra (UNE-EN ISO 9227) expone probetas rayadas a una niebla de agua salada en cámara y mide cuánto avanza el óxido desde la raya y si aparecen ampollas. Sus horas no equivalen a años de exposición real.',
                 ]},
                 {'h2': 'Para qué piezas', 'list': [
                     'Mobiliario urbano y equipamiento en primera línea de costa.',
@@ -264,8 +266,8 @@ SERVICES = [
             'faq': [
                 ('¿Qué diferencia hay entre cataforesis y pintura en polvo?', 'La cataforesis es una imprimación por inmersión que se deposita con corriente eléctrica y cubre toda la pieza, también por dentro. La pintura en polvo es la capa final: aporta el color, el acabado y la resistencia a la intemperie. En el sistema Marine van juntas.'),
                 ('¿Sirve la cataforesis como acabado final?', 'En interior o en piezas que no se ven, puede bastar. En exterior se cubre con pintura en polvo, porque la cataforesis resiste mal los rayos UV.'),
-                ('¿Sigue existiendo la clase C5-M en la norma ISO 12944?', 'No. C5-M era la clase marina de la edición de 1998. En la de 2017 se unificó con C5-I en una sola categoría, C5, que incluye la costa de alta salinidad, y se añadió CX para offshore y ambientes extremos. Si tu pliego pide C5-M, consúltanos: puede referirse a la categoría antigua o a C5 con durabilidad media.'),
-                ('¿Cuántas horas de niebla salina resiste el sistema Marine?', '1.000 horas de niebla salina neutra según UNE-EN ISO 9227 ' + PH('[laboratorio, fecha y n.º de informe]') + '. Es un ensayo acelerado que sirve para controlar un sistema; sus horas no se traducen en años de servicio.'),
+                ('¿Qué significa C5-M?', 'C5 es el ambiente: corrosividad muy alta, como la primera línea de costa o la industria agresiva. La M es la durabilidad prevista: media, de 7 a 15 años, según ISO 12944. Es la clasificación del sistema Marine. En la edición de 1998, C5-M era la clase marina; si tu pliego es antiguo, consúltanos.'),
+                ('¿Cuántas horas de niebla salina resiste el sistema Marine?', '1.000 horas de niebla salina neutra según UNE-EN ISO 9227, por encima de las 720 h que pide C5-M ' + PH('[laboratorio, fecha y n.º de informe]') + '. Es un ensayo acelerado: sus horas no se traducen en años de servicio.'),
                 ('¿Qué hay que prever en tubos y perfiles cerrados?', 'Taladros de drenaje y de salida de aire, para que el baño entre, cubra el interior y escurra. Envíanos el plano y te decimos dónde hacerlos.'),
                 ('¿Qué tamaño de pieza cabe en la línea?', PH('[Medidas y peso máximo de la cuba]')),
             ],
@@ -273,16 +275,16 @@ SERVICES = [
         },
         'eu': {
             'slug': 'kataforesia/',
-            'title': 'Kataforesia eta Marine sistema C5 (lehen C5-M) | JomaPaint',
-            'description': 'Kataforesia (KTL) eta hauts-pintura Legution, Gasteiztik gertu: barrunbe eta ertzetaraino iristen den murgiltze bidezko inprimazioa. Marine sistema C5 (lehen C5-M).',
-            'og_title': 'Kataforesia eta Marine sistema C5 (lehen C5-M) · JomaPaint',
-            'name': 'Kataforesia eta Marine sistema C5', 'crumb': 'Kataforesia', 'service_type': 'Kataforesia',
+            'title': 'Kataforesia eta Marine C5-M sistema Araban | JomaPaint',
+            'description': 'Kataforesia (KTL) eta hauts-pintura Legution, Gasteiztik gertu: barrunbe eta ertzetaraino iristen den murgiltze bidezko inprimazioa. Marine C5-M sistema.',
+            'og_title': 'Kataforesia eta Marine C5-M sistema · JomaPaint',
+            'name': 'Kataforesia eta Marine C5-M sistema', 'crumb': 'Kataforesia', 'service_type': 'Kataforesia',
             'kicker': 'Kataforesia Legution (Araba), Gasteiztik gertu',
-            'h1': 'Kataforesia eta Marine sistema C5 giroetarako',
+            'h1': 'Kataforesia eta Marine C5-M sistema',
             'lead': 'Pistola iristen ez den lekuetara iristen den murgiltze bidezko inprimazioa: barrualdeak, barrunbeak, soldadurak eta ertzak. Gainean, hauts-pinturazko azken geruza. Jomaren Marine sistemaren oinarria da, kostalderako eta giro oldarkorretarako.',
             'img_alt': 'Jomaren kataforesi-linea, pieza-marko bat ontzien gainean',
             'img_cap': 'Jomaren kataforesi-linea',
-            'facts': [('Gatz-lainoa', '1.000 h', 'UNE-EN ISO 9227 · ' + PH('[txostena berresteko]')), ('Giroa', 'C5', 'Lehen C5-M · ISO 12944-2'), ('Sistema', '3 geruza', 'Kataforesia, inprimazioa eta hautsa')],
+            'facts': [('Gatz-lainoa', '1.000 h', 'UNE-EN ISO 9227 · ' + PH('[txostena berresteko]')), ('Sailkapena', 'C5-M', 'C5 · iraunkortasun ertaina'), ('Sistema', '3 geruza', 'Kataforesia, inprimazioa eta hautsa')],
             'sections': [
                 {'h2': 'Zer da kataforesia', 'p': [
                     'Kataforesia, KTL edo e-coat ere deitua, elektrodeposizio bidezko pintura da. Pieza, koipegabetu eta aurretratatu ondoren, ur-oinarriko pintura-bainu batean murgiltzen da eta katodo gisa konektatzen da. Korrontea igarotzean, pintura bainuak ukitzen duen gainazal osoan metatzen da.',
@@ -297,11 +299,13 @@ SERVICES = [
                      ('Altzairua', 'Pintatu aurretik murgiltze bidez koipegabetua eta aurretratatua.'),
                  ],
                  'note': '1.000 orduko gatz-laino neutroa (UNE-EN ISO 9227) ' + PH('[txostena berresteko: laborategia, data eta zk.]')},
-                {'h2': 'C5, C5-M eta ISO 12944 araua', 'p': [
+                {'h2': 'C5-M eta ISO 12944 araua', 'p': [
                     'ISO 12944-2 arauak giroak korrosibitatearen arabera sailkatzen ditu, C1etik (barrualde lehorra) CXera (muturrekoa). C5 korrosibitate oso handia da: industria heze eta oldarkorra eta gazitasun handiko kostaldea.',
-                    'C5-M izen zaharra da. 1998ko edizioan C5-M (itsasokoa) eta C5-I (industriala) zeuden; 2017koan C5 kategoria bakarrean bateratu ziren, eta CX gehitu zen offshore eta muturreko giroetarako. Gaur egun, gainera, «C5-M» «C5, iraunkortasun ertaina» gisa irakurtzen da, eta hori beste gauza bat da. Horregatik esaten dugu C5 giroak (lehen C5-M).',
-                    'ISO 12944 seriea giro-tenperaturan ontzen diren pintura likidoetarako pentsatua dago, eta hauts-pintura kanpoan uzten du. Horregatik, ez dugu esaten sistemak araua «betetzen» duenik: giroa definitzeko erabiltzen dugu. Altzairuaren gaineko hauts-sistemetarako erreferentziazko eskema QUALISTEELCOAT da. Zure baldintza-agiriak kategoria jakin bat eskatzen badu, adierazi aurrekontua eskatzean eta zer saiakuntza eman ditzakegun esango dizugu.',
-                    'Gatz-laino neutroaren saiakuntzak (UNE-EN ISO 9227) urratutako probetak ur gaziko lainoan jartzen ditu ganbera batean, eta urraduratik herdoila zenbat aurreratzen den eta burbuilak agertzen diren neurtzen du. Sistema jakin bat kontrolatzeko balio du; orduak ez dira benetako esposizio-urteen baliokideak, eta ez du balio mota desberdinetako estaldurak alderatzeko.',
+                    '2017tik, kategoria aurreikusitako iraunkortasunarekin batera idazten da (ISO 12944-1): L, 7 urte arte; M, 7tik 15era; H, 15etik 25era, eta VH, 25 baino gehiago. Marine sistema C5-M da: C5 giroa, iraunkortasun ertainarekin. Iraunkortasuna mantentze-lana planifikatzeko datua da, ez bermea.',
+                    'C5-M lortzeko, arauaren 6. zatiak 720 h gatz-laino neutro eta 480 h kondentsazio eskatzen ditu. Marine sistema 1.000 h gatz-lainorekin probatua dago ' + PH('[txostena eta kondentsazio-saiakuntza: berresteko]') + '.',
+                    'Kontuz baldintza-agiri zaharrekin: 1998ko edizioan, C5-M itsas klasea zen eta C5-I industriala; 2017an C5 bakarrean bateratu ziren. Zure agiriak C5-M aipatzen badu, esan iezaguzu zein ediziotakoa den eta sistema berretsiko dizugu.',
+                    'ISO 12944 seriea pintura likidoetarako idatzi zen; hauts-sistemetan haren kategoriak eta saiakuntza-metodoak erabiltzen dira. Altzairuaren gaineko hauts-sistema bat ziurtatzeko, erreferentziazko eskema QUALISTEELCOAT da.',
+                    'Gatz-laino neutroaren saiakuntzak (UNE-EN ISO 9227) urratutako probetak ur gaziko lainoan jartzen ditu ganbera batean, eta urraduratik herdoila zenbat aurreratzen den eta burbuilak agertzen diren neurtzen du. Orduak ez dira benetako esposizio-urteen baliokideak.',
                 ]},
                 {'h2': 'Zein piezatarako', 'list': [
                     'Itsasertzeko hiri-altzariak eta ekipamenduak.',
@@ -319,8 +323,8 @@ SERVICES = [
             'faq': [
                 ('Zer alde dago kataforesiaren eta hauts-pinturaren artean?', 'Kataforesia korronte elektrikoz metatzen den murgiltze bidezko inprimazioa da, eta pieza osoa estaltzen du, barrutik ere. Hauts-pintura azken geruza da: kolorea, akabera eta eguraldiarekiko erresistentzia ematen ditu. Marine sisteman biak batera doaz.'),
                 ('Kataforesia azken akabera gisa erabil daiteke?', 'Barrualdean edo ikusten ez diren piezetan, nahikoa izan daiteke. Kanpoan hauts-pinturaz estaltzen da, kataforesiak gaizki jasaten baititu UV izpiak.'),
-                ('Oraindik badago C5-M klasea ISO 12944 arauan?', 'Ez. C5-M 1998ko edizioko itsas klasea zen. 2017koan C5-I klasearekin bateratu zen kategoria bakar batean, C5, gazitasun handiko kostaldea barne hartzen duena, eta CX gehitu zen offshore eta muturreko giroetarako. Zure baldintza-agiriak C5-M eskatzen badu, galdetu iezaguzu: kategoria zaharra edo iraunkortasun ertaineko C5 izan daiteke.'),
-                ('Zenbat ordu gatz-laino jasaten ditu Marine sistemak?', '1.000 ordu gatz-laino neutroan, UNE-EN ISO 9227 arauaren arabera ' + PH('[laborategia, data eta txosten-zk.]') + '. Sistema bat kontrolatzeko saiakuntza azkartua da; orduak ez dira zerbitzu-urte bihurtzen.'),
+                ('Zer esan nahi du C5-Mk?', 'C5 giroa da: korrosibitate oso handia, itsasertzeko lehen lerroan edo industria oldarkorrean bezala. M aurreikusitako iraunkortasuna da: ertaina, 7tik 15 urtera, ISO 12944 arauaren arabera. Marine sistemaren sailkapena da. 1998ko edizioan, C5-M itsas klasea zen; zure baldintza-agiria zaharra bada, galdetu iezaguzu.'),
+                ('Zenbat ordu gatz-laino jasaten ditu Marine sistemak?', '1.000 ordu gatz-laino neutroan, UNE-EN ISO 9227 arauaren arabera; C5-Mk 720 h eskatzen ditu ' + PH('[laborategia, data eta txosten-zk.]') + '. Saiakuntza azkartua da: orduak ez dira zerbitzu-urte bihurtzen.'),
                 ('Zer aurreikusi behar da hodi eta profil itxietan?', 'Drainatze- eta aire-irteerako zuloak, bainua sartu, barrualdea estali eta isurtzeko. Bidali planoa eta non egin esango dizugu.'),
                 ('Zer neurritako piezak sartzen dira linean?', PH('[Ontziaren gehienezko neurriak eta pisua]')),
             ],
@@ -328,16 +332,16 @@ SERVICES = [
         },
         'fr': {
             'slug': 'cataphorese/',
-            'title': 'Cataphorèse et système Marine C5 (ex-C5-M) | JomaPaint',
-            'description': 'Cataphorèse (KTL) et thermolaquage à façon à Legutio, au Pays basque espagnol : un primaire par immersion jusque dans les corps creux. Système Marine C5 (ex-C5-M).',
-            'og_title': 'Cataphorèse et système Marine C5 (ex-C5-M) · JomaPaint',
-            'name': 'Cataphorèse et système Marine C5', 'crumb': 'Cataphorèse', 'service_type': 'Cataphorèse',
+            'title': 'Cataphorèse et système Marine C5-M | JomaPaint',
+            'description': 'Cataphorèse (KTL) et thermolaquage à façon à Legutio, au Pays basque espagnol : un primaire par immersion jusque dans les corps creux. Système Marine C5-M.',
+            'og_title': 'Cataphorèse et système Marine C5-M · JomaPaint',
+            'name': 'Cataphorèse et système Marine C5-M', 'crumb': 'Cataphorèse', 'service_type': 'Cataphorèse',
             'kicker': 'Cataphorèse à Legutio (Álava, Espagne), au Pays basque',
-            'h1': 'Cataphorèse et système Marine pour milieux C5',
+            'h1': 'Cataphorèse et système Marine C5-M',
             'lead': 'Un primaire par immersion qui va là où le pistolet ne va pas : intérieurs, corps creux, soudures et arêtes. Par-dessus, la couche de finition en peinture poudre. C’est la base du système Marine de Joma pour le littoral et les milieux agressifs.',
             'img_alt': 'Ligne de cataphorèse de Joma, avec un cadre de pièces au-dessus des cuves',
             'img_cap': 'Ligne de cataphorèse de Joma',
-            'facts': [('Brouillard salin', '1 000 h', 'UNE-EN ISO 9227 · ' + PH('[rapport à confirmer]')), ('Milieu', 'C5', 'Ex-C5-M · ISO 12944-2'), ('Système', '3 couches', 'Cataphorèse, primaire et poudre')],
+            'facts': [('Brouillard salin', '1 000 h', 'UNE-EN ISO 9227 · ' + PH('[rapport à confirmer]')), ('Classement', 'C5-M', 'C5 · durabilité moyenne'), ('Système', '3 couches', 'Cataphorèse, primaire et poudre')],
             'sections': [
                 {'h2': 'Qu’est-ce que la cataphorèse', 'p': [
                     'La cataphorèse, aussi appelée KTL ou e-coat, est une peinture par électrodéposition. La pièce, dégraissée et prétraitée, est plongée dans un bain de peinture hydrodiluable et branchée comme cathode. Sous l’effet du courant, la peinture se dépose sur toute la surface en contact avec le bain.',
@@ -352,11 +356,13 @@ SERVICES = [
                      ('Acier', 'Dégraissé et prétraité par immersion avant peinture.'),
                  ],
                  'note': '1 000 h de brouillard salin neutre (UNE-EN ISO 9227) ' + PH('[rapport à confirmer : laboratoire, date et n°]')},
-                {'h2': 'C5, C5-M et la norme ISO 12944', 'p': [
+                {'h2': 'C5-M et la norme ISO 12944', 'p': [
                     'La norme ISO 12944-2 classe les environnements selon leur corrosivité, de C1 (intérieur sec) à CX (extrême). C5 correspond à une corrosivité très élevée : industrie humide et agressive, et littoral à forte salinité.',
-                    'C5-M est l’ancien nom. L’édition de 1998 distinguait C5-M (marin) et C5-I (industriel) ; celle de 2017 les a regroupées en C5 et a ajouté CX pour l’offshore et les milieux extrêmes. Aujourd’hui, « C5-M » se lit en outre « C5, durabilité moyenne », ce qui est autre chose. C’est pourquoi nous parlons de milieux C5 (ex-C5-M).',
-                    'La série ISO 12944 vise les peintures liquides qui sèchent à température ambiante et exclut la peinture poudre. Nous ne disons donc pas que le système « est conforme » à la norme : nous l’utilisons pour définir le milieu. Pour les systèmes poudre sur acier, le référentiel est QUALISTEELCOAT. Si votre cahier des charges (CCTP) demande une catégorie précise, indiquez-le dans votre demande de devis et nous vous dirons quels essais nous pouvons fournir.',
-                    'L’essai au brouillard salin neutre (UNE-EN ISO 9227) expose des éprouvettes rayées à un brouillard d’eau salée en enceinte et mesure la progression de la rouille depuis la rayure et l’apparition de cloques. Il sert à contrôler un système donné ; ses heures ne se convertissent pas en années d’exposition réelle et il ne permet pas de comparer des revêtements de nature différente.',
+                    'Depuis 2017, la catégorie s’écrit avec la durabilité prévue (ISO 12944-1) : L, jusqu’à 7 ans ; M, de 7 à 15 ; H, de 15 à 25, et VH, plus de 25. Le système Marine est C5-M : environnement C5, durabilité moyenne. La durabilité sert à planifier l’entretien ; ce n’est pas une garantie.',
+                    'Pour C5-M, la partie 6 de la norme exige 720 h de brouillard salin neutre et 480 h de condensation. Le système Marine est testé à 1 000 h de brouillard salin ' + PH('[rapport et essai de condensation : à confirmer]') + '.',
+                    'Attention aux anciens cahiers des charges : dans l’édition de 1998, C5-M était la classe marine et C5-I la classe industrielle ; en 2017, elles ont été regroupées en C5. Si votre CCTP cite C5-M, indiquez-nous son édition et nous vous confirmerons le système.',
+                    'La série ISO 12944 a été écrite pour les peintures liquides ; pour les systèmes poudre, on utilise ses catégories et ses méthodes d’essai. Pour certifier un système poudre sur acier, le référentiel est QUALISTEELCOAT.',
+                    'L’essai au brouillard salin neutre (UNE-EN ISO 9227) expose des éprouvettes rayées à un brouillard d’eau salée en enceinte et mesure la progression de la rouille depuis la rayure et l’apparition de cloques. Ses heures ne se convertissent pas en années d’exposition réelle.',
                 ]},
                 {'h2': 'Pour quelles pièces', 'list': [
                     'Mobilier urbain et équipements en front de mer.',
@@ -374,8 +380,8 @@ SERVICES = [
             'faq': [
                 ('Quelle différence entre cataphorèse et peinture poudre ?', 'La cataphorèse est un primaire par immersion déposé par courant électrique, qui couvre toute la pièce, intérieurs compris. La peinture poudre est la couche de finition : elle apporte la couleur, l’aspect et la tenue aux intempéries. Dans le système Marine, les deux vont ensemble.'),
                 ('La cataphorèse peut-elle servir de finition ?', 'En intérieur ou sur des pièces non visibles, elle peut suffire. En extérieur, on la recouvre de peinture poudre, car elle résiste mal aux UV.'),
-                ('La classe C5-M existe-t-elle encore dans l’ISO 12944 ?', 'Non. C5-M était la classe marine de l’édition de 1998. En 2017, elle a été regroupée avec C5-I en une seule catégorie, C5, qui inclut le littoral à forte salinité, et la catégorie CX a été ajoutée pour l’offshore et les milieux extrêmes. Si votre cahier des charges demande C5-M, consultez-nous : il peut s’agir de l’ancienne catégorie ou de C5 en durabilité moyenne.'),
-                ('Combien d’heures de brouillard salin le système Marine tient-il ?', '1 000 heures de brouillard salin neutre selon UNE-EN ISO 9227 ' + PH('[laboratoire, date et n° de rapport]') + '. C’est un essai accéléré qui sert à contrôler un système ; ses heures ne se traduisent pas en années de service.'),
+                ('Que signifie C5-M ?', 'C5 est l’environnement : corrosivité très élevée, comme le front de mer ou l’industrie agressive. Le M est la durabilité prévue : moyenne, de 7 à 15 ans, selon l’ISO 12944. C’est le classement du système Marine. Dans l’édition de 1998, C5-M était la classe marine ; si votre cahier des charges est ancien, consultez-nous.'),
+                ('Combien d’heures de brouillard salin le système Marine tient-il ?', '1 000 heures de brouillard salin neutre selon UNE-EN ISO 9227, au-delà des 720 h exigées pour C5-M ' + PH('[laboratoire, date et n° de rapport]') + '. C’est un essai accéléré : ses heures ne se traduisent pas en années de service.'),
                 ('Que faut-il prévoir sur les tubes et profilés fermés ?', 'Des trous de vidange et d’évent, pour que le bain entre, couvre l’intérieur et s’égoutte. Envoyez-nous le plan et nous vous dirons où les percer.'),
                 ('Quelle taille de pièce passe sur la ligne ?', PH('[Dimensions et poids maximaux de la cuve]')),
             ],
@@ -397,7 +403,7 @@ SERVICES = [
             'lead': 'Perfilería y piezas de aluminio lacadas con pintura en polvo, en el color y el acabado que necesites. Para carpintería, fachadas, mobiliario y equipos industriales, de la muestra a la serie.',
             'img_alt': 'Perfil de aluminio extruido en primer plano, sobre fondo oscuro',
             'img_cap': 'Imagen de referencia',
-            'facts': [('Colores', 'Carta RAL', 'Lisos o texturados'), ('Brillo', 'Mate a brillante', ''), ('Longitud máxima', '6 m', '')],
+            'facts': [('Colores', 'Carta RAL', 'Lisos o texturados'), ('Brillo', 'Del mate al brillo', ''), ('Longitud máxima', '6 m', '')],
             'sections': [
                 {'h2': 'El aluminio pide su propio pretratamiento', 'p': [
                     'El aluminio se cubre de forma natural de una fina capa de óxido. Si se pinta tal cual, la pintura agarra peor y, con la humedad, puede aparecer corrosión filiforme bajo la capa: hilos que avanzan desde un golpe o un corte.',
@@ -429,7 +435,7 @@ SERVICES = [
             ],
             'faq': [
                 ('¿Qué diferencia hay entre lacar y anodizar el aluminio?', 'El lacado aplica una capa de pintura en polvo, en cualquier color de la carta RAL. El anodizado transforma la superficie del propio aluminio en una capa de óxido protectora, con una gama de colores más corta. En JomaPaint lacamos.'),
-                ('¿Qué colores y acabados puedo elegir?', 'Toda la carta RAL Classic, lisa o texturada y del mate al brillante. Si dudas, te enviamos una placa de muestra.'),
+                ('¿Qué colores y acabados puedo elegir?', 'Toda la carta RAL Classic, lisa o texturada y del mate al brillo. Si dudas, te enviamos una placa de muestra.'),
                 ('¿Qué es la corrosión filiforme?', 'Es una corrosión en forma de hilos que avanza bajo la pintura del aluminio desde un golpe o un corte, sobre todo con humedad y sal. Se previene con un buen pretratamiento antes de lacar.'),
                 ('¿Lacáis perfiles con rotura de puente térmico?', PH('[a confirmar]') + ' La barreta de poliamida tiene que soportar el horno, y en texturados conviene un polvo formulado para no hacer ampollas sobre la poliamida.'),
                 ('¿Cuál es la longitud máxima de perfil?', 'Lacamos perfiles de hasta 6 m de largo.'),

@@ -10,7 +10,7 @@ import {
   RepeatWrapping, LinearMipmapLinearFilter, LinearFilter, NoColorSpace, SRGBColorSpace,
   NoToneMapping, PMREMGenerator, Vector2, Vector3, CatmullRomCurve3, TubeGeometry,
   DirectionalLight, Color, MathUtils, RGBAFormat, UnsignedByteType, SphereGeometry, MeshBasicMaterial,
-  BackSide, Float32BufferAttribute
+  BackSide, Float32BufferAttribute, SpotLight
 } from 'three';
 
 /* ---------- mapas de normales procedurales (repetibles) ---------- */
@@ -47,10 +47,23 @@ function normalTex(N, octaves, seed, strength, maxAniso) {
   return t;
 }
 
+/* ---------- ventana: lienzo con hojas y parteluces, bordes suaves ----------
+   Sirve para dos cosas: el reflejo en el entorno y la «luz de sol» que proyecta el foco. */
+function windowCanvas(w, h, cols, rows, blur, frame, alpha) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d');
+  const pad = frame * w, mull = Math.max(6, frame * 0.4 * w);
+  const pw = (w - 2 * pad - (cols - 1) * mull) / cols, ph = (h - 2 * pad - (rows - 1) * mull) / rows;
+  if ('filter' in g) g.filter = 'blur(' + blur + 'px)';
+  g.fillStyle = 'rgba(255,255,255,' + alpha + ')';
+  for (let x = 0; x < cols; x++) for (let y = 0; y < rows; y++) g.fillRect(pad + x * (pw + mull), pad + y * (ph + mull), pw, ph);
+  return c;
+}
+
 /* ---------- estudio para los reflejos ----------
-   Sala gris con degradado y tres ventanas de luz. La principal, alta y estrecha,
-   queda donde la placa la refleja hacia la cámara: con el vaivén, su reflejo cruza
-   la placa (nítido en brillante, ancho y suave en satinado, ausente en mate). */
+   Sala gris con degradado, un ventanal inclinado (sol de tarde) y dos rellenos.
+   El ventanal queda donde la placa lo refleja hacia la cámara: al moverse la luz,
+   su reflejo cruza la placa en diagonal (nítido en brillante, difuso en satinado, nada en mate). */
 function studio() {
   const env = new Scene();
   const sg = new SphereGeometry(20, 48, 24), pos = sg.attributes.position, col = [];
@@ -60,17 +73,19 @@ function studio() {
   }
   sg.setAttribute('color', new Float32BufferAttribute(col, 3));
   env.add(new Mesh(sg, new MeshBasicMaterial({ side: BackSide, vertexColors: true })));
-  function panel(az, el, w, h, k, r) {
-    const m = new Mesh(new PlaneGeometry(w, h), new MeshBasicMaterial({ color: new Color(k, k, k * 0.98), side: 2 }));
-    r = r || 14;
+  function place(m, az, el, r, roll) {
     const a = az * Math.PI / 180, e = el * Math.PI / 180;
     m.position.set(Math.sin(a) * Math.cos(e) * r, Math.sin(e) * r, Math.cos(a) * Math.cos(e) * r);
-    m.lookAt(0, 0, 0); env.add(m);
+    m.lookAt(0, 0, 0); if (roll) m.rotateZ(roll * Math.PI / 180); env.add(m);
   }
-  panel(36, 6, 1.25, 13, 5.5); // ventana principal, frente-derecha, partida en dos hojas
-  panel(43.5, 6, 0.6, 13, 5.5);
-  panel(-22, 10, 3.2, 9, 2.6); // relleno, frente-izquierda
-  panel(10, 62, 9, 5, 3.2);    // cenital
+  const winTex = new CanvasTexture(windowCanvas(512, 1024, 2, 3, 10, 0.06, 1));
+  winTex.colorSpace = SRGBColorSpace;
+  const win = new Mesh(new PlaneGeometry(3.6, 7.2), new MeshBasicMaterial({ map: winTex, color: new Color(7, 6.6, 6), transparent: true, depthWrite: false, side: 2 }));
+  place(win, 37, 8, 14, -24); // ventanal, frente-derecha, inclinado
+  const fill = new Mesh(new PlaneGeometry(3.2, 9), new MeshBasicMaterial({ color: new Color(2.4, 2.4, 2.45), side: 2 }));
+  place(fill, -24, 10, 14); // relleno, frente-izquierda
+  const top = new Mesh(new PlaneGeometry(9, 5), new MeshBasicMaterial({ color: new Color(3, 3, 3), side: 2 }));
+  place(top, 10, 62, 14);  // cenital
   return env;
 }
 
@@ -79,7 +94,7 @@ function studio() {
 const GLOSS = {
   mate: { roughness: 0.9, cc: 0, ccr: 0.6, spec: 0.55, peel: 0.0 },
   satinado: { roughness: 0.5, cc: 0.05, ccr: 0.32, spec: 0.6, peel: 0 },
-  brillante: { roughness: 0.45, cc: 1, ccr: 0.045, spec: 0.5, peel: 0 }
+  brillante: { roughness: 0.45, cc: 1, ccr: 0.03, spec: 0.5, peel: 0 }
 };
 const TEXTURED = {
   mate: { roughness: 0.95, cc: 0, ccr: 0.6, spec: 0.5 },
@@ -102,6 +117,7 @@ export function init(host, opts) {
   renderer.toneMapping = NoToneMapping;
   renderer.toneMappingExposure = 1.0;
   renderer.setClearColor(0x000000, 0);
+  renderer.shadowMap.enabled = true;
   const aniso = renderer.capabilities.getMaxAnisotropy();
 
   const scene = new Scene();
@@ -110,9 +126,31 @@ export function init(host, opts) {
   scene.environmentIntensity = 1;
   pmrem.dispose();
 
-  const key = new DirectionalLight(0xffffff, 0.7);
+  const key = new DirectionalLight(0xffffff, 0.45);
   key.position.set(-2.5, 3, 4);
   scene.add(key);
+
+  /* Sol de ventana: foco cálido con la silueta del ventanal (cookie). Proyecta
+     un rectángulo de luz con parteluces que cruza la placa despacio; el gancho
+     deja su sombra. Para usar la máscara (.map) el foco tiene que proyectar sombras. */
+  const cookie = new CanvasTexture((function () {
+    // dos haces de luz en diagonal, como el sol que entra por las dos hojas de un ventanal
+    const c = document.createElement('canvas'); c.width = c.height = 512;
+    const g = c.getContext('2d');
+    if ('filter' in g) g.filter = 'blur(7px)';
+    g.translate(256, 256); g.rotate(-24 * Math.PI / 180);
+    g.fillStyle = '#FFFFFF'; g.fillRect(-160, -300, 108, 600); g.fillRect(-10, -300, 66, 600);
+    return c;
+  })());
+  cookie.colorSpace = SRGBColorSpace;
+  const sun = new SpotLight(0xffe2bc, 2.4, 0, 0.16, 0.3, 0);
+  sun.position.set(-3.6, 3.1, 4.4);
+  sun.map = cookie;
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(1024, 1024);
+  sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.01;
+  sun.shadow.camera.near = 2; sun.shadow.camera.far = 14;
+  scene.add(sun, sun.target);
 
   const camera = new PerspectiveCamera(28, 440 / 470, 0.1, 50);
   camera.position.set(0, 0.3, 3.95);
@@ -135,6 +173,7 @@ export function init(host, opts) {
 
   const mat = new MeshPhysicalMaterial({ color: 0xf7b500, roughness: 0.46, metalness: 0, clearcoat: 0, ior: 1.5 });
   const plate = new Mesh(geo, mat);
+  plate.receiveShadow = true; plate.castShadow = true;
 
   /* pivote = punto donde el canto superior del agujero apoya en el alambre */
   const pivot = new Group();
@@ -150,6 +189,7 @@ export function init(host, opts) {
   pts.push(new Vector3(0, CY + 0.05, -D), new Vector3(0, CY + 0.075, -D * 0.9));
   const hookGeo = new TubeGeometry(new CatmullRomCurve3(pts, false, 'centripetal'), 360, WR, 14, false);
   const hook = new Mesh(hookGeo, new MeshStandardMaterial({ color: 0xc4c1c8, metalness: 1, roughness: 0.3 }));
+  hook.castShadow = true;
   pivot.add(hook);
 
   /* ---------- etiqueta ---------- */
@@ -157,6 +197,7 @@ export function init(host, opts) {
   const labTex = new CanvasTexture(lab); labTex.colorSpace = SRGBColorSpace; labTex.anisotropy = aniso;
   const labMat = new MeshStandardMaterial({ map: labTex, roughness: 0.75, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2 });
   const label = new Mesh(new PlaneGeometry(1, 1), labMat);
+  label.receiveShadow = true;
   plate.add(label);
   let lastText = '';
   /* Lienzo de tamaño fijo: la textura no cambia de tamaño (WebGL2 reserva su memoria una vez). */
@@ -216,7 +257,16 @@ export function init(host, opts) {
   resize();
 
   /* ---------- movimiento: vaivén lento y respuesta al puntero ---------- */
-  const BASE = opts.yaw != null ? opts.yaw : 0.34, AMP = 0.2, PERIOD = 9;
+  const BASE = opts.yaw != null ? opts.yaw : 0.34, AMP = 0.14, PERIOD = 9, SUN = 13;
+  const field = host.closest ? host.closest('.ral-field') : null;
+  let beam = null;
+  if (field) { beam = document.createElement('div'); beam.className = 'ral-sun'; beam.setAttribute('aria-hidden', 'true'); field.insertBefore(beam, field.firstChild); }
+  function setSun(p) {
+    sun.target.position.set(-1.05 + 2.1 * p, 0.12, 0);
+    scene.environmentRotation.y = -0.32 + 0.64 * p;
+    if (field) field.style.setProperty('--sun', p.toFixed(4));
+  }
+  setSun(opts.sun != null ? opts.sun : 0.42);
   let yaw = BASE, target = BASE, pointer = null, visible = true, raf = 0;
   const t0 = performance.now();
   canvas.addEventListener('pointermove', function (e) {
@@ -234,6 +284,7 @@ export function init(host, opts) {
     yaw += (target - yaw) * (pointer == null ? 0.06 : 0.12);
     pivot.rotation.y = yaw;
     pivot.rotation.z = reduce ? 0 : Math.sin(t * 2 * Math.PI / (PERIOD * 1.37)) * 0.012;
+    if (!reduce && opts.sun == null) setSun(0.5 - 0.5 * Math.cos(t * 2 * Math.PI / SUN));
     if (dirty || Math.abs(yaw - prev) > 1e-5 || !reduce) { renderer.render(scene, camera); dirty = false; }
     if (visible && !document.hidden && (!reduce || Math.abs(target - yaw) > 1e-4)) raf = requestAnimationFrame(frame);
   }
@@ -258,6 +309,7 @@ export function init(host, opts) {
       }
       apply(); kick();
     },
-    render() { renderer.render(scene, camera); }
+    render() { renderer.render(scene, camera); },
+    sun(p) { setSun(p); dirty = true; kick(); }
   };
 }

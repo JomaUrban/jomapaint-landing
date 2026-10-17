@@ -382,7 +382,7 @@
     };
     var renderSteps = function () {
       stepsEl.innerHTML = T.steps.map(function (lb, i) {
-        var n = i + 1, cur = n === q.step, done = n < q.step || q.step === 4, locked = (n > q.step && q.step !== 4) || q.step === 4;
+        var n = i + 1, cur = n === q.step, done = n < q.step || q.step === 4, locked = q.step === 4; /* se puede saltar a cualquier paso */
         return '<li><button type="button" data-act="go" data-v="' + n + '"' + (cur ? ' aria-current="step"' : '') + (locked ? ' disabled' : '') + '><span class="q-mark tnum">' + (done && !cur ? '✓' : n) + '</span><span class="q-step-l">' + esc(lb) + '</span></button></li>';
       }).join('');
     };

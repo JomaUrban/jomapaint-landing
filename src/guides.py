@@ -59,7 +59,7 @@ META = {
             'kicker': 'Calidad · Guía técnica',
             'h1': 'Normas y ensayos de la pintura en polvo',
             'lead': 'Qué dice cada norma, qué mide cada ensayo y cuánto dura: ISO 12944 parte por parte, ambientes C1 a CX, niebla salina, humedad, adherencia, brillo, preparación de superficie y normas EN. Con los ensayos del sistema Marine.',
-            'facts': [('Ambientes', 'C1 a CX', 'ISO 12944-2:2017'), ('Durabilidad', 'L · M · H · VH', 'No es una garantía'), ('C5 durabilidad alta', '1.440 h + 720 h', 'Niebla salina + condensación')],
+            'facts': [('Ambientes', 'C1 a CX', 'ISO 12944-2:2017'), ('Durabilidad', 'L · M · H · VH', 'No es una garantía'), ('Sistema Marine', 'C5-M', 'C5 · durabilidad media')],
         },
         'eu': {
             'slug': 'hauts-pinturaren-arauak-saiakuntzak/',
@@ -70,7 +70,7 @@ META = {
             'kicker': 'Kalitatea · Gida teknikoa',
             'h1': 'Hauts-pinturaren arauak eta saiakuntzak',
             'lead': 'Arau bakoitzak zer dioen, saiakuntza bakoitzak zer neurtzen duen eta zenbat irauten duen: ISO 12944 zatiz zati, C1etik CXerako giroak, gatz-lainoa, hezetasuna, atxikimendua, distira, gainazalaren prestaketa eta EN arauak. Marine sistemaren saiakuntzekin.',
-            'facts': [('Giroak', 'C1etik CXera', 'ISO 12944-2:2017'), ('Iraunkortasuna', 'L · M · H · VH', 'Ez da bermea'), ('C5 iraunkortasun handia', '1.440 h + 720 h', 'Gatz-lainoa + kondentsazioa')],
+            'facts': [('Giroak', 'C1etik CXera', 'ISO 12944-2:2017'), ('Iraunkortasuna', 'L · M · H · VH', 'Ez da bermea'), ('Marine sistema', 'C5-M', 'C5 · iraunkortasun ertaina')],
         },
         'fr': {
             'slug': 'normes-essais-peinture-poudre/',
@@ -81,7 +81,7 @@ META = {
             'kicker': 'Qualité · Guide technique',
             'h1': 'Normes et essais du thermolaquage',
             'lead': 'Ce que dit chaque norme, ce que mesure chaque essai et combien de temps il dure : l’ISO 12944 partie par partie, environnements C1 à CX, brouillard salin, humidité, adhérence, brillance, préparation de surface et normes EN. Avec les essais du système Marine.',
-            'facts': [('Environnements', 'C1 à CX', 'ISO 12944-2:2017'), ('Durabilité', 'L · M · H · VH', 'Ce n’est pas une garantie'), ('C5 durabilité haute', '1 440 h + 720 h', 'Brouillard salin + condensation')],
+            'facts': [('Environnements', 'C1 à CX', 'ISO 12944-2:2017'), ('Durabilité', 'L · M · H · VH', 'Ce n’est pas une garantie'), ('Système Marine', 'C5-M', 'C5 · durabilité moyenne')],
         },
     },
 }

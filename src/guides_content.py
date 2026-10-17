@@ -159,7 +159,7 @@ CERT = {
             {'h2': '¿C5-M o C5? Lo que cambió en 2017', 'p': [
                 'En la edición de 1998, C5 tenía dos variantes con la misma pérdida de acero: C5-I, industrial, y C5-M, marina, que incluía la costa y el offshore de alta salinidad.',
                 'En la edición de 2017, las dos se unificaron en C5, que cubre la industria húmeda y agresiva y la costa de alta salinidad. El offshore pasó a la nueva CX.',
-                'Hoy la categoría se escribe junto a la durabilidad: C4-H, C5-VH. Leída así, «C5-M» significa «C5 con durabilidad media», que es otra cosa. En un pliego, mejor escribir la categoría, la letra de durabilidad y la edición de la norma: por ejemplo, C5-H según ISO 12944-2:2017.',
+                'Hoy la categoría se escribe junto a la durabilidad: C4-H, C5-M, C5-VH. Así, «C5-M» significa «C5 con durabilidad media», de 7 a 15 años: es la clasificación del sistema Marine. En un pliego, mejor escribir la categoría, la letra de durabilidad y la edición de la norma: por ejemplo, C5-M según ISO 12944-2:2017.',
                 'La durabilidad (ISO 12944-1) se expresa en cuatro clases. No es un plazo de garantía, sino un dato para planificar. En 1998 las clases eran L (2 a 5 años), M (5 a 15) y H (más de 15).',
             ],
              'data': [
@@ -205,7 +205,7 @@ CERT = {
                  ('Corte por enrejado · ISO 2409', 'Se corta una cuadrícula hasta el metal, se aplica cinta y se mira cuánto se suelta. Clases de 0 (sin desprendimiento) a 5. QUALICOAT exige 0. No sirve por encima de 250 µm ni en texturados.'),
                  ('Tracción (pull-off) · ISO 4624', 'Se pega una sufridera y se arranca: da la adherencia en MPa. ISO 12944-9 pide al menos 5 MPa antes del envejecimiento.'),
                  ('Espesor · ISO 2808 e ISO 2360', 'ISO 2808 recoge los métodos de medida de la película, también del polvo sin curar; ISO 2360, la medida por corrientes inducidas sobre metal no magnético, como el aluminio. Sobre superficies chorreadas, el muestreo y la aceptación siguen ISO 19840.'),
-                 ('Brillo · ISO 2813', 'Se mide a 20°, 60° u 85°, en unidades de brillo (GU). QUALICOAT agrupa los polvos en tres categorías a 60°: mate (0–30 GU), satinado (31–70) y brillante (71–100).'),
+                 ('Brillo · ISO 2813', 'Se mide a 20°, 60° u 85°, en unidades de brillo (GU). QUALICOAT agrupa los polvos en tres categorías a 60°: mate (0–30 GU), satinado (31–70) y brillo (71–100).'),
                  ('Plegado · ISO 1519', 'Se dobla la probeta pintada sobre un mandril cilíndrico y se revisa si la película se agrieta o se despega.'),
                  ('Embutición · ISO 1520', 'Se deforma la chapa pintada con un punzón hasta formar una cúpula y se revisa la película.'),
                  ('Impacto · ISO 6272', 'Una masa cae sobre la probeta y se revisa si la película se agrieta o se despega.'),
@@ -238,9 +238,9 @@ CERT = {
              ]},
             # ---------------------------------------------------------- 15
             {'h2': 'Ensayos del sistema Marine', 'p': [
-                'Marine es el sistema anticorrosión de Joma para ambientes de corrosividad C5 (antes C5-M), como la primera línea de costa: pretratamiento por inmersión, cataforesis, imprimación y acabado en pintura en polvo.',
-                'No es un sistema certificado ni «conforme a ISO 12944», porque esa norma no cubre la pintura en polvo. Esta tabla recoge cada ensayo con su norma, su laboratorio y su número de informe.',
-                'Para declarar una durabilidad según los métodos de ISO 12944-6 hacen falta dos ensayos, condensación y niebla salina, evaluados con ISO 4628 y adherencia. Las horas de niebla salina no equivalen a años.',
+                'Marine es el sistema anticorrosión de Joma: pretratamiento por inmersión, cataforesis, imprimación y acabado en pintura en polvo. Su clasificación es C5-M: ambiente C5, como la primera línea de costa, con durabilidad media (7 a 15 años).',
+                'No es un sistema certificado: ISO 12944 se escribió para pinturas líquidas y no certifica sistemas en polvo. Por eso cada dato va con su norma, su laboratorio y su número de informe.',
+                'Para C5-M, ISO 12944-6 pide 720 h de niebla salina neutra y 480 h de condensación, evaluadas con ISO 4628 y adherencia. Las horas no equivalen a años.',
             ],
              'layers': [
                  ('Pintura en polvo', 'Acabado en el RAL elegido. Tipo de polvo: ' + PH('[poliéster: a confirmar]') + ' · ' + PH('[XX] µm')),
@@ -249,9 +249,9 @@ CERT = {
                  ('Sustrato', PH('[Acero, galvanizado o ambos: a confirmar]') + ', pretratado por inmersión'),
              ],
              'data': [
-                 ('Niebla salina neutra · UNE-EN ISO 9227', '1.000 h · ' + PH('[informe a confirmar]')),
+                 ('Niebla salina neutra · UNE-EN ISO 9227', '1.000 h (C5-M pide 720 h) · ' + PH('[informe a confirmar]')),
                  ('Resultado', PH('[ampollas, óxido y avance desde la incisión según ISO 4628]')),
-                 ('Humedad · ISO 6270-2', PH('[XX] h')),
+                 ('Condensación · ISO 6270-1', PH('[C5-M pide 480 h: informe a confirmar]')),
                  ('Adherencia · ISO 2409', PH('[clase a confirmar]')),
                  ('Espesor total · ISO 2808', PH('[XX] µm')),
                  ('Laboratorio y n.º de informe', PH('[a confirmar]')),
@@ -266,7 +266,7 @@ CERT = {
                  ('Interior con condensación o exterior rural · C2', 'Naves sin calefacción, almacenes, polideportivos; exterior poco contaminado. En exterior, una capa de poliéster.'),
                  ('Urbano o costa de baja salinidad · C3', 'Ciudad, industria con SO₂ moderado, salas de producción húmedas. Poliéster sobre un pretratamiento cuidado; sobre galvanizado, sistema dúplex.'),
                  ('Industrial o costa de salinidad moderada · C4', 'Plantas químicas, piscinas. En acero, imprimación y acabado; en galvanizado, una o dos capas según la durabilidad.'),
-                 ('Industria agresiva o costa de alta salinidad · C5', 'Antes C5-I y C5-M. Sistemas de varias capas: galvanizado con imprimación y acabado, o cataforesis, imprimación y acabado, como el sistema Marine. Pide los ensayos del sistema completo.'),
+                 ('Industria agresiva o costa de alta salinidad · C5', 'En 1998, C5-I y C5-M. Sistemas de varias capas: galvanizado con imprimación y acabado, o cataforesis, imprimación y acabado, como el sistema Marine C5-M. Pide los ensayos del sistema completo.'),
                  ('Offshore, inmersión o enterrado · CX e Im', 'Sistemas específicos, ensayados según ISO 12944-9 (CX, Im4) o ISO 12944-6 (Im1 a Im3). Se estudian caso a caso.'),
              ],
              'note': 'En aluminio para arquitectura, QUALICOAT recomienda pretratamiento SEASIDE o pre-anodizado a partir de C4.'},
@@ -290,7 +290,7 @@ CERT = {
         'faq': [
             ('¿Qué diferencia hay entre una certificación y una norma?', 'Una certificación la concede un tercero que inspecciona al lacador y ensaya sus piezas, como QUALICOAT o QUALISTEELCOAT; tiene número y vigencia. Una norma, como ISO 12944 o ISO 9227, define ensayos y requisitos; su cumplimiento se demuestra con informes de ensayo.'),
             ('¿Se aplica la norma ISO 12944 a la pintura en polvo?', 'No directamente. ISO 12944 está pensada para pinturas que secan a temperatura ambiente y deja fuera los recubrimientos en polvo. Un sistema en polvo puede ensayarse según sus métodos, certificarse con QUALISTEELCOAT o GSB, o seguir la norma alemana DIN 55633, escrita para sistemas en polvo sobre acero.'),
-            ('¿Sigue existiendo la clase C5-M?', 'No. En ISO 12944-2:2017, C5-I y C5-M se unificaron en C5, que incluye la costa de alta salinidad, y se creó CX para offshore y ambientes extremos. Hoy «C5-M» puede leerse como «C5 con durabilidad media».'),
+            ('¿Sigue existiendo la clase C5-M?', 'Sí, con otro significado. En 1998 era la clase marina; en ISO 12944-2:2017, C5-I y C5-M se unificaron en C5, y la letra pasó a indicar la durabilidad. Hoy C5-M es C5 con durabilidad media (7 a 15 años): la clasificación del sistema Marine.'),
             ('¿A cuántos años equivalen 1.000 horas de niebla salina?', 'A ninguna cifra concreta. La propia ISO 9227 advierte que el ensayo no sirve para predecir la resistencia a largo plazo. Sirve para controlar un sistema concreto frente a una referencia.'),
             ('¿La durabilidad de ISO 12944 es una garantía?', 'No. Las clases L, M, H y VH son un dato para planificar, no un plazo de garantía. La garantía se pacta aparte, por escrito.'),
             ('Si el polvo está homologado QUALICOAT, ¿el lacado también lo está?', 'No. La homologación es del polvo; el sello es del lacador. Solo una planta con licencia QUALICOAT puede vender su lacado con el sello. Con GSB ocurre lo mismo.'),
@@ -441,7 +441,7 @@ CERT = {
             {'h2': 'C5-M ala C5? 2017an aldatu zena', 'p': [
                 '1998ko edizioan, C5ek bi aldaera zituen, altzairu-galera berarekin: C5-I, industriala, eta C5-M, itsasokoa, gazitasun handiko kostaldea eta offshore-a barne.',
                 '2017ko edizioan biak C5 bakarrean bateratu ziren, eta horrek industria heze eta oldarkorra eta gazitasun handiko kostaldea hartzen ditu. Offshore-a CX kategoria berrira pasatu zen.',
-                'Gaur egun kategoria iraunkortasunarekin batera idazten da: C4-H, C5-VH. Horrela irakurrita, «C5-M» «C5, iraunkortasun ertaina» da, eta hori beste gauza bat da. Baldintza-agirian, hobe da kategoria, iraunkortasun-letra eta arauaren edizioa idaztea: adibidez, C5-H, ISO 12944-2:2017 arauaren arabera.',
+                'Gaur egun kategoria iraunkortasunarekin batera idazten da: C4-H, C5-M, C5-VH. Horrela, «C5-M» «C5, iraunkortasun ertaina» da, 7tik 15 urtera: Marine sistemaren sailkapena. Baldintza-agirian, hobe da kategoria, iraunkortasun-letra eta arauaren edizioa idaztea: adibidez, C5-M, ISO 12944-2:2017 arauaren arabera.',
                 'Iraunkortasuna (ISO 12944-1) lau mailatan adierazten da. Ez da berme-epea, planifikatzeko datua baizik. 1998an mailak hauek ziren: L (2 eta 5 urte artean), M (5 eta 15 artean) eta H (15 baino gehiago).',
             ],
              'data': [
@@ -520,9 +520,9 @@ CERT = {
              ]},
             # ---------------------------------------------------------- 15
             {'h2': 'Marine sistemaren saiakuntzak', 'p': [
-                'Marine Jomaren korrosioaren aurkako sistema da C5 korrosibitateko giroetarako (lehen C5-M), hala nola itsasertzeko lehen lerrorako: murgiltze bidezko aurretratamendua, kataforesia, inprimazioa eta hauts-pinturazko akabera.',
-                'Ez da sistema ziurtatua, ezta «ISO 12944 arauarekin bat» ere, arau horrek ez baitu hauts-pintura hartzen. Taula honek saiakuntza bakoitza jasotzen du, bere arauarekin, laborategiarekin eta txosten-zenbakiarekin.',
-                'ISO 12944-6ren metodoen araberako iraunkortasun bat adierazteko, bi saiakuntza behar dira, kondentsazioa eta gatz-lainoa, ISO 4628 arauarekin eta atxikimenduarekin ebaluatuta. Gatz-laino orduak ez dira urteen baliokideak.',
+                'Marine Jomaren korrosioaren aurkako sistema da: murgiltze bidezko aurretratamendua, kataforesia, inprimazioa eta hauts-pinturazko akabera. Haren sailkapena C5-M da: C5 giroa, itsasertzeko lehen lerroa adibidez, iraunkortasun ertainarekin (7-15 urte).',
+                'Ez da sistema ziurtatua: ISO 12944 pintura likidoetarako idatzi zen eta ez ditu hauts-sistemak ziurtatzen. Horregatik, datu bakoitza bere arauarekin, laborategiarekin eta txosten-zenbakiarekin doa.',
+                'C5-M lortzeko, ISO 12944-6k 720 h gatz-laino neutro eta 480 h kondentsazio eskatzen ditu, ISO 4628 arauarekin eta atxikimenduarekin ebaluatuta. Orduak ez dira urteen baliokideak.',
             ],
              'layers': [
                  ('Hauts-pintura', 'Akabera, aukeratutako RALean. Hauts mota: ' + PH('[poliesterra: berresteko]') + ' · ' + PH('[XX] µm')),
@@ -531,9 +531,9 @@ CERT = {
                  ('Substratua', PH('[Altzairua, galbanizatua edo biak: berresteko]') + ', murgiltze bidez aurretratatua'),
              ],
              'data': [
-                 ('Gatz-laino neutroa · UNE-EN ISO 9227', '1.000 h · ' + PH('[txostena berresteko]')),
+                 ('Gatz-laino neutroa · UNE-EN ISO 9227', '1.000 h (C5-Mk 720 h eskatzen ditu) · ' + PH('[txostena berresteko]')),
                  ('Emaitza', PH('[burbuilak, herdoila eta ebakitiko aurrerapena, ISO 4628 arauaren arabera]')),
-                 ('Hezetasuna · ISO 6270-2', PH('[XX] h')),
+                 ('Kondentsazioa · ISO 6270-1', PH('[C5-Mk 480 h eskatzen ditu: txostena berresteko]')),
                  ('Atxikimendua · ISO 2409', PH('[klasea berresteko]')),
                  ('Lodiera osoa · ISO 2808', PH('[XX] µm')),
                  ('Laborategia eta txosten-zenbakia', PH('[berresteko]')),
@@ -548,7 +548,7 @@ CERT = {
                  ('Kondentsazioa duen barrualdea edo landa-giroa · C2', 'Nabe berotu gabeak, biltegiak, kiroldegiak; kutsadura gutxiko kanpoaldea. Kanpoan, poliester-geruza bat.'),
                  ('Hiria edo gazitasun txikiko kostaldea · C3', 'Hiria, SO₂ moderatuko industria, ekoizpen-areto hezeak. Poliesterra, aurretratamendu zaindu baten gainean; galbanizatuan, sistema duplexa.'),
                  ('Industria edo gazitasun moderatuko kostaldea · C4', 'Lantegi kimikoak, igerilekuak. Altzairuan, inprimazioa eta akabera; galbanizatuan, geruza bat edo bi, iraunkortasunaren arabera.'),
-                 ('Industria oldarkorra edo gazitasun handiko kostaldea · C5', 'Lehen C5-I eta C5-M. Geruza anitzeko sistemak: galbanizatua inprimazioarekin eta akaberarekin, edo kataforesia, inprimazioa eta akabera, Marine sistema bezala. Eskatu sistema osoaren saiakuntzak.'),
+                 ('Industria oldarkorra edo gazitasun handiko kostaldea · C5', '1998an, C5-I eta C5-M. Geruza anitzeko sistemak: galbanizatua inprimazioarekin eta akaberarekin, edo kataforesia, inprimazioa eta akabera, Marine C5-M sistema bezala. Eskatu sistema osoaren saiakuntzak.'),
                  ('Offshore, urpean edo lurperatuta · CX eta Im', 'Berariazko sistemak, ISO 12944-9 (CX, Im4) edo ISO 12944-6 (Im1etik Im3ra) arauen arabera probatuak. Kasuz kasu aztertzen dira.'),
              ],
              'note': 'Arkitekturako aluminioan, QUALICOATek SEASIDE aurretratamendua edo aurre-anodizatua gomendatzen du C4tik aurrera.'},
@@ -572,7 +572,7 @@ CERT = {
         'faq': [
             ('Zer alde dago ziurtapen baten eta arau baten artean?', 'Ziurtapena hirugarren batek ematen du, lakatzailea ikuskatu eta haren piezei saiakuntzak egin ondoren, QUALICOATek edo QUALISTEELCOATek bezala; zenbakia eta indarraldia ditu. Arau batek, ISO 12944k edo ISO 9227k bezala, saiakuntzak eta baldintzak zehazten ditu; betetzen dela saiakuntza-txostenekin frogatzen da.'),
             ('ISO 12944 araua hauts-pinturari aplikatzen zaio?', 'Ez zuzenean. ISO 12944 giro-tenperaturan lehortzen diren pinturetarako pentsatuta dago, eta kanpoan uzten ditu hauts-estaldurak. Hauts-sistema bat haren metodoen arabera proba daiteke, QUALISTEELCOAT edo GSB bidez ziurta daiteke, edo DIN 55633 arau alemanari jarrai diezaioke, altzairuaren gaineko hauts-sistemetarako idatzia.'),
-            ('Oraindik badago C5-M klasea?', 'Ez. ISO 12944-2:2017 arauan, C5-I eta C5-M C5 bakarrean bateratu ziren, gazitasun handiko kostaldea barne, eta CX sortu zen offshore-rako eta muturreko giroetarako. Gaur «C5-M» «C5, iraunkortasun ertaina» gisa irakur daiteke.'),
+            ('Oraindik badago C5-M klasea?', 'Bai, beste esanahi batekin. 1998an itsas klasea zen; ISO 12944-2:2017 arauan, C5-I eta C5-M C5 bakarrean bateratu ziren, eta letrak iraunkortasuna adierazten du orain. Gaur C5-M C5 da, iraunkortasun ertainarekin (7-15 urte): Marine sistemaren sailkapena.'),
             ('Zenbat urteren baliokideak dira gatz-lainoko 1.000 orduak?', 'Ez dago kopuru zehatzik. ISO 9227 arauak berak ohartarazten du saiakuntza ez dela epe luzeko erresistentzia aurreikusteko. Sistema jakin bat erreferentzia baten aldean kontrolatzeko balio du.'),
             ('ISO 12944ko iraunkortasuna bermea al da?', 'Ez. L, M, H eta VH mailak planifikatzeko datua dira, ez berme-epea. Bermea aparte hitzartzen da, idatziz.'),
             ('Hautsa QUALICOAT homologatua bada, lakatzea ere bai?', 'Ez. Homologazioa hautsarena da; zigilua, lakatzailearena. QUALICOAT lizentzia duen lantegi batek bakarrik saldu dezake bere lakatzea zigiluarekin. GSBrekin gauza bera gertatzen da.'),
@@ -723,7 +723,7 @@ CERT = {
             {'h2': 'C5-M ou C5 ? Ce qui a changé en 2017', 'p': [
                 'Dans l’édition de 1998, C5 avait deux variantes pour la même perte d’acier : C5-I, industrielle, et C5-M, marine, qui couvrait le littoral et l’offshore à forte salinité.',
                 'Dans l’édition de 2017, les deux ont été regroupées en C5, qui couvre l’industrie humide et agressive et le littoral à forte salinité. L’offshore est passé dans la nouvelle catégorie CX.',
-                'Aujourd’hui, la catégorie s’écrit avec la durabilité : C4-H, C5-VH. Lue ainsi, « C5-M » signifie « C5, durabilité moyenne », ce qui est autre chose. Dans un cahier des charges, mieux vaut écrire la catégorie, la lettre de durabilité et l’édition de la norme : par exemple, C5-H selon l’ISO 12944-2:2017.',
+                'Aujourd’hui, la catégorie s’écrit avec la durabilité : C4-H, C5-M, C5-VH. Ainsi, « C5-M » signifie « C5, durabilité moyenne », de 7 à 15 ans : c’est le classement du système Marine. Dans un cahier des charges, mieux vaut écrire la catégorie, la lettre de durabilité et l’édition de la norme : par exemple, C5-M selon l’ISO 12944-2:2017.',
                 'La durabilité (ISO 12944-1) s’exprime en quatre niveaux. Ce n’est pas une durée de garantie, mais une donnée de planification. En 1998, les niveaux étaient L (2 à 5 ans), M (5 à 15) et H (plus de 15).',
             ],
              'data': [
@@ -802,9 +802,9 @@ CERT = {
              ]},
             # ---------------------------------------------------------- 15
             {'h2': 'Essais du système Marine', 'p': [
-                'Marine est le système anticorrosion de Joma pour les environnements de corrosivité C5 (anciennement C5-M), comme le front de mer : prétraitement par immersion, cataphorèse, primaire et finition en peinture poudre.',
-                'Ce n’est ni un système certifié ni un système « conforme à l’ISO 12944 », puisque cette norme ne couvre pas la peinture poudre. Ce tableau reprend chaque essai avec sa norme, son laboratoire et son numéro de rapport.',
-                'Pour déclarer une durabilité selon les méthodes de l’ISO 12944-6, il faut deux essais, condensation et brouillard salin, évalués selon l’ISO 4628 et par l’adhérence. Les heures de brouillard salin ne se convertissent pas en années.',
+                'Marine est le système anticorrosion de Joma : prétraitement par immersion, cataphorèse, primaire et finition en peinture poudre. Son classement est C5-M : environnement C5, comme le front de mer, durabilité moyenne (7 à 15 ans).',
+                'Ce n’est pas un système certifié : l’ISO 12944 a été écrite pour les peintures liquides et ne certifie pas les systèmes poudre. Chaque donnée est donc indiquée avec sa norme, son laboratoire et son numéro de rapport.',
+                'Pour C5-M, l’ISO 12944-6 exige 720 h de brouillard salin neutre et 480 h de condensation, évaluées selon l’ISO 4628 et par l’adhérence. Les heures ne se convertissent pas en années.',
             ],
              'layers': [
                  ('Peinture poudre', 'Finition dans le RAL choisi. Type de poudre : ' + PH('[polyester : à confirmer]') + ' · ' + PH('[XX] µm')),
@@ -813,9 +813,9 @@ CERT = {
                  ('Support', PH('[Acier, galvanisé ou les deux : à confirmer]') + ', prétraité par immersion'),
              ],
              'data': [
-                 ('Brouillard salin neutre · UNE-EN ISO 9227', '1 000 h · ' + PH('[rapport à confirmer]')),
+                 ('Brouillard salin neutre · UNE-EN ISO 9227', '1 000 h (C5-M exige 720 h) · ' + PH('[rapport à confirmer]')),
                  ('Résultat', PH('[cloquage, enrouillement et progression depuis la rayure selon ISO 4628]')),
-                 ('Humidité · ISO 6270-2', PH('[XX] h')),
+                 ('Condensation · ISO 6270-1', PH('[C5-M exige 480 h : rapport à confirmer]')),
                  ('Adhérence · ISO 2409', PH('[classe à confirmer]')),
                  ('Épaisseur totale · ISO 2808', PH('[XX] µm')),
                  ('Laboratoire et n° de rapport', PH('[à confirmer]')),
@@ -830,7 +830,7 @@ CERT = {
                  ('Intérieur avec condensation ou extérieur rural · C2', 'Bâtiments non chauffés, entrepôts, salles de sport ; extérieur peu pollué. En extérieur, une couche de polyester.'),
                  ('Urbain ou littoral à faible salinité · C3', 'Ville, industrie à SO₂ modéré, ateliers humides. Polyester sur un prétraitement soigné ; sur galvanisé, système duplex.'),
                  ('Industriel ou littoral à salinité modérée · C4', 'Usines chimiques, piscines. Sur acier, primaire et finition ; sur galvanisé, une ou deux couches selon la durabilité.'),
-                 ('Industrie agressive ou littoral à forte salinité · C5', 'Anciennement C5-I et C5-M. Systèmes multicouches : galvanisé avec primaire et finition, ou cataphorèse, primaire et finition, comme le système Marine. Demandez les essais du système complet.'),
+                 ('Industrie agressive ou littoral à forte salinité · C5', 'En 1998, C5-I et C5-M. Systèmes multicouches : galvanisé avec primaire et finition, ou cataphorèse, primaire et finition, comme le système Marine C5-M. Demandez les essais du système complet.'),
                  ('Offshore, immersion ou enfoui · CX et Im', 'Systèmes spécifiques, essayés selon l’ISO 12944-9 (CX, Im4) ou l’ISO 12944-6 (Im1 à Im3). À étudier au cas par cas.'),
              ],
              'note': 'Sur aluminium pour l’architecture, QUALICOAT recommande le prétraitement SEASIDE ou la pré-anodisation à partir de C4.'},
@@ -854,7 +854,7 @@ CERT = {
         'faq': [
             ('Quelle différence entre une certification et une norme ?', 'Une certification est délivrée par un tiers qui inspecte l’applicateur et fait essayer ses pièces, comme QUALICOAT ou QUALISTEELCOAT ; elle a un numéro et une durée de validité. Une norme, comme l’ISO 12944 ou l’ISO 9227, définit des essais et des exigences ; la conformité se démontre par des rapports d’essai.'),
             ('L’ISO 12944 s’applique-t-elle à la peinture poudre ?', 'Pas directement. L’ISO 12944 vise les peintures qui sèchent à température ambiante et exclut les revêtements en poudre. Un système poudre peut être essayé selon ses méthodes, certifié par QUALISTEELCOAT ou GSB, ou suivre la norme allemande DIN 55633, écrite pour les systèmes poudre sur acier.'),
-            ('La classe C5-M existe-t-elle encore ?', 'Non. Dans l’ISO 12944-2:2017, C5-I et C5-M ont été regroupées en C5, qui inclut le littoral à forte salinité, et la catégorie CX a été créée pour l’offshore et les environnements extrêmes. Aujourd’hui, « C5-M » peut se lire « C5, durabilité moyenne ».'),
+            ('La classe C5-M existe-t-elle encore ?', 'Oui, avec un autre sens. En 1998, c’était la classe marine ; dans l’ISO 12944-2:2017, C5-I et C5-M ont été regroupées en C5, et la lettre indique désormais la durabilité. Aujourd’hui, C5-M signifie C5 avec une durabilité moyenne (7 à 15 ans) : c’est le classement du système Marine.'),
             ('À combien d’années correspondent 1 000 heures de brouillard salin ?', 'À aucun chiffre précis. L’ISO 9227 elle-même précise que l’essai ne sert pas à prédire la tenue à long terme. Il sert à contrôler un système donné par rapport à une référence.'),
             ('La durabilité de l’ISO 12944 est-elle une garantie ?', 'Non. Les niveaux L, M, H et VH sont une donnée de planification, pas une durée de garantie. La garantie se convient à part, par écrit.'),
             ('Si la poudre est homologuée QUALICOAT, le laquage l’est-il aussi ?', 'Non. L’homologation porte sur la poudre ; le label, sur l’applicateur. Seule une usine sous licence QUALICOAT peut vendre son laquage avec le label. Il en va de même avec GSB.'),
