@@ -28,7 +28,7 @@ Además, `seguimiento.html` es la página de ejemplo del seguimiento de pedido (
 - **Hero** con subida de plano y presupuesto en 24 h, y partículas de polvo animadas.
 - **Servicios**, con enlace a cada página de servicio.
 - **Proceso** en cinco estaciones, interactivo.
-- **Explorador RAL Classic** con los 213 colores, textura y brillo.
+- **Explorador RAL Classic** con los 216 colores, textura y brillo.
 - **Cotizador guiado** en tres pasos. Arranca con una referencia vacía y envía la solicitud por email con FormSubmit (adjuntos hasta 10 MB). El destino está en `FORM_ENDPOINT` (`src/content.py`): ahora, el correo de pruebas de Jox; después, marimar@joma.es. El plazo se calcula en horario de oficina (L–V, 7:00–17:00, hora de Madrid).
 - **Dónde trabajamos**: zonas de servicio con los núcleos industriales, sin listas de topónimos (Google lo considera *keyword stuffing*). Las mismas zonas van en `areaServed`.
 - **Seguimiento de pedido** (vista previa).
@@ -104,7 +104,7 @@ El build avisa si algún `title` pasa de 62 caracteres o alguna `description` se
 - Imagen del hero con `srcset` (800, 1200 y 2000 px).
 - Todas las imágenes llevan medidas, y las que quedan fuera de pantalla cargan en diferido.
 - Las partículas arrancan cuando la página ya ha cargado. En móvil hay menos.
-- La rejilla de 213 colores RAL se pinta al acercarse a la sección.
+- La rejilla de 216 colores RAL se pinta al acercarse a la sección.
 - El texto de las muestras RAL es negro o blanco según el contraste WCAG.
 - Open Graph con imagen propia por página e idioma (`assets/og/`).
 

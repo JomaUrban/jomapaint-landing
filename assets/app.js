@@ -309,7 +309,7 @@
     var first = RAL.filter(function (x) { return x.c === state.ral.c; })[0];
     if (first) state.ral = { c: first.c, n: ralName(first), h: first.h };
     paintPlate();
-    /* La rejilla de 213 colores se pinta al acercarse a la sección. */
+    /* La rejilla de 216 colores se pinta al acercarse a la sección. */
     if (window.IntersectionObserver) {
       var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); paintGrid(); } }, { rootMargin: '800px 0px' });
       io.observe(grid);
