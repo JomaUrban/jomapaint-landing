@@ -36,7 +36,6 @@
       </div>
 
       <div class="hero-foot">
-        <span class="lockline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M7 10.5 V7.5 A5 5 0 0 1 17 7.5 V10.5 M5 10.5 H19 V20.5 H5 Z"></path></svg>{{ L.hero.privacy }}</span>
         <a href="#seguimiento">{{ L.hero.track }}</a>
       </div>
     </div>
@@ -157,29 +156,36 @@
             <svg id="ral-svg" viewBox="0 0 440 470" role="img" aria-label="{{ L.ral.plate }}">
               <defs>
                 <linearGradient id="jpr-face" x1="0" y1="0" x2="1" y2="1"><stop id="f0" offset="0"></stop><stop id="f1" offset="0.55"></stop><stop id="f2" offset="1"></stop></linearGradient>
-                <linearGradient id="jpr-spec" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="s1" offset="0.18" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="s2" offset="0.38" stop-color="#FFFFFF" stop-opacity="0.17"></stop><stop id="s3" offset="0.6" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+                <radialGradient id="jpr-sheen" cx="0.32" cy="0.28" r="0.75"><stop id="sh0" offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="sh1" offset="0.45" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></radialGradient>
+                <linearGradient id="jpr-refl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rf1" offset="0.2" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rf2" offset="0.5" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+                <linearGradient id="jpr-rim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rm1" offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
                 <linearGradient id="jpr-pearl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFD9F2" stop-opacity="0"></stop><stop offset="0.38" stop-color="#D6F0FF" stop-opacity="0.55"></stop><stop offset="0.62" stop-color="#FFF4D2" stop-opacity="0.55"></stop><stop offset="1" stop-color="#FFD9F2" stop-opacity="0"></stop></linearGradient>
+                <clipPath id="jpr-hole"><circle cx="218" cy="100" r="8"></circle></clipPath>
                 <clipPath id="jpr-clip"><polygon points="118,64 318,84 318,394 118,414"></polygon></clipPath>
-                <filter id="jpr-peel" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"></feTurbulence><feDiffuseLighting lighting-color="#FFFFFF" surfaceScale="1.6"><feDistantLight azimuth="225" elevation="55"></feDistantLight></feDiffuseLighting></filter>
-                <filter id="jpr-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7"></feTurbulence><feDiffuseLighting lighting-color="#FFFFFF" surfaceScale="2.6"><feDistantLight azimuth="225" elevation="42"></feDistantLight></feDiffuseLighting></filter>
+                <filter id="jpr-tex-d" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="2" seed="11"></feTurbulence><feGaussianBlur stdDeviation="0.35"></feGaussianBlur><feColorMatrix type="saturate" values="0"></feColorMatrix><feDiffuseLighting surfaceScale="1.6" lighting-color="#FFFFFF"><feDistantLight azimuth="225" elevation="48"></feDistantLight></feDiffuseLighting><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.38"></feColorMatrix></filter>
+                <filter id="jpr-tex-l" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="2" seed="11"></feTurbulence><feGaussianBlur stdDeviation="0.35"></feGaussianBlur><feColorMatrix type="saturate" values="0"></feColorMatrix><feDiffuseLighting surfaceScale="1.6" lighting-color="#FFFFFF"><feDistantLight azimuth="225" elevation="48"></feDistantLight></feDiffuseLighting><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  3.2 0 0 0 -2.38"></feColorMatrix></filter>
+                <filter id="jpr-soft"><feGaussianBlur stdDeviation="2.2"></feGaussianBlur></filter>
                 <filter id="jpr-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter>
               </defs>
               <ellipse cx="224" cy="448" rx="132" ry="12" fill="#000000" opacity="0.38" filter="url(#jpr-blur)"></ellipse>
-              <path d="M218 0 V86" stroke="#B9B6BE" stroke-width="3" stroke-linecap="round"></path>
               <polygon id="r-top" points="118,64 128,58 328,78 318,84"></polygon>
               <polygon id="r-side" points="318,84 328,78 328,388 318,394"></polygon>
               <polygon points="118,64 318,84 318,394 118,414" fill="url(#jpr-face)"></polygon>
               <g clip-path="url(#jpr-clip)">
-                <rect id="r-peel" x="100" y="50" width="240" height="380" filter="url(#jpr-peel)" opacity="0.16" style="mix-blend-mode:multiply;"></rect>
-                <rect id="r-grain" x="100" y="50" width="240" height="380" filter="url(#jpr-grain)" opacity="0" style="mix-blend-mode:multiply;"></rect>
+                <rect id="r-tex-d" x="100" y="50" width="240" height="380" fill="#000000" filter="url(#jpr-tex-d)" opacity="0"></rect>
+                <rect id="r-tex-l" x="100" y="50" width="240" height="380" filter="url(#jpr-tex-l)" opacity="0"></rect>
                 <rect id="r-pearl" x="100" y="50" width="240" height="380" fill="url(#jpr-pearl)" opacity="0" style="mix-blend-mode:screen;"></rect>
-                <rect x="100" y="50" width="240" height="380" fill="url(#jpr-spec)"></rect>
-                <polygon id="r-glint" points="284,80 296,81 296,392 284,393" fill="#FFFFFF" opacity="0.06"></polygon>
+                <rect x="100" y="50" width="240" height="380" fill="url(#jpr-sheen)"></rect>
+                <polygon points="118,96 318,116 318,176 118,156" fill="url(#jpr-refl)" filter="url(#jpr-soft)"></polygon>
+                <polygon points="118,330 318,310 318,394 118,414" fill="url(#jpr-rim)"></polygon>
               </g>
-              <line x1="118" y1="64" x2="318" y2="84" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.2"></line>
+              <line id="r-edge" x1="118" y1="64" x2="318" y2="84" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="1.2"></line>
               <circle id="r-hole" cx="218" cy="100" r="9"></circle>
               <circle cx="218" cy="100" r="9" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="2"></circle>
-              <path d="M218 86 V96 C218 108 230 110 230 101" stroke="#D4D1D8" stroke-width="3" fill="none" stroke-linecap="round"></path>
+              <path d="M218 92 V103 C218 108 222 110 228 108" stroke="#77747C" stroke-width="3" fill="none" stroke-linecap="round" clip-path="url(#jpr-hole)"></path>
+              <path d="M221.5 66 V91" stroke="#000000" stroke-opacity="0.2" stroke-width="2.5" stroke-linecap="round" clip-path="url(#jpr-clip)"></path>
+              <path d="M218 0 V93" stroke="#B9B6BE" stroke-width="3" stroke-linecap="round"></path>
+              <path d="M217.2 0 V92" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="0.8"></path>
             </svg>
             <span id="ral-sticker" aria-hidden="true" class="ral-sticker tnum"></span>
           </div>
@@ -280,7 +286,7 @@
 </section>
 
 <!-- ============ CALIDAD ============ -->
-<section aria-labelledby="h-quality" class="quality">
+<section id="calidad" aria-labelledby="h-quality" class="quality">
   <div class="wrap quality-in">
     <div class="split">
       <h2 id="h-quality" class="h2" style="max-width:14ch;">{{ L.quality.h2 }}</h2>
@@ -299,11 +305,17 @@
     </article>
     <ul class="seal-row">
       <li><span class="seal-logo"><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="66" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[0][1] }}</span></li>
-      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[1][0] }}" width="106" height="48" loading="lazy" decoding="async" class="seal-pending"></span><span class="seal-cap">{{ L.quality.seals[1][1] }}</span></li>
-      <li><span class="seal-logo"><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[2][0] }}" width="64" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[2][1] }}</span></li>
-      <li><span class="seal-logo"><svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[3][0] }}" width="88" height="56"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg></span><span class="seal-cap">{{ L.quality.seals[3][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[1][0] }}" width="64" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[1][1] }}</span></li>
+      <li><span class="seal-logo"><svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[2][0] }}" width="88" height="56"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg></span><span class="seal-cap">{{ L.quality.seals[2][1] }}</span></li>
     </ul>
     <p class="asterisk">{{ L.quality.note }}</p>
+    <nav class="guides" aria-labelledby="h-guides">
+      <h3 id="h-guides" class="guides-h">{{ L.quality.guides_h }}</h3>
+      <ul>
+        {% for t, d in L.quality.guides %}<li><a href="{{ guide_href[loop.index0] }}" class="guide-link"><span class="guide-t">{{ t }}</span><span class="guide-d">{{ d }}</span><svg class="guide-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18"></path></svg></a></li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
   <div class="logos" aria-label="{{ L.quality.marquee_label }}" role="region">
     <p class="logos-l">{{ L.quality.marquee }}</p>
@@ -323,6 +335,21 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ DÓNDE TRABAJAMOS ============ -->
+<section id="zona" aria-labelledby="h-area" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(28px,3.5cqi,48px);">
+    <div class="split">
+      <h2 id="h-area" class="h2" style="max-width:14ch;">{{ L.area.h2 }}</h2>
+      <p class="lead">{{ L.area.lead }}</p>
+    </div>
+    <ul class="area-grid">
+      {% for t, p, x in L.area.zones %}<li><h3 class="area-t">{{ t }}</h3><p class="area-p">{{ p }}</p><p class="area-x">{{ x }}</p></li>
+      {% endfor %}
+    </ul>
+    <p class="area-note">{{ L.area.note }}</p>
   </div>
 </section>
 

@@ -19,11 +19,11 @@
       <nav class="crumbs" aria-label="{{ L.svc.crumbs }}">
         <ol>
           <li><a href="{{ home_href }}">{{ L.svc.home }}</a></li>
-          <li><a href="{{ home_href }}#servicios">{{ L.svc.services }}</a></li>
+          {% if guide %}<li><a href="{{ home_href }}#calidad">{{ L.svc.quality }}</a></li>{% else %}<li><a href="{{ home_href }}#servicios">{{ L.svc.services }}</a></li>{% endif %}
           <li><span aria-current="page">{{ S.crumb }}</span></li>
         </ol>
       </nav>
-      <div class="svc-hero-grid">
+      <div class="svc-hero-grid{% if not SV.img %} svc-hero-solo{% endif %}">
         <div class="svc-hero-txt">
           {% if L.meta.draft %}<span class="draft">{{ L.meta.draft }}</span>{% endif %}
           <p class="svc-kicker">{{ S.kicker }}</p>
@@ -34,10 +34,10 @@
             <a href="tel:{{ phone_tel }}" class="btn btn-ghost btn-lg tnum">{{ phone }}</a>
           </div>
         </div>
-        <figure class="svc-fig">
+        {% if SV.img %}<figure class="svc-fig">
           <img src="{{ root }}assets/img/{{ SV.img }}-1200.webp" srcset="{{ root }}assets/img/{{ SV.img }}-800.webp 800w, {{ root }}assets/img/{{ SV.img }}-1200.webp 1200w" sizes="(min-width: 900px) 46vw, 100vw" width="{{ SV.img_w }}" height="{{ SV.img_h }}" alt="{{ S.img_alt }}" fetchpriority="high">
           <figcaption>{{ S.img_cap }}</figcaption>
-        </figure>
+        </figure>{% endif %}
       </div>
     </div>
   </div>
@@ -86,6 +86,15 @@
     </div>
   </div>
 </section>
+{% if S.sources %}<section aria-labelledby="h-src" class="section svc-src-sec">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">{{ L.svc.sources }}</h2>
+    <ul class="svc-src">
+      {% for label, href in S.sources %}<li><a href="{{ href }}" rel="noopener" target="_blank">{{ label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>{% endif %}
 </main>
 
 <!-- ============ MÁS SERVICIOS + CONTACTO ============ -->

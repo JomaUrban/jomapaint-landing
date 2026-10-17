@@ -14,8 +14,9 @@
     </div>
 
     <footer class="foot">
-      <nav aria-label="{{ L.svc.services }}" class="foot-svc">
+      <nav aria-label="{{ L.svc.services_nav }}" class="foot-svc">
         {% for s in svc_links %}<a href="{{ s.href }}"{% if s.current %} aria-current="page"{% endif %}>{{ s.name }}</a>{% endfor %}
+        {% for s in guide_links %}<a href="{{ s.href }}" class="foot-guide"{% if s.current %} aria-current="page"{% endif %}>{{ s.name }}</a>{% endfor %}
       </nav>
       <div class="foot-l">
         <span class="lockup" style="--h:24px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma" width="73" height="24"><span class="rule"></span><span class="paint">PAINT</span></span>

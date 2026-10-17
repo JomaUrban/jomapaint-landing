@@ -243,6 +243,7 @@ select.input { padding: 0 10px; }
 .q-file { display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px; background: #F3F1EC; border-radius: 2px; min-width: 0; }
 .q-file-n { font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
 .q-file-s { font-size: 13px; color: var(--muted); }
+.q-unfile { flex: none; margin-left: 6px; padding: 4px 0; background: none; border: 0; font: inherit; font-size: 14px; cursor: pointer; }
 .q-drop { position: relative; flex: 1 1 260px; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px dashed rgba(26,26,26,0.4); border-radius: 2px; cursor: pointer; font-size: 15px; }
 .q-drop:focus-within { outline: 2px solid var(--ink); outline-offset: 2px; }
 .q-x { appearance: none; border: 1px solid rgba(26,26,26,0.2); background: #FFFFFF; width: 44px; height: 44px; border-radius: 2px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
@@ -576,3 +577,29 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
   .mainnav { display: none; }
   .topbar { padding-top: 16px; padding-bottom: 16px; }
 }
+
+/* ---------- guías técnicas (certificaciones, normas) ---------- */
+.guides { display: flex; flex-direction: column; gap: 14px; }
+.guides-h { font-size: 15px; font-weight: 600; color: var(--muted); }
+.guides ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 12px; }
+.guide-link { position: relative; display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 20px 56px 22px 22px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); text-decoration: none; transition: border-color 160ms; }
+.guide-link:hover { border-color: var(--ink); }
+.guide-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.guide-t { font-size: 21px; font-weight: 600; font-stretch: 110%; letter-spacing: -0.01em; }
+.guide-d { font-size: 15px; line-height: 1.5; color: var(--muted); }
+.guide-arrow { position: absolute; right: 20px; top: 22px; transition: transform 160ms; }
+.guide-link:hover .guide-arrow { transform: translateX(3px); }
+.svc-hero-solo { grid-template-columns: minmax(0, 1fr); }
+.svc-hero-solo .svc-hero-txt { max-width: 68ch; }
+.svc-src-sec { background: var(--paper); border-top: 1px solid var(--line); }
+.svc-src { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 4px 32px; }
+.svc-src a { display: inline-block; padding: 8px 0; color: var(--ink); font-size: 15px; text-underline-offset: 4px; }
+.foot-svc .foot-guide { color: var(--muted-dark); }
+
+/* ---------- dónde trabajamos ---------- */
+.area-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 28px clamp(24px, 3cqi, 48px); }
+.area-grid li { display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 2px solid var(--ink); }
+.area-t { font-size: 20px; font-weight: 600; font-stretch: 110%; letter-spacing: -0.01em; }
+.area-p { font-size: 16px; line-height: 1.55; }
+.area-x { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.area-note { font-size: 15px; color: var(--muted); }

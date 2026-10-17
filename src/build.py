@@ -4,12 +4,13 @@
 Portada + una página por servicio y por idioma (ver services.py).
 
 Uso:
-  python3 src/build.py                       # vista previa (GitHub Pages, noindex)
-  python3 src/build.py --base https://jomapaint.es/ --index   # producción
+  python3 src/build.py                       # GitHub Pages, indexable
+  python3 src/build.py --base https://jomapaint.es/            # dominio propio
+  python3 src/build.py --noindex             # copia de pruebas sin indexar
 
 --base   URL absoluta donde vivirá la web, con barra final. Se usa en canonical,
          hreflang, Open Graph, datos estructurados y sitemap.
---index  Permite indexar (quita el noindex). Solo en el dominio definitivo.
+--noindex  Añade noindex (para copias de prueba).
 """
 import argparse
 import datetime
@@ -25,10 +26,31 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import content as C  # noqa: E402
 import services as SV  # noqa: E402
+import guides as GD  # noqa: E402
 
 DEFAULT_BASE = 'https://jomaurban.github.io/jomapaint-landing/'
 NAMES = {'es': 'Español', 'eu': 'Euskara', 'fr': 'Français'}
 GEO = {'@type': 'GeoCoordinates', 'latitude': 42.9432494, 'longitude': -2.6490071}
+AREA_SERVED = [
+    {'@type': 'AdministrativeArea', 'name': 'Araba/Álava'},
+    {'@type': 'AdministrativeArea', 'name': 'Bizkaia'},
+    {'@type': 'AdministrativeArea', 'name': 'Gipuzkoa'},
+    {'@type': 'AdministrativeArea', 'name': 'Navarra'},
+    {'@type': 'AdministrativeArea', 'name': 'La Rioja'},
+    {'@type': 'AdministrativeArea', 'name': 'Burgos'},
+    {'@type': 'AdministrativeArea', 'name': 'Cantabria'},
+    {'@type': 'AdministrativeArea', 'name': 'Castilla y León'},
+    {'@type': 'AdministrativeArea', 'name': 'Pyrénées-Atlantiques'},
+    {'@type': 'AdministrativeArea', 'name': 'Gironde'},
+    {'@type': 'AdministrativeArea', 'name': 'Nouvelle-Aquitaine'},
+    {'@type': 'Country', 'name': 'Switzerland'},
+    {'@type': 'Country', 'name': 'Portugal'},
+    {'@type': 'Country', 'name': 'Ireland'},
+    {'@type': 'Country', 'name': 'United Kingdom'},
+    {'@type': 'Country', 'name': 'Netherlands'},
+    {'@type': 'Country', 'name': 'Slovenia'},
+    {'@type': 'Country', 'name': 'Bulgaria'},
+]
 
 
 def strip_tags(s):
@@ -81,6 +103,7 @@ def base_nodes(L, base):
             'geo': GEO,
             'parentOrganization': {'@id': org_id},
             'knowsLanguage': ['es', 'eu', 'fr'],
+            'areaServed': AREA_SERVED,
             'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': 'JomaPaint', 'itemListElement': catalog},
         },
         {
@@ -108,7 +131,7 @@ def jsonld_home(L, base, url):
             'name': L['meta']['title'], 'description': L['meta']['description'],
             'about': {'@id': base + '#jomapaint'}, 'isPartOf': {'@id': base + '#website'},
         },
-        faq_node(lang, L['faq']['items'][:L['faq']['schema_n']]),
+        faq_node(lang, L['faq']['items']),
     ]
     return dump(graph)
 
@@ -138,7 +161,29 @@ def jsonld_service(L, S, sv, base, url, home_url):
                 {'@type': 'ListItem', 'position': 2, 'name': S['crumb'], 'item': url},
             ],
         },
-        faq_node(lang, S['faq'][:S['faq_n']]),
+        faq_node(lang, S['faq']),
+    ]
+    return dump(graph)
+
+
+def jsonld_guide(L, S, base, url, home_url):
+    lang = L['meta']['lang']
+    graph = base_nodes(L, base) + [
+        {
+            '@type': 'WebPage', '@id': url, 'url': url, 'inLanguage': lang,
+            'name': S['title'], 'description': S['description'],
+            'about': [{'@type': 'Thing', 'name': s['h2']} for s in S['sections']],
+            'isPartOf': {'@id': base + '#website'}, 'publisher': {'@id': base + '#joma'},
+            'breadcrumb': {'@id': url + '#ruta'},
+        },
+        {
+            '@type': 'BreadcrumbList', '@id': url + '#ruta',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': 'JomaPaint', 'item': home_url},
+                {'@type': 'ListItem', 'position': 2, 'name': S['crumb'], 'item': url},
+            ],
+        },
+        faq_node(lang, S['faq']),
     ]
     return dump(graph)
 
@@ -150,7 +195,20 @@ def check_meta(where, title, desc):
         print('  aviso: description de %d caracteres en %s' % (len(desc), where))
 
 
+CODE_RE = re.compile(r'(?<![\w-])((?:C[1-5X]|Im[1-4])-(?:VH|[LMHI])|ISO \d{4,5}(?:-\d{1,2})?|EN \d{4,5}(?:-\d)?|UNE-EN(?: ISO)? \d{4,5})(?![\w-])')
+
+
+def nowrap_codes(html):
+    """Evita que «C5-M», «ISO 12944-2» o «EN 15773» se partan al final de línea (solo en el texto del body)."""
+    head, sep, body = html.partition('<body')
+    parts = re.split(r'(<script.*?</script>)', body, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r'>([^<]+)<', lambda m: '>' + CODE_RE.sub(r'<span class="nw">\1</span>', m.group(1)) + '<', parts[i])
+    return head + sep + ''.join(parts)
+
+
 def write(rel_path, html):
+    html = nowrap_codes(html)
     out_dir = os.path.join(ROOT, rel_path)
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
@@ -161,14 +219,14 @@ def write(rel_path, html):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--base', default=DEFAULT_BASE)
-    ap.add_argument('--index', action='store_true')
+    ap.add_argument('--noindex', action='store_true')
     args = ap.parse_args()
     base = args.base if args.base.endswith('/') else args.base + '/'
 
     env = Environment(loader=FileSystemLoader(HERE), autoescape=False, trim_blocks=False, lstrip_blocks=False)
     tpl_home = env.get_template('page.html.j2')
     tpl_svc = env.get_template('service.html.j2')
-    common = dict(base=base, index=args.index, phone=C.PHONE, phone_tel=C.PHONE_TEL, email=C.EMAIL)
+    common = dict(base=base, index=not args.noindex, phone=C.PHONE, phone_tel=C.PHONE_TEL, email=C.EMAIL)
     sitemap = []  # (url, [(lang, url)...], x-default)
 
     for L in C.LANGS:
@@ -189,9 +247,11 @@ def main():
         js['lang'] = lang
         js['root'] = root
         js['stCaps'] = [x[3] for x in L['process']['stations']]
-        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
         svc_href = {sv['key']: root + svc_path(L, sv[lang]) for sv in SV.SERVICES}
         svc_links = [{'href': svc_href[sv['key']], 'name': sv[lang]['name'], 'current': False} for sv in SV.SERVICES]
+        guide_href = [root + svc_path(L, g[lang]) for g in GD.GUIDES]
+        guide_links = [{'href': guide_href[i], 'name': g[lang]['crumb'], 'current': False} for i, g in enumerate(GD.GUIDES)]
         M = {
             'title': m['title'], 'description': m['description'], 'og_title': m['og_title'],
             'og_image': m['og_image'], 'og_alt': m['og_alt'], 'locale': m['locale'],
@@ -205,7 +265,7 @@ def main():
         check_meta(url, m['title'], m['description'])
         html = tpl_home.render(L=L, M=M, root=root, url=url, langs=langs, jsonld=jsonld_home(L, base, url), jsdata=jsdata,
                                home_href='#inicio', nav_prefix='', quote_href='#presupuesto',
-                               svc_href=svc_href, svc_links=svc_links, contact_p='', **common)
+                               svc_href=svc_href, svc_links=svc_links, guide_href=guide_href, guide_links=guide_links, guide=False, contact_p='', **common)
         write(path, html)
         sitemap.append((url, [(O['meta']['lang'], base + O['meta']['path']) for O in C.LANGS], base))
 
@@ -234,9 +294,39 @@ def main():
             html = tpl_svc.render(L=L, S=S, SV=sv, M=SM, root=sroot, url=surl, langs=slangs,
                                   jsonld=jsonld_service(L, S, sv, base, surl, url),
                                   home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
-                                  svc_links=s_links, related=related, contact_p=L['svc']['cta_p'], **common)
+                                  svc_links=s_links, guide_links=[{'href': sroot + svc_path(L, g[lang]), 'name': g[lang]['crumb'], 'current': False} for g in GD.GUIDES],
+                                  guide=False, related=related, contact_p=L['svc']['cta_p'], **common)
             write(spath, html)
             sitemap.append((surl, [(O['meta']['lang'], base + svc_path(O, sv[O['meta']['lang']])) for O in C.LANGS], SM['xdefault']))
+
+        # ---------- guías técnicas ----------
+        for g in GD.GUIDES:
+            S = g[lang]
+            gpath = svc_path(L, S)
+            groot = '../' * gpath.count('/')
+            gurl = base + gpath
+            glangs = [{
+                'code': O['meta']['lang'], 'name': NAMES[O['meta']['lang']], 'locale': O['meta']['locale'],
+                'abs': base + svc_path(O, g[O['meta']['lang']]), 'rel': groot + svc_path(O, g[O['meta']['lang']]),
+                'current': O['meta']['lang'] == lang,
+            } for O in C.LANGS]
+            home_rel = (groot + path) or './'
+            related = [{'href': groot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'img': o['img'], 'teaser': teaser.get(o['key'], '')} for o in SV.SERVICES]
+            GM = {
+                'title': S['title'], 'description': S['description'], 'og_title': S['og_title'],
+                'og_image': m['og_image'], 'og_alt': m['og_alt'], 'locale': m['locale'],
+                'url': gurl, 'xdefault': base + svc_path(C.ES, g['es']),
+                'preload_img': None,
+            }
+            check_meta(gurl, S['title'], S['description'])
+            html = tpl_svc.render(L=L, S=S, SV=g, M=GM, root=groot, url=gurl, langs=glangs,
+                                  jsonld=jsonld_guide(L, S, base, gurl, url),
+                                  home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
+                                  svc_links=[{'href': groot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'current': False} for o in SV.SERVICES],
+                                  guide_links=[{'href': groot + svc_path(L, o[lang]), 'name': o[lang]['crumb'], 'current': o['key'] == g['key']} for o in GD.GUIDES],
+                                  guide=True, related=related, contact_p=L['svc']['cta_p'], **common)
+            write(gpath, html)
+            sitemap.append((gurl, [(O['meta']['lang'], base + svc_path(O, g[O['meta']['lang']])) for O in C.LANGS], GM['xdefault']))
 
     today = datetime.date.today().isoformat()
     rows = []
@@ -248,7 +338,7 @@ def main():
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(rows) + '</urlset>\n')
     with open(os.path.join(ROOT, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write('User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n' % base)
-    print('ok sitemap.xml (%d URL), robots.txt  base=%s  index=%s' % (len(sitemap), base, args.index))
+    print('ok sitemap.xml (%d URL), robots.txt  base=%s  index=%s' % (len(sitemap), base, not args.noindex))
 
 
 if __name__ == '__main__':
