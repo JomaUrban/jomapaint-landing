@@ -57,7 +57,9 @@
       <div class="svc-body">
         {% for p in sec.p or [] %}<p>{{ p }}</p>
         {% endfor %}
-        {% if sec.steps %}<ol class="svc-steps">{% for t, d in sec.steps %}<li><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
+        {% if sec.steps and sec.step_imgs %}<ol class="svc-steps-img">{% for t, d in sec.steps %}<li><img src="{{ root }}assets/img/st-{{ sec.step_imgs[loop.index0] }}-480.webp" alt="{{ L.process.alts[loop.index0] }}" width="480" height="320" loading="lazy" decoding="async"><div><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></div></li>{% endfor %}</ol>
+        {% elif sec.steps %}<ol class="svc-steps">{% for t, d in sec.steps %}<li><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
+        {% if sec.finishes %}<figure class="svc-finishes"><ul>{% for k, t, n in sec.finishes %}<li><img src="{{ root }}assets/img/acabado-{{ k }}.webp" alt="" width="360" height="658" loading="lazy" decoding="async"><strong>{{ t }}</strong><span class="tnum">{{ n }}</span></li>{% endfor %}</ul><figcaption>{{ sec.finishes_cap }}</figcaption></figure>{% endif %}
         {% if sec.layers %}<ol class="stack">{% for n, d in sec.layers %}<li><strong>{{ n }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
         {% if sec.list %}<ul class="svc-list">{% for it in sec.list %}<li>{{ it }}</li>{% endfor %}</ul>{% endif %}
         {% if sec.cards %}<div class="svc-cards">{% for t, d in sec.cards %}<article><h3>{{ t }}</h3><p>{{ d }}</p></article>{% endfor %}</div>{% endif %}
@@ -72,7 +74,8 @@
         {% if sec.note %}<p class="svc-badge tnum">{{ sec.note }}</p>{% endif %}
       </div>
     </section>
-    {% endfor %}
+    {% if loop.index == 2 and not guide %}<aside class="svc-mid" aria-label="{{ L.svc.mid_h }}"><div><p class="svc-mid-h">{{ L.svc.mid_h }}</p><p>{{ L.svc.mid_p }}</p></div><a href="{{ quote_href }}" class="btn btn-acc btn-lg">{{ L.svc.mid_btn }}</a></aside>
+    {% endif %}{% endfor %}
   </div>
 </div>
 

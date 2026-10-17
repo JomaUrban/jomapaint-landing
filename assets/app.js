@@ -42,7 +42,7 @@
     if (!cv || !root || !cv.getContext) return;
     var ctx = cv.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    var W = 1, H = 1, P = [], t = 0, visible = true, mouse = null, sprite = null, color = '#F7B500';
+    var n0 = 0, W = 1, H = 1, P = [], t = 0, visible = true, mouse = null, sprite = null, color = '#F7B500';
     var rnd = Math.random;
     var target = function () { return W < 760 ? { x: W * 0.78, y: H * 0.34 } : { x: W * 0.71, y: H * 0.46 }; };
     var spawn = function (p, first) {
@@ -58,8 +58,9 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       var small = W < 760;
       var n = Math.round(Math.min(small ? 360 : 900, Math.max(small ? 160 : 240, (W * H) / (small ? 1700 : 1400))));
+      if (n0 && P.length < n) n = Math.min(n, P.length);
       while (P.length < n) P.push(spawn({}, true));
-      P.length = n;
+      P.length = n; n0 = n0 || n;
     };
     var getSprite = function () {
       if (sprite) return sprite;
@@ -118,7 +119,26 @@
       root.addEventListener('pointermove', function (e) { var r = root.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
       root.addEventListener('pointerleave', function () { mouse = null; });
       if (reduce) { for (var n = 0; n < 220; n++) step(); draw(false); return; }
-      (function loop() { if (visible && !document.hidden) { step(); draw(true); } requestAnimationFrame(loop); })();
+      /* Presupuesto por fotograma: si el equipo no llega a ~30 fps (pintado incluido),
+         se reducen las partículas, luego se pinta uno de cada dos fotogramas y, en último caso,
+         la animación se queda quieta. */
+      var ema = 0, frames = 0, skip = false, odd = false, last = 0, stopped = false;
+      (function loop(now) {
+        if (stopped) return;
+        if (visible && !document.hidden) {
+          if (last) { var dt = now - last; ema = frames++ ? ema * 0.85 + dt * 0.15 : dt; }
+          last = now;
+          if (frames > 15 && ema > 34) {
+            var min = Math.round(n0 * 0.35);
+            if (P.length > min) P.length = Math.max(min, Math.round(P.length * 0.6));
+            else if (!skip) skip = true;
+            else if (ema > 60) stopped = true;
+            frames = 0;
+          }
+          if (!(skip && (odd = !odd))) { step(); draw(true); }
+        } else last = 0;
+        requestAnimationFrame(loop);
+      })(performance.now());
     };
     var idle = function () { if (window.requestIdleCallback) window.requestIdleCallback(start, { timeout: 2000 }); else setTimeout(start, 300); };
     if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
@@ -241,7 +261,25 @@
       $('#ral-sticker').textContent = 'RAL ' + sel.c + ' · ' + T.texSticker[state.tex] + ' · ' + T.glossSticker[state.gloss];
       $('#ral-svg').setAttribute('aria-label', fmt(T.svg, { c: sel.c, n: ralName(sel), tex: T.tex[state.tex], gloss: T.gloss[state.gloss] }));
       $$('.ral-current').forEach(function (e) { e.textContent = sel.c; });
+      if (plate3d) plate3d.update({ hex: sel.h, tex: state.tex, gloss: state.gloss, pearl: sel.p, lum: sel.l, sticker: $('#ral-sticker').textContent, label: $('#ral-svg').getAttribute('aria-label') });
     };
+    /* Placa en 3D (three.js, assets/ral3d.js): se carga al acercarse a la sección. Sin WebGL, se queda la placa SVG. */
+    var plate3d = null;
+    (function load3d() {
+      var host = $('.ral-plate'); if (!host || !window.IntersectionObserver) return;
+      try { if (navigator.connection && navigator.connection.saveData) return; } catch (e) {}
+      var io = new IntersectionObserver(function (es) {
+        if (!es.some(function (e) { return e.isIntersecting; })) return;
+        io.disconnect();
+        if (!window.WebGLRenderingContext) return;
+        import(new URL(ROOT + 'assets/ral3d.js', location.href).href).then(function (m) {
+          plate3d = m.init(host, { reduce: reduce });
+          paintPlate();
+          requestAnimationFrame(function () { host.classList.add('is-3d'); });
+        }).catch(function () {});
+      }, { rootMargin: '600px 0px' });
+      io.observe(host);
+    })();
     famsEl.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-fam]'); if (!b) return;
       fam = b.getAttribute('data-fam');

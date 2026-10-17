@@ -184,7 +184,7 @@ ES = {
     },
     'svc': {
         'crumbs': 'Ruta de navegación', 'home': 'Inicio', 'services': 'Servicios', 'facts': 'Datos clave',
-        'faq': 'Preguntas frecuentes', 'related': 'Más servicios', 'quality': 'Calidad', 'sources': 'Fuentes', 'guides': 'Guías técnicas', 'services_nav': 'Servicios y guías',
+        'faq': 'Preguntas frecuentes', 'related': 'Más servicios', 'quality': 'Calidad', 'sources': 'Fuentes', 'mid_h': '¿Tienes el plano?', 'mid_p': 'Súbelo con cantidades y color: te enviamos un presupuesto firme en menos de 24 h laborables.', 'mid_btn': 'Subir plano y pedir presupuesto', 'guides': 'Guías técnicas', 'services_nav': 'Servicios y guías',
         'cta_h': 'Pide presupuesto con tu plano.', 'cta_p': 'Firme y por escrito en menos de 24 horas laborables. Si lo prefieres, llámanos.',
     },
     'services_schema': ['Termolacado y pintura en polvo', 'Cataforesis', 'Lacado de perfiles de aluminio', 'Grabado láser, impresión UV, tampografía y serigrafía', 'Montaje y embalaje'],
@@ -403,7 +403,7 @@ EU = {
     },
     'svc': {
         'crumbs': 'Nabigazio-bidea', 'home': 'Hasiera', 'services': 'Zerbitzuak', 'facts': 'Datu nagusiak',
-        'faq': 'Ohiko galderak', 'related': 'Zerbitzu gehiago', 'quality': 'Kalitatea', 'sources': 'Iturriak', 'guides': 'Gida teknikoak', 'services_nav': 'Zerbitzuak eta gidak',
+        'faq': 'Ohiko galderak', 'related': 'Zerbitzu gehiago', 'quality': 'Kalitatea', 'sources': 'Iturriak', 'mid_h': 'Planoa baduzu?', 'mid_p': 'Igo ezazu kopuruekin eta kolorearekin: aurrekontu irmoa bidaliko dizugu 24 lanordu baino lehen.', 'mid_btn': 'Igo planoa eta eskatu aurrekontua', 'guides': 'Gida teknikoak', 'services_nav': 'Zerbitzuak eta gidak',
         'cta_h': 'Eskatu aurrekontua zure planoarekin.', 'cta_p': 'Irmoa eta idatziz, 24 lanordu baino lehen. Nahiago baduzu, deitu iezaguzu.',
     },
     'services_schema': ['Termolakatzea eta hauts-pintura', 'Kataforesia', 'Aluminiozko profilen lakatzea', 'Laser bidezko grabatua, UV inprimaketa, tanpografia eta serigrafia', 'Muntaketa eta paketatzea'],
@@ -622,7 +622,7 @@ FR = {
     },
     'svc': {
         'crumbs': 'Fil d’Ariane', 'home': 'Accueil', 'services': 'Services', 'facts': 'Chiffres clés',
-        'faq': 'Questions fréquentes', 'related': 'Autres services', 'quality': 'Qualité', 'sources': 'Sources', 'guides': 'Guides techniques', 'services_nav': 'Services et guides',
+        'faq': 'Questions fréquentes', 'related': 'Autres services', 'quality': 'Qualité', 'sources': 'Sources', 'mid_h': 'Vous avez le plan ?', 'mid_p': 'Envoyez-le avec les quantités et la couleur : devis ferme en moins de 24 heures ouvrées.', 'mid_btn': 'Envoyer mon plan et demander un devis', 'guides': 'Guides techniques', 'services_nav': 'Services et guides',
         'cta_h': 'Demandez un devis avec votre plan.', 'cta_p': 'Ferme et écrit, en moins de 24 heures ouvrées. Vous pouvez aussi nous appeler.',
     },
     'services_schema': ['Thermolaquage et peinture poudre', 'Cataphorèse', 'Laquage de profilés aluminium', 'Gravure laser, impression UV, tampographie et sérigraphie', 'Montage et emballage'],

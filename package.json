@@ -1,0 +1,12 @@
+{
+  "name": "jomapaint-landing",
+  "private": true,
+  "description": "Placa RAL en 3D (three.js) para la web de JomaPaint. El resto de la web se genera con Python (src/build.py).",
+  "scripts": {
+    "build:3d": "esbuild src/ral3d.js --bundle --format=esm --minify --target=es2020 --legal-comments=eof --outfile=assets/ral3d.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.185.1"
+  }
+}

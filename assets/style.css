@@ -603,3 +603,32 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .area-p { font-size: 16px; line-height: 1.55; }
 .area-x { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
 .area-note { font-size: 15px; color: var(--muted); }
+
+/* ---------- placa RAL en 3D ---------- */
+.ral-plate .ral-3d { position: absolute; left: 0; top: 0; display: block; opacity: 0; transition: opacity 500ms ease; touch-action: pan-y; }
+.ral-plate.is-3d .ral-3d { opacity: 1; }
+.ral-plate.is-3d #ral-svg { visibility: hidden; }
+.ral-plate.is-3d .ral-sticker { display: none; }
+@media (prefers-reduced-motion: reduce) { .ral-plate .ral-3d { transition: none; } }
+
+/* ---------- servicios: pasos con foto, acabados y llamada intermedia ---------- */
+.svc-steps-img { display: flex; flex-direction: column; }
+.svc-steps-img li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: clamp(16px, 2.4cqi, 28px); align-items: center; padding: 16px 0; border-top: 1px solid var(--line); }
+.svc-steps-img li:first-child { border-top: 1px solid var(--ink); }
+.svc-steps-img img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; background: #262626; display: block; }
+.svc-steps-img li > div { display: flex; flex-direction: column; gap: 6px; }
+.svc-steps-img strong { font-weight: 600; font-size: 18px; }
+.svc-steps-img li > div > span:last-child { font-size: 15.5px; line-height: 1.5; color: var(--muted); }
+@container (max-width: 520px) { .svc-steps-img li { grid-template-columns: 1fr; } }
+.svc-finishes { margin: 6px 0 0; padding: 22px 22px 16px; background: var(--paper-2); border-radius: 4px; }
+.svc-finishes ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.svc-finishes li { display: flex; flex-direction: column; gap: 2px; }
+.svc-finishes img { width: 100%; height: auto; display: block; margin-bottom: 10px; }
+.svc-finishes strong { font-size: 15px; font-weight: 600; }
+.svc-finishes li span { font-size: 13.5px; color: var(--muted); }
+.svc-finishes figcaption { margin-top: 14px; font-size: 13px; color: var(--muted); }
+@container (max-width: 520px) { .svc-finishes ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.svc-mid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; margin: 0 0 clamp(48px, 5.5cqi, 80px); padding: clamp(22px, 2.6cqi, 34px) clamp(22px, 3cqi, 40px); background: var(--ink); color: var(--paper); border-radius: 4px; }
+.svc-mid > div { display: flex; flex-direction: column; gap: 6px; max-width: 58ch; }
+.svc-mid-h { font-size: clamp(22px, 2.2cqi, 28px); font-weight: 600; font-stretch: 110%; letter-spacing: -0.01em; }
+.svc-mid p:not(.svc-mid-h) { color: var(--muted-dark); font-size: 16.5px; line-height: 1.5; }

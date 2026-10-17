@@ -45,14 +45,14 @@ SERVICES = [
                      ('Epoxi', 'Adherencia y resistencia química muy altas, pero al sol pierde brillo y se calea. Se usa en interior o como imprimación bajo una capa de poliéster.'),
                      ('Epoxi-poliéster (híbrido)', 'Para interior: maquinaria, mobiliario, iluminación o electrodomésticos. Buen acabado decorativo, pero no está pensado para exterior.'),
                  ]},
-                {'h2': 'Cómo pintamos tus piezas', 'steps': [
+                {'h2': 'Cómo pintamos tus piezas', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
                     ('Pretratamiento', 'Desengrase y pretratamiento químico para que el polvo agarre.'),
                     ('Secado', 'Horno de secado: ni rastro de humedad bajo la capa.'),
                     ('Aplicación electrostática', 'El polvo envuelve la pieza, también en los cantos.'),
                     ('Polimerizado', 'En el horno de curado, el polvo funde y reticula.'),
                     ('Control de calidad', 'Revisión del acabado de cada pieza antes de embalar.'),
                  ]},
-                {'h2': 'Colores y acabados', 'list': [
+                {'h2': 'Colores y acabados', 'finishes': [('mate', 'Mate', 'Hasta 30 GU'), ('satinado', 'Satinado', '31–70 GU'), ('brillante', 'Brillante', '71–100 GU'), ('texturado', 'Texturado', 'Disimula marcas')], 'finishes_cap': 'RAL 7016 en cuatro acabados. Brillo medido a 60° (ISO 2813).', 'list': [
                     'Toda la carta RAL Classic y referencias concretas de fabricante de polvo.',
                     'Liso, texturado fino o gofrado. La textura resiste mejor los arañazos y disimula pequeñas imperfecciones del soporte, y lleva algo más de espesor que el liso.',
                     'Tres niveles de brillo medidos a 60° (ISO 2813): mate hasta 30 GU, satinado de 31 a 70 y brillante de 71 a 100, según las categorías de QUALICOAT. El valor exacto lo da la ficha técnica del polvo.',
@@ -108,14 +108,14 @@ SERVICES = [
                      ('Epoxia', 'Atxikimendu eta erresistentzia kimiko oso handiak, baina eguzkitan distira galdu eta hauts zuria sortzen du. Barrualdean erabiltzen da, edo poliester-geruza baten azpiko inprimazio gisa.'),
                      ('Epoxi-poliesterra (hibridoa)', 'Barrualderako: makineria, altzariak, argiztapena edo etxetresna elektrikoak. Akabera dekoratibo ona, baina ez dago kanporako pentsatua.'),
                  ]},
-                {'h2': 'Nola pintatzen ditugun zure piezak', 'steps': [
+                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
                     ('Aurretratamendua', 'Koipegabetzea eta aurretratamendu kimikoa, hautsak ondo heltzeko.'),
                     ('Lehorketa', 'Lehortzeko labea: geruzaren azpian ez da hezetasunik geratzen.'),
                     ('Aplikazio elektrostatikoa', 'Hautsak pieza inguratzen du, ertzetan ere.'),
                     ('Polimerizazioa', 'Ontze-labean hautsa urtu eta erretikulatu egiten da.'),
                     ('Kalitate-kontrola', 'Pieza bakoitzaren akabera berrikusten da paketatu aurretik.'),
                  ]},
-                {'h2': 'Koloreak eta akaberak', 'list': [
+                {'h2': 'Koloreak eta akaberak', 'finishes': [('mate', 'Matea', '30 GU arte'), ('satinado', 'Satinatua', '31–70 GU'), ('brillante', 'Distiratsua', '71–100 GU'), ('texturado', 'Testuraduna', 'Markak ezkutatzen ditu')], 'finishes_cap': 'RAL 7016 lau akaberatan. Distira 60°-tan neurtuta (ISO 2813).', 'list': [
                     'RAL Classic karta osoa eta hauts-fabrikatzaileen erreferentzia zehatzak.',
                     'Leuna, testura finekoa edo gofratua. Testurak hobeto jasaten ditu urradurak eta euskarriaren akats txikiak ezkutatzen ditu; akabera leunak baino lodiera handixeagoa behar du.',
                     'Hiru distira-maila, 60°-tan neurtuta (ISO 2813): matea 30 GU arte, satinatua 31tik 70era eta distiratsua 71tik 100era, QUALICOATen kategorien arabera. Balio zehatza hautsaren fitxa teknikoak ematen du.',
@@ -171,14 +171,14 @@ SERVICES = [
                      ('Époxy', 'Adhérence et résistance chimique très élevées, mais au soleil elle perd sa brillance et farine. Elle s’utilise en intérieur ou comme primaire sous une couche de polyester.'),
                      ('Époxy-polyester (hybride)', 'Pour l’intérieur : machines, mobilier, luminaires ou électroménager. Bel aspect décoratif, mais elle n’est pas conçue pour l’extérieur.'),
                  ]},
-                {'h2': 'Comment nous peignons vos pièces', 'steps': [
+                {'h2': 'Comment nous peignons vos pièces', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'cabina-aplicacion', 'nave', 'pieza-terminada'], 'steps': [
                     ('Prétraitement', 'Dégraissage et prétraitement chimique pour que la poudre accroche.'),
                     ('Séchage', 'Four de séchage : aucune trace d’humidité sous le film.'),
                     ('Application électrostatique', 'La poudre enveloppe la pièce, arêtes comprises.'),
                     ('Polymérisation', 'Dans le four de cuisson, la poudre fond et réticule.'),
                     ('Contrôle qualité', 'Contrôle de la finition de chaque pièce avant emballage.'),
                  ]},
-                {'h2': 'Couleurs et finitions', 'list': [
+                {'h2': 'Couleurs et finitions', 'finishes': [('mate', 'Mat', 'Jusqu’à 30 GU'), ('satinado', 'Satiné', '31–70 GU'), ('brillante', 'Brillant', '71–100 GU'), ('texturado', 'Texturé', 'Masque les traces')], 'finishes_cap': 'RAL 7016 en quatre finitions. Brillance mesurée à 60° (ISO 2813).', 'list': [
                     'Tout le nuancier RAL Classic et des références précises de fabricants de poudre.',
                     'Lisse, texturé fin ou texture forte (gaufré). La texture résiste mieux aux rayures et masque les petits défauts du support ; elle demande un peu plus d’épaisseur que le lisse.',
                     'Trois niveaux de brillance mesurés à 60° (ISO 2813) : mat jusqu’à 30 GU, satiné de 31 à 70 et brillant de 71 à 100, selon les catégories QUALICOAT. La valeur exacte figure sur la fiche technique de la poudre.',
