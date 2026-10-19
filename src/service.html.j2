@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="{{ L.meta.lang }}">
+<head>
+{% include '_head.html.j2' %}
+</head>
+<body>
+<a class="skip" href="#contenido">{{ L.meta.skip }}</a>
+<div class="page">
+
+<div class="svc-top">
+{% include '_topbar.html.j2' %}
+</div>
+
+<main id="contenido">
+<!-- ============ CABECERA DEL SERVICIO ============ -->
+<section class="svc-hero" aria-labelledby="h-svc">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="{{ L.svc.crumbs }}">
+        <ol>
+          <li><a href="{{ home_href }}">{{ L.svc.home }}</a></li>
+          {% if guide %}<li><a href="{{ home_href }}#calidad">{{ L.svc.quality }}</a></li>{% else %}<li><a href="{{ home_href }}#servicios">{{ L.svc.services }}</a></li>{% endif %}
+          <li><span aria-current="page">{{ S.crumb }}</span></li>
+        </ol>
+      </nav>
+      <div class="svc-hero-grid{% if not SV.img %} svc-hero-solo{% endif %}">
+        <div class="svc-hero-txt">
+          {% if L.meta.draft %}<span class="draft">{{ L.meta.draft }}</span>{% endif %}
+          <p class="svc-kicker">{{ S.kicker }}</p>
+          <h1 id="h-svc" class="svc-h1">{{ S.h1|replace('C5-M', '<span class="nw">C5-M</span>') }}</h1>
+          <p class="hero-lead">{{ S.lead }}</p>
+          <div class="row-btns">
+            <a href="{{ quote_href }}" class="btn btn-acc btn-lg">{{ L.cta }}</a>
+            <a href="tel:{{ phone_tel }}" class="btn btn-ghost btn-lg tnum">{{ phone }}</a>
+          </div>
+        </div>
+        {% if SV.img %}<figure class="svc-fig">
+          <img src="{{ root }}assets/img/{{ SV.img }}-1200.webp" srcset="{{ root }}assets/img/{{ SV.img }}-800.webp 800w, {{ root }}assets/img/{{ SV.img }}-1200.webp 1200w" sizes="(min-width: 900px) 46vw, 100vw" width="{{ SV.img_w }}" height="{{ SV.img_h }}" alt="{{ S.img_alt }}" fetchpriority="high">
+          <figcaption>{{ S.img_cap }}</figcaption>
+        </figure>{% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats svc-stats">
+    <dl class="wrap" aria-label="{{ L.svc.facts }}">
+      {% for label, value, note in S.facts %}<div><dt>{{ label }}</dt><dd class="tnum">{{ value }}{% if note %}<span class="stat-note">{{ note }}</span>{% endif %}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CONTENIDO ============ -->
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    {% for sec in S.sections %}<section class="svc-row" aria-labelledby="sec-{{ loop.index }}">
+      <h2 id="sec-{{ loop.index }}" class="svc-h2">{{ sec.h2 }}</h2>
+      <div class="svc-body">
+        {% for p in sec.p or [] %}<p>{{ p }}</p>
+        {% endfor %}
+        {% if sec.steps and sec.step_imgs %}<ol class="svc-steps-img">{% for t, d in sec.steps %}<li><img src="{{ root }}assets/img/st-{{ sec.step_imgs[loop.index0] }}-480.webp" alt="{{ L.process.alts[loop.index0] }}" width="480" height="320" loading="lazy" decoding="async"><div><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></div></li>{% endfor %}</ol>{% if sec.step_credit %}<p class="svc-credit">{{ sec.step_credit }}</p>{% endif %}
+        {% elif sec.steps %}<ol class="svc-steps">{% for t, d in sec.steps %}<li><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
+        {% if sec.finishes %}<figure class="svc-finishes"><ul>{% for k, t, n in sec.finishes %}<li><img src="{{ root }}assets/img/acabado-{{ k }}.webp" alt="" width="360" height="658" loading="lazy" decoding="async"><strong>{{ t }}</strong><span class="tnum">{{ n }}</span></li>{% endfor %}</ul><figcaption>{{ sec.finishes_cap }}</figcaption></figure>{% endif %}
+        {% if sec.layers %}<ol class="stack">{% for n, d in sec.layers %}<li><strong>{{ n }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
+        {% if sec.list %}<ul class="svc-list">{% for it in sec.list %}<li>{{ it }}</li>{% endfor %}</ul>{% endif %}
+        {% if sec.cards %}<div class="svc-cards">{% for t, d in sec.cards %}<article><h3>{{ t }}</h3><p>{{ d }}</p></article>{% endfor %}</div>{% endif %}
+        {% if sec.table %}<div class="svc-table-wrap" role="region" aria-labelledby="sec-{{ loop.index }}" tabindex="0">
+          <table class="svc-table">
+            <thead><tr>{% for c in sec.table.cols %}<th scope="col">{{ c }}</th>{% endfor %}</tr></thead>
+            <tbody>{% for rh, cells in sec.table.rows %}<tr><th scope="row">{{ rh }}</th>{% for st, tx in cells %}<td><span class="tag tag-{{ st }}">{{ tx }}</span></td>{% endfor %}</tr>{% endfor %}</tbody>
+          </table>
+        </div>
+        {% if sec.table.note %}<p class="svc-note">{{ sec.table.note }}</p>{% endif %}{% endif %}
+        {% if sec.data %}<dl class="svc-data">{% for k, v in sec.data %}<div><dt>{{ k }}</dt><dd class="tnum">{{ v }}</dd></div>{% endfor %}</dl>{% endif %}
+        {% if sec.note %}<p class="svc-badge tnum">{{ sec.note }}</p>{% endif %}
+      </div>
+    </section>
+    {% if loop.index == 2 and not guide %}<aside class="svc-mid" aria-label="{{ L.svc.mid_h }}"><div><p class="svc-mid-h">{{ L.svc.mid_h }}</p><p>{{ L.svc.mid_p }}</p></div><a href="{{ quote_href }}" class="btn btn-acc btn-lg">{{ L.svc.mid_btn }}</a></aside>
+    {% endif %}{% endfor %}
+  </div>
+</div>
+
+<!-- ============ PREGUNTAS ============ -->
+<section aria-labelledby="h-faq" class="section svc-faq-sec">
+  <div class="wrap svc-faq">
+    <h2 id="h-faq" class="svc-h2">{{ L.svc.faq }}</h2>
+    <div class="faq">
+      {% for q, a in S.faq %}<details><summary><span>{{ q }}</span><span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% if S.sources %}<section aria-labelledby="h-src" class="section svc-src-sec">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">{{ L.svc.sources }}</h2>
+    <ul class="svc-src">
+      {% for label, href in S.sources %}<li><a href="{{ href }}" rel="noopener" target="_blank">{{ label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>{% endif %}
+</main>
+
+<!-- ============ MÁS SERVICIOS + CONTACTO ============ -->
+<section aria-labelledby="h-rel" class="dark group svc-end">
+  <div class="wrap group-in">
+    <div class="svc-rel">
+      <h2 id="h-rel" class="h3">{{ L.svc.related }}</h2>
+      <ul class="units">
+        {% for r in related %}<li>
+          <a href="{{ r.href }}" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/{{ r.img }}-800.webp" alt="" loading="lazy" decoding="async" width="800" height="533"></span>
+            <span class="unit-t">{{ r.name }}</span>
+            <span class="unit-d">{{ r.teaser }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+{% include '_end.html.j2' %}
+  </div>
+</section>
+
+</div>
+</body>
+</html>

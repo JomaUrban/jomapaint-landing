@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="{{ L.meta.lang }}">
+<head>
+{% include '_head.html.j2' %}
+</head>
+<body>
+<a class="skip" href="#contenido">{{ L.meta.skip }}</a>
+<div class="page">
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="hero">
+  <img class="hero-img" src="{{ root }}assets/img/hero-pulverizado.webp" srcset="{{ root }}assets/img/hero-pulverizado-800.webp 800w, {{ root }}assets/img/hero-pulverizado-1200.webp 1200w, {{ root }}assets/img/hero-pulverizado.webp 2000w" sizes="100vw" width="2000" height="1331" alt="{{ L.hero.img_alt }}" fetchpriority="high">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-shade2" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <canvas id="powder" aria-hidden="true"></canvas>
+
+{% include '_topbar.html.j2' %}
+
+  <div class="hero-body" id="contenido">
+    <div class="hero-col">
+      {% if L.meta.draft %}<span class="draft">{{ L.meta.draft }}</span>{% endif %}
+      <h1 class="hero-h1"><span class="kicker">{{ L.hero.kicker }}</span> <span class="display">{{ L.hero.display }}</span></h1>
+      <p class="hero-lead">{{ L.hero.lead }}</p>
+
+      <div class="upload">
+        <label for="hero-file" class="upload-drop">
+          <span class="upload-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 15.5 V3.5 M7 8.5 L12 3.5 L17 8.5 M4 14 V20 H20 V14"></path></svg></span>
+          <span class="upload-txt">
+            <span id="hero-file-label" class="upload-t">{{ L.hero.upload }}</span>
+            <span class="upload-h">{{ L.hero.upload_hint }}</span>
+          </span>
+          <input id="hero-file" type="file" multiple class="sr-file">
+        </label>
+        <a href="#presupuesto" class="btn btn-acc btn-lg">{{ L.cta }}</a>
+      </div>
+
+      {% if tracking %}<div class="hero-foot">
+        <a href="#seguimiento">{{ L.hero.track }}</a>
+      </div>{% endif %}
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <dl>
+      {% for label, value, note in L.hero.stats %}<div><dt>{{ label }}</dt><dd class="tnum">{{ value }}{% if note %}<span class="stat-note">{{ note }}</span>{% endif %}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section aria-labelledby="h-how" class="section" style="background:var(--paper);">
+  <div class="wrap split">
+    <h2 id="h-how" class="h2" style="max-width:15ch;">{{ L.how.h2 }}</h2>
+    <p class="lead">{{ L.how.lead }}</p>
+  </div>
+  <ol class="wrap steps3">
+    {% for t, p in L.how.steps %}<li>
+      <span aria-hidden="true" class="outline-num tnum">0{{ loop.index }}</span>
+      <h3>{{ t }}</h3>
+      <p>{{ p }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" aria-labelledby="h-serv" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap serv">
+    <div class="serv-head">
+      <h2 id="h-serv" class="h2">{{ L.services.h2 }}</h2>
+      <p class="lead">{{ L.services.lead }}</p>
+    </div>
+    <ul class="serv-list">
+      {% for t, p, k in L.services['items'] %}<li><h3>{% if k %}<a href="{{ svc_href[k] }}">{{ t }}</a>{% else %}{{ t }}{% endif %}</h3><p>{{ p }}</p></li>
+      {% endfor %}
+    </ul>
+    <p class="serv-sectors"><strong>{{ L.services.sectors_label }}.</strong> {{ L.services.sectors }}</p>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section id="proceso" aria-labelledby="h-proc" class="section dark blueprint" style="position:relative; overflow:hidden;">
+  <div class="wrap">
+    <div class="split">
+      <h2 id="h-proc" class="h2" style="max-width:15ch;">{{ L.process.h2 }}</h2>
+      <p class="lead">{{ L.process.lead }}</p>
+    </div>
+
+    <div class="rail">
+      <div id="zones" class="rail-zones">{% for s in L.process.stations %}<div><span class="tnum">0{{ loop.index }}</span></div>{% endfor %}</div>
+      <div class="rail-ticks" aria-hidden="true"></div>
+      <div class="rail-line" aria-hidden="true"></div>
+      <div id="carriage" aria-hidden="true">
+        <div class="sway">
+          <svg width="160" height="200" viewBox="0 0 160 200" style="position:absolute; left:0; top:0; overflow:visible;">
+            <defs>
+              <pattern id="jp-speck" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.9" fill="#FFFFFF" opacity="0.55"></circle><circle cx="5" cy="4.5" r="0.7" fill="#000000" opacity="0.28"></circle><circle cx="3" cy="6" r="0.5" fill="#FFFFFF" opacity="0.35"></circle></pattern>
+              <linearGradient id="jp-gloss" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85"></stop><stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.12"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+            </defs>
+            <path d="M80 0 V50" stroke="#A9A7A2" stroke-width="2" fill="none"></path>
+            <polygon id="pc-top" points="40,58 52,50 132,50 120,58" fill="#B7BBC0"></polygon>
+            <polygon id="pc-side" points="120,58 132,50 132,160 120,168" fill="#5D6167"></polygon>
+            <rect id="pc-front" x="40" y="58" width="80" height="110" fill="#8C9096"></rect>
+            <g id="pc-brush" opacity="0.24" stroke="#FFFFFF" stroke-width="0.6"><line x1="42" y1="72" x2="118" y2="72"></line><line x1="42" y1="84" x2="118" y2="84"></line><line x1="42" y1="97" x2="118" y2="97"></line><line x1="42" y1="111" x2="118" y2="111"></line><line x1="42" y1="126" x2="118" y2="126"></line><line x1="42" y1="140" x2="118" y2="140"></line><line x1="42" y1="155" x2="118" y2="155"></line></g>
+            <rect id="pc-speck" x="40" y="58" width="80" height="110" fill="url(#jp-speck)" opacity="0"></rect>
+            <polygon id="pc-gloss" points="40,58 86,58 40,128" fill="url(#jp-gloss)" opacity="0"></polygon>
+            <line x1="40" y1="58" x2="120" y2="58" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1"></line>
+            <circle cx="80" cy="70" r="6" fill="#141414"></circle>
+            <path d="M80 50 V64 C80 70 86 72 86 66" stroke="#CFCDC8" stroke-width="2" fill="none"></path>
+            <g stroke="rgba(250,249,246,0.45)" stroke-width="1" fill="none"><path d="M146 58 V168"></path><path d="M141 58 H151"></path><path d="M141 168 H151"></path></g>
+          </svg>
+          <div id="fx" class="fx"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="stations" role="tablist" aria-label="{{ L.process.group }}" class="st-tabs">
+      {% for name, text, data, cap in L.process.stations %}<button type="button" role="tab" id="st-tab-{{ loop.index0 }}" aria-controls="st-panel-{{ loop.index0 }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}"><span class="tnum">0{{ loop.index }}</span><span class="st-tab-name">{{ name }}</span></button>
+      {% endfor %}
+    </div>
+
+    <div class="st-detail">
+      <div class="st-panels">
+        {% for name, text, data, cap in L.process.stations %}<div role="tabpanel" id="st-panel-{{ loop.index0 }}" aria-labelledby="st-tab-{{ loop.index0 }}" class="st-panel"{% if not loop.first %} hidden{% endif %}>
+          <span aria-hidden="true" class="st-num tnum">0{{ loop.index }}</span>
+          <h3>{{ name }}</h3>
+          <p>{{ text }}</p>
+          {% if data %}<p class="st-data tnum">{{ data }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      <figure id="st-photos" class="st-photos">
+        {% set imgs = ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'] %}
+        {% for im in imgs %}<img src="{{ root }}assets/img/{{ im }}.webp" alt="{{ L.process.alts[loop.index0] }}" loading="lazy" decoding="async" width="1400" height="933"{% if loop.first %} class="on"{% endif %}>
+        {% endfor %}
+        <figcaption id="st-cap">{{ L.process.stations[0][3] }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLORES (explorador RAL) ============ -->
+<section id="colores" aria-labelledby="h-ral" class="section on-light" style="background:var(--paper);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(36px,4.5cqi,64px);">
+    <div class="split">
+      <h2 id="h-ral" class="h2" style="max-width:17ch;">{{ L.ral.h2 }}</h2>
+      <p class="lead">{{ L.ral.lead }}</p>
+    </div>
+    <div class="ral">
+      <div class="ral-left">
+        <figure id="ral-field" class="ral-field">
+          <div class="ral-top ral-muted"><span>RAL Classic</span><span id="ral-fam"></span></div>
+          <div class="ral-plate">
+            <svg id="ral-svg" viewBox="0 0 440 470" role="img" aria-label="{{ L.ral.plate }}">
+              <defs>
+                <linearGradient id="jpr-face" x1="0" y1="0" x2="1" y2="1"><stop id="f0" offset="0"></stop><stop id="f1" offset="0.55"></stop><stop id="f2" offset="1"></stop></linearGradient>
+                <radialGradient id="jpr-sheen" cx="0.32" cy="0.28" r="0.75"><stop id="sh0" offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="sh1" offset="0.45" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></radialGradient>
+                <linearGradient id="jpr-refl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rf1" offset="0.2" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rf2" offset="0.5" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+                <linearGradient id="jpr-rim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"></stop><stop id="rm1" offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+                <linearGradient id="jpr-pearl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFD9F2" stop-opacity="0"></stop><stop offset="0.38" stop-color="#D6F0FF" stop-opacity="0.55"></stop><stop offset="0.62" stop-color="#FFF4D2" stop-opacity="0.55"></stop><stop offset="1" stop-color="#FFD9F2" stop-opacity="0"></stop></linearGradient>
+                <clipPath id="jpr-hole"><circle cx="218" cy="100" r="8"></circle></clipPath>
+                <clipPath id="jpr-clip"><polygon points="118,64 318,84 318,394 118,414"></polygon></clipPath>
+                <filter id="jpr-tex-d" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="2" seed="11"></feTurbulence><feGaussianBlur stdDeviation="0.35"></feGaussianBlur><feColorMatrix type="saturate" values="0"></feColorMatrix><feDiffuseLighting surfaceScale="1.6" lighting-color="#FFFFFF"><feDistantLight azimuth="225" elevation="48"></feDistantLight></feDiffuseLighting><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.38"></feColorMatrix></filter>
+                <filter id="jpr-tex-l" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="2" seed="11"></feTurbulence><feGaussianBlur stdDeviation="0.35"></feGaussianBlur><feColorMatrix type="saturate" values="0"></feColorMatrix><feDiffuseLighting surfaceScale="1.6" lighting-color="#FFFFFF"><feDistantLight azimuth="225" elevation="48"></feDistantLight></feDiffuseLighting><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  3.2 0 0 0 -2.38"></feColorMatrix></filter>
+                <filter id="jpr-soft"><feGaussianBlur stdDeviation="2.2"></feGaussianBlur></filter>
+                <filter id="jpr-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"></feGaussianBlur></filter>
+              </defs>
+              <ellipse cx="224" cy="448" rx="132" ry="12" fill="#000000" opacity="0.38" filter="url(#jpr-blur)"></ellipse>
+              <polygon id="r-top" points="118,64 128,58 328,78 318,84"></polygon>
+              <polygon id="r-side" points="318,84 328,78 328,388 318,394"></polygon>
+              <polygon points="118,64 318,84 318,394 118,414" fill="url(#jpr-face)"></polygon>
+              <g clip-path="url(#jpr-clip)">
+                <rect id="r-tex-d" x="100" y="50" width="240" height="380" fill="#000000" filter="url(#jpr-tex-d)" opacity="0"></rect>
+                <rect id="r-tex-l" x="100" y="50" width="240" height="380" filter="url(#jpr-tex-l)" opacity="0"></rect>
+                <rect id="r-pearl" x="100" y="50" width="240" height="380" fill="url(#jpr-pearl)" opacity="0" style="mix-blend-mode:screen;"></rect>
+                <rect x="100" y="50" width="240" height="380" fill="url(#jpr-sheen)"></rect>
+                <polygon points="118,96 318,116 318,176 118,156" fill="url(#jpr-refl)" filter="url(#jpr-soft)"></polygon>
+                <polygon points="118,330 318,310 318,394 118,414" fill="url(#jpr-rim)"></polygon>
+              </g>
+              <line id="r-edge" x1="118" y1="64" x2="318" y2="84" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="1.2"></line>
+              <circle id="r-hole" cx="218" cy="100" r="9"></circle>
+              <circle cx="218" cy="100" r="9" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="2"></circle>
+              <path d="M218 92 V103 C218 108 222 110 228 108" stroke="#77747C" stroke-width="3" fill="none" stroke-linecap="round" clip-path="url(#jpr-hole)"></path>
+              <path d="M221.5 66 V91" stroke="#000000" stroke-opacity="0.2" stroke-width="2.5" stroke-linecap="round" clip-path="url(#jpr-clip)"></path>
+              <path d="M218 0 V93" stroke="#B9B6BE" stroke-width="3" stroke-linecap="round"></path>
+              <path d="M217.2 0 V92" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="0.8"></path>
+            </svg>
+            <span id="ral-sticker" aria-hidden="true" class="ral-sticker tnum"></span>
+          </div>
+          <figcaption class="ral-cap">
+            <span class="ral-cap-l"><span class="ral-muted">RAL</span><span id="ral-code" class="ral-code tnum">1023</span></span>
+            <span class="ral-cap-r"><span id="ral-name" class="ral-name"></span><span id="ral-hex" class="ral-muted tnum ral-hex"></span></span>
+          </figcaption>
+        </figure>
+
+        <div class="ral-ctrls">
+          <div role="group" aria-label="{{ L.ral.tex }}" class="ctrl">
+            <span class="ctrl-l">{{ L.ral.tex }}</span>
+            <div class="seg" id="seg-tex">{% for k, v in L.ral.tex_opts %}<button type="button" data-tex="{{ k }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ v }}</button>{% endfor %}</div>
+          </div>
+          <div role="group" aria-label="{{ L.ral.gloss }}" class="ctrl">
+            <span class="ctrl-l">{{ L.ral.gloss }}</span>
+            <div class="seg" id="seg-gloss">{% for k, v in L.ral.gloss_opts %}<button type="button" data-gloss="{{ k }}" aria-pressed="{{ 'true' if k == 'satinado' else 'false' }}">{{ v }}</button>{% endfor %}</div>
+          </div>
+        </div>
+        <div class="row-btns">
+          <button type="button" id="ral-use" class="btn btn-acc">{{ L.ral.use }}</button>
+          <a href="#contacto" class="btn btn-line">{{ L.ral.sample }}</a>
+        </div>
+        <p class="small-muted">{{ L.ral.disclaimer }}</p>
+      </div>
+
+      <div class="ral-right">
+        <label class="field" for="ral-q">{{ L.ral.search }}</label>
+        <span class="search-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5B58" stroke-width="1.75" aria-hidden="true"><path d="M10.5 4 A6.5 6.5 0 1 0 10.5 17 A6.5 6.5 0 0 0 10.5 4 Z M15.5 15.5 L20.5 20.5"></path></svg>
+          <input id="ral-q" type="search" class="input" placeholder="{{ L.ral.search_ph }}" autocomplete="off">
+        </span>
+        <div id="ral-fams" role="group" aria-label="{{ L.ral.fams_label }}" class="chips"></div>
+        <div class="sw-box">
+          <div id="ral-grid" class="sw-grid"></div>
+          <p id="ral-empty" hidden class="sw-empty"></p>
+        </div>
+        <div class="sw-foot">
+          <span id="ral-count" aria-live="polite"></span>
+          <span class="legend">
+            <span><span aria-hidden="true" class="lg-pearl"></span>{{ L.ral.pearl }}</span>
+            <span><span aria-hidden="true" class="lg-lum"></span>{{ L.ral.lum }}</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESUPUESTO (cotizador) ============ -->
+<section id="presupuesto" aria-labelledby="h-quote" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(32px,4cqi,56px);">
+    <div class="split">
+      <h2 id="h-quote" class="h2" style="max-width:14ch;">{{ L.quote.h2 }}</h2>
+      <p class="lead">{{ L.quote.lead|replace('{deadline}', '<strong class="q-deadline"></strong>') }}</p>
+    </div>
+    <noscript><p class="lead">{{ L.group.mail }}: <a href="mailto:{{ email }}">{{ email }}</a> · {{ L.group.tel }}: <a href="tel:{{ phone_tel }}">{{ phone }}</a></p></noscript>
+    <ol id="q-steps" aria-label="{{ L.quote.steps_label }}" class="q-steps"></ol>
+    <div class="q-body">
+      <div id="q-main" class="q-main"></div>
+      <aside id="q-aside" aria-label="{{ L.quote.aside_label }}" class="q-aside"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGUIMIENTO (oculto mientras TRACKING = False) ============ -->
+{% if tracking %}<section id="seguimiento" aria-labelledby="h-track" class="section" style="background:var(--paper-2);">
+  <div class="wrap trk">
+    <div class="track-l">
+      <h2 id="h-track" class="h2" style="max-width:14ch;">{{ L.track.h2 }}</h2>
+      <p class="lead">{{ L.track.lead }}</p>
+      <form action="{{ root }}seguimiento.html" aria-label="{{ L.track.form_label }}" class="track-form">
+        <label class="field">{{ L.track.code }}<input type="text" name="codigo" class="input input-ink" placeholder="JP-26-0001"></label>
+        <label class="field">{{ L.track.email }}<input type="email" name="email" class="input input-ink" placeholder="{{ L.track.email_ph }}"></label>
+        <button type="submit" class="btn btn-ink">{{ L.track.btn }}</button>
+      </form>
+    </div>
+    <div class="track-card">
+      <div class="track-head">
+        <div><span class="tnum track-code">JP-26-0001</span><span class="small-muted">{{ L.track.demo_meta }} <span class="ral-current">1023</span></span></div>
+        <span class="pill-ok"><span class="dot-pulse"></span>{{ L.track.status }}</span>
+      </div>
+      <ol aria-label="{{ L.track.ms_label }}" class="ms">
+        {% for m in L.track.milestones %}<li title="{{ m }}" class="{{ 'done' if loop.index0 < 4 else ('now' if loop.index0 == 4 else '') }}"><span class="sr">{{ m }}</span></li>{% endfor %}
+      </ol>
+      <div class="track-grid">
+        <figure class="track-photo">
+          <img src="{{ root }}assets/img/piezas-colgadas.webp" alt="{{ L.track.photo_alt }}" loading="lazy" decoding="async" width="1400" height="933">
+          <figcaption>{{ L.track.photo_cap }}</figcaption>
+        </figure>
+        <ul class="track-events">
+          {% for t, w in L.track.events %}<li><span>{{ t }}</span><span class="small-muted">{{ w }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>{% endif %}
+
+<!-- ============ CALIDAD ============ -->
+<section id="calidad" aria-labelledby="h-quality" class="quality">
+  <div class="wrap quality-in">
+    <div class="split">
+      <h2 id="h-quality" class="h2" style="max-width:14ch;">{{ L.quality.h2 }}</h2>
+      <p class="lead">{{ L.quality.lead }}</p>
+    </div>
+    <article class="marine">
+      <div class="marine-t">
+        <h3>{{ L.quality.marine_h }}</h3>
+        <p>{{ L.quality.marine_p }}</p>
+      </div>
+      <div class="marine-l">
+        <ol class="layers" aria-label="{{ L.quality.layers_label }}">{% for ly in L.quality.layers %}<li>{{ ly }}</li>{% endfor %}</ol>
+        <p class="marine-data tnum">{{ L.quality.marine_data }}</p>
+      </div>
+    </article>
+    <ul class="seal-row">
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="66" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[0][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[1][0] }}" width="64" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[1][1] }}</span></li>
+      <li><span class="seal-logo"><svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[2][0] }}" width="88" height="56"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg></span><span class="seal-cap">{{ L.quality.seals[2][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualicoat.svg" alt="{{ L.quality.seals[3][0] }}" width="157" height="35" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[3][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[4][0] }}" width="123" height="56" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[4][1] }}</span></li>
+    </ul>
+    <div class="asterisk"><p>{{ L.quality.seal_note }}</p>{% if L.quality.note %}<p>{{ L.quality.note }}</p>{% endif %}</div>
+    <nav class="guides" aria-labelledby="h-guides">
+      <h3 id="h-guides" class="guides-h">{{ L.quality.guides_h }}</h3>
+      <ul>
+        {% for t, d in L.quality.guides %}<li><a href="{{ guide_href[loop.index0] }}" class="guide-link"><span class="guide-t">{{ t }}</span><span class="guide-d">{{ d }}</span><svg class="guide-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12 H19 M13 6 L19 12 L13 18"></path></svg></a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class="logos" aria-label="{{ L.quality.marquee_label }}" role="region">
+    <p class="logos-l">{{ L.quality.marquee }}</p>
+    <div class="logos-mask">
+      <div class="track" id="logo-track">
+        <ul class="logo-set">
+          <li><img class="logo-item" src="{{ root }}assets/logos/interpon.png" alt="Interpon (AkzoNobel)" width="98" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/axalta.svg" alt="Axalta" width="49" height="40" loading="lazy" decoding="async" style="height:40px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/tiger.svg" alt="Tiger Coatings" width="64" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/igp.svg" alt="IGP Powder Coatings" width="95" height="36" loading="lazy" decoding="async" style="height:36px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/pulverit.png" alt="Pulverit" width="110" height="30" loading="lazy" decoding="async" style="height:30px;"></li>
+          <li><img src="{{ root }}assets/logos/valresa.png" alt="Valresa" width="104" height="19" loading="lazy" decoding="async" style="height:19px; filter:brightness(0); opacity:0.5;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/dilcas.png" alt="Dilcas" width="111" height="38" loading="lazy" decoding="async" style="height:38px;"></li>
+          <li><img class="logo-item" src="{{ root }}assets/logos/adapta.webp" alt="Adapta Powder Coatings" width="136" height="36" loading="lazy" decoding="async" style="height:36px;"></li>
+          <li class="logo-txt" style="font-stretch:115%; font-size:22px;">NEUCE</li>
+          <li class="logo-txt" style="font-size:18px;">ST Powder Coatings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DÓNDE TRABAJAMOS ============ -->
+<section id="zona" aria-labelledby="h-area" class="section" style="background:#FFFFFF; border-top:1px solid var(--line);">
+  <div class="wrap" style="display:flex; flex-direction:column; gap:clamp(28px,3.5cqi,48px);">
+    <div class="split">
+      <h2 id="h-area" class="h2" style="max-width:14ch;">{{ L.area.h2 }}</h2>
+      <p class="lead">{{ L.area.lead }}</p>
+    </div>
+    <ul class="area-grid">
+      {% for t, p, x in L.area.zones %}<li><h3 class="area-t">{{ t }}</h3><p class="area-p">{{ p }}</p>{% if x %}<p class="area-x">{{ x }}</p>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    <p class="area-note">{{ L.area.note }}</p>
+  </div>
+</section>
+
+<!-- ============ ANTES DE ENVIAR + PREGUNTAS ============ -->
+<section aria-labelledby="h-faq" class="section" style="background:var(--paper);">
+  <div class="wrap faq-grid">
+    <div class="dark prep">
+      <h2 class="h3">{{ L.prep.h2 }}</h2>
+      <ul>
+        {% for it in L.prep['items'] %}<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="1.75" aria-hidden="true"><path d="M4.5 12.5 L9.5 17.5 L19.5 6.5"></path></svg><span>{{ it }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="faq">
+      <h2 id="h-faq" class="h3">{{ L.faq.h2 }}</h2>
+      {% for q, a in L.faq['items'] %}<details><summary><span>{{ q }}</span><span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ GRUPO JOMA + CONTACTO ============ -->
+<section id="contacto" aria-labelledby="h-group" class="dark group">
+  <div class="wrap group-in">
+    <div class="group-top">
+      <div class="split">
+        <h2 id="h-group" class="h2" style="max-width:19ch;">{{ L.group.h2 }}</h2>
+        <p class="lead">{{ L.group.lead }}</p>
+      </div>
+      <ol class="timeline" aria-label="{{ L.group.timeline_label }}">
+        {% for y, t in L.group.timeline %}<li><span class="tl-y tnum">{{ y }}</span><span class="tl-x">{{ t }}</span></li>
+        {% endfor %}
+      </ol>
+      <figure class="plant">
+        <img src="{{ root }}assets/img/fabrica-joma-legutio.webp" alt="{{ L.group.plant_alt }}" width="2035" height="773" loading="lazy" decoding="async">
+        <dl class="g-stats">
+          {% for label, value in L.group.stats %}<div><dt>{{ label }}</dt><dd class="tnum">{{ value }}</dd></div>
+          {% endfor %}
+        </dl>
+        <figcaption>{{ L.group.plant_cap }}</figcaption>
+      </figure>
+      <ul aria-label="{{ L.group.brands_label }}" class="units">
+        <li>
+          <a href="https://joma.es" rel="noopener" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-logo-white.svg" alt="Joma" width="79" height="26" style="height:26px;"></span>
+            <span class="unit-d">{{ L.group.joma }}</span>
+            <span class="unit-l">{{ L.group.visit }} joma.es</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.jomaurban.com" rel="noopener" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-joma-urban.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/joma-urban.svg" alt="Joma Urban" width="140" height="22" style="height:22px; margin-top:2px;"></span>
+            <span class="unit-d">{{ L.group.urban }}</span>
+            <span class="unit-l">{{ L.group.visit }} jomaurban.com</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://normo.es" rel="noopener" class="unit">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-normo.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><img src="{{ root }}assets/logos/normo-negativo.svg" alt="Normo" width="109" height="20" style="height:20px; margin-top:3px;"></span>
+            <span class="unit-d">{{ L.group.normo }}</span>
+            <span class="unit-l">{{ L.group.visit }} normo.es</span>
+          </a>
+        </li>
+        <li>
+          <div class="unit unit-here">
+            <span class="unit-img"><img src="{{ root }}assets/img/grupo-jomapaint.webp" alt="" loading="lazy" decoding="async" width="960" height="720"></span>
+            <span class="unit-logo"><span class="lockup" style="--h:26px; color:#FAF9F6;"><img src="{{ root }}assets/logos/joma-logo-color.svg" alt="Joma" width="79" height="26"><span class="rule"></span><span class="paint">PAINT</span></span></span>
+            <span class="unit-d">{{ L.group.paint }}</span>
+            <span class="unit-l">{{ L.group.here }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+{% include '_end.html.j2' %}
+  </div>
+</section>
+
+</div>
+<script>window.JP = {{ jsdata }};</script>
+<script src="{{ root }}assets/ral-data.js" defer></script>
+<script src="{{ root }}assets/app.js" defer></script>
+</body>
+</html>
