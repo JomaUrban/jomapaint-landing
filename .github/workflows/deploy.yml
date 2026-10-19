@@ -61,7 +61,8 @@ jobs:
           ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --build && docker compose ps"
 
       - name: Comprobar salud
-        run: ssh deploy-target "cd '$VPS_PATH' && sleep 3 && docker compose exec -T web wget -qO /dev/null http://localhost/"
+        # 127.0.0.1 y no localhost: el wget de alpine prueba ::1 y nginx solo escucha IPv4
+        run: ssh deploy-target "cd '$VPS_PATH' && for i in 1 2 3 4 5; do docker compose exec -T web wget -qO /dev/null http://127.0.0.1/ && exit 0; sleep 3; done; docker compose logs --tail 30 web; exit 1"
 
       - name: Cerrar la conexión
         if: always()
