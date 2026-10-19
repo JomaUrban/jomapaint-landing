@@ -1,7 +1,7 @@
 # Despliegue a https://paint.joma.es en cada push a main.
 # Necesita en Settings → Secrets and variables → Actions (de este repo o de la
-# organización con acceso a este repo): secret VPS_SSH_KEY, variables VPS_HOST
-# y VPS_USER — los mismos que usa Produccion-Joma.
+# organización con acceso a este repo) el secret VPS_SSH_KEY, el mismo que usa
+# Produccion-Joma. VPS_HOST / VPS_USER son opcionales: por defecto el VPS JOMA.
 name: Deploy
 
 on:
@@ -17,6 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
+      VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
+      VPS_USER: ${{ vars.VPS_USER || 'root' }}
       VPS_PATH: ${{ vars.VPS_PATH || '/opt/jomapaint-landing' }}
       DEPLOY_KEY: ${{ secrets.VPS_SSH_KEY }}
     steps:
@@ -24,8 +26,8 @@ jobs:
 
       - name: Configurar SSH
         run: |
-          if [ -z "$DEPLOY_KEY" ] || [ -z "${{ vars.VPS_HOST }}" ] || [ -z "${{ vars.VPS_USER }}" ]; then
-            echo "::error::Faltan VPS_SSH_KEY (secret) o VPS_HOST / VPS_USER (variables)."
+          if [ -z "$DEPLOY_KEY" ]; then
+            echo "::error::Falta el secret VPS_SSH_KEY (Settings → Secrets and variables → Actions)."
             exit 1
           fi
           mkdir -p ~/.ssh
@@ -33,14 +35,14 @@ jobs:
           chmod 600 ~/.ssh/id_deploy
           # el 22 del VPS rechaza conexiones a ratos: reintentar el keyscan
           for i in 1 2 3 4 5; do
-            ssh-keyscan -H "${{ vars.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+            ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
             grep -q . ~/.ssh/known_hosts && break
             sleep $((i * 5))
           done
           cat > ~/.ssh/config <<SSHCFG
           Host deploy-target
-            HostName ${{ vars.VPS_HOST }}
-            User ${{ vars.VPS_USER }}
+            HostName $VPS_HOST
+            User $VPS_USER
             IdentityFile ~/.ssh/id_deploy
             IdentitiesOnly yes
             ControlMaster auto
