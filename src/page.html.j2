@@ -35,9 +35,9 @@
         <a href="#presupuesto" class="btn btn-acc btn-lg">{{ L.cta }}</a>
       </div>
 
-      <div class="hero-foot">
+      {% if tracking %}<div class="hero-foot">
         <a href="#seguimiento">{{ L.hero.track }}</a>
-      </div>
+      </div>{% endif %}
     </div>
   </div>
 
@@ -127,7 +127,7 @@
           <span aria-hidden="true" class="st-num tnum">0{{ loop.index }}</span>
           <h3>{{ name }}</h3>
           <p>{{ text }}</p>
-          <p class="st-data tnum">{{ data }}</p>
+          {% if data %}<p class="st-data tnum">{{ data }}</p>{% endif %}
         </div>
         {% endfor %}
       </div>
@@ -251,8 +251,8 @@
   </div>
 </section>
 
-<!-- ============ SEGUIMIENTO ============ -->
-<section id="seguimiento" aria-labelledby="h-track" class="section" style="background:var(--paper-2);">
+<!-- ============ SEGUIMIENTO (oculto mientras TRACKING = False) ============ -->
+{% if tracking %}<section id="seguimiento" aria-labelledby="h-track" class="section" style="background:var(--paper-2);">
   <div class="wrap trk">
     <div class="track-l">
       <h2 id="h-track" class="h2" style="max-width:14ch;">{{ L.track.h2 }}</h2>
@@ -283,7 +283,7 @@
       </div>
     </div>
   </div>
-</section>
+</section>{% endif %}
 
 <!-- ============ CALIDAD ============ -->
 <section id="calidad" aria-labelledby="h-quality" class="quality">
@@ -293,7 +293,6 @@
       <p class="lead">{{ L.quality.lead }}</p>
     </div>
     <article class="marine">
-      <img src="{{ root }}assets/logos/joma-marine.svg" alt="{{ L.quality.marine_alt }}" width="132" height="132" loading="lazy" decoding="async">
       <div class="marine-t">
         <h3>{{ L.quality.marine_h }}</h3>
         <p>{{ L.quality.marine_p }}</p>
@@ -307,8 +306,10 @@
       <li><span class="seal-logo"><img src="{{ root }}assets/logos/iso9001.webp" alt="{{ L.quality.seals[0][0] }}" width="66" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[0][1] }}</span></li>
       <li><span class="seal-logo"><img src="{{ root }}assets/logos/joma-quality.svg" alt="{{ L.quality.seals[1][0] }}" width="64" height="64" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[1][1] }}</span></li>
       <li><span class="seal-logo"><svg viewBox="0 0 120 76" role="img" aria-label="{{ L.quality.seals[2][0] }}" width="88" height="56"><circle cx="19" cy="19" r="18" fill="#E1231D"></circle><circle cx="56" cy="19" r="18" fill="#E1231D"></circle><circle cx="19" cy="56" r="18" fill="#E1231D"></circle><text x="43" y="54" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">80 years</text><text x="43" y="67" fill="#1A1A1A" style="font-family:Archivo,sans-serif; font-size:10.5px;">of quality</text></svg></span><span class="seal-cap">{{ L.quality.seals[2][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualicoat.svg" alt="{{ L.quality.seals[3][0] }}" width="157" height="35" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[3][1] }}</span></li>
+      <li><span class="seal-logo"><img src="{{ root }}assets/logos/qualisteelcoat.svg" alt="{{ L.quality.seals[4][0] }}" width="123" height="56" loading="lazy" decoding="async"></span><span class="seal-cap">{{ L.quality.seals[4][1] }}</span></li>
     </ul>
-    <p class="asterisk">{{ L.quality.note }}</p>
+    <div class="asterisk"><p>{{ L.quality.seal_note }}</p>{% if L.quality.note %}<p>{{ L.quality.note }}</p>{% endif %}</div>
     <nav class="guides" aria-labelledby="h-guides">
       <h3 id="h-guides" class="guides-h">{{ L.quality.guides_h }}</h3>
       <ul>
@@ -346,7 +347,7 @@
       <p class="lead">{{ L.area.lead }}</p>
     </div>
     <ul class="area-grid">
-      {% for t, p, x in L.area.zones %}<li><h3 class="area-t">{{ t }}</h3><p class="area-p">{{ p }}</p><p class="area-x">{{ x }}</p></li>
+      {% for t, p, x in L.area.zones %}<li><h3 class="area-t">{{ t }}</h3><p class="area-p">{{ p }}</p>{% if x %}<p class="area-x">{{ x }}</p>{% endif %}</li>
       {% endfor %}
     </ul>
     <p class="area-note">{{ L.area.note }}</p>
@@ -365,7 +366,7 @@
     </div>
     <div class="faq">
       <h2 id="h-faq" class="h3">{{ L.faq.h2 }}</h2>
-      {% for q, a in L.faq['items'] %}<details><summary>{{ q }}<span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
+      {% for q, a in L.faq['items'] %}<details><summary><span>{{ q }}</span><span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
       {% endfor %}
     </div>
   </div>

@@ -53,6 +53,24 @@ AREA_SERVED = [
 ]
 
 
+# Páginas retiradas: slug antiguo por idioma -> clave del servicio que las sustituye.
+RETIRED = [
+    ({'es': 'cataforesis/', 'eu': 'kataforesia/', 'fr': 'cataphorese/'}, 'zinc'),
+]
+REDIRECT_TPL = '''<!doctype html>
+<html lang="%(lang)s">
+<head>
+<meta charset="utf-8">
+<title>%(name)s · JomaPaint</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="%(abs)s">
+<meta http-equiv="refresh" content="0; url=%(rel)s">
+</head>
+<body><p><a href="%(rel)s">%(name)s</a></p></body>
+</html>
+'''
+
+
 def strip_tags(s):
     return re.sub(r'<[^>]+>', '', s).replace('&#160;', ' ').strip()
 
@@ -83,7 +101,7 @@ def base_nodes(L, base):
             '@type': 'Organization', '@id': org_id,
             'name': 'Joma', 'legalName': 'José María Gallastegui y Cía., S.A.',
             'url': 'https://joma.es', 'foundingDate': '1942',
-            'telephone': C.PHONE_TEL, 'email': C.EMAIL,
+            'telephone': C.PHONE_TEL, 'email': C.JOMA_EMAIL,
             'department': {'@id': biz_id},
         },
         {
@@ -226,7 +244,7 @@ def main():
     env = Environment(loader=FileSystemLoader(HERE), autoescape=False, trim_blocks=False, lstrip_blocks=False)
     tpl_home = env.get_template('page.html.j2')
     tpl_svc = env.get_template('service.html.j2')
-    common = dict(base=base, index=not args.noindex, phone=C.PHONE, phone_tel=C.PHONE_TEL, email=C.EMAIL)
+    common = dict(base=base, index=not args.noindex, phone=C.PHONE, phone_tel=C.PHONE_TEL, email=C.EMAIL, tracking=C.TRACKING)
     sitemap = []  # (url, [(lang, url)...], x-default)
 
     for L in C.LANGS:
@@ -247,7 +265,8 @@ def main():
         js['lang'] = lang
         js['root'] = root
         js['stCaps'] = [x[3] for x in L['process']['stations']]
-        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT, 'tracking': C.TRACKING,
+                             'lim': {'mm': list(C.CABIN_MM), 'kg': C.MAX_KG}}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
         svc_href = {sv['key']: root + svc_path(L, sv[lang]) for sv in SV.SERVICES}
         svc_links = [{'href': svc_href[sv['key']], 'name': sv[lang]['name'], 'current': False} for sv in SV.SERVICES]
         guide_href = [root + svc_path(L, g[lang]) for g in GD.GUIDES]
@@ -327,6 +346,18 @@ def main():
                                   guide=True, related=related, contact_p=L['svc']['cta_p'], **common)
             write(gpath, html)
             sitemap.append((gurl, [(O['meta']['lang'], base + svc_path(O, g[O['meta']['lang']])) for O in C.LANGS], GM['xdefault']))
+
+    # ---------- redirecciones de URL retiradas (no entran en el sitemap) ----------
+    for O in C.LANGS:
+        for old_slug, key in RETIRED:
+            new_S = next(sv for sv in SV.SERVICES if sv['key'] == key)[O['meta']['lang']]
+            old_path = O['meta']['path'] + old_slug[O['meta']['lang']]
+            new_rel = '../' * old_path.count('/') + svc_path(O, new_S)
+            out_dir = os.path.join(ROOT, old_path)
+            os.makedirs(out_dir, exist_ok=True)
+            with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                f.write(REDIRECT_TPL % {'lang': O['meta']['lang'], 'abs': base + svc_path(O, new_S), 'rel': new_rel, 'name': new_S['name']})
+            print('ok', old_path, '->', svc_path(O, new_S))
 
     today = datetime.date.today().isoformat()
     rows = []

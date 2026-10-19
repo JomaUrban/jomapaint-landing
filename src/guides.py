@@ -9,8 +9,8 @@ from guides_content import CERT, SOURCES
 
 # Índices (desde 0) de las secciones, preguntas y fuentes de cada página.
 SPLIT = {
-    'certificaciones': {'sections': [0, 1, 2, 3, 4, 5, 16], 'faq': [0, 5, 6, 7, 8], 'sources': range(0, 8)},
-    'normas': {'sections': [6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 'faq': [1, 2, 3, 4, 9], 'sources': range(8, 18)},
+    'certificaciones': {'sections': [0, 1, 2, 3, 4, 5, 16], 'faq': [0, 5, 6, 7], 'sources': range(0, 8)},
+    'normas': {'sections': [6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 'faq': [1, 2, 3, 4], 'sources': range(8, 18)},
 }
 
 META = {
@@ -58,8 +58,8 @@ META = {
             'name': 'Normas y ensayos de la pintura en polvo', 'crumb': 'Normas y ensayos',
             'kicker': 'Calidad · Guía técnica',
             'h1': 'Normas y ensayos de la pintura en polvo',
-            'lead': 'Qué dice cada norma, qué mide cada ensayo y cuánto dura: ISO 12944 parte por parte, ambientes C1 a CX, niebla salina, humedad, adherencia, brillo, preparación de superficie y normas EN. Con los ensayos del sistema Marine.',
-            'facts': [('Ambientes', 'C1 a CX', 'ISO 12944-2:2017'), ('Durabilidad', 'L · M · H · VH', 'No es una garantía'), ('Sistema Marine', 'C5-M', 'C5 · durabilidad media')],
+            'lead': 'Qué dice cada norma, qué mide cada ensayo y cuánto dura: ISO 12944 parte por parte, ambientes C1 a CX, niebla salina, humedad, adherencia, brillo, preparación de superficie y normas EN. Con los ensayos del sistema C4-H.',
+            'facts': [('Ambientes', 'C1 a CX', 'ISO 12944-2:2017'), ('Durabilidad', 'L · M · H · VH', 'No es una garantía'), ('Anticorrosión', 'C4-H', 'Sello en homologación')],
         },
         'eu': {
             'slug': 'hauts-pinturaren-arauak-saiakuntzak/',
@@ -69,8 +69,8 @@ META = {
             'name': 'Hauts-pinturaren arauak eta saiakuntzak', 'crumb': 'Arauak eta saiakuntzak',
             'kicker': 'Kalitatea · Gida teknikoa',
             'h1': 'Hauts-pinturaren arauak eta saiakuntzak',
-            'lead': 'Arau bakoitzak zer dioen, saiakuntza bakoitzak zer neurtzen duen eta zenbat irauten duen: ISO 12944 zatiz zati, C1etik CXerako giroak, gatz-lainoa, hezetasuna, atxikimendua, distira, gainazalaren prestaketa eta EN arauak. Marine sistemaren saiakuntzekin.',
-            'facts': [('Giroak', 'C1etik CXera', 'ISO 12944-2:2017'), ('Iraunkortasuna', 'L · M · H · VH', 'Ez da bermea'), ('Marine sistema', 'C5-M', 'C5 · iraunkortasun ertaina')],
+            'lead': 'Arau bakoitzak zer dioen, saiakuntza bakoitzak zer neurtzen duen eta zenbat irauten duen: ISO 12944 zatiz zati, C1etik CXerako giroak, gatz-lainoa, hezetasuna, atxikimendua, distira, gainazalaren prestaketa eta EN arauak. C4-H sistemaren saiakuntzekin.',
+            'facts': [('Giroak', 'C1etik CXera', 'ISO 12944-2:2017'), ('Iraunkortasuna', 'L · M · H · VH', 'Ez da bermea'), ('Korrosioaren aurka', 'C4-H', 'Zigilua homologatzeko bidean')],
         },
         'fr': {
             'slug': 'normes-essais-peinture-poudre/',
@@ -80,8 +80,8 @@ META = {
             'name': 'Normes et essais du thermolaquage', 'crumb': 'Normes et essais',
             'kicker': 'Qualité · Guide technique',
             'h1': 'Normes et essais du thermolaquage',
-            'lead': 'Ce que dit chaque norme, ce que mesure chaque essai et combien de temps il dure : l’ISO 12944 partie par partie, environnements C1 à CX, brouillard salin, humidité, adhérence, brillance, préparation de surface et normes EN. Avec les essais du système Marine.',
-            'facts': [('Environnements', 'C1 à CX', 'ISO 12944-2:2017'), ('Durabilité', 'L · M · H · VH', 'Ce n’est pas une garantie'), ('Système Marine', 'C5-M', 'C5 · durabilité moyenne')],
+            'lead': 'Ce que dit chaque norme, ce que mesure chaque essai et combien de temps il dure : l’ISO 12944 partie par partie, environnements C1 à CX, brouillard salin, humidité, adhérence, brillance, préparation de surface et normes EN. Avec les essais du système C4-H.',
+            'facts': [('Environnements', 'C1 à CX', 'ISO 12944-2:2017'), ('Durabilité', 'L · M · H · VH', 'Ce n’est pas une garantie'), ('Anticorrosion', 'C4-H', 'Label en cours d’homologation')],
         },
     },
 }

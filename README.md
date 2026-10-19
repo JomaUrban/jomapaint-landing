@@ -3,7 +3,7 @@
 Propuesta de web para **JomaPaint**, la división de termolacado y pintura en polvo para terceros de Joma (Legutio, Álava).
 
 - **Vista previa:** https://jomaurban.github.io/jomapaint-landing/ (ES) · `/eu/` (euskera) · `/fr/` (francés)
-- **Estado:** maqueta para revisar con el equipo y con diseño. Los datos pendientes aparecen en azul `[XX]`.
+- **Estado:** lista para producción (19-10-2026). Sin datos pendientes visibles: lo que falta por confirmar se ha quitado de la web hasta tenerlo.
 - **Indexable** desde el 17-10-2026 en GitHub Pages. Cuando se configure el dominio propio en Pages, GitHub redirige solo (301) desde `github.io`.
 
 ## Páginas
@@ -14,14 +14,16 @@ Propuesta de web para **JomaPaint**, la división de termolacado y pintura en po
 |---|---|---|---|
 | Portada | `/` | `/eu/` | `/fr/` |
 | Termolacado de piezas y estructuras | `/termolacado-piezas-estructuras/` | `/eu/piezen-eta-egituren-termolakatzea/` | `/fr/thermolaquage-pieces-structures/` |
-| Cataforesis y sistema Marine (C5) | `/cataforesis/` | `/eu/kataforesia/` | `/fr/cataphorese/` |
+| Imprimación rica en zinc (C4-H) | `/imprimacion-rica-en-zinc/` | `/eu/zinkez-aberatsa-den-inprimazioa/` | `/fr/primaire-riche-en-zinc/` |
 | Lacado de perfiles de aluminio | `/lacado-perfiles-aluminio/` | `/eu/aluminiozko-profilen-lakatzea/` | `/fr/thermolaquage-profiles-aluminium/` |
 | Termolacado de acero galvanizado | `/pintura-acero-galvanizado/` | `/eu/altzairu-galbanizatuaren-termolakatzea/` | `/fr/thermolaquage-acier-galvanise/` |
 | Grabado láser e impresión UV | `/grabado-laser-impresion-uv/` | `/eu/laser-grabatua-uv-inprimaketa/` | `/fr/gravure-laser-impression-uv/` |
 | Guía: Certificaciones | `/certificaciones-pintura-polvo/` | `/eu/hauts-pinturaren-ziurtagiriak/` | `/fr/certifications-peinture-poudre/` |
 | Guía: Normas y ensayos | `/normas-ensayos-pintura-polvo/` | `/eu/hauts-pinturaren-arauak-saiakuntzak/` | `/fr/normes-essais-peinture-poudre/` |
 
-Además, `seguimiento.html` es la página de ejemplo del seguimiento de pedido (solo ES, `noindex`).
+Las URL antiguas de cataforesis (`/cataforesis/`, `/eu/kataforesia/`, `/fr/cataphorese/`) redirigen a la imprimación rica en zinc (`noindex` + canonical; se generan en `build.py`, lista `RETIRED`).
+
+`seguimiento.html` es la página de ejemplo del seguimiento de pedido (solo ES, `noindex`). Ahora no se enlaza desde ninguna parte.
 
 ### Portada
 
@@ -31,10 +33,10 @@ Además, `seguimiento.html` es la página de ejemplo del seguimiento de pedido (
 - **Explorador RAL Classic** con los 216 colores, textura y brillo. La placa es 3D (three.js, `src/ral3d.js`) y se carga al acercarse a la sección:
   - **Mate:** sin reflejos. **Satinado:** reflejo difuso. **Brillo:** barniz con reflejos nítidos de una fila de regletas LED, como un túnel de inspección de pintura, y un haz de luz cálido que cruza la placa. **Texturado:** relieve real con mapa de normales.
   - Los reflejos usan una nave real (HDRI) casi en gris, para no teñir el color RAL. El mate está calibrado contra el valor RAL.
-- **Cotizador guiado** en tres pasos. Arranca con una referencia vacía y envía la solicitud por email con FormSubmit (adjuntos hasta 10 MB). El destino está en `FORM_ENDPOINT` (`src/content.py`): ahora, el correo de pruebas de Jox; después, marimar@joma.es. El plazo se calcula en horario de oficina (L–V, 7:00–17:00, hora de Madrid).
+- **Cotizador guiado** en tres pasos. Arranca con una referencia vacía y envía la solicitud por email con FormSubmit (adjuntos hasta 10 MB). El destino está en `FORM_ENDPOINT` (`src/content.py`): marimar@joma.es. Avisa si una pieza supera la cabina (6 × 2 × 0,65 m) o los 165 kg. La entrega es siempre en Legutio, portes no incluidos. El plazo se calcula en horario de oficina (L–V, 7:00–17:00, hora de Madrid).
 - **Dónde trabajamos**: zonas de servicio con los núcleos industriales, sin listas de topónimos (Google lo considera *keyword stuffing*). Las mismas zonas van en `areaServed`.
-- **Seguimiento de pedido** (vista previa).
-- **Calidad**: sistema Marine para ambientes C5 (antes C5-M), sellos, enlaces a las guías y fabricantes de polvo.
+- **Seguimiento de pedido:** oculto. `TRACKING = True` en `src/content.py` lo vuelve a mostrar (sección, menú, enlace del hero y botón final del cotizador).
+- **Calidad**: sistema anticorrosivo C4-H para terceros (imprimación rica en zinc en polvo + poliéster en polvo), sellos (ISO 9001, QUALICOAT* y QUALISTEELCOAT C4-H*, con asterisco «en proceso de homologación»), enlaces a las guías y fabricantes de polvo. El sistema Marine C5-M es de los productos de Joma, no del servicio a terceros.
 - **Grupo Joma**: historia, fábrica de Legutio y marcas del grupo.
 
 ### Páginas de servicio
@@ -44,7 +46,7 @@ Cada una explica el servicio con datos contrastados, sin relleno. Todas siguen l
 1. Cabecera con foto.
 2. Datos clave.
 3. Secciones técnicas.
-4. Datos de la línea pendientes de confirmar.
+4. Datos de la línea.
 5. Preguntas frecuentes.
 6. Enlaces al resto de servicios.
 7. Contacto.
@@ -54,7 +56,7 @@ No llevan JavaScript.
 ### Guías técnicas
 
 - **Certificaciones:** QUALICOAT (clases 1, 1.5, 2 y 3, SEASIDE), QUALISTEELCOAT, GSB, ISO 9001/14001 y qué pedir en un pliego.
-- **Normas y ensayos:** ISO 12944 parte por parte, categorías C1–CX e Im, C5-M frente a C5, horas de ISO 12944-6, niebla salina, humedad, Kesternich, envejecimiento, ensayos de película, ISO 8501/8503, EN 13438, EN 15773, EN 12206-1, EN 1090-2 y ensayos del sistema Marine.
+- **Normas y ensayos:** ISO 12944 parte por parte, categorías C1–CX e Im, C5-M frente a C5, horas de ISO 12944-6, niebla salina, humedad, Kesternich, envejecimiento, ensayos de película, ISO 8501/8503, EN 13438, EN 15773, EN 12206-1, EN 1090-2 y ensayos del sistema C4-H.
 - Contenido en `src/guides_content.py`; el reparto en dos páginas, en `src/guides.py`. Cada guía lista sus fuentes primarias.
 - **Criterio:** ISO 12944 excluye la pintura en polvo; por eso la web habla de «ambientes C5» y nunca de «cumple ISO 12944» ni «certificado».
 
@@ -96,9 +98,9 @@ El build avisa si algún `title` pasa de 62 caracteres o alguna `description` se
 - Enlazado interno: los servicios de la portada y el pie de todas las páginas enlazan a cada servicio. Cada servicio enlaza a los otros cuatro.
 
 **Palabras clave por idioma**
-- **ES:** termolacado, pintura en polvo, pintura electrostática, lacado al horno, cataforesis, lacado de aluminio, acero galvanizado. Siempre con Vitoria-Gasteiz y Álava.
-- **FR:** sous-traitance, thermolaquage à façon, peinture poudre, peinture époxy, cataphorèse, Pays basque. El `title` evita el nombre de un competidor («Thermolaquage Pays Basque»).
-- **EU:** termolakatzea (el término correcto para el proceso), hauts-pintura, kataforesia, Araba, Gasteiz.
+- **ES:** termolacado, pintura en polvo, pintura electrostática, lacado al horno, imprimación rica en zinc, lacado de aluminio, acero galvanizado. Siempre con Vitoria-Gasteiz y Álava.
+- **FR:** sous-traitance, thermolaquage à façon, peinture poudre, peinture époxy, primaire riche en zinc, Pays basque. El `title` evita el nombre de un competidor («Thermolaquage Pays Basque»).
+- **EU:** termolakatzea (el término correcto para el proceso), hauts-pintura, zinkez aberatsa den inprimazioa, Araba, Gasteiz.
 
 **Datos estructurados (schema.org)**
 - **En todas las páginas:**
@@ -128,29 +130,23 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 
 ## Antes de publicar
 
-**Datos pendientes `[XX]`:**
-- Cabina, peso máximo, espesor de capa y plazo estándar (también en la página de termolacado).
-- Temperaturas, tiempos y espesores de cada estación.
-- Tamaño máximo de archivo.
-- Longitud máxima: 6 m (dato de Jox, «me parece»): confirmar y si vale para toda la línea.
-- **Marine:** informe de niebla salina (laboratorio, fecha y n.º), horas de humedad, adherencia, espesores, tipo de capa final y sustrato (acero, galvanizado o ambos).
-- **Certificaciones:** estado de QUALICOAT, QUALISTEELCOAT y ampliación del alcance ISO 9001 a la pintura para terceros. El logo de QUALISTEELCOAT se ha retirado hasta tener licencia.
-- **Dónde trabajamos:** horario de muelle, días de ruta, plazos, condiciones de agencia y exportación.
-- Pedido mínimo, validez del presupuesto, recogidas y entregas, y política de reproceso.
-- Zonas de servicio.
-- Condiciones para Francia.
-- **Cataforesis:** medidas y peso máximo de la cuba, espesor de cataforesis.
-- **Aluminio:** longitud máxima de perfil, tipo de pretratamiento y si se lacan perfiles con rotura de puente térmico.
-- **Galvanizado:** pasos de preparación, temperatura de precalentamiento y si se chorrea.
-- **Marcaje:** áreas máximas de láser y de UV, formato de archivo del logotipo.
+**Confirmado el 19-10-2026:** cabina 6 m × 2 m × 650 mm, 165 kg por pieza, espesor habitual 60–80 µm, plazo estándar 1 semana, pedido mínimo 120 €, validez del presupuesto 3 meses, entrega y recogida en Legutio con portes a cargo del cliente, sin enmascarado (las zonas llegan protegidas), Pantone y NCS bajo pedido, taladro de cuelgue Ø 5 mm, urgencias caso a caso, control de espesor, adherencia e inspección visual, conversión sin cromo en aluminio, pretratamiento químico y desgasificado en galvanizado, QUALICOAT y QUALISTEELCOAT en proceso, contacto y formulario a marimar@joma.es.
+
+**Ocultos hasta tener el dato** (no aparecen en la web):
+- Etapas y temperatura del pretratamiento; temperatura y tiempo de secado y de polimerizado.
+- Preparación del acero y espesor de la imprimación de zinc; informes de ensayo del C4-H (laboratorio y n.º).
+- Daños mayores en piezas lacadas (reproceso).
+- Perfiles con rotura de puente térmico.
+- Marcaje: áreas máximas de láser y UV, formato del logotipo.
 
 **Revisiones:**
 - **Textos en euskera y francés:** son borradores y necesitan revisión nativa.
-- **ISO 9001:2015:** el certificado de Joma (Bureau Veritas, ES150335-1, válido hasta el 17-11-2027) cubre buzones, cajas y armarios. Conviene ampliar el alcance a la pintura para terceros.
-- **Marine:** el sistema de capas y las 1.000 h de niebla salina salen de jomaurban.com y de Joma. Hay que confirmar que el servicio a terceros usa el mismo sistema.
-- **QUALICOAT (aluminio):** la página de perfiles explica que muchos pliegos de arquitectura lo exigen, sin decir que JomaPaint lo tenga.
+- **Logos QUALICOAT y QUALISTEELCOAT:** archivos originales de qualicoat.net y qualisteelcoat.net, con asterisco «en proceso». Sus reglamentos reservan el logo a los titulares de licencia o a quien tenga autorización escrita: decisión de Joma publicarlos antes.
+- **ISO 9001:2015:** el certificado de Joma (Bureau Veritas, ES150335-1, válido hasta el 17-11-2027) cubre buzones, cajas y armarios. La web muestra el sello de Joma sin hablar del alcance.
 
-**Para que el cotizador funcione:** activar FormSubmit con el clic del primer email que llega al correo de pruebas y, cuando la prueba esté bien, cambiar `FORM_ENDPOINT` a marimar@joma.es.
+**Para que el cotizador funcione:** la primera solicitud que llegue a marimar@joma.es trae un email de activación de FormSubmit; hay que pulsarlo una vez.
+
+**Dominio:** cuando Igor asigne el dominio, regenerar con `python3 src/build.py --base https://DOMINIO/` (canonical, hreflang, Open Graph y sitemap) y configurarlo en GitHub Pages.
 
 **Fuera de la web:**
 - Ficha de Google Business Profile en Legutio.
@@ -178,7 +174,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 
 **Páginas de servicio**
 - **Termolacado:** pintura en polvo, del deck interno de JomaPaint.
-- **Cataforesis:** línea de cataforesis de Joma (jomaurban.com).
+- **Imprimación rica en zinc:** estructura de acero atornillada, Unsplash (imagen de referencia).
 - **Aluminio:** Andrey Soldatov en Unsplash.
 - **Galvanizado:** Bernard Hermant en Unsplash.
 - **Marcaje:** buzones Joma Skyline con numeración láser.
@@ -186,4 +182,5 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 **Logotipos**
 - Favicon: el pájaro de Joma en negro (en blanco con el modo oscuro), para distinguir la pestaña de la web de Joma.
 - Joma Urban va en su rojo oficial #E44132.
-- Los logotipos de proveedores, sellos y marcas pertenecen a sus propietarios. Aquí solo se usan como referencia y hay que confirmarlos antes de publicar.
+- QUALICOAT y QUALISTEELCOAT: archivos originales de sus webs, sin modificar.
+- Los logotipos de proveedores, sellos y marcas pertenecen a sus propietarios.

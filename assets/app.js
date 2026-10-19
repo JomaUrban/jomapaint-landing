@@ -322,9 +322,19 @@
     if (!main) return;
     /* Arranca con una referencia vacía: el cliente no tiene que borrar nada. */
     var blank = function (id) { return { id: id, ref: '', qty: '', mat: 0, kg: '', L: '', A: '', H: '', hang: -1, faces: '', file: '', size: '' }; };
-    var q = { step: 1, env: 1, del: 0, rgpd: false, extras: {}, nextId: 2, lines: [blank(1)], form: {}, code: '', heroFiles: [], err: '' };
+    var q = { step: 1, env: 1, rgpd: false, extras: {}, nextId: 2, lines: [blank(1)], form: {}, code: '', heroFiles: [], err: '' };
     var val = function (k) { return esc(q.form[k] || ''); };
     q.extras[T.extras.length - 1] = true;
+    /* Límites de la cabina (mm, en cualquier orientación) y peso máximo por pieza. */
+    var LIM = JP.lim || null;
+    var num = function (v) { var x = parseFloat(String(v || '').replace(',', '.')); return isFinite(x) && x > 0 ? x : 0; };
+    var desc = function (a, b) { return b - a; };
+    var tooBig = function (l) {
+      if (!LIM) return false;
+      if (num(l.kg) > LIM.kg) return true;
+      var d = [num(l.L), num(l.A), num(l.H)].sort(desc), m = LIM.mm.slice().sort(desc);
+      return d[0] > m[0] || d[1] > m[1] || d[2] > m[2];
+    };
     /* Plazo: un día laborable desde que entra la solicitud, en horario de oficina
        (lunes a viernes, 7:00–17:00, hora de Madrid). Fuera de horario, el reloj
        empieza a las 7:00 del siguiente día laborable. Se redondea a la hora siguiente. */
@@ -375,6 +385,7 @@
         '<div role="group" aria-label="' + esc(fmt(T.dimsLabel, { n: n })) + '" class="field" style="gap:6px;"><span>' + esc(T.dims) + '</span><div class="dims">' +
           ['L', 'A', 'H'].map(function (k, j) { return '<input class="input tnum" type="text" inputmode="numeric" aria-label="' + esc(T.dimNames[j]) + '" placeholder="' + esc(T.dimNames[j]) + '" data-f="' + k + '" data-id="' + l.id + '" value="' + esc(l[k]) + '">'; }).join('') +
         '</div></div>' +
+        '<p role="note" class="warn" data-fit="' + l.id + '"' + (tooBig(l) ? '' : ' hidden') + '>' + ico.warn + esc(T.big) + '</p>' +
         '<div class="g2"><div role="group" aria-label="' + esc(T.hangLabel) + '" class="field"><span>' + esc(T.hangQ) + '</span>' + seg('hang', T.hang, l.hang, ' data-id="' + l.id + '"') + '</div>' +
           '<label class="field">' + esc(T.faces) + '<input class="input" type="text" data-f="faces" data-id="' + l.id + '" value="' + esc(l.faces) + '" placeholder="' + esc(T.facesPh) + '"></label></div>' +
         (l.hang > 0 ? '<p role="note" class="warn">' + ico.warn + esc(T.warn) + '</p>' : '') +
@@ -404,16 +415,15 @@
             return '<label class="check' + (on ? ' on' : '') + '"><input type="checkbox" data-act="extra" data-v="' + i + '"' + (on ? ' checked' : '') + '>' + esc(x) + '</label>';
           }).join('') + '</div></fieldset>';
       } else if (q.step === 3) {
-        h = '<div class="g2"><label class="field">' + esc(T.when) + '<input class="input" type="date" data-q="when" value="' + val('when') + '"></label>' +
-          '<div role="group" aria-label="' + esc(T.delL) + '" class="field"><span>' + esc(T.delL) + '</span>' + seg('del', T.del, q.del) + '</div></div>' +
-          (q.del === 1 ? '<p style="margin-top:-8px; font-size:14px;"><mark class="note">' + esc(T.pickup) + '</mark></p>' : '') +
+        h = '<div class="g2" style="align-items:start;"><label class="field">' + esc(T.when) + '<input class="input" type="date" data-q="when" value="' + val('when') + '"></label>' +
+          '<div class="field"><span>' + esc(T.delL) + '</span><p class="q-del">' + esc(T.delInfo) + '</p></div></div>' +
           '<div class="g2">' + T.contact.map(function (c, k) { return '<label class="field">' + esc(c[0]) + '<input class="input" type="' + c[1] + '" autocomplete="' + c[2] + '" data-q="c' + k + '" value="' + val('c' + k) + '"' + (c[1] === 'email' ? ' required' : '') + ' placeholder="' + esc(c[3]) + '"></label>'; }).join('') + '</div>' +
           '<label class="field">' + esc(T.notes) + '<textarea class="input" rows="4" data-q="notes" placeholder="' + esc(T.notesPh) + '">' + val('notes') + '</textarea></label>' + (q.err ? '<p role="alert" class="warn">' + ico.warn + esc(q.err) + '</p>' : '') +
           '<label class="rgpd"><input type="checkbox" data-act="rgpd"' + (q.rgpd ? ' checked' : '') + '><span>' + T.rgpd + '</span></label>';
       } else {
         h = '<div class="q-done" tabindex="-1" id="q-done"><span class="q-done-ico">' + ico.ok + '</span><div style="display:flex; flex-direction:column; gap:10px;"><h3>' + esc(fmt(T.doneTitle, { code: q.code || 'JP' })) + '</h3><p class="lead" style="max-width:none;">' + esc(fmt(T.doneLead, { d: deadline })) + '</p></div>' +
           '<ol>' + T.doneSteps.map(function (s, i) { return '<li><span class="tnum" style="font-weight:600;">' + (i + 1) + '</span><span>' + esc(s) + '</span></li>'; }).join('') + '</ol>' +
-          '<div class="row-btns"><a href="' + ROOT + 'seguimiento.html" class="btn btn-ink">' + esc(T.doneTrack) + '</a><button type="button" class="btn btn-line" data-act="restart">' + esc(T.doneNew) + '</button></div></div>';
+          '<div class="row-btns">' + (JP.tracking ? '<a href="' + ROOT + 'seguimiento.html" class="btn btn-ink">' + esc(T.doneTrack) + '</a>' : '') + '<button type="button" class="btn btn-line" data-act="restart">' + esc(T.doneNew) + '</button></div></div>';
       }
       main.innerHTML = h;
     };
@@ -451,7 +461,6 @@
       else if (act === 'tex') { state.tex = v === 1 ? 'texturada' : 'lisa'; syncExplorer('#seg-tex', 'tex'); render(); }
       else if (act === 'gloss') { state.gloss = ['mate', 'satinado', 'brillante'][v]; syncExplorer('#seg-gloss', 'gloss'); render(); }
       else if (act === 'env') { q.env = v; render(); }
-      else if (act === 'del') { q.del = v; renderMain(); }
     };
     var syncExplorer = function (sel, key) {
       $$(sel + ' button').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-' + key) === state[key] ? 'true' : 'false'); });
@@ -487,7 +496,7 @@
         'Acabado': T.texOpts[texIdx()] + ', ' + T.glossOpts[glossIdx()],
         'Ambiente': env[0] + ' (' + env[1] + ')',
         'Extras': T.extras.filter(function (x, i) { return q.extras[i]; }).join(', ') || '—',
-        'Fecha deseada': q.form.when || '—', 'Entrega': T.del[q.del],
+        'Fecha deseada': q.form.when || '—', 'Entrega': T.delShort,
         'Notas': q.form.notes || '',
         'Plazo mostrado al cliente': deadline,
         'Adjuntos': attach ? (files.length ? files.length + ' archivo(s)' : 'ninguno') : 'NO adjuntados (superan 10 MB): ' + files.map(function (f) { return f.name; }).join(', ')
@@ -523,7 +532,11 @@
       var qk = e.target.getAttribute('data-q'); if (qk) { q.form[qk] = e.target.value; return; }
       var el = e.target, fld = el.getAttribute('data-f'); if (!fld || fld === 'mat') return;
       var ln = q.lines.filter(function (x) { return x.id === parseInt(el.getAttribute('data-id'), 10); })[0];
-      if (ln) { ln[fld] = el.value; if (fld === 'ref' || fld === 'qty') renderAside(); }
+      if (ln) {
+        ln[fld] = el.value;
+        if (fld === 'ref' || fld === 'qty') renderAside();
+        if ('L A H kg'.indexOf(fld) > -1) { var w = main.querySelector('[data-fit="' + ln.id + '"]'); if (w) w.hidden = !tooBig(ln); }
+      }
     });
     onRal(function () { if (q.step === 2) renderMain(); renderAside(); });
     window.JPQ = { goStep: goStep, sync: function () { if (q.step === 2) renderMain(); renderAside(); } };

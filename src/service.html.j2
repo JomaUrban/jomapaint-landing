@@ -84,7 +84,7 @@
   <div class="wrap svc-faq">
     <h2 id="h-faq" class="svc-h2">{{ L.svc.faq }}</h2>
     <div class="faq">
-      {% for q, a in S.faq %}<details><summary>{{ q }}<span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
+      {% for q, a in S.faq %}<details><summary><span>{{ q }}</span><span class="plus" aria-hidden="true">+</span></summary><p>{{ a }}</p></details>
       {% endfor %}
     </div>
   </div>
