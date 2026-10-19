@@ -1,0 +1,66 @@
+# Despliegue a https://paint.joma.es en cada push a main.
+# Necesita en Settings → Secrets and variables → Actions (de este repo o de la
+# organización con acceso a este repo): secret VPS_SSH_KEY, variables VPS_HOST
+# y VPS_USER — los mismos que usa Produccion-Joma.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VPS_PATH: ${{ vars.VPS_PATH || '/opt/jomapaint-landing' }}
+      DEPLOY_KEY: ${{ secrets.VPS_SSH_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Configurar SSH
+        run: |
+          if [ -z "$DEPLOY_KEY" ] || [ -z "${{ vars.VPS_HOST }}" ] || [ -z "${{ vars.VPS_USER }}" ]; then
+            echo "::error::Faltan VPS_SSH_KEY (secret) o VPS_HOST / VPS_USER (variables)."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # el 22 del VPS rechaza conexiones a ratos: reintentar el keyscan
+          for i in 1 2 3 4 5; do
+            ssh-keyscan -H "${{ vars.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+            grep -q . ~/.ssh/known_hosts && break
+            sleep $((i * 5))
+          done
+          cat > ~/.ssh/config <<SSHCFG
+          Host deploy-target
+            HostName ${{ vars.VPS_HOST }}
+            User ${{ vars.VPS_USER }}
+            IdentityFile ~/.ssh/id_deploy
+            IdentitiesOnly yes
+            ControlMaster auto
+            ControlPath ~/.ssh/cm-%C
+            ControlPersist 5m
+            ConnectTimeout 20
+          SSHCFG
+          # una sola conexión reutilizada por todos los pasos (un handshake)
+          for i in 1 2 3 4 5; do ssh deploy-target true && exit 0; sleep $((i * 5)); done
+          exit 1
+
+      - name: Sincronizar y desplegar
+        run: |
+          ssh deploy-target "mkdir -p '$VPS_PATH'"
+          rsync -az --delete --exclude .git --exclude node_modules -e ssh ./ "deploy-target:$VPS_PATH/"
+          ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --build && docker compose ps"
+
+      - name: Comprobar salud
+        run: ssh deploy-target "cd '$VPS_PATH' && sleep 3 && docker compose exec -T web wget -qO /dev/null http://localhost/"
+
+      - name: Cerrar la conexión
+        if: always()
+        run: ssh -O exit deploy-target 2>/dev/null || true
