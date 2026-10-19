@@ -1,0 +1,27 @@
+# Web JomaPaint — https://paint.joma.es
+# La sirve el Traefik del VPS JOMA (158.220.125.149), el mismo que prod.joma.es:
+# lee estas etiquetas en la red Docker externa `edge` y saca el certificado de
+# Let's Encrypt. Sin puertos publicados: solo se entra por Traefik.
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    networks:
+      - edge
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: edge
+      traefik.http.routers.jomapaint.rule: Host(`paint.joma.es`)
+      traefik.http.routers.jomapaint.entrypoints: websecure
+      traefik.http.routers.jomapaint.tls.certresolver: letsencrypt
+      traefik.http.routers.jomapaint.middlewares: jomapaint-headers,jomapaint-compress
+      traefik.http.services.jomapaint.loadbalancer.server.port: "80"
+      traefik.http.middlewares.jomapaint-compress.compress: "true"
+      traefik.http.middlewares.jomapaint-headers.headers.stsSeconds: "31536000"
+      traefik.http.middlewares.jomapaint-headers.headers.contentTypeNosniff: "true"
+      traefik.http.middlewares.jomapaint-headers.headers.referrerPolicy: strict-origin-when-cross-origin
+
+networks:
+  # Red del Traefik del VPS (la crea el stack de JomaUrban/Web-JomaUrban).
+  edge:
+    external: true
