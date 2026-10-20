@@ -1,0 +1,84 @@
+# Certificado HTTPS de paint.joma.es (manual).
+# Lee en el log de Traefik qué pasó con el certificado, recrea solo el
+# contenedor de JomaPaint para que Traefik vuelva a pedirlo a Let's Encrypt
+# y comprueba el emisor desde fuera. No toca Traefik ni las otras webs del VPS.
+name: Certificado HTTPS
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  cert:
+    runs-on: ubuntu-latest
+    env:
+      VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
+      VPS_USER: ${{ vars.VPS_USER || 'root' }}
+      VPS_PATH: ${{ vars.VPS_PATH || '/opt/jomapaint-landing' }}
+      DEPLOY_KEY: ${{ secrets.VPS_SSH_KEY }}
+      DOMAIN: paint.joma.es
+    steps:
+      - name: Configurar SSH
+        run: |
+          if [ -z "$DEPLOY_KEY" ]; then echo "::error::Falta el secret VPS_SSH_KEY."; exit 1; fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          for i in 1 2 3 4 5; do
+            ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+            grep -q . ~/.ssh/known_hosts && break
+            sleep $((i * 5))
+          done
+          cat > ~/.ssh/config <<SSHCFG
+          Host deploy-target
+            HostName $VPS_HOST
+            User $VPS_USER
+            IdentityFile ~/.ssh/id_deploy
+            IdentitiesOnly yes
+            ControlMaster auto
+            ControlPath ~/.ssh/cm-%C
+            ControlPersist 10m
+            ConnectTimeout 20
+          SSHCFG
+          for i in 1 2 3 4 5; do ssh deploy-target true && exit 0; sleep $((i * 5)); done
+          exit 1
+
+      - name: Certificado actual
+        run: |
+          echo | openssl s_client -servername "$DOMAIN" -connect "$VPS_HOST:443" 2>/dev/null | openssl x509 -noout -subject -issuer -dates || true
+
+      - name: Log de Traefik (antes)
+        run: |
+          ssh deploy-target "docker logs traefik --since 48h 2>&1 | grep -iE \"$DOMAIN\" | grep -iE 'acme|certif|error|unable|challenge|rate|limit' | tail -n 40" || true
+
+      - name: Recrear el contenedor de JomaPaint
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --force-recreate web && docker compose ps"
+
+      - name: Esperar el certificado de Let's Encrypt
+        run: |
+          for i in $(seq 1 24); do
+            ISSUER=$(echo | openssl s_client -servername "$DOMAIN" -connect "$VPS_HOST:443" 2>/dev/null | openssl x509 -noout -issuer 2>/dev/null || true)
+            echo "[$i] $ISSUER"
+            case "$ISSUER" in *"Let's Encrypt"*) echo "Certificado de Let's Encrypt activo."; exit 0;; esac
+            sleep 10
+          done
+          echo "::error::Sigue sin certificado de Let's Encrypt tras 4 minutos."
+          exit 1
+
+      - name: Log de Traefik (después)
+        if: always()
+        run: |
+          ssh deploy-target "docker logs traefik --since 6m 2>&1 | grep -iE \"$DOMAIN\" | grep -iE 'acme|certif|error|unable|challenge|rate|limit|obtain' | tail -n 40" || true
+
+      - name: Comprobación final
+        if: always()
+        run: |
+          echo | openssl s_client -servername "$DOMAIN" -connect "$VPS_HOST:443" 2>/dev/null | openssl x509 -noout -subject -issuer -dates || true
+          curl -sS -o /dev/null -w "https://$DOMAIN -> %{http_code}\n" "https://$DOMAIN/" || true
+
+      - name: Cerrar la conexión
+        if: always()
+        run: ssh -O exit deploy-target 2>/dev/null || true
