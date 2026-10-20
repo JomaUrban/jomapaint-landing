@@ -50,6 +50,19 @@ jobs:
         run: |
           echo | openssl s_client -servername "$DOMAIN" -connect "$VPS_HOST:443" 2>/dev/null | openssl x509 -noout -subject -issuer -dates || true
 
+      - name: Diagnóstico de Traefik (solo lectura)
+        run: |
+          ssh deploy-target 'bash -s' <<'DIAG' || true
+          echo "== Contenedores"; docker ps --format '{{.Names}}\t{{.Image}}\t{{.Status}}'
+          echo "== Argumentos de Traefik"; docker inspect traefik --format '{{json .Config.Cmd}}' 2>/dev/null
+          echo "== Variables de Traefik (solo nombres)"; docker inspect traefik --format '{{range .Config.Env}}{{println .}}{{end}}' 2>/dev/null | cut -d= -f1 | grep -i 'TRAEFIK' || true
+          echo "== Config estática"; docker exec traefik sh -c 'cat /etc/traefik/traefik.yml 2>/dev/null || cat /etc/traefik/traefik.toml 2>/dev/null' | grep -v -i 'email' | head -60
+          echo "== certresolver por contenedor"; for c in $(docker ps -q); do docker inspect "$c" --format '{{.Name}}{{range $k,$v := .Config.Labels}}{{"\n  "}}{{$k}}={{$v}}{{end}}' | grep -iE '^/|certresolver|routers\..*\.rule|entrypoints'; done
+          echo "== Dominios en el almacén ACME"; for f in /letsencrypt/acme.json /acme.json /etc/traefik/acme.json /etc/traefik/acme/acme.json /data/acme.json; do docker exec traefik sh -c "test -f $f && echo $f && grep -o '\"main\": *\"[^\"]*\"' $f" 2>/dev/null; done
+          echo "== Errores y avisos de Traefik (48 h)"; docker logs traefik --since 48h 2>&1 | grep -E ' (ERR|WRN|ERROR|WARN) |level=(error|warning)' | grep -v 'Serving default' | tail -n 40
+          echo "== Menciones a jomapaint (48 h)"; docker logs traefik --since 48h 2>&1 | grep -i 'jomapaint' | grep -v 'Configuration received' | tail -n 20
+          DIAG
+
       - name: Log de Traefik (antes)
         run: |
           ssh deploy-target "docker logs traefik --since 48h 2>&1 | grep -iE \"$DOMAIN\" | grep -iE 'acme|certif|error|unable|challenge|rate|limit' | tail -n 40" || true
