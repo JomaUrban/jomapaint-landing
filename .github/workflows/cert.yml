@@ -6,6 +6,11 @@ name: Certificado HTTPS
 
 on:
   workflow_dispatch:
+    inputs:
+      solo_diagnostico:
+        description: 'Solo diagnóstico: no recrear el contenedor'
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy
@@ -60,17 +65,23 @@ jobs:
           echo "== certresolver por contenedor"; for c in $(docker ps -q); do docker inspect "$c" --format '{{.Name}}{{range $k,$v := .Config.Labels}}{{"\n  "}}{{$k}}={{$v}}{{end}}' | grep -iE '^/|certresolver|routers\..*\.rule|entrypoints'; done
           echo "== Dominios en el almacén ACME"; for f in /letsencrypt/acme.json /acme.json /etc/traefik/acme.json /etc/traefik/acme/acme.json /data/acme.json; do docker exec traefik sh -c "test -f $f && echo $f && grep -o '\"main\": *\"[^\"]*\"' $f" 2>/dev/null; done
           echo "== Errores y avisos de Traefik (48 h)"; docker logs traefik --since 48h 2>&1 | grep -E ' (ERR|WRN|ERROR|WARN) |level=(error|warning)' | grep -v 'Serving default' | tail -n 40
-          echo "== Menciones a jomapaint (48 h)"; docker logs traefik --since 48h 2>&1 | grep -i 'jomapaint' | grep -v 'Configuration received' | tail -n 20
+          echo "== Menciones a jomapaint (48 h)"; docker logs traefik --since 48h 2>&1 | grep -i 'jomapaint' | grep -v 'Configuration received' | grep -v '^{' | grep -v 'compress.go' | tail -n 20
+          echo "== Inicio de Traefik"; docker inspect traefik --format '{{.State.StartedAt}}'
+          echo "== Actividad ACME (desde el arranque)"; docker logs traefik 2>&1 | grep -iE 'acme|lego|challenge|obtain|certificate for domain|resolv' | grep -v 'Configuration received' | grep -v '^{' | grep -v 'Serving default' | cut -c1-400 | tail -n 60
+          echo "== Fecha de los certificados del almacén"; docker exec traefik sh -c 'ls -la /letsencrypt/' 2>/dev/null
           DIAG
 
       - name: Log de Traefik (antes)
+        if: ${{ !inputs.solo_diagnostico }}
         run: |
           ssh deploy-target "docker logs traefik --since 48h 2>&1 | grep -iE \"$DOMAIN\" | grep -iE 'acme|certif|error|unable|challenge|rate|limit' | tail -n 40" || true
 
       - name: Recrear el contenedor de JomaPaint
+        if: ${{ !inputs.solo_diagnostico }}
         run: ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --force-recreate web && docker compose ps"
 
       - name: Esperar el certificado de Let's Encrypt
+        if: ${{ !inputs.solo_diagnostico }}
         run: |
           for i in $(seq 1 24); do
             ISSUER=$(echo | openssl s_client -servername "$DOMAIN" -connect "$VPS_HOST:443" 2>/dev/null | openssl x509 -noout -issuer 2>/dev/null || true)
@@ -82,7 +93,7 @@ jobs:
           exit 1
 
       - name: Log de Traefik (después)
-        if: always()
+        if: ${{ always() && !inputs.solo_diagnostico }}
         run: |
           ssh deploy-target "docker logs traefik --since 6m 2>&1 | grep -iE \"$DOMAIN\" | grep -iE 'acme|certif|error|unable|challenge|rate|limit|obtain' | tail -n 40" || true
 
