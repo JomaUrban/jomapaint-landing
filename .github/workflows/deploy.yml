@@ -17,6 +17,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      MAIL_FROM: ${{ vars.MAIL_FROM }}
+      MAIL_TO: ${{ vars.MAIL_TO }}
       VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
       VPS_USER: ${{ vars.VPS_USER || 'root' }}
       VPS_PATH: ${{ vars.VPS_PATH || '/opt/jomapaint-landing' }}
@@ -57,12 +60,19 @@ jobs:
       - name: Sincronizar y desplegar
         run: |
           ssh deploy-target "mkdir -p '$VPS_PATH'"
-          rsync -az --delete --exclude .git --exclude node_modules -e ssh ./ "deploy-target:$VPS_PATH/"
+          rsync -az --delete --exclude .git --exclude node_modules --exclude .env -e ssh ./ "deploy-target:$VPS_PATH/"
+          # .env del servidor de solicitudes, desde secrets/variables de GitHub (no se guarda en el repo)
+          {
+            [ -n "$RESEND_API_KEY" ] && printf 'RESEND_API_KEY=%s\n' "$RESEND_API_KEY"
+            [ -n "$MAIL_FROM" ] && printf "MAIL_FROM='%s'\n" "$MAIL_FROM"
+            [ -n "$MAIL_TO" ] && printf 'MAIL_TO=%s\n' "$MAIL_TO"
+            true
+          } | ssh deploy-target "umask 077 && cat > '$VPS_PATH/.env'"
           ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --build && docker compose ps"
 
       - name: Comprobar salud
         # 127.0.0.1 y no localhost: el wget de alpine prueba ::1 y nginx solo escucha IPv4
-        run: ssh deploy-target "cd '$VPS_PATH' && for i in 1 2 3 4 5; do docker compose exec -T web wget -qO /dev/null http://127.0.0.1/ && exit 0; sleep 3; done; docker compose logs --tail 30 web; exit 1"
+        run: ssh deploy-target "cd '$VPS_PATH' && for i in 1 2 3 4 5; do docker compose exec -T web wget -qO /dev/null http://127.0.0.1/ && docker compose exec -T api wget -qO- http://127.0.0.1:3000/api/salud && exit 0; sleep 3; done; docker compose logs --tail 30 web api; exit 1"
 
       - name: Cerrar la conexión
         if: always()
