@@ -2,6 +2,9 @@
 # Lee en el log de Traefik qué pasó con el certificado, recrea solo el
 # contenedor de JomaPaint para que Traefik vuelva a pedirlo a Let's Encrypt
 # y comprueba el emisor desde fuera. No toca Traefik ni las otras webs del VPS.
+# Ojo: si el primer intento de Let's Encrypt falló, recrear el contenedor con las
+# mismas etiquetas no basta (la configuración no cambia y Traefik no reintenta);
+# hay que cambiar alguna etiqueta del router en docker-compose.yml o reiniciar Traefik.
 name: Certificado HTTPS
 
 on:

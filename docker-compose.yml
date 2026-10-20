@@ -14,6 +14,10 @@ services:
       traefik.http.routers.jomapaint.rule: Host(`paint.joma.es`)
       traefik.http.routers.jomapaint.entrypoints: websecure
       traefik.http.routers.jomapaint.tls.certresolver: letsencrypt
+      # Dominio explícito del certificado. Si Let's Encrypt falla (p. ej., el DNS aún
+      # no existía), Traefik no lo reintenta hasta que cambia la configuración:
+      # cambiar estas etiquetas o reiniciar Traefik fuerza un nuevo intento.
+      traefik.http.routers.jomapaint.tls.domains[0].main: paint.joma.es
       traefik.http.routers.jomapaint.middlewares: jomapaint-headers,jomapaint-compress
       traefik.http.services.jomapaint.loadbalancer.server.port: "80"
       traefik.http.middlewares.jomapaint-compress.compress: "true"
