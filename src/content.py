@@ -14,6 +14,9 @@ JOMA_EMAIL = 'joma@joma.es'      # contacto general de Joma (Organization)
 # Destino del cotizador (FormSubmit). FormSubmit pide activar el destino con el primer envío
 # (clic en el email que llega a ese buzón). Se puede cambiar por la cadena aleatoria que da al activar.
 FORM_ENDPOINT = 'marimar@joma.es'
+# Servidor propio de solicitudes (api/). Vacío = solo FormSubmit. Con ruta, la web envía ahí
+# y, si falla, recurre a FormSubmit. Activar cuando /api/salud diga "correo": true.
+API_ENDPOINT = ''
 # El seguimiento de pedidos está oculto por ahora: True lo vuelve a mostrar (sección, menú y enlaces).
 TRACKING = False
 # Medidas máximas de pieza (mm: largo, ancho, alto) y peso máximo (kg), confirmados por JomaPaint.
