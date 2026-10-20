@@ -510,6 +510,16 @@
       }
       document.body.appendChild(f);
       var btn = $('[data-act="next"]', aside); if (btn) { btn.disabled = true; btn.textContent = T.sending; }
+      /* Si FormSubmit no responde en 20 s, ofrece el mismo contenido por correo para no perder la solicitud. */
+      setTimeout(function () {
+        if (!btn || !document.body.contains(btn) || $('.send-slow', aside)) return;
+        var body = Object.keys(fields).filter(function (k) { return k.charAt(0) !== '_'; }).map(function (k) { return k + ': ' + fields[k]; }).join('\n');
+        var href = 'mailto:' + (JP.form || '') + '?subject=' + encodeURIComponent(fields._subject) + '&body=' + encodeURIComponent(body.slice(0, 1800));
+        var p = document.createElement('p'); p.className = 'send-slow'; p.setAttribute('role', 'status');
+        p.textContent = T.slow + ' ';
+        var a = document.createElement('a'); a.href = href; a.textContent = T.slowMail; p.appendChild(a);
+        btn.parentNode.insertBefore(p, btn.nextSibling);
+      }, 20000);
       f.submit();
     };
     try {
@@ -567,6 +577,7 @@
     var clone = set.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
     $$('img', clone).forEach(function (im) { im.alt = ''; });
+    $$('a', clone).forEach(function (x) { x.tabIndex = -1; });
     track.appendChild(clone);
   })();
 })();
