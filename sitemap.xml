@@ -49,6 +49,45 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/grabado-laser-impresion-uv/"/>
   </url>
   <url>
+    <loc>https://paint.joma.es/termolacado-vitoria-gasteiz-alava/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gasteiz-araba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/termolacado-gipuzkoa-donostia/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/termolacado-bizkaia-bilbao/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/termolacado-burgos-miranda-de-ebro/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-burgos-miranda-de-ebro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-burgos-miranda-de-ebro/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/termolacado-navarra-pamplona/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-navarra-pamplona/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-navarra-pamplona/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/termolacado-la-rioja-logrono/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-la-rioja-logrono/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-la-rioja-logrono/"/>
+  </url>
+  <url>
     <loc>https://paint.joma.es/certificaciones-pintura-polvo/</loc>
     <lastmod>2026-10-20</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/certificaciones-pintura-polvo/"/>
@@ -111,6 +150,27 @@
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/laser-grabatua-uv-inprimaketa/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/gravure-laser-impression-uv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/grabado-laser-impresion-uv/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/eu/termolakatzea-gasteiz-araba/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gasteiz-araba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
   </url>
   <url>
     <loc>https://paint.joma.es/eu/hauts-pinturaren-ziurtagiriak/</loc>

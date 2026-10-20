@@ -19,7 +19,7 @@
       <nav class="crumbs" aria-label="{{ L.svc.crumbs }}">
         <ol>
           <li><a href="{{ home_href }}">{{ L.svc.home }}</a></li>
-          {% if guide %}<li><a href="{{ home_href }}#calidad">{{ L.svc.quality }}</a></li>{% else %}<li><a href="{{ home_href }}#servicios">{{ L.svc.services }}</a></li>{% endif %}
+          {% if guide %}<li><a href="{{ home_href }}#calidad">{{ L.svc.quality }}</a></li>{% elif zone %}<li><a href="{{ home_href }}#zona">{{ L.svc.zones }}</a></li>{% else %}<li><a href="{{ home_href }}#servicios">{{ L.svc.services }}</a></li>{% endif %}
           <li><span aria-current="page">{{ S.crumb }}</span></li>
         </ol>
       </nav>
@@ -59,6 +59,7 @@
         {% endfor %}
         {% if sec.steps and sec.step_imgs %}<ol class="svc-steps-img">{% for t, d in sec.steps %}<li><img src="{{ root }}assets/img/st-{{ sec.step_imgs[loop.index0] }}-480.webp" alt="{{ L.process.alts[loop.index0] }}" width="480" height="320" loading="lazy" decoding="async"><div><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></div></li>{% endfor %}</ol>{% if sec.step_credit %}<p class="svc-credit">{{ sec.step_credit }}</p>{% endif %}
         {% elif sec.steps %}<ol class="svc-steps">{% for t, d in sec.steps %}<li><span class="svc-step-n tnum" aria-hidden="true">0{{ loop.index }}</span><strong>{{ t }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
+        {% if sec.gallery %}<figure class="svc-gallery"><ul>{% for im, t, d in sec.gallery %}<li><img src="{{ root }}assets/img/{{ im }}" alt="" width="800" height="533" loading="lazy" decoding="async"><strong>{{ t }}</strong><span>{{ d }}</span></li>{% endfor %}</ul>{% if sec.gallery_cap %}<figcaption>{{ sec.gallery_cap }}</figcaption>{% endif %}</figure>{% endif %}
         {% if sec.finishes %}<figure class="svc-finishes"><ul>{% for k, t, n in sec.finishes %}<li><img src="{{ root }}assets/img/acabado-{{ k }}.webp" alt="" width="360" height="658" loading="lazy" decoding="async"><strong>{{ t }}</strong><span class="tnum">{{ n }}</span></li>{% endfor %}</ul><figcaption>{{ sec.finishes_cap }}</figcaption></figure>{% endif %}
         {% if sec.layers %}<ol class="stack">{% for n, d in sec.layers %}<li><strong>{{ n }}</strong><span>{{ d }}</span></li>{% endfor %}</ol>{% endif %}
         {% if sec.list %}<ul class="svc-list">{% for it in sec.list %}<li>{{ it }}</li>{% endfor %}</ul>{% endif %}
@@ -103,6 +104,10 @@
 <!-- ============ MÁS SERVICIOS + CONTACTO ============ -->
 <section aria-labelledby="h-rel" class="dark group svc-end">
   <div class="wrap group-in">
+    {% if zone_links %}<nav class="zone-links" aria-labelledby="h-zones">
+      <h2 id="h-zones" class="h3">{{ L.svc.zones_more }}</h2>
+      <ul>{% for z in zone_links %}<li><a href="{{ z.href }}">{{ z.name }}</a></li>{% endfor %}</ul>
+    </nav>{% endif %}
     <div class="svc-rel">
       <h2 id="h-rel" class="h3">{{ L.svc.related }}</h2>
       <ul class="units">
