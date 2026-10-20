@@ -336,10 +336,10 @@
       return d[0] > m[0] || d[1] > m[1] || d[2] > m[2];
     };
     /* Plazo: un día laborable desde que entra la solicitud, en horario de oficina
-       (lunes a viernes, 7:00–17:00, hora de Madrid). Fuera de horario, el reloj
+       (lunes a viernes, 7:00–15:00, hora de Madrid). Fuera de horario, el reloj
        empieza a las 7:00 del siguiente día laborable. Se redondea a la hora siguiente. */
     var deadline = (function () {
-      var OPEN = 7, CLOSE = 17, H = 3600000, p = {}, now = new Date(), w;
+      var OPEN = 7, CLOSE = 15, H = 3600000, p = {}, now = new Date(), w;
       try { new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(now).forEach(function (x) { p[x.type] = x.value; }); } catch (e) {}
       /* hora de pared de Madrid guardada en campos UTC: sin saltos por cambio de hora */
       w = p.year ? new Date(Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute)) : new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes()));
@@ -351,7 +351,7 @@
       while (!work(w)) w = at(new Date(w.getTime() + 24 * H), OPEN);
       var d = new Date(w.getTime() + 24 * H);
       while (!work(d)) d = new Date(d.getTime() + 24 * H);
-      /* las 7:00 de un día equivalen al cierre (17:00) del día laborable anterior */
+      /* las 7:00 de un día equivalen al cierre (15:00) del día laborable anterior */
       if (d.getUTCHours() === OPEN) { d = at(new Date(d.getTime() - 24 * H), CLOSE); while (!work(d)) d = at(new Date(d.getTime() - 24 * H), CLOSE); }
       return fmt(T.dl || '{wd} {d} {m} {h}:00', { wd: (T.wd || [])[d.getUTCDay()] || '', d: d.getUTCDate(), m: (T.mo || [])[d.getUTCMonth()] || (d.getUTCMonth() + 1), h: d.getUTCHours() });
     })();
