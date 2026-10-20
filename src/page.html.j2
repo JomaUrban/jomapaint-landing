@@ -350,6 +350,7 @@
       {% for t, p, x in L.area.zones %}<li><h3 class="area-t">{{ t }}</h3><p class="area-p">{{ p }}</p>{% if x %}<p class="area-x">{{ x }}</p>{% endif %}</li>
       {% endfor %}
     </ul>
+    {% if zone_links %}<nav class="area-links" aria-labelledby="h-area-links"><h3 id="h-area-links" class="area-t">{{ L.area.links }}</h3><ul>{% for z in zone_links %}<li><a href="{{ z.href }}">{{ z.name }}</a></li>{% endfor %}</ul></nav>{% endif %}
     <p class="area-note">{{ L.area.note }}</p>
   </div>
 </section>

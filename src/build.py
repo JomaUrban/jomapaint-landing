@@ -27,6 +27,7 @@ sys.path.insert(0, HERE)
 import content as C  # noqa: E402
 import services as SV  # noqa: E402
 import guides as GD  # noqa: E402
+import zones as ZN  # noqa: E402
 
 DEFAULT_BASE = 'https://jomaurban.github.io/jomapaint-landing/'
 NAMES = {'es': 'Español', 'eu': 'Euskara', 'fr': 'Français'}
@@ -206,6 +207,36 @@ def jsonld_guide(L, S, base, url, home_url):
     return dump(graph)
 
 
+def jsonld_zone(L, S, z, base, url, home_url):
+    lang = L['meta']['lang']
+    svc_id = url + '#servicio'
+    img = base + 'assets/img/' + z['img'] + '-1200.webp'
+    graph = base_nodes(L, base) + [
+        {
+            '@type': 'Service', '@id': svc_id,
+            'name': S['name'], 'serviceType': S['service_type'], 'description': S['description'],
+            'url': url, 'image': img, 'provider': {'@id': base + '#jomapaint'},
+            'areaServed': {'@type': 'AdministrativeArea', 'name': z['area']},
+        },
+        {
+            '@type': 'WebPage', '@id': url, 'url': url, 'inLanguage': lang,
+            'name': S['title'], 'description': S['description'],
+            'about': {'@id': svc_id}, 'isPartOf': {'@id': base + '#website'},
+            'primaryImageOfPage': {'@type': 'ImageObject', 'url': img},
+            'breadcrumb': {'@id': url + '#ruta'},
+        },
+        {
+            '@type': 'BreadcrumbList', '@id': url + '#ruta',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': 'JomaPaint', 'item': home_url},
+                {'@type': 'ListItem', 'position': 2, 'name': S['crumb'], 'item': url},
+            ],
+        },
+        faq_node(lang, S['faq']),
+    ]
+    return dump(graph)
+
+
 def check_meta(where, title, desc):
     if len(title) > 62:
         print('  aviso: title de %d caracteres en %s' % (len(title), where))
@@ -282,7 +313,8 @@ def main():
             },
         }
         check_meta(url, m['title'], m['description'])
-        html = tpl_home.render(L=L, M=M, root=root, url=url, langs=langs, jsonld=jsonld_home(L, base, url), jsdata=jsdata,
+        home_zone_links = [{'href': root + svc_path(L, z[lang]), 'name': ZN.LINK_NAMES[lang][z['key']]} for z in ZN.ZONES if lang in z]
+        html = tpl_home.render(L=L, M=M, zone_links=home_zone_links, root=root, url=url, langs=langs, jsonld=jsonld_home(L, base, url), jsdata=jsdata,
                                home_href='#inicio', nav_prefix='', quote_href='#presupuesto',
                                svc_href=svc_href, svc_links=svc_links, guide_href=guide_href, guide_links=guide_links, guide=False, contact_p='', **common)
         write(path, html)
@@ -317,6 +349,38 @@ def main():
                                   guide=False, related=related, contact_p=L['svc']['cta_p'], **common)
             write(spath, html)
             sitemap.append((surl, [(O['meta']['lang'], base + svc_path(O, sv[O['meta']['lang']])) for O in C.LANGS], SM['xdefault']))
+
+        # ---------- páginas por zona ----------
+        for z in ZN.ZONES:
+            if lang not in z:
+                continue
+            S = z[lang]
+            zpath = svc_path(L, S)
+            zroot = '../' * zpath.count('/')
+            zurl = base + zpath
+            zlangs = [{
+                'code': O['meta']['lang'], 'name': NAMES[O['meta']['lang']], 'locale': O['meta']['locale'],
+                'abs': base + svc_path(O, z[O['meta']['lang']]), 'rel': zroot + svc_path(O, z[O['meta']['lang']]),
+                'current': O['meta']['lang'] == lang,
+            } for O in C.LANGS if O['meta']['lang'] in z]
+            home_rel = (zroot + path) or './'
+            related = [{'href': zroot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'img': o['img'], 'teaser': teaser.get(o['key'], '')} for o in SV.SERVICES]
+            ZM = {
+                'title': S['title'], 'description': S['description'], 'og_title': S['og_title'],
+                'og_image': m['og_image'], 'og_alt': m['og_alt'], 'locale': m['locale'],
+                'url': zurl, 'xdefault': base + svc_path(C.ES, z['es']),
+                'preload_img': None,
+            }
+            check_meta(zurl, S['title'], S['description'])
+            html = tpl_svc.render(L=L, S=S, SV=z, M=ZM, root=zroot, url=zurl, langs=zlangs,
+                                  jsonld=jsonld_zone(L, S, z, base, zurl, url),
+                                  home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
+                                  svc_links=[{'href': zroot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'current': False} for o in SV.SERVICES],
+                                  guide_links=[{'href': zroot + svc_path(L, g[lang]), 'name': g[lang]['crumb'], 'current': False} for g in GD.GUIDES],
+                                  zone_links=[{'href': zroot + svc_path(L, o[lang]), 'name': ZN.LINK_NAMES[lang][o['key']]} for o in ZN.ZONES if lang in o and o['key'] != z['key']],
+                                  guide=False, zone=True, related=related, contact_p=L['svc']['cta_p'], **common)
+            write(zpath, html)
+            sitemap.append((zurl, [(O['meta']['lang'], base + svc_path(O, z[O['meta']['lang']])) for O in C.LANGS if O['meta']['lang'] in z], ZM['xdefault']))
 
         # ---------- guías técnicas ----------
         for g in GD.GUIDES:

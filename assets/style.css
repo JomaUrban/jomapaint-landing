@@ -650,3 +650,20 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 
 .send-slow { margin: 14px 0 0; font-size: 14px; line-height: 1.45; color: var(--paper); }
 .send-slow a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* páginas por zona */
+.svc-gallery { margin: 8px 0 0; }
+.svc-gallery ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+@container (max-width: 520px) { .svc-gallery ul { grid-template-columns: 1fr; } }
+.svc-gallery li { display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45; }
+.svc-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 2px; background: #E2E0DB; margin-bottom: 6px; }
+.svc-gallery span { color: var(--muted); }
+.svc-gallery figcaption { margin-top: 14px; font-size: 13px; color: var(--muted); }
+.zone-links { display: flex; flex-direction: column; gap: 16px; padding-bottom: clamp(28px, 4cqi, 48px); margin-bottom: clamp(28px, 4cqi, 48px); border-bottom: 1px solid rgba(250,249,246,0.18); }
+.zone-links ul, .area-links ul { display: flex; flex-wrap: wrap; gap: 10px; }
+.zone-links a, .area-links a { display: inline-block; padding: 10px 16px; border: 1px solid currentColor; border-radius: 2px; font-size: 15px; font-weight: 600; text-decoration: none; color: inherit; }
+.zone-links a { border-color: rgba(250,249,246,0.4); }
+.zone-links a:hover { border-color: var(--paper); }
+.area-links { display: flex; flex-direction: column; gap: 14px; }
+.area-links a { border-color: var(--line); }
+.area-links a:hover { border-color: #1A1A1A; }

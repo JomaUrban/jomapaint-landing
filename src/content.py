@@ -78,7 +78,7 @@ ES = {
         'sectors': 'Cerrajería y herrajes, armarios eléctricos, maquinaria e ingeniería, chapa láser, punzonada y plegada, carpintería metálica y estructuras, talleres de soldadura y mecanizado, rótulos e iluminación, fundición de aluminio, puertas cortafuegos y persianas, anclajes, equipamiento deportivo, construcción, mobiliario urbano y distribución.',
     },
     'area': {
-        'h2': 'Dónde trabajamos.',
+        'h2': 'Dónde trabajamos.', 'links': 'Termolacado por zona',
         'lead': 'Pintamos en Legutio, a unos 20 km de Vitoria-Gasteiz. Trabajamos para empresas de Álava, Bizkaia, Gipuzkoa y Burgos, y tenemos clientes en siete países europeos. Desde aquí atendemos el norte peninsular y el suroeste de Francia.',
         'zones': [
             ('Álava', 'Vitoria-Gasteiz y sus polígonos de Júndiz y Ali-Gobeo, la Llanada (Agurain) y el valle de Ayala (Laudio/Llodio, Amurrio).', ''),
@@ -192,7 +192,7 @@ ES = {
         'legal': ['Aviso legal', 'Privacidad', 'Cookies'], 'legal_label': 'Legal',
     },
     'svc': {
-        'crumbs': 'Ruta de navegación', 'home': 'Inicio', 'services': 'Servicios', 'facts': 'Datos clave',
+        'zones': 'Zonas', 'zones_more': 'Termolacado en otras zonas', 'crumbs': 'Ruta de navegación', 'home': 'Inicio', 'services': 'Servicios', 'facts': 'Datos clave',
         'faq': 'Preguntas frecuentes', 'related': 'Más servicios', 'quality': 'Calidad', 'sources': 'Fuentes', 'mid_h': '¿Tienes el plano?', 'mid_p': 'Súbelo con cantidades y color: te enviamos un presupuesto firme en menos de 24 h laborables.', 'mid_btn': 'Subir plano y pedir presupuesto', 'guides': 'Guías técnicas', 'services_nav': 'Servicios y guías',
         'cta_h': 'Pide presupuesto con tu plano.', 'cta_p': 'Firme y por escrito en menos de 24 horas laborables. Si lo prefieres, llámanos.',
     },
@@ -297,7 +297,7 @@ EU = {
         'sectors': 'Sarrailagintza eta burdineria, armairu elektrikoak, makineria eta ingeniaritza, laserrez moztutako, zulakatutako eta tolestutako xafla, arotzeria metalikoa eta egiturak, soldadura- eta mekanizazio-tailerrak, errotuluak eta argiztapena, aluminio-galdaketa, suaren aurkako ateak eta pertsianak, ainguraketak, kirol-ekipamendua, eraikuntza, hiri-altzariak eta banaketa.',
     },
     'area': {
-        'h2': 'Non lan egiten dugun.',
+        'h2': 'Non lan egiten dugun.', 'links': 'Termolakatzea eremuka',
         'lead': 'Legution pintatzen dugu, Vitoria-Gasteiztik 20 bat kilometrora. Arabako, Bizkaiko, Gipuzkoako eta Burgosko enpresentzat lan egiten dugu, eta Europako zazpi herrialdetan ditugu bezeroak. Hemendik penintsulako iparraldea eta Frantziako hego-mendebaldea artatzen ditugu.',
         'zones': [
             ('Araba', 'Vitoria-Gasteiz eta Jundizko eta Ali-Gobeoko industrialdeak, Arabako Lautada (Agurain) eta Aiaraldea (Laudio, Amurrio).', ''),
@@ -411,7 +411,7 @@ EU = {
         'legal': ['Lege-oharra', 'Pribatutasuna', 'Cookieak'], 'legal_label': 'Legezko informazioa',
     },
     'svc': {
-        'crumbs': 'Nabigazio-bidea', 'home': 'Hasiera', 'services': 'Zerbitzuak', 'facts': 'Datu nagusiak',
+        'zones': 'Eremuak', 'zones_more': 'Termolakatzea beste eremu batzuetan', 'crumbs': 'Nabigazio-bidea', 'home': 'Hasiera', 'services': 'Zerbitzuak', 'facts': 'Datu nagusiak',
         'faq': 'Ohiko galderak', 'related': 'Zerbitzu gehiago', 'quality': 'Kalitatea', 'sources': 'Iturriak', 'mid_h': 'Planoa baduzu?', 'mid_p': 'Igo ezazu kopuruekin eta kolorearekin: aurrekontu irmoa bidaliko dizugu 24 lanordu baino lehen.', 'mid_btn': 'Igo planoa eta eskatu aurrekontua', 'guides': 'Gida teknikoak', 'services_nav': 'Zerbitzuak eta gidak',
         'cta_h': 'Eskatu aurrekontua zure planoarekin.', 'cta_p': 'Irmoa eta idatziz, 24 lanordu baino lehen. Nahiago baduzu, deitu iezaguzu.',
     },
@@ -630,6 +630,7 @@ FR = {
         'legal': ['Mentions légales', 'Confidentialité', 'Cookies'], 'legal_label': 'Informations légales',
     },
     'svc': {
+        'zones': 'Zones', 'zones_more': 'Autres zones',
         'crumbs': 'Fil d’Ariane', 'home': 'Accueil', 'services': 'Services', 'facts': 'Chiffres clés',
         'faq': 'Questions fréquentes', 'related': 'Autres services', 'quality': 'Qualité', 'sources': 'Sources', 'mid_h': 'Vous avez le plan ?', 'mid_p': 'Envoyez-le avec les quantités et la couleur : devis ferme en moins de 24 heures ouvrées.', 'mid_btn': 'Envoyer mon plan et demander un devis', 'guides': 'Guides techniques', 'services_nav': 'Services et guides',
         'cta_h': 'Demandez un devis avec votre plan.', 'cta_p': 'Ferme et écrit, en moins de 24 heures ouvrées. Vous pouvez aussi nous appeler.',
