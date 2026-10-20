@@ -100,7 +100,7 @@ def base_nodes(L, base):
         {
             '@type': 'Organization', '@id': org_id,
             'name': 'Joma', 'legalName': 'José María Gallastegui y Cía., S.A.',
-            'url': 'https://joma.es', 'foundingDate': '1942',
+            'url': 'https://www.joma.es', 'foundingDate': '1942',
             'telephone': C.PHONE_TEL, 'email': C.JOMA_EMAIL,
             'department': {'@id': biz_id},
         },
@@ -126,7 +126,7 @@ def base_nodes(L, base):
         },
         {
             '@type': 'WebSite', '@id': base + '#website',
-            'name': 'JomaPaint', 'url': base,
+            'name': 'JomaPaint', 'alternateName': 'Joma Paint', 'url': base,
             'inLanguage': ['es', 'eu', 'fr'],
             'publisher': {'@id': org_id},
         },
