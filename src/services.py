@@ -45,7 +45,7 @@ SERVICES = [
                      ('Epoxi', 'Adherencia y resistencia química muy altas, pero al sol pierde brillo y se calea. Se usa en interior o como imprimación bajo una capa de poliéster.'),
                      ('Epoxi-poliéster (híbrido)', 'Para interior: maquinaria, mobiliario, iluminación o electrodomésticos. Buen acabado decorativo, pero no está pensado para exterior.'),
                  ]},
-                {'h2': 'Cómo pintamos tus piezas', 'step_credit': 'Fotos de los pasos 03 y 05: OlgaBook y Grey and red fairy, en Wikimedia Commons (CC BY-SA 4.0). Paso 04: curva de curado orientativa.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
+                {'h2': 'Cómo pintamos tus piezas', 'step_credit': 'Foto del paso 03: OlgaBook, en Wikimedia Commons (CC BY-SA 4.0).', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'adherencia-corte'], 'steps': [
                     ('Pretratamiento', 'Desengrase y pretratamiento químico para que el polvo agarre.'),
                     ('Secado', 'Horno de secado: ni rastro de humedad bajo la capa.'),
                     ('Aplicación electrostática', 'El polvo envuelve la pieza, también en los cantos.'),
@@ -108,7 +108,7 @@ SERVICES = [
                      ('Epoxia', 'Atxikimendu eta erresistentzia kimiko oso handiak, baina eguzkitan distira galdu eta hauts zuria sortzen du. Barrualdean erabiltzen da, edo poliester-geruza baten azpiko inprimazio gisa.'),
                      ('Epoxi-poliesterra (hibridoa)', 'Barrualderako: makineria, altzariak, argiztapena edo etxetresna elektrikoak. Akabera dekoratibo ona, baina ez dago kanporako pentsatua.'),
                  ]},
-                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_credit': '03 eta 05 urratsetako argazkiak: OlgaBook eta Grey and red fairy, Wikimedia Commons-en (CC BY-SA 4.0). 04 urratsa: ontze-kurba orientagarria.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
+                {'h2': 'Nola pintatzen ditugun zure piezak', 'step_credit': '03 urratseko argazkia: OlgaBook, Wikimedia Commons-en (CC BY-SA 4.0).', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'adherencia-corte'], 'steps': [
                     ('Aurretratamendua', 'Koipegabetzea eta aurretratamendu kimikoa, hautsak ondo heltzeko.'),
                     ('Lehorketa', 'Lehortzeko labea: geruzaren azpian ez da hezetasunik geratzen.'),
                     ('Aplikazio elektrostatikoa', 'Hautsak pieza inguratzen du, ertzetan ere.'),
@@ -171,7 +171,7 @@ SERVICES = [
                      ('Époxy', 'Adhérence et résistance chimique très élevées, mais au soleil elle perd sa brillance et farine. Elle s’utilise en intérieur ou comme primaire sous une couche de polyester.'),
                      ('Époxy-polyester (hybride)', 'Pour l’intérieur : machines, mobilier, luminaires ou électroménager. Bel aspect décoratif, mais elle n’est pas conçue pour l’extérieur.'),
                  ]},
-                {'h2': 'Comment nous peignons vos pièces', 'step_credit': 'Photos des étapes 03 et 05 : OlgaBook et Grey and red fairy, sur Wikimedia Commons (CC BY-SA 4.0). Étape 04 : courbe de cuisson indicative.', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'control-espesor'], 'steps': [
+                {'h2': 'Comment nous peignons vos pièces', 'step_credit': 'Photo de l’étape 03 : OlgaBook, sur Wikimedia Commons (CC BY-SA 4.0).', 'step_imgs': ['linea-jomapaint', 'piezas-colgadas', 'aplicacion-cadena', 'curado', 'adherencia-corte'], 'steps': [
                     ('Prétraitement', 'Dégraissage et prétraitement chimique pour que la poudre accroche.'),
                     ('Séchage', 'Four de séchage : aucune trace d’humidité sous le film.'),
                     ('Application électrostatique', 'La poudre enveloppe la pièce, arêtes comprises.'),
@@ -226,7 +226,7 @@ SERVICES = [
             'h1': 'Imprimación rica en zinc, alternativa al galvanizado',
             'lead': 'Una imprimación en polvo cargada de zinc que protege el acero y, encima, el acabado de poliéster en polvo, en el RAL que elijas. Para piezas y estructuras de acero que necesitan protección anticorrosiva sin pasar por el galvanizado o el zincado.',
             'img_alt': 'Estructura de acero pintada con una cartela atornillada, vista desde abajo',
-            'img_cap': 'Imagen de referencia',
+            'img_cap': 'Estructura de acero atornillada',
             'facts': [('Clase anticorrosiva', 'C4-H', 'QUALISTEELCOAT en homologación'), ('Soporte', 'Acero', 'Del piecerío a las estructuras'), ('Plazo estándar', '1 semana', 'Desde que llegan las piezas')],
             'sections': [
                 {'h2': 'Qué es una imprimación rica en zinc', 'p': [
@@ -287,7 +287,7 @@ SERVICES = [
             'h1': 'Zinkez aberastutako inprimazioa, galbanizatzearen alternatiba',
             'lead': 'Zink-eduki handiko hauts-inprimazioak altzairua babesten du; gainean, poliesterrezko hauts-pintura aplikatzen dugu, zuk aukeratutako RAL kolorean. Galbanizatu edo zinkatu gabe korrosioaren aurkako babesa behar duten altzairuzko pieza eta egituretarako.',
             'img_alt': 'Altzairuzko egitura pintatua, torlojuz lotutako plaka batekin, behetik ikusia',
-            'img_cap': 'Erreferentziazko irudia',
+            'img_cap': 'Altzairuzko egitura torlojuz lotua',
             'facts': [('Korrosio-klasea', 'C4-H', 'QUALISTEELCOAT homologatzeko bidean'), ('Euskarria', 'Altzairua', 'Pieza txikietatik egituretara'), ('Ohiko epea', 'Astebete', 'Piezak iristen direnetik')],
             'sections': [
                 {'h2': 'Zer da zinkez aberastutako inprimazioa?', 'p': [
@@ -348,7 +348,7 @@ SERVICES = [
             'h1': 'Primaire riche en zinc, l’alternative à la galvanisation',
             'lead': 'Un primaire poudre chargé en zinc qui protège l’acier, puis la finition polyester en poudre, dans le RAL de votre choix. Pour les pièces et structures en acier qui ont besoin d’une protection anticorrosion sans passer par la galvanisation ou l’électrozingage.',
             'img_alt': 'Structure en acier peinte avec un gousset boulonné, vue d’en bas',
-            'img_cap': 'Image d’illustration',
+            'img_cap': 'Structure en acier boulonnée',
             'facts': [('Classe anticorrosion', 'C4-H', 'QUALISTEELCOAT en cours d’homologation'), ('Support', 'Acier', 'De la petite pièce à la structure'), ('Délai standard', '1 semaine', 'À l’arrivée des pièces')],
             'sections': [
                 {'h2': 'Qu’est-ce qu’un primaire riche en zinc', 'p': [
@@ -414,7 +414,7 @@ SERVICES = [
             'h1': 'Lacado de perfiles de aluminio',
             'lead': 'Perfilería y piezas de aluminio lacadas con pintura en polvo, en el color y el acabado que necesites. Para carpintería, fachadas, mobiliario y equipos industriales, de la muestra a la serie.',
             'img_alt': 'Perfil de aluminio extruido en primer plano, sobre fondo oscuro',
-            'img_cap': 'Imagen de referencia',
+            'img_cap': 'Perfiles de aluminio',
             'facts': [('Colores', 'Carta RAL', 'Lisos o texturados'), ('Brillo', 'Del mate al brillo', ''), ('Longitud máxima', '6 m', '')],
             'sections': [
                 {'h2': 'El aluminio pide su propio pretratamiento', 'p': [
@@ -463,7 +463,7 @@ SERVICES = [
             'h1': 'Aluminiozko profilen lakatzea',
             'lead': 'Hauts-pinturaz lakatutako aluminiozko profilak eta piezak, behar duzun kolore eta akaberan. Arotzeriarako, fatxadetarako, altzarietarako eta industria-ekipoetarako, laginetik seriera.',
             'img_alt': 'Aluminiozko profil estruitu bat gertutik, hondo ilunean',
-            'img_cap': 'Erreferentziazko irudia',
+            'img_cap': 'Aluminiozko profilak',
             'facts': [('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Distira', 'Matetik distiratsura', ''), ('Gehienezko luzera', '6 m', '')],
             'sections': [
                 {'h2': 'Aluminioak bere aurretratamendua behar du', 'p': [
@@ -512,7 +512,7 @@ SERVICES = [
             'h1': 'Thermolaquage de profilés aluminium',
             'lead': 'Profilés et pièces en aluminium laqués en peinture poudre, dans la couleur et l’aspect dont vous avez besoin. Pour la menuiserie, la façade, le mobilier et l’équipement industriel, de l’échantillon à la série.',
             'img_alt': 'Profilé en aluminium extrudé en gros plan, sur fond sombre',
-            'img_cap': 'Image d’illustration',
+            'img_cap': 'Profilés en aluminium',
             'facts': [('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Brillance', 'Mat à brillant', ''), ('Longueur maximale', '6 m', '')],
             'sections': [
                 {'h2': 'L’aluminium demande son propre prétraitement', 'p': [
@@ -566,7 +566,7 @@ SERVICES = [
             'h1': 'Termolacado de acero galvanizado',
             'lead': 'Pintar galvanizado con polvo tiene truco: el zinc retiene gases que, en el horno, salen a través de la pintura y dejan poros y burbujas. Con la preparación adecuada, la pieza suma la protección del zinc y la de la pintura.',
             'img_alt': 'Tubos de acero galvanizado apilados',
-            'img_cap': 'Imagen de referencia',
+            'img_cap': 'Tubo de acero galvanizado',
             'facts': [('Sistema', 'Dúplex', 'Zinc + pintura en polvo'), ('Colores', 'Carta RAL', 'Lisos o texturados'), ('Presupuesto firme', 'Menos de 24 h', 'En días laborables')],
             'sections': [
                 {'h2': 'Por qué salen poros en el galvanizado', 'p': [
@@ -614,7 +614,7 @@ SERVICES = [
             'h1': 'Altzairu galbanizatuaren termolakatzea',
             'lead': 'Altzairu galbanizatua hauts-pinturaz estaltzeak arreta berezia eskatzen du: zinkak gasak atxiki ditzake, eta labean pinturatik askatzean poroak eta burbuilak sortu. Prestaketa egokiari esker, zinkaren eta pinturaren babesa uztartzen dira.',
             'img_alt': 'Altzairu galbanizatuzko hodiak pilatuta',
-            'img_cap': 'Erreferentziazko irudia',
+            'img_cap': 'Altzairu galbanizatuzko hodia',
             'facts': [('Sistema', 'Duplexa', 'Zinka + hauts-pintura'), ('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
             'sections': [
                 {'h2': 'Zergatik ateratzen dira poroak galbanizatuan', 'p': [
@@ -662,7 +662,7 @@ SERVICES = [
             'h1': 'Thermolaquage sur acier galvanisé',
             'lead': 'Thermolaquer du galvanisé demande du métier : le zinc retient des gaz qui, au four, traversent la peinture et laissent piqûres et cloques. Avec la bonne préparation, la pièce cumule la protection du zinc et celle de la peinture.',
             'img_alt': 'Tubes en acier galvanisé empilés',
-            'img_cap': 'Image d’illustration',
+            'img_cap': 'Tube en acier galvanisé',
             'facts': [('Système', 'Duplex', 'Zinc + peinture poudre'), ('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Devis ferme', 'Moins de 24 h', 'Jours ouvrés')],
             'sections': [
                 {'h2': 'Pourquoi le galvanisé fait des piqûres', 'p': [

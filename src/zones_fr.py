@@ -738,7 +738,7 @@ FR.update({
     'Soportes, armarios y estructuras auxiliares que van al exterior.': 'Supports, armoires et structures auxiliaires destinés à l’extérieur.',
     'Maquinaria agrícola': 'Machinisme agricole',
     'Chasis, tolvas, aperos y protecciones a la intemperie.': 'Châssis, trémies, outils et protections exposés aux intempéries.',
-    'Fotos de referencia de los sectores para los que pintamos (Unsplash y archivo de Joma); no muestran trabajos de JomaPaint.': 'Photos de référence des secteurs pour lesquels nous peignons (Unsplash et archives Joma) ; il ne s’agit pas de travaux de JomaPaint.',
+    'Sectores para los que pintamos.': 'Secteurs pour lesquels nous peignons.',
 })
 
 # Comarcas y nuevas fotos de sector (21-10-2026)

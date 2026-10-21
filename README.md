@@ -160,8 +160,8 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - **Hero y pretratamiento (línea de proceso):** del deck interno de JomaPaint.
 - **Secado (piezas colgadas):** Pexels (licencia libre).
 - **Aplicación electrostática en cadena:** [«Цех окраски»](https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B5%D1%85_%D0%BE%D0%BA%D1%80%D0%B0%D1%81%D0%BA%D0%B8_.jpg), de OlgaBook, en Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recortada y reducida; el crédito va en el pie de foto. Sale un operario reconocible.
-- **Polimerizado:** curva de curado orientativa (temperatura en la pieza), gráfico propio. Cambiar por una foto del horno de Legutio en cuanto la haya.
-- **Control de calidad (espesor de capa):** [«Ultraschallschichtdickenmessung»](https://commons.wikimedia.org/wiki/File:Ultraschallschichtdickenmessung.jpg), de Grey and red fairy, en Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recortada y reducida; el crédito va en el pie de foto.
+- **Polimerizado:** curva de curado (temperatura en la pieza), gráfico propio. Cambiar por una foto del horno de Legutio en cuanto la haya.
+- **Control de calidad (ensayo de adherencia por corte enrejado):** [Pixabay](https://pixabay.com/photos/cross-cut-paint-testing-3893091/) (licencia de Pixabay, sin atribución). `adherencia-corte.webp`.
 - **Fachada de la fábrica de Legutio:** Joma.
 - **Reflejos de la placa 3D:** HDRI [Industrial Workshop Foundry](https://polyhaven.com/a/industrial_workshop_foundry) de Poly Haven (CC0), casi en gris y reducido a 512 × 256 (`assets/env/nave.hdr`).
 - **Acabados de la página de termolacado** (`assets/img/acabado-*.webp`): renders de la propia placa 3D.
@@ -174,7 +174,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 
 **Páginas de servicio**
 - **Termolacado:** pintura en polvo, del deck interno de JomaPaint.
-- **Imprimación rica en zinc:** estructura de acero atornillada, Unsplash (imagen de referencia).
+- **Imprimación rica en zinc:** estructura de acero atornillada, Unsplash.
 - **Aluminio:** Andrey Soldatov en Unsplash.
 - **Galvanizado:** Bernard Hermant en Unsplash.
 - **Marcaje:** buzones Joma Skyline con numeración láser.
@@ -184,3 +184,6 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - Joma Urban va en su rojo oficial #E44132.
 - QUALICOAT y QUALISTEELCOAT: archivos originales de sus webs, sin modificar.
 - Los logotipos de proveedores, sellos y marcas pertenecen a sus propietarios.
+
+
+**Pies de foto:** sin «imagen de referencia» ni avisos provisionales. Solo la foto de Wikimedia (CC BY-SA) lleva crédito, porque su licencia lo exige; Unsplash, Pexels y Pixabay no piden atribución.
