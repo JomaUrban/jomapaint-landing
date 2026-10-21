@@ -296,7 +296,7 @@ def main():
         js['lang'] = lang
         js['root'] = root
         js['stCaps'] = [x[3] for x in L['process']['stations']]
-        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT, 'api': C.API_ENDPOINT, 'tracking': C.TRACKING,
+        jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT, 'api': C.API_ENDPOINT, 'mail': C.EMAIL, 'tracking': C.TRACKING,
                              'lim': {'mm': list(C.CABIN_MM), 'kg': C.MAX_KG}}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
         svc_href = {sv['key']: root + svc_path(L, sv[lang]) for sv in SV.SERVICES}
         svc_links = [{'href': svc_href[sv['key']], 'name': sv[lang]['name'], 'current': False} for sv in SV.SERVICES]
