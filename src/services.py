@@ -279,7 +279,7 @@ SERVICES = [
         },
         'eu': {
             'slug': 'zinkez-aberatsa-den-inprimazioa/',
-            'title': 'Zinkez aberastutako inprimazioa eta C4-H termolakatzea | JomaPaint',
+            'title': 'Zinkez aberastutako inprimazioa eta C4-H | JomaPaint',
             'description': 'Zinkez aberastutako inprimazioa hauts-pinturaren azpian Legution, Gasteiztik gertu: galbanizatuaren edo zinkatuaren alternatiba altzairurako. C4-H sistema.',
             'og_title': 'Zinkez aberastutako inprimazioa · JomaPaint',
             'name': 'Zinkez aberatsa den inprimazioa', 'crumb': 'Zink-inprimazioa', 'service_type': 'Zinkez aberatsa den inprimazioa',
