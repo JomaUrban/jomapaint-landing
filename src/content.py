@@ -20,7 +20,7 @@ API_ENDPOINT = ''
 # El seguimiento de pedidos está oculto por ahora: True lo vuelve a mostrar (sección, menú y enlaces).
 TRACKING = False
 # Medidas máximas de pieza (mm: largo, ancho, alto) y peso máximo (kg), confirmados por JomaPaint.
-CABIN_MM = (6000, 2000, 650)
+CABIN_MM = (6000, 2000, 650)  # largo, alto, ancho (mm); el cotizador las ordena, la orientación no importa
 MAX_KG = 165
 
 ES = {
@@ -46,7 +46,7 @@ ES = {
         'upload_hint': 'PDF, DWG, DXF, STEP, JPG o PNG. Hasta 10 MB en total',
         'track': '¿Ya tienes pedido? Síguelo aquí',
         'stats': [
-            ('Cabina', '6 × 2 × 0,65 m', 'Largo, ancho y alto'),
+            ('Cabina', '6 × 2 × 0,65 m', 'Largo, alto y ancho'),
             ('Peso máximo por pieza', '165 kg', ''),
             ('Plazo estándar', '1 semana', ''),
             ('Presupuesto firme', 'Menos de 24 h', 'En días laborables'),
@@ -70,7 +70,7 @@ ES = {
             ('Termolacado de acero galvanizado', 'Desgasificado y preparación específica para evitar poros y burbujas: sistema dúplex de zinc y pintura en polvo.', 'galvanizado'),
             ('Imprimación rica en zinc', 'Alternativa al galvanizado o al zincado: una imprimación con polvo de zinc que protege el acero y, encima, la pintura en polvo. Anticorrosión C4-H, con sello en proceso de homologación.', 'zinc'),
             ('Lacado de perfiles de aluminio', 'Perfilería en el color y el acabado que necesites, con la misma línea y el mismo control.', 'aluminio'),
-            ('Piezas de gran formato', 'Piezas de hasta 6 m de largo, 2 m de ancho y 650 mm de alto, y de hasta 165 kg.', ''),
+            ('Piezas de gran formato', 'Piezas de hasta 6 m de largo, 2 m de alto y 0,65 m de ancho, y de hasta 165 kg.', ''),
             ('Marcaje y personalización', 'Grabado láser, impresión UV con relieve, tampografía y serigrafía: logotipos, referencias e indicaciones sobre la pieza.', 'marcaje'),
             ('Manipulado y embalaje', 'Manipulado y embalaje: la pieza sale lista para tu cliente.', ''),
         ],
@@ -156,7 +156,7 @@ ES = {
         'h2': 'Preguntas frecuentes',
         'items': [
             ('¿Qué es el termolacado?', 'Es pintar con pintura en polvo y curarla en horno; por eso también se llama lacado al horno o pintura electrostática en polvo. El polvo se aplica con carga electrostática, funde y reticula con el calor y forma una película continua y resistente, sin disolventes.'),
-            ('¿Qué materiales pintáis?', 'Estructuras y piezas de acero, acero galvanizado y aluminio, también perfilería de aluminio, del piecerío a la gran dimensión: hasta 6 m de largo, 2 m de ancho, 650 mm de alto y 165 kg por pieza.'),
+            ('¿Qué materiales pintáis?', 'Estructuras y piezas de acero, acero galvanizado y aluminio, también perfilería de aluminio, del piecerío a la gran dimensión: hasta 6 m de largo, 2 m de alto, 0,65 m de ancho y 165 kg por pieza.'),
             ('¿Se puede pintar en polvo el acero galvanizado o zincado?', 'Sí, con una preparación específica. El material galvanizado o zincado retiene gases de su fabricación: con la temperatura del horno de curado se liberan, afloran a la superficie y dejan burbujas o microporos que estropean el acabado. Por eso desgasificamos la pieza en el horno antes de pintar. Al pedir presupuesto, indícanos si es galvanizado en caliente, electrocincado o chapa galvanizada.'),
             ('¿Hacéis cataforesis?', 'No. Como protección anticorrosiva ofrecemos la imprimación rica en zinc, una alternativa al galvanizado o al zincado, con la capa final en pintura en polvo.'),
             ('¿Qué colores y acabados?', 'Toda la carta RAL Classic y referencias concretas de fabricante, y Pantone y NCS bajo pedido. En liso o texturado: texturado fino, de tacto arenoso, que disimula marcas y pequeñas imperfecciones, o gofrado, de textura más gruesa. Brillo mate (hasta 30 GU), satinado (31–70 GU) o brillo (71–100 GU), medido a 60°. También metalizados y perlados, que se aprueban sobre muestra porque no tienen una tolerancia de color medible. Si dudas, te enviamos una placa de muestra.'),
@@ -223,7 +223,7 @@ ES = {
         'envs': [['Interior', 'C1–C2', 'Naves, oficinas, mobiliario interior.'], ['Exterior', 'C2–C3', 'Intemperie en ciudad o zona rural.'], ['Industrial o costa', 'C4', 'Zonas industriales y costa de salinidad moderada.'], ['Alta durabilidad', 'C4-H', 'C4 con durabilidad alta (15–25 años). Sello en proceso de homologación.']],
         'extrasL': 'Además', 'extras': ['Manipulado', 'Embalaje'],
         'when': '¿Para cuándo lo necesitas?', 'delL': 'Entrega de las piezas', 'delInfo': 'Las piezas se entregan y se recogen en nuestra planta de Legutio. Portes no incluidos.', 'delShort': 'En Legutio, portes del cliente',
-        'big': 'Supera la cabina (6 m × 2 m × 650 mm) o los 165 kg por pieza: lo revisamos contigo en el presupuesto.',
+        'big': 'Supera la cabina (6 m × 2 m × 0,65 m) o los 165 kg por pieza: lo revisamos contigo en el presupuesto.',
         'contact': [['Empresa', 'text', 'organization', ''], ['CIF', 'text', 'off', 'Opcional'], ['Nombre y apellidos', 'text', 'name', ''], ['Email', 'email', 'email', 'tu@empresa.com'], ['Teléfono', 'tel', 'tel', '']],
         'notes': 'Notas', 'notesPh': 'Tolerancias, zonas que vienen protegidas, embalaje especial…',
         'rgpd': 'He leído y acepto la <a href="#">política de privacidad</a>. Tratamos tus datos y tus planos para gestionar tu solicitud y, si la aceptas, tu pedido. El formulario se envía a través de FormSubmit.',
@@ -265,7 +265,7 @@ EU = {
         'upload_hint': 'PDF, DWG, DXF, STEP, JPG edo PNG. Guztira 10 MB gehienez',
         'track': 'Eskaera bat duzu? Jarraitu hemen',
         'stats': [
-            ('Kabina', '6 × 2 × 0,65 m', 'Luzera, zabalera eta altuera'),
+            ('Kabina', '6 × 2 × 0,65 m', 'Luzera, altuera eta zabalera'),
             ('Pieza bakoitzeko gehienezko pisua', '165 kg', ''),
             ('Ohiko epea', 'Astebete', ''),
             ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan'),
@@ -289,7 +289,7 @@ EU = {
             ('Altzairu galbanizatuaren termolakatzea', 'Aurretik gasak kanporatzen ditugu eta prestaketa berezia egiten dugu, poro eta burbuilarik ager ez dadin: zinkaren eta hauts-pinturaren sistema duplexa.', 'galvanizado'),
             ('Zinkez aberatsa den inprimazioa', 'Galbanizatuaren edo zinkatuaren alternatiba: altzairua babesten duen zink-hautsezko inprimazioa eta, gainean, hauts-pintura. C4-H korrosioaren aurkako babesa, zigilua homologazio-prozesuan duela.', 'zinc'),
             ('Aluminiozko profilen lakatzea', 'Profilak behar duzun kolore eta akaberan, linea eta kontrol berarekin.', 'aluminio'),
-            ('Formatu handiko piezak', '6 m-ko luzera, 2 m-ko zabalera eta 650 mm-ko altuera arteko piezak, 165 kg arte.', ''),
+            ('Formatu handiko piezak', '6 m-ko luzera, 2 m-ko altuera eta 0,65 m-ko zabalera arteko piezak, 165 kg arte.', ''),
             ('Markaketa eta pertsonalizazioa', 'Laser bidezko grabatua, UV inprimaketa erliebearekin, tanpografia eta serigrafia: logotipoak, erreferentziak eta adierazpenak piezan.', 'marcaje'),
             ('Manipulazioa eta paketatzea', 'Manipulazioa eta paketatzea: pieza zure bezeroarentzat prest ateratzen da.', ''),
         ],
@@ -375,7 +375,7 @@ EU = {
         'h2': 'Ohiko galderak',
         'items': [
             ('Zer da termolakatzea?', 'Hauts-pinturaz pintatu eta labean ontzea da; horregatik, labean lakatzea edo hauts-pintura elektrostatikoa ere deitzen zaio. Hautsa karga elektrostatikoarekin aplikatzen da, beroarekin urtu eta erretikulatu egiten da eta film jarraitu eta erresistentea sortzen du, disolbatzailerik gabe.'),
-            ('Zer material pintatzen dituzue?', 'Altzairuzko, altzairu galbanizatuzko eta aluminiozko egitura eta piezak, baita aluminiozko profilak ere, pieza txikietatik dimentsio handikoetara: 6 m-ko luzera, 2 m-ko zabalera, 650 mm-ko altuera eta 165 kg arte pieza bakoitzeko.'),
+            ('Zer material pintatzen dituzue?', 'Altzairuzko, altzairu galbanizatuzko eta aluminiozko egitura eta piezak, baita aluminiozko profilak ere, pieza txikietatik dimentsio handikoetara: 6 m-ko luzera, 2 m-ko altuera, 0,65 m-ko zabalera eta 165 kg arte pieza bakoitzeko.'),
             ('Altzairu galbanizatua edo zinkatua hautsez pinta daiteke?', 'Bai, prestaketa berezi batekin. Material galbanizatuak edo zinkatuak fabrikazioko gasak gordetzen ditu: lehortze-labearen tenperaturarekin askatu egiten dira, gainazalera ateratzen dira eta akabera hondatzen duten burbuilak edo mikroporoak uzten dituzte. Horregatik, pintatu aurretik labean gasak kanporatzen dizkiogu piezari. Aurrekontua eskatzean, adierazi beroan galbanizatua, elektrozinkatua edo xafla galbanizatua den.'),
             ('Kataforesia egiten duzue?', 'Ez. Korrosioaren aurkako babes gisa zinkez aberatsa den inprimazioa eskaintzen dugu, galbanizatuaren edo zinkatuaren alternatiba, hauts-pinturazko azken geruzarekin.'),
             ('Zer kolore eta akabera?', 'RAL Classic karta osoa eta fabrikatzaileen erreferentzia zehatzak, eta Pantone eta NCS eskatuta. Leuna edo testuraduna: testura fina, ukitu harea-antzekoa duena eta markak eta akats txikiak ezkutatzen dituena, edo gofratua, testura lodiagoa. Distira matea (30 GU arte), satinatua (31–70 GU) edo distiratsua (71–100 GU), 60°-tan neurtuta. Metalizatuak eta perlatuak ere bai; lagin baten gainean onartzen dira, ez baitute kolore-tolerantzia neurgarririk. Zalantzarik baduzu, lagin-plaka bat bidaliko dizugu.'),
@@ -442,7 +442,7 @@ EU = {
         'envs': [['Barrualdea', 'C1–C2', 'Pabiloiak, bulegoak, barruko altzariak.'], ['Kanpoaldea', 'C2–C3', 'Kanpoan, hirian edo landa-ingurunean.'], ['Industria edo kostaldea', 'C4', 'Industrialdeak eta gazitasun ertaineko kostaldea.'], ['Iraunkortasun handia', 'C4-H', 'C4, iraunkortasun handiarekin (15–25 urte). Zigilua homologazio-prozesuan.']],
         'extrasL': 'Gainera', 'extras': ['Manipulazioa', 'Paketatzea'],
         'when': 'Noizko behar duzu?', 'delL': 'Piezen entrega', 'delInfo': 'Piezak gure Legutioko lantegian entregatu eta jasotzen dira. Garraio-kostuak ez daude barne.', 'delShort': 'Legution, garraioa bezeroaren kontura',
-        'big': 'Kabina (6 m × 2 m × 650 mm) edo 165 kg-ko pisua gainditzen du: aurrekontuan zurekin berrikusiko dugu.',
+        'big': 'Kabina (6 m × 2 m × 0,65 m) edo 165 kg-ko pisua gainditzen du: aurrekontuan zurekin berrikusiko dugu.',
         'contact': [['Enpresa', 'text', 'organization', ''], ['IFZ', 'text', 'off', 'Aukerakoa'], ['Izen-abizenak', 'text', 'name', ''], ['Posta elektronikoa', 'email', 'email', 'zu@enpresa.eus'], ['Telefonoa', 'tel', 'tel', '']],
         'notes': 'Oharrak', 'notesPh': 'Tolerantziak, babestuta datozen eremuak, paketatze berezia…',
         'rgpd': '<a href="#">Pribatutasun-politika</a> irakurri eta onartzen dut. Zure datuak eta planoak aurrekontu-eskaera kudeatzeko eta, onartzen baduzu, eskaera egiteko erabiltzen ditugu. Formularioa FormSubmit bidez bidaltzen da.',
@@ -484,7 +484,7 @@ FR = {
         'upload_hint': 'PDF, DWG, DXF, STEP, JPG ou PNG. Jusqu’à 10 Mo au total',
         'track': 'Déjà client ? Suivez votre commande',
         'stats': [
-            ('Cabine', '6 × 2 × 0,65 m', 'Longueur, largeur et hauteur'),
+            ('Cabine', '6 × 2 × 0,65 m', 'Longueur, hauteur et largeur'),
             ('Poids maximal par pièce', '165 kg', ''),
             ('Délai standard', '1 semaine', ''),
             ('Devis ferme', 'Moins de 24 h', 'Jours ouvrés'),
@@ -508,7 +508,7 @@ FR = {
             ('Thermolaquage sur acier galvanisé', 'Dégazage et préparation spécifiques pour éviter piqûres et cloques : système duplex zinc et peinture poudre.', 'galvanizado'),
             ('Primaire riche en zinc', 'Alternative à la galvanisation ou à l’électrozingage : un primaire chargé en poudre de zinc qui protège l’acier, puis la finition en poudre. Anticorrosion C4-H, label en cours d’homologation.', 'zinc'),
             ('Laquage de profilés aluminium', 'Profilés dans la couleur et la finition voulues, avec la même ligne et le même contrôle.', 'aluminio'),
-            ('Pièces de grand format', 'Pièces jusqu’à 6 m de long, 2 m de large et 650 mm de haut, et jusqu’à 165 kg.', ''),
+            ('Pièces de grand format', 'Pièces jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, et jusqu’à 165 kg.', ''),
             ('Marquage et personnalisation', 'Gravure laser, impression UV en relief, tampographie et sérigraphie : logos, références et indications sur la pièce.', 'marcaje'),
             ('Manutention et emballage', 'Manutention et emballage : la pièce sort prête pour votre client.', ''),
         ],
@@ -594,7 +594,7 @@ FR = {
         'h2': 'Questions fréquentes',
         'items': [
             ('Qu’est-ce que le thermolaquage ?', 'C’est peindre avec une peinture en poudre puis la cuire au four ; on parle aussi de laquage au four, de peinture électrostatique ou, par abus de langage, de peinture époxy (la plupart des finitions extérieures sont en polyester). La poudre est appliquée par charge électrostatique, fond et réticule sous l’effet de la chaleur et forme un film continu et résistant, sans solvant.'),
-            ('Quels matériaux peignez-vous ?', 'Des structures et des pièces en acier, acier galvanisé et aluminium, y compris les profilés aluminium, de la petite pièce aux grandes dimensions : jusqu’à 6 m de long, 2 m de large, 650 mm de haut et 165 kg par pièce.'),
+            ('Quels matériaux peignez-vous ?', 'Des structures et des pièces en acier, acier galvanisé et aluminium, y compris les profilés aluminium, de la petite pièce aux grandes dimensions : jusqu’à 6 m de long, 2 m de haut, 0,65 m de large et 165 kg par pièce.'),
             ('Peut-on thermolaquer de l’acier galvanisé ou zingué ?', 'Oui, avec une préparation spécifique. Le métal galvanisé ou zingué retient des gaz de sa fabrication : à la température du four de cuisson, ils se libèrent, remontent en surface et laissent des bulles ou des micropores qui abîment la finition. C’est pourquoi nous dégazons la pièce au four avant peinture. Dans votre demande de devis, précisez s’il s’agit de galvanisation à chaud, d’électrozingage ou de tôle galvanisée.'),
             ('Faites-vous de la cataphorèse ?', 'Non. Comme protection anticorrosion, nous proposons le primaire riche en zinc, une alternative à la galvanisation ou à l’électrozingage, avec une finition en peinture poudre.'),
             ('Quelles couleurs et finitions ?', 'Tout le nuancier RAL Classic et des références fabricant précises, ainsi que Pantone et NCS sur demande. En lisse ou texturé : texturé fin, au toucher sablé, qui masque les traces et les petits défauts, ou texture forte (gaufré). Brillance mate (jusqu’à 30 GU), satinée (31 à 70 GU) ou brillante (71 à 100 GU), mesurée à 60°. Également des métallisés et des nacrés, validés sur échantillon car ils n’ont pas de tolérance colorimétrique mesurable. En cas de doute, nous vous envoyons une plaque échantillon.'),
@@ -662,7 +662,7 @@ FR = {
         'envs': [['Intérieur', 'C1–C2', 'Ateliers, bureaux, mobilier intérieur.'], ['Extérieur', 'C2–C3', 'En extérieur, en ville ou à la campagne.'], ['Industriel ou littoral', 'C4', 'Zones industrielles et littoral à salinité modérée.'], ['Haute durabilité', 'C4-H', 'C4, durabilité haute (15 à 25 ans). Label en cours d’homologation.']],
         'extrasL': 'En plus', 'extras': ['Manutention', 'Emballage'],
         'when': 'Pour quand en avez-vous besoin ?', 'delL': 'Dépôt des pièces', 'delInfo': 'Les pièces se déposent et se récupèrent dans notre usine de Legutio. Port non inclus.', 'delShort': 'À Legutio, transport à la charge du client',
-        'big': 'Dépasse la cabine (6 m × 2 m × 650 mm) ou les 165 kg par pièce : nous le revoyons avec vous dans le devis.',
+        'big': 'Dépasse la cabine (6 m × 2 m × 0,65 m) ou les 165 kg par pièce : nous le revoyons avec vous dans le devis.',
         'contact': [['Entreprise', 'text', 'organization', ''], ['N° de TVA intracommunautaire', 'text', 'off', 'Facultatif'], ['Nom et prénom', 'text', 'name', ''], ['E-mail', 'email', 'email', 'vous@entreprise.fr'], ['Téléphone', 'tel', 'tel', '']],
         'notes': 'Remarques', 'notesPh': 'Tolérances, zones déjà protégées, emballage spécial…',
         'rgpd': 'J’ai lu et j’accepte la <a href="#">politique de confidentialité</a>. Nous utilisons vos données et vos plans pour traiter votre demande et, si vous l’acceptez, réaliser votre commande. Le formulaire est transmis via FormSubmit.',
