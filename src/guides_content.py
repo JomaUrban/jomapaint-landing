@@ -326,7 +326,7 @@ CERT = {
             # ---------------------------------------------------------- 2
             {'h2': 'QUALICOAT: arkitekturako aluminioaren lakatzea', 'p': [
                 'QUALICOAT kalitate-zigilu bat da, arkitekturako aluminioari hauts-pintura edo pintura likidoa aplikatzeko: profilak, fatxadak, arotzeria. Marka erregistratua da. Indarreko zehaztapena 26. edizioa da, 2026ko urtarrilaren 1etik baliozkoa.',
-                'Zer bermatzen dizun: aurretratamenduak, hautsak, ontzeak eta amaitutako produktuak baldintza zehatzak betetzen dituztela, eta hirugarren batek egiaztatzen duela, ISO/IEC 17025 arauaren arabera akreditatutako laborategiekin.',
+                'Zer egiaztatzen duen: aurretratamenduak, hauts-pinturak, ontzeak eta amaitutako produktuak zehaztutako baldintzak betetzen dituztela, ISO/IEC 17025 arauaren arabera akreditatutako laborategiekin lan egiten duen hirugarren erakunde batek egiaztatuta.',
                 'Espainian Espainiako Aluminioaren eta Gainazal Tratamenduen Elkarteak (AEA) kudeatzen du.',
             ],
              'cards': [
@@ -334,7 +334,7 @@ CERT = {
                  ('Hautsaren homologazioa', 'Homologatutako hauts bakoitzak P-No. kode bat eta klase bat ditu. Homologatzeko, besteak beste, saiakuntza hauek egiten dira: xenoia (ISO 16474-2, 1.000 h, 1. klasetik 2.era), gatz-laino azetikoa (ISO 9227 AASS, 1.000 h; 2.000 h 3. klasean), kondentsazioa (ISO 6270-2, 1.000 h; 2.000 h 3. klasean) eta SO₂ (ISO 22479, 24 ziklo).'),
                  ('SEASIDE', 'Itsas girorako abal gehigarria. Aurretratamendu indartua eskatzen du, gutxienez 2,0 g/m²-ko eraso kimikoarekin (estandarrean, 1,0 g/m²), eta korrosio filiformeko saiakuntza bat (ISO 4623-2, 1.000 h): harizpirik luzeena ≤ 4 mm eta batez bestekoa ≤ 2 mm. QUALICOATek C4tik aurrera gomendatzen du, edo aurre-anodizatua, eta batez ere C5ean eta CXen.'),
              ],
-             'note': 'JomaPaint-en egoera: lizentzia bidean.'},
+             'note': 'JomaPaint-en egoera: lizentzia lortzeko prozesuan.'},
             # ---------------------------------------------------------- 3
             {'h2': 'QUALICOAT hauts-klaseak: Floridako urteak eta distira', 'p': [
                 'Hauts baten klaseak adierazten du zenbat mantentzen dituen distira eta kolorea eguzkitan. Floridan (ISO 2810) hegoaldera begira jarritako probetekin egiaztatzen da: 5°-ko inklinazioarekin 1. klasetik 2.era, eta 45°-koarekin 3. klasean.',
@@ -381,7 +381,7 @@ CERT = {
             # ---------------------------------------------------------- 6
             {'h2': 'ISO 9001 eta ISO 14001: kudeaketa-sistemak', 'p': [
                 'Enpresa nola kudeatzen den ziurtatzen dute, ez estaldura batek nola jokatzen duen. ISO 9001 kalitatearen kudeaketari buruzkoa da; ISO 14001, ingurumen-kudeaketari buruzkoa. Ziurtagiri bakoitzak irismen zehatz bat du, idatziz jasota.',
-                'Ez ditu ISOk ematen, kanpoko ziurtapen-erakundeek baizik, ahal dela akreditatuek; Espainian, ENACek akreditatuek. Jarraipen-auditoriekin mantentzen dira.',
+                'Ziurtagiriak ez ditu ISOk ematen, kanpoko ziurtapen-erakundeek baizik; ahal dela, akreditatutako erakundeek. Espainian, ENAC da akreditazio-erakundea. Ziurtagiriek jarraipen-auditorien bidez eusten diote indarraldiari.',
             ],
              'cards': [
                  ('ISO 9001 · kalitatea', 'Prozesu dokumentatuak, trazabilitatea, ez-adostasunen eta erreklamazioen kudeaketa, eta etengabeko hobekuntza.'),
@@ -559,9 +559,9 @@ CERT = {
             ('Oraindik badago C5-M klasea?', 'Bai, beste esanahi batekin. 1998an itsas klasea zen; ISO 12944-2:2017 arauan, C5-I eta C5-M C5 bakarrean bateratu ziren, eta letrak iraunkortasuna adierazten du orain. Gaur C5-M C5 da, iraunkortasun ertainarekin (7-15 urte).'),
             ('Zenbat urteren baliokideak dira gatz-lainoko 1.000 orduak?', 'Ez dago kopuru zehatzik. ISO 9227 arauak berak ohartarazten du saiakuntza ez dela epe luzeko erresistentzia aurreikusteko. Sistema jakin bat erreferentzia baten aldean kontrolatzeko balio du.'),
             ('ISO 12944ko iraunkortasuna bermea al da?', 'Ez. L, M, H eta VH mailak planifikatzeko datua dira, ez berme-epea. Bermea aparte hitzartzen da, idatziz.'),
-            ('Hautsa QUALICOAT homologatua bada, lakatzea ere bai?', 'Ez. Homologazioa hautsarena da; zigilua, lakatzailearena. QUALICOAT lizentzia duen lantegi batek bakarrik saldu dezake bere lakatzea zigiluarekin. GSBrekin gauza bera gertatzen da.'),
+            ('Hauts-pinturak QUALICOATen homologazioa badu, lakatzeak ere badu?', 'Ez. Homologazioa hautsarena da; zigilua, lakatzailearena. QUALICOAT lizentzia duen lantegi batek bakarrik saldu dezake bere lakatzea zigiluarekin. GSBrekin gauza bera gertatzen da.'),
             ('Zer alde dago QUALICOAT eta QUALISTEELCOAT artean?', 'QUALICOATek arkitekturako aluminioaren lakatzea ziurtatzen du. QUALISTEELCOATek altzairuaren eta altzairu galbanizatuaren lakatzea ziurtatzen du, sistemaka eta korrosibitate-kategoriaka, adibidez C5-H.'),
-            ('JomaPaint-ek QUALICOAT edo QUALISTEELCOAT lizentzia du?', 'Biak bidean daude: QUALICOAT aluminiorako eta QUALISTEELCOAT korrosioaren aurkako C4-H sistemarako.'),
+            ('JomaPaint-ek QUALICOAT edo QUALISTEELCOAT lizentzia du?', 'Bi lizentziak lortzeko prozesuan gaude: QUALICOAT aluminioaren lakatzerako eta QUALISTEELCOAT C4-H korrosioaren aurkako sistemarako.'),
         ],
         'faq_n': 7,
     },
@@ -654,7 +654,7 @@ CERT = {
             # ---------------------------------------------------------- 6
             {'h2': 'ISO 9001 et ISO 14001 : systèmes de management', 'p': [
                 'Elles certifient la façon dont l’entreprise est gérée, pas le comportement d’un revêtement. L’ISO 9001 porte sur le management de la qualité ; l’ISO 14001, sur le management environnemental. Chaque certificat couvre un périmètre précis, inscrit sur le certificat.',
-                'Ce n’est pas l’ISO qui les délivre, mais des organismes de certification externes, de préférence accrédités ; en Espagne, par l’ENAC. Elles se maintiennent par des audits de suivi.',
+                'Ces certifications ne sont pas délivrées par l’ISO, mais par des organismes tiers, de préférence accrédités. En Espagne, l’accréditation relève de l’ENAC. Le maintien des certificats est soumis à des audits de surveillance.',
             ],
              'cards': [
                  ('ISO 9001 · qualité', 'Procédés documentés, traçabilité, traitement des non-conformités et des réclamations, amélioration continue.'),
@@ -832,7 +832,7 @@ CERT = {
             ('La classe C5-M existe-t-elle encore ?', 'Oui, avec un autre sens. En 1998, c’était la classe marine ; dans l’ISO 12944-2:2017, C5-I et C5-M ont été regroupées en C5, et la lettre indique désormais la durabilité. Aujourd’hui, C5-M signifie C5 avec une durabilité moyenne (7 à 15 ans).'),
             ('À combien d’années correspondent 1 000 heures de brouillard salin ?', 'À aucun chiffre précis. L’ISO 9227 elle-même précise que l’essai ne sert pas à prédire la tenue à long terme. Il sert à contrôler un système donné par rapport à une référence.'),
             ('La durabilité de l’ISO 12944 est-elle une garantie ?', 'Non. Les niveaux L, M, H et VH sont une donnée de planification, pas une durée de garantie. La garantie se convient à part, par écrit.'),
-            ('Si la poudre est homologuée QUALICOAT, le laquage l’est-il aussi ?', 'Non. L’homologation porte sur la poudre ; le label, sur l’applicateur. Seule une usine sous licence QUALICOAT peut vendre son laquage avec le label. Il en va de même avec GSB.'),
+            ('Si la poudre est homologuée QUALICOAT, le thermolaquage l’est-il aussi ?', 'Non. L’homologation porte sur la poudre ; le label, sur l’applicateur. Seule une usine sous licence QUALICOAT peut vendre son laquage avec le label. Il en va de même avec GSB.'),
             ('Quelle différence entre QUALICOAT et QUALISTEELCOAT ?', 'QUALICOAT certifie le laquage de l’aluminium pour l’architecture. QUALISTEELCOAT certifie le laquage de l’acier et de l’acier galvanisé, par système et par catégorie de corrosivité, par exemple C5-H.'),
             ('JomaPaint a-t-il une licence QUALICOAT ou QUALISTEELCOAT ?', 'Les deux sont en cours : QUALICOAT pour l’aluminium et QUALISTEELCOAT pour le système anticorrosion C4-H.'),
         ],
