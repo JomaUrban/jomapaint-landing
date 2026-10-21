@@ -149,7 +149,7 @@ ZONES = [
                 ]},
             ],
             'faq': FAQ_COMMON['es'] + [
-                ('¿Puedo llevar las piezas el mismo día que pido presupuesto?', 'Sí, pero te recomendamos esperar al presupuesto firme: así sabes precio y plazo antes de traerlas. Llámanos al 945 31 87 70 (ext. 3) y te decimos cuándo puedes venir.'),
+                ('¿Puedo llevar las piezas el mismo día que pido presupuesto?', 'Sí, pero te recomendamos esperar al presupuesto firme: así sabes precio y plazo antes de traerlas. Llámanos al 945 31 87 71 y te decimos cuándo puedes venir.'),
             ],
         },
         'eu': {
@@ -184,7 +184,7 @@ ZONES = [
                 ]},
             ],
             'faq': FAQ_COMMON['eu'] + [
-                ('Aurrekontua eskatzen dudan egunean bertan ekar ditzaket piezak?', 'Bai, baina aurrekontu irmoaren zain egotea gomendatzen dizugu: horrela, prezioa eta epea jakingo dituzu piezak ekarri aurretik. Deitu 945 31 87 70 zenbakira (3. luzapena) eta noiz etor zaitezkeen esango dizugu.'),
+                ('Aurrekontua eskatzen dudan egunean bertan ekar ditzaket piezak?', 'Bai, baina aurrekontu irmoaren zain egotea gomendatzen dizugu: horrela, prezioa eta epea jakingo dituzu piezak ekarri aurretik. Deitu 945 31 87 71 zenbakira eta noiz etor zaitezkeen esango dizugu.'),
             ],
         },
     },
