@@ -325,13 +325,13 @@ FR = {'Termolacado en Vitoria-Gasteiz y Álava | JomaPaint': 'Thermolaquage pour
  'Hasta 6 m de largo, 2 m de alto y 0,65 m de ancho, y hasta 165 kg por pieza. Si la tuya no entra, consúltanos.': 'Jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, pour un poids maximal de 165 '
                                                                                                                    'kg par pièce. Si votre pièce dépasse ces limites, consultez-nous.',
  '¿Puedo llevar las piezas el mismo día que pido presupuesto?': 'Puis-je apporter mes pièces le jour de ma demande de devis ?',
- 'Sí, pero te recomendamos esperar al presupuesto firme: así sabes precio y plazo antes de traerlas. Llámanos al 945 31 87 70 (ext. 3) y te decimos cuándo puedes venir.': 'Oui, mais nous vous '
+ 'Sí, pero te recomendamos esperar al presupuesto firme: así sabes precio y plazo antes de traerlas. Llámanos al 945 31 87 71 y te decimos cuándo puedes venir.': 'Oui, mais nous vous '
                                                                                                                                                                            'conseillons d’attendre le '
                                                                                                                                                                            'devis ferme : vous '
                                                                                                                                                                            'connaîtrez ainsi le prix '
                                                                                                                                                                            'et le délai avant de les '
                                                                                                                                                                            'apporter. Appelez-nous au '
-                                                                                                                                                                           '+34 945 31 87 70 (poste 3) '
+                                                                                                                                                                           '+34 945 31 87 71 '
                                                                                                                                                                            'pour organiser votre '
                                                                                                                                                                            'venue.',
  'Termolacado en Gipuzkoa y Donostia | JomaPaint': 'Thermolaquage pour le Gipuzkoa et Saint-Sébastien | JomaPaint',

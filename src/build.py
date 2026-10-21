@@ -102,7 +102,7 @@ def base_nodes(L, base):
             '@type': 'Organization', '@id': org_id,
             'name': 'Joma', 'legalName': 'José María Gallastegui y Cía., S.A.',
             'url': 'https://www.joma.es', 'foundingDate': '1942',
-            'telephone': C.PHONE_TEL, 'email': C.JOMA_EMAIL,
+            'telephone': C.JOMA_PHONE_TEL, 'email': C.JOMA_EMAIL,
             'department': {'@id': biz_id},
         },
         {

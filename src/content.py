@@ -7,8 +7,9 @@ Los textos entre <mark class="note">[...]</mark> son datos pendientes de confirm
 
 PH = lambda s: '<mark class="note">%s</mark>' % s  # noqa: E731  (marcador de dato pendiente)
 
-PHONE = '+34 945 31 87 70'
-PHONE_TEL = '+34945318770'
+PHONE = '+34 945 31 87 71'  # número propio de JomaPaint (entra por la centralita del grupo)
+PHONE_TEL = '+34945318771'
+JOMA_PHONE_TEL = '+34945318770'  # centralita de Joma (grupo)
 EMAIL = 'marimar@joma.es'        # contacto de JomaPaint (web y datos estructurados)
 JOMA_EMAIL = 'joma@joma.es'      # contacto general de Joma (Organization)
 # Destino del cotizador (FormSubmit). FormSubmit pide activar el destino con el primer envío
@@ -237,7 +238,7 @@ ES = {
         'wd': ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
         'mo': ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
         'next': ['Siguiente: acabado', 'Siguiente: entrega y contacto', 'Enviar solicitud'], 'back': 'Atrás',
-        'needRgpd': 'Acepta la política de privacidad para enviar.', 'needEmail': 'Escribe un email válido para enviarte el presupuesto.', 'sending': 'Enviando…', 'slow': 'El envío está tardando más de lo normal. Si no avanza, mándanos la solicitud por correo (se abre ya rellena; adjunta los planos) o llama al 945 31 87 70, ext. 3.', 'slowMail': 'Enviar por correo',
+        'needRgpd': 'Acepta la política de privacidad para enviar.', 'needEmail': 'Escribe un email válido para enviarte el presupuesto.', 'sending': 'Enviando…', 'slow': 'El envío está tardando más de lo normal. Si no avanza, mándanos la solicitud por correo (se abre ya rellena; adjunta los planos) o llama al 945 31 87 71.', 'slowMail': 'Enviar por correo',
         'extrasNone': 'Sin servicios adicionales', 'extrasPre': 'Además: ',
         'fileSel': '{n} archivos listos', 'fileOne': '{name}',
     },
@@ -457,7 +458,7 @@ EU = {
         'wd': ['igandea', 'astelehena', 'asteartea', 'asteazkena', 'osteguna', 'ostirala', 'larunbata'],
         'mo': ['urtarrilaren', 'otsailaren', 'martxoaren', 'apirilaren', 'maiatzaren', 'ekainaren', 'uztailaren', 'abuztuaren', 'irailaren', 'urriaren', 'azaroaren', 'abenduaren'],
         'next': ['Hurrengoa: akabera', 'Hurrengoa: piezak entregatzea eta harremanetarako datuak', 'Bidali eskaera'], 'back': 'Atzera',
-        'needRgpd': 'Onartu pribatutasun-politika eskaera bidaltzeko.', 'needEmail': 'Idatzi baliozko posta elektroniko bat, aurrekontua bidaltzeko.', 'sending': 'Bidaltzen…', 'slow': 'Bidalketak ohi baino gehiago irauten ari du. Aurrera egiten ez badu, bidali eskaera posta elektronikoz (beteta irekitzen da; erantsi planoak) edo deitu 945 31 87 70 zenbakira, 3. luzapena.', 'slowMail': 'Bidali posta elektronikoz',
+        'needRgpd': 'Onartu pribatutasun-politika eskaera bidaltzeko.', 'needEmail': 'Idatzi baliozko posta elektroniko bat, aurrekontua bidaltzeko.', 'sending': 'Bidaltzen…', 'slow': 'Bidalketak ohi baino gehiago irauten ari du. Aurrera egiten ez badu, bidali eskaera posta elektronikoz (beteta irekitzen da; erantsi planoak) edo deitu 945 31 87 71 zenbakira.', 'slowMail': 'Bidali posta elektronikoz',
         'extrasNone': 'Zerbitzu gehigarririk gabe', 'extrasPre': 'Gainera:',
         'fileSel': '{n} fitxategi prest', 'fileOne': '{name}',
     },
@@ -678,7 +679,7 @@ FR = {
         'wd': ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
         'mo': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
         'next': ['Suivant : finition', 'Suivant : dépôt et coordonnées', 'Envoyer la demande'], 'back': 'Retour',
-        'needRgpd': 'Acceptez la politique de confidentialité pour envoyer.', 'needEmail': 'Indiquez un e-mail valide pour recevoir le devis.', 'sending': 'Envoi…', 'slow': 'L’envoi prend plus de temps que d’habitude. S’il n’avance pas, envoyez-nous la demande par e-mail (le message s’ouvre prérempli ; joignez vos plans) ou appelez le +34 945 31 87 70, poste 3.', 'slowMail': 'Envoyer par e-mail',
+        'needRgpd': 'Acceptez la politique de confidentialité pour envoyer.', 'needEmail': 'Indiquez un e-mail valide pour recevoir le devis.', 'sending': 'Envoi…', 'slow': 'L’envoi prend plus de temps que d’habitude. S’il n’avance pas, envoyez-nous la demande par e-mail (le message s’ouvre prérempli ; joignez vos plans) ou appelez le +34 945 31 87 71.', 'slowMail': 'Envoyer par e-mail',
         'extrasNone': 'Sans service supplémentaire', 'extrasPre': 'En plus :',
         'fileSel': '{n} fichiers prêts', 'fileOne': '{name}',
     },
