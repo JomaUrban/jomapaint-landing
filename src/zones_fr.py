@@ -61,8 +61,8 @@ FR = {'Termolacado en Vitoria-Gasteiz y Álava | JomaPaint': 'Thermolaquage pour
                                                                                                                                                                                                                  'habituel '
                                                                                                                                                                                                                  'd’une '
                                                                                                                                                                                                                  'semaine.',
- 'Pintura en polvo de color naranja sobre fondo negro': 'Peinture en poudre orange sur fond noir',
- 'Pintura en polvo': 'Peinture en poudre',
+ 'Línea de pintura en cadena con piezas de colores entrando en el horno de curado': 'Ligne de peinture à convoyeur, pièces de couleur entrant dans le four de cuisson',
+ 'Cadena y horno de curado': 'Convoyeur et four de cuisson',
  'Desde Legutio': 'Depuis Legutio',
  'Unos 20 min a Júndiz': 'Environ 20 min jusqu’à Júndiz',
  'Plazo estándar': 'Délai habituel',
