@@ -18,7 +18,12 @@ ADDRESS = {
 }
 PHONE = '+34 945 31 87 70'
 MAIL = 'joma@joma.es'
-REGISTRO = None  # p. ej. {'es': 'Inscrita en el Registro Mercantil de …, tomo …, folio …, hoja …', 'eu': …, 'fr': …}
+# Datos registrales según Axesor (copia del BORME, sección Álava), 21-10-2026. Confirmar con la escritura.
+REGISTRO = {
+    'es': 'Registro Mercantil de Álava, tomo 1571, folio 23, sección 8.ª, hoja 17261',
+    'eu': 'Arabako Merkataritza Erregistroa, 1571. liburukia, 23. folioa, 8. atala, 17261. orria',
+    'fr': 'Registre du commerce (Registro Mercantil) d’Álava, volume 1571, folio 23, section 8, feuille 17261',
+}
 
 
 def _ident(lang):
