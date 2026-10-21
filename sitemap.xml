@@ -53,6 +53,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gasteiz-araba/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-vitoria-gasteiz-alava/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
   </url>
   <url>
@@ -60,6 +61,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-gipuzkoa-saint-sebastien/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
   </url>
   <url>
@@ -67,6 +69,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-biscaye-bilbao/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
   </url>
   <url>
@@ -156,6 +159,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gasteiz-araba/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-vitoria-gasteiz-alava/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
   </url>
   <url>
@@ -163,6 +167,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-gipuzkoa-saint-sebastien/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
   </url>
   <url>
@@ -170,6 +175,7 @@
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-biscaye-bilbao/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
   </url>
   <url>
@@ -235,6 +241,30 @@
     <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/laser-grabatua-uv-inprimaketa/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/gravure-laser-impression-uv/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/grabado-laser-impresion-uv/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/fr/thermolaquage-vitoria-gasteiz-alava/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gasteiz-araba/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-vitoria-gasteiz-alava/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-vitoria-gasteiz-alava/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/fr/thermolaquage-gipuzkoa-saint-sebastien/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-gipuzkoa-donostia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-gipuzkoa-saint-sebastien/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-gipuzkoa-donostia/"/>
+  </url>
+  <url>
+    <loc>https://paint.joma.es/fr/thermolaquage-biscaye-bilbao/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://paint.joma.es/eu/termolakatzea-bizkaia-bilbo/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paint.joma.es/fr/thermolaquage-biscaye-bilbao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://paint.joma.es/termolacado-bizkaia-bilbao/"/>
   </url>
   <url>
     <loc>https://paint.joma.es/fr/certifications-peinture-poudre/</loc>

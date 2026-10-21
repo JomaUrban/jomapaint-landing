@@ -432,7 +432,10 @@ def main():
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(rows) + '</urlset>\n')
     with open(os.path.join(ROOT, 'robots.txt'), 'w', encoding='utf-8') as f:
-        f.write('User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n' % base)
+        # Buscadores y asistentes de IA (ChatGPT, Claude, Perplexity, Gemini, Copilot): acceso explícito.
+        bots = ['OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'Claude-SearchBot', 'Claude-User', 'ClaudeBot',
+                'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Bingbot', 'Applebot', 'Applebot-Extended']
+        f.write(''.join('User-agent: %s\nAllow: /\n\n' % b for b in bots) + 'User-agent: *\nAllow: /\n\nSitemap: %ssitemap.xml\n' % base)
     print('ok sitemap.xml (%d URL), robots.txt  base=%s  index=%s' % (len(sitemap), base, not args.noindex))
 
 

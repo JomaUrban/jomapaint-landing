@@ -72,6 +72,15 @@ jobs:
         # 127.0.0.1 y no localhost: el wget de alpine prueba ::1 y nginx solo escucha IPv4
         run: ssh deploy-target "cd '$VPS_PATH' && for i in 1 2 3 4 5; do docker compose exec -T web wget -qO /dev/null http://127.0.0.1/ && docker compose exec -T api wget -qO- http://127.0.0.1:3000/api/salud && exit 0; sleep 3; done; docker compose logs --tail 30 web api; exit 1"
 
+      - name: Avisar a Bing y a otros buscadores (IndexNow)
+        # Bing alimenta también la búsqueda de ChatGPT y Copilot. Si falla, el despliegue sigue.
+        continue-on-error: true
+        run: |
+          KEY=$(ls *.txt | grep -E '^[0-9a-f]{32}\.txt$' | head -1 | cut -d. -f1)
+          URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g' | sed 's#^http://[^/]*/#https://paint.joma.es/#' | jq -R . | jq -sc .)
+          jq -n --arg k "$KEY" --argjson u "$URLS" '{host:"paint.joma.es", key:$k, keyLocation:("https://paint.joma.es/"+$k+".txt"), urlList:$u}' > indexnow.json
+          curl -sS -o /dev/null -w 'IndexNow: HTTP %{http_code}\n' -X POST https://api.indexnow.org/IndexNow -H 'Content-Type: application/json; charset=utf-8' --data @indexnow.json
+
       - name: Cerrar la conexión
         if: always()
         run: ssh -O exit deploy-target 2>/dev/null || true
