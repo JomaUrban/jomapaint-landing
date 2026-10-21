@@ -26,4 +26,5 @@
         {% for x in L.group.legal %}<a href="#">{{ x }}</a>{% endfor %}
         {% for l in langs if not l.current %}<a href="{{ l.rel }}" hreflang="{{ l.code }}" lang="{{ l.code }}">{{ l.name }}</a>{% endfor %}
       </nav>
+      <p class="foot-owner">{{ L.group.owner }}</p>
     </footer>
