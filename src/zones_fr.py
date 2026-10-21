@@ -732,3 +732,24 @@ FR.update({
     'No. Las piezas se entregan y se recogen en nuestra planta de Legutio (C/ San Bartolomé 11, Pol. Ind. Goiain), con tu transporte o con el transportista que elijas. Los portes no están incluidos; si necesitas transporte, lo estudiamos caso a caso. Horario: de lunes a viernes, de 7:00 a 15:00.':
         'Non. Les pièces se déposent et se récupèrent dans notre usine de Legutio (C/ San Bartolomé 11, Pol. Ind. Goiain), avec votre propre véhicule ou le transporteur de votre choix. Le transport n’est pas inclus ; si vous en avez besoin, nous l’étudions au cas par cas. Horaires : du lundi au vendredi, de 7 h à 15 h.',
 })
+
+# Fotos de sector (21-10-2026)
+FR.update({
+    'Automoción': 'Automobile',
+    'Utillaje, bastidores, soportes y protecciones de línea.': 'Outillage, bâtis, supports et protections de ligne.',
+    'Aeronáutica': 'Aéronautique',
+    'Utillaje, carros y estructuras de montaje y de hangar.': 'Outillage, chariots et structures de montage et de hangar.',
+    'Máquina-herramienta': 'Machine-outil',
+    'Carenados, puertas, bancadas y armarios de máquina.': 'Carénages, portes, bâtis et armoires de machines.',
+    'Estructura metálica': 'Charpente métallique',
+    'Vigas, pórticos, celosías y entreplantas, hasta 6 m de largo.': 'Poutres, portiques, treillis et mezzanines, jusqu’à 6 m de long.',
+    'Calderería y cerrajería': 'Chaudronnerie et serrurerie',
+    'Conjuntos soldados, barandillas, cierres y tubo.': 'Ensembles soudés, garde-corps, clôtures et tubes.',
+    'Carpintería metálica': 'Menuiserie métallique',
+    'Perfiles y bastidores de acero y aluminio para cerramientos.': 'Profilés et cadres en acier et aluminium pour fermetures.',
+    'Energía y eólica': 'Énergie et éolien',
+    'Soportes, armarios y estructuras auxiliares que van al exterior.': 'Supports, armoires et structures auxiliaires destinés à l’extérieur.',
+    'Maquinaria agrícola': 'Machinisme agricole',
+    'Chasis, tolvas, aperos y protecciones a la intemperie.': 'Châssis, trémies, outils et protections exposés aux intempéries.',
+    'Fotos de referencia de los sectores para los que pintamos (Unsplash y archivo de Joma); no muestran trabajos de JomaPaint.': 'Photos de référence des secteurs pour lesquels nous peignons (Unsplash et archives Joma) ; il ne s’agit pas de travaux de JomaPaint.',
+})
