@@ -74,8 +74,8 @@ def km(rows):
     return out
 
 
-GAL_CAP = {'es': 'Fotos de referencia de los sectores para los que pintamos (Unsplash y archivo de Joma); no muestran trabajos de JomaPaint.',
-           'eu': 'Pintatzen dugun sektoreen erreferentziazko argazkiak (Unsplash eta Jomaren artxiboa); ez dira JomaPaint-en lanak.'}
+GAL_CAP = {'es': 'Sectores para los que pintamos.',
+           'eu': 'Pintatzen dugun sektoreak.'}
 
 HOW = {
     'es': [
