@@ -157,8 +157,9 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 ## Imágenes y logotipos
 
 **Portada**
-- **Hero y pretratamiento (línea de proceso):** del deck interno de JomaPaint.
-- **Secado (piezas colgadas):** Pexels (licencia libre).
+- **Hero:** del deck interno de JomaPaint.
+- **Pretratamiento (línea en cadena, `linea-jomapaint`):** foto propia de la línea de Legutio, retocada con IA (limpieza y piezas de color).
+- **Secado (piezas colgadas, `piezas-colgadas`):** foto propia de Legutio, retocada con IA. También en el bloque «Piecerío en serie» de las zonas.
 - **Aplicación electrostática en cadena:** [«Цех окраски»](https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B5%D1%85_%D0%BE%D0%BA%D1%80%D0%B0%D1%81%D0%BA%D0%B8_.jpg), de OlgaBook, en Wikimedia Commons, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Recortada y reducida; el crédito va en el pie de foto. Sale un operario reconocible.
 - **Polimerizado:** curva de curado (temperatura en la pieza), gráfico propio. Cambiar por una foto del horno de Legutio en cuanto la haya.
 - **Control de calidad (ensayo de adherencia por corte enrejado):** [Pixabay](https://pixabay.com/photos/cross-cut-paint-testing-3893091/) (licencia de Pixabay, sin atribución). `adherencia-corte.webp`.
@@ -170,12 +171,12 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - **Joma:** instalación Skyline negro mate.
 - **Joma Urban:** pérgola y tumbona.
 - **Normo:** web nueva, staging de Orygo.
-- **JomaPaint:** aplicación de pintura en polvo, de Pexels (Full Blown Coatings, licencia libre).
+- **JomaPaint:** cadena y horno de curado de Legutio, foto propia retocada con IA (la misma que la de termolacado).
 
 **Páginas de servicio**
-- **Termolacado:** pintura en polvo, del deck interno de JomaPaint.
+- **Termolacado** (también en las páginas de zona): cadena entrando en el horno de curado, foto propia de Legutio retocada con IA.
 - **Imprimación rica en zinc:** estructura de acero atornillada, Unsplash.
-- **Aluminio:** Andrey Soldatov en Unsplash.
+- **Aluminio:** perfiles de aluminio colgados en Legutio, foto propia retocada con IA.
 - **Galvanizado:** Bernard Hermant en Unsplash.
 - **Marcaje:** buzones Joma Skyline con numeración láser.
 
@@ -185,5 +186,7 @@ En la vista previa el SEO sale 69 porque lleva `noindex`, y es lo esperado.
 - QUALICOAT y QUALISTEELCOAT: archivos originales de sus webs, sin modificar.
 - Los logotipos de proveedores, sellos y marcas pertenecen a sus propietarios.
 
+
+**Fotos propias retocadas con IA:** originales hechas en la planta de Legutio; el retoque limpia la escena y añade piezas de color, sin cambiar maquinaria ni nave. Pendientes de retocar: G (galvanizado) y H (cabina automática).
 
 **Pies de foto:** sin «imagen de referencia» ni avisos provisionales. Solo la foto de Wikimedia (CC BY-SA) lleva crédito, porque su licencia lo exige; Unsplash, Pexels y Pixabay no piden atribución.

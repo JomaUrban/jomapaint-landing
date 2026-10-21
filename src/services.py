@@ -31,8 +31,8 @@ SERVICES = [
             'kicker': 'Termolacado en Legutio (Álava), cerca de Vitoria-Gasteiz',
             'h1': 'Termolacado y pintura en polvo de piezas y estructuras metálicas',
             'lead': 'Pintura en polvo curada al horno para estructuras y piezas de acero, acero galvanizado y aluminio, desde piecerío hasta gran dimensión. Elegimos el polvo según dónde vaya a vivir la pieza y la pintamos en el color y el acabado que necesites.',
-            'img_alt': 'Pintura en polvo de color naranja sobre fondo negro',
-            'img_cap': 'Pintura en polvo',
+            'img_alt': 'Línea de pintura en cadena con piezas de colores entrando en el horno de curado',
+            'img_cap': 'Cadena y horno de curado',
             'facts': [('Polvos', 'Poliéster, epoxi, híbrido', 'Según interior o exterior'), ('Colores', 'Carta RAL', 'Lisos o texturados'), ('Presupuesto firme', 'Menos de 24 h', 'En días laborables')],
             'sections': [
                 {'h2': 'Qué es el termolacado', 'p': [
@@ -94,8 +94,8 @@ SERVICES = [
             'kicker': 'Termolakatzea Legution (Araba), Gasteiztik gertu',
             'h1': 'Pieza eta egitura metalikoen termolakatzea',
             'lead': 'Labean ontzen den hauts-pintura, altzairuzko, altzairu galbanizatuzko eta aluminiozko egitura eta piezetarako, pieza txikietatik handietara. Hauts-pintura piezaren erabilera eta kokapena kontuan hartuta aukeratzen dugu, eta behar duzun kolore eta akabera ematen dizkiogu.',
-            'img_alt': 'Kolore laranjako hauts-pintura hondo beltzean',
-            'img_cap': 'Hauts-pintura',
+            'img_alt': 'Kate bidezko pintura-linea, kolorezko piezak ontze-labera sartzen',
+            'img_cap': 'Katea eta ontze-labea',
             'facts': [('Hautsak', 'Poliester, epoxi, hibridoa', 'Barrurako edo kanporako'), ('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
             'sections': [
                 {'h2': 'Zer da termolakatzea', 'p': [
@@ -157,8 +157,8 @@ SERVICES = [
             'kicker': 'Thermolaquage à façon à Legutio (Álava, Espagne), au Pays basque',
             'h1': 'Thermolaquage de pièces et structures métalliques',
             'lead': 'Peinture en poudre cuite au four pour les structures et pièces en acier, acier galvanisé et aluminium, des petites pièces aux grands formats. Nous choisissons le revêtement en fonction de l’environnement d’utilisation et réalisons la teinte et la finition souhaitées.',
-            'img_alt': 'Peinture en poudre orange sur fond noir',
-            'img_cap': 'Peinture poudre',
+            'img_alt': 'Ligne de peinture à convoyeur, pièces de couleur entrant dans le four de cuisson',
+            'img_cap': 'Convoyeur et four de cuisson',
             'facts': [('Poudres', 'Polyester, époxy, hybride', 'Selon intérieur ou extérieur'), ('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Devis ferme', 'Moins de 24 h', 'Jours ouvrés')],
             'sections': [
                 {'h2': 'Qu’est-ce que le thermolaquage', 'p': [
@@ -413,7 +413,7 @@ SERVICES = [
             'kicker': 'Lacado de aluminio en Legutio (Álava), cerca de Vitoria-Gasteiz',
             'h1': 'Lacado de perfiles de aluminio',
             'lead': 'Perfilería y piezas de aluminio lacadas con pintura en polvo, en el color y el acabado que necesites. Para carpintería, fachadas, mobiliario y equipos industriales, de la muestra a la serie.',
-            'img_alt': 'Perfil de aluminio extruido en primer plano, sobre fondo oscuro',
+            'img_alt': 'Perfiles de aluminio colgados en sus ganchos, listos para pintar',
             'img_cap': 'Perfiles de aluminio',
             'facts': [('Colores', 'Carta RAL', 'Lisos o texturados'), ('Brillo', 'Del mate al brillo', ''), ('Longitud máxima', '6 m', '')],
             'sections': [
@@ -462,7 +462,7 @@ SERVICES = [
             'kicker': 'Aluminioaren lakatzea Legution (Araba), Gasteiztik gertu',
             'h1': 'Aluminiozko profilen lakatzea',
             'lead': 'Hauts-pinturaz lakatutako aluminiozko profilak eta piezak, behar duzun kolore eta akaberan. Arotzeriarako, fatxadetarako, altzarietarako eta industria-ekipoetarako, laginetik seriera.',
-            'img_alt': 'Aluminiozko profil estruitu bat gertutik, hondo ilunean',
+            'img_alt': 'Aluminiozko profilak kakoetan eskegita, pintatzeko prest',
             'img_cap': 'Aluminiozko profilak',
             'facts': [('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Distira', 'Matetik distiratsura', ''), ('Gehienezko luzera', '6 m', '')],
             'sections': [
@@ -511,7 +511,7 @@ SERVICES = [
             'kicker': 'Laquage aluminium à façon à Legutio (Álava, Espagne), au Pays basque',
             'h1': 'Thermolaquage de profilés aluminium',
             'lead': 'Profilés et pièces en aluminium laqués en peinture poudre, dans la couleur et l’aspect dont vous avez besoin. Pour la menuiserie, la façade, le mobilier et l’équipement industriel, de l’échantillon à la série.',
-            'img_alt': 'Profilé en aluminium extrudé en gros plan, sur fond sombre',
+            'img_alt': 'Profilés en aluminium suspendus à leurs crochets, prêts à peindre',
             'img_cap': 'Profilés en aluminium',
             'facts': [('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Brillance', 'Mat à brillant', ''), ('Longueur maximale', '6 m', '')],
             'sections': [

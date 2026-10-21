@@ -126,7 +126,7 @@ ZONES = [
             'kicker': 'Pintura en polvo en Álava',
             'h1': 'Termolacado en Vitoria-Gasteiz y Álava',
             'lead': 'Pintamos en Legutio, a unos 20 minutos de Júndiz y Ali-Gobeo. Estructuras y piezas de acero, galvanizado y aluminio para la industria alavesa, con presupuesto firme en 24 h y plazo estándar de una semana.',
-            'img_alt': 'Pintura en polvo de color naranja sobre fondo negro', 'img_cap': 'Pintura en polvo',
+            'img_alt': 'Línea de pintura en cadena con piezas de colores entrando en el horno de curado', 'img_cap': 'Cadena y horno de curado',
             'facts': FACTS['es']('19 km', 'Unos 20 min a Júndiz'),
             'sections': [
                 {'h2': 'Para la industria de Álava', 'p': [
@@ -161,7 +161,7 @@ ZONES = [
             'kicker': 'Hauts-pintura Araban',
             'h1': 'Termolakatzea Gasteizen eta Araban',
             'lead': 'Legution pintatzen dugu, Jundiztik eta Ali-Gobeotik 20 bat minutura. Altzairuzko, altzairu galbanizatuzko eta aluminiozko egiturak eta piezak Arabako industriarentzat, aurrekontu irmoa 24 orduan eta astebeteko ohiko epea.',
-            'img_alt': 'Kolore laranjako hauts-pintura hondo beltzean', 'img_cap': 'Hauts-pintura',
+            'img_alt': 'Kate bidezko pintura-linea, kolorezko piezak ontze-labera sartzen', 'img_cap': 'Katea eta ontze-labea',
             'facts': FACTS['eu']('19 km', '20 bat min Jundizera'),
             'sections': [
                 {'h2': 'Arabako industriarentzat', 'p': [
@@ -391,7 +391,7 @@ ZONES = [
             'kicker': 'Pintura en polvo para Navarra',
             'h1': 'Termolacado para Navarra y Pamplona',
             'lead': 'Altsasu/Alsasua está a 40 minutos de Legutio por la A-1 y Pamplona, a una hora y cuarto por la A-10. Pintamos piezas y estructuras para la industria navarra, con presupuesto firme en 24 h y plazo estándar de una semana.',
-            'img_alt': 'Pintura en polvo de color naranja sobre fondo negro', 'img_cap': 'Pintura en polvo',
+            'img_alt': 'Línea de pintura en cadena con piezas de colores entrando en el horno de curado', 'img_cap': 'Cadena y horno de curado',
             'facts': FACTS['es']('54 km', 'Unos 40 min a Altsasu'),
             'sections': [
                 {'h2': 'Para la industria de Navarra', 'p': [
@@ -431,7 +431,7 @@ ZONES = [
             'kicker': 'Pintura en polvo para La Rioja',
             'h1': 'Termolacado para La Rioja y Logroño',
             'lead': 'Haro está a 45 minutos de nuestra planta de Legutio y Logroño, a una hora y cuarto. Pintamos piezas, estructuras y carpintería metálica para la industria riojana, con presupuesto firme en 24 h y plazo estándar de una semana.',
-            'img_alt': 'Perfil de aluminio extruido en primer plano, sobre fondo oscuro', 'img_cap': 'Perfil de aluminio',
+            'img_alt': 'Perfiles de aluminio colgados en sus ganchos, listos para pintar', 'img_cap': 'Perfil de aluminio',
             'facts': FACTS['es']('57 km', 'Unos 45 min a Haro'),
             'sections': [
                 {'h2': 'Para la industria de La Rioja', 'p': [
