@@ -64,7 +64,7 @@ META = {
         'eu': {
             'slug': 'hauts-pinturaren-arauak-saiakuntzak/',
             'title': 'Hauts-pinturaren arauak eta saiakuntzak: ISO 12944 eta C5',
-            'description': 'ISO 12944 araua zatiz zati, C1etik CXerako kategoriak, C5-M eta C5 arteko aldea, ISO 9227 gatz-lainoaren saiakuntza, hezetasuna, Kesternich, atxikimendua, distira eta EN 13438: arau bakoitzak zer neurtzen duen.',
+            'description': 'ISO 12944 zatiz zati, C1etik CXerako kategoriak, C5-M eta C5 arteko aldea, gatz-lainoa (ISO 9227) eta beste saiakuntzak: arau bakoitzak zer neurtzen duen.',
             'og_title': 'Hauts-pinturaren arauak eta saiakuntzak · JomaPaint',
             'name': 'Hauts-pinturaren arauak eta saiakuntzak', 'crumb': 'Arauak eta saiakuntzak',
             'kicker': 'Kalitatea · Gida teknikoa',
@@ -75,7 +75,7 @@ META = {
         'fr': {
             'slug': 'normes-essais-peinture-poudre/',
             'title': 'Normes et essais du thermolaquage : ISO 12944, C5, ISO 9227',
-            'description': 'L’ISO 12944 expliquée partie par partie, les catégories C1 à CX, la différence entre C5-M et C5, l’essai au brouillard salin ISO 9227, l’humidité, Kesternich, l’adhérence, la brillance et l’EN 13438 : ce que mesure chaque norme.',
+            'description': 'L’ISO 12944 partie par partie, les catégories C1 à CX, C5-M face à C5, le brouillard salin ISO 9227 et les autres essais : ce que mesure chaque norme.',
             'og_title': 'Normes et essais du thermolaquage · JomaPaint',
             'name': 'Normes et essais du thermolaquage', 'crumb': 'Normes et essais',
             'kicker': 'Qualité · Guide technique',

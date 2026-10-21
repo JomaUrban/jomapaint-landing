@@ -28,6 +28,7 @@ import content as C  # noqa: E402
 import services as SV  # noqa: E402
 import guides as GD  # noqa: E402
 import zones as ZN  # noqa: E402
+import legal as LG  # noqa: E402
 
 DEFAULT_BASE = 'https://jomaurban.github.io/jomapaint-landing/'
 NAMES = {'es': 'Español', 'eu': 'Euskara', 'fr': 'Français'}
@@ -82,6 +83,11 @@ def has_pending(s):
 
 def svc_path(L, S):
     return L['meta']['path'] + S['slug']
+
+
+def legal_links(L, root):
+    lang = L['meta']['lang']
+    return [{'href': root + svc_path(L, p[lang]), 'name': p[lang]['crumb']} for p in LG.LEGAL]
 
 
 def dump(graph):
@@ -294,6 +300,8 @@ def main():
         } for O in C.LANGS]
         js = dict(L['js'])
         js['lang'] = lang
+        priv = [p for p in LG.LEGAL if p['key'] == 'privacidad'][0][lang]
+        js['rgpd'] = js['rgpd'].replace('href="#"', 'href="%s%s" target="_blank" rel="noopener"' % (root, svc_path(L, priv)))
         js['root'] = root
         js['stCaps'] = [x[3] for x in L['process']['stations']]
         jsdata = json.dumps({'t': js, 'lang': lang, 'root': root, 'form': C.FORM_ENDPOINT, 'api': C.API_ENDPOINT, 'mail': C.EMAIL, 'tracking': C.TRACKING,
@@ -314,7 +322,7 @@ def main():
         }
         check_meta(url, m['title'], m['description'])
         home_zone_links = [{'href': root + svc_path(L, z[lang]), 'name': ZN.LINK_NAMES[lang][z['key']]} for z in ZN.ZONES if lang in z]
-        html = tpl_home.render(L=L, M=M, zone_links=home_zone_links, root=root, url=url, langs=langs, jsonld=jsonld_home(L, base, url), jsdata=jsdata,
+        html = tpl_home.render(L=L, M=M, legal_links=legal_links(L, root), zone_links=home_zone_links, root=root, url=url, langs=langs, jsonld=jsonld_home(L, base, url), jsdata=jsdata,
                                home_href='#inicio', nav_prefix='', quote_href='#presupuesto',
                                svc_href=svc_href, svc_links=svc_links, guide_href=guide_href, guide_links=guide_links, guide=False, contact_p='', **common)
         write(path, html)
@@ -342,7 +350,7 @@ def main():
                 'preload_img': None,
             }
             check_meta(surl, S['title'], S['description'])
-            html = tpl_svc.render(L=L, S=S, SV=sv, M=SM, root=sroot, url=surl, langs=slangs,
+            html = tpl_svc.render(L=L, S=S, SV=sv, legal_links=legal_links(L, sroot), M=SM, root=sroot, url=surl, langs=slangs,
                                   jsonld=jsonld_service(L, S, sv, base, surl, url),
                                   home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
                                   svc_links=s_links, guide_links=[{'href': sroot + svc_path(L, g[lang]), 'name': g[lang]['crumb'], 'current': False} for g in GD.GUIDES],
@@ -372,7 +380,7 @@ def main():
                 'preload_img': None,
             }
             check_meta(zurl, S['title'], S['description'])
-            html = tpl_svc.render(L=L, S=S, SV=z, M=ZM, root=zroot, url=zurl, langs=zlangs,
+            html = tpl_svc.render(L=L, S=S, SV=z, legal_links=legal_links(L, zroot), M=ZM, root=zroot, url=zurl, langs=zlangs,
                                   jsonld=jsonld_zone(L, S, z, base, zurl, url),
                                   home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
                                   svc_links=[{'href': zroot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'current': False} for o in SV.SERVICES],
@@ -402,7 +410,7 @@ def main():
                 'preload_img': None,
             }
             check_meta(gurl, S['title'], S['description'])
-            html = tpl_svc.render(L=L, S=S, SV=g, M=GM, root=groot, url=gurl, langs=glangs,
+            html = tpl_svc.render(L=L, S=S, SV=g, legal_links=legal_links(L, groot), M=GM, root=groot, url=gurl, langs=glangs,
                                   jsonld=jsonld_guide(L, S, base, gurl, url),
                                   home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
                                   svc_links=[{'href': groot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'current': False} for o in SV.SERVICES],
@@ -410,6 +418,37 @@ def main():
                                   guide=True, related=related, contact_p=L['svc']['cta_p'], **common)
             write(gpath, html)
             sitemap.append((gurl, [(O['meta']['lang'], base + svc_path(O, g[O['meta']['lang']])) for O in C.LANGS], GM['xdefault']))
+
+        # ---------- páginas legales (noindex, fuera del sitemap) ----------
+        tpl_legal = env.get_template('legal.html.j2')
+        for pg in LG.LEGAL:
+            S = pg[lang]
+            lpath = svc_path(L, S)
+            lroot = '../' * lpath.count('/')
+            lurl = base + lpath
+            llangs = [{
+                'code': O['meta']['lang'], 'name': NAMES[O['meta']['lang']], 'locale': O['meta']['locale'],
+                'abs': base + svc_path(O, pg[O['meta']['lang']]), 'rel': lroot + svc_path(O, pg[O['meta']['lang']]),
+                'current': O['meta']['lang'] == lang,
+            } for O in C.LANGS]
+            home_rel = (lroot + path) or './'
+            LM = {
+                'title': S['title'], 'description': S['description'], 'og_title': S['title'],
+                'og_image': m['og_image'], 'og_alt': m['og_alt'], 'locale': m['locale'],
+                'url': lurl, 'xdefault': base + svc_path(C.ES, pg['es']), 'preload_img': None,
+            }
+            check_meta(lurl, S['title'], S['description'])
+            ljson = dump([{'@type': 'WebPage', '@id': lurl, 'url': lurl, 'name': S['h1'], 'inLanguage': lang,
+                           'publisher': {'@type': 'Organization', 'name': LG.OWNER, 'taxID': LG.CIF}}])
+            lcommon = dict(common, index=False)
+            html = tpl_legal.render(L=L, S=S, M=LM, root=lroot, url=lurl, langs=llangs, jsonld=ljson,
+                                    home_href=home_rel, nav_prefix=home_rel, quote_href=home_rel + '#presupuesto',
+                                    svc_links=[{'href': lroot + svc_path(L, o[lang]), 'name': o[lang]['name'], 'current': False} for o in SV.SERVICES],
+                                    guide_links=[{'href': lroot + svc_path(L, o[lang]), 'name': o[lang]['crumb'], 'current': False} for o in GD.GUIDES],
+                                    legal_links=legal_links(L, lroot), contact_p=L['svc']['cta_p'],
+                                    updated=LG.UPDATED[lang], updated_label={'es': 'Última actualización', 'eu': 'Azken eguneratzea', 'fr': 'Dernière mise à jour'}[lang],
+                                    **lcommon)
+            write(lpath, html)
 
     # ---------- redirecciones de URL retiradas (no entran en el sitemap) ----------
     for O in C.LANGS:

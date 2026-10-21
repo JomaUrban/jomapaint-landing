@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ L.meta.lang }}">
+<head>
+{% include '_head.html.j2' %}
+</head>
+<body>
+<a class="skip" href="#contenido">{{ L.meta.skip }}</a>
+<div class="page">
+
+<div class="svc-top">
+{% include '_topbar.html.j2' %}
+</div>
+
+<main id="contenido">
+<section class="svc-hero legal-hero" aria-labelledby="h-legal">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="{{ L.svc.crumbs }}">
+        <ol>
+          <li><a href="{{ home_href }}">{{ L.svc.home }}</a></li>
+          <li><span aria-current="page">{{ S.crumb }}</span></li>
+        </ol>
+      </nav>
+      <h1 id="h-legal" class="svc-h1">{{ S.h1 }}</h1>
+      <p class="svc-kicker">{{ updated_label }}: {{ updated }}</p>
+    </div>
+  </div>
+</section>
+
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    {% for sec in S.sections %}<section class="svc-row" aria-labelledby="sec-{{ loop.index }}">
+      <h2 id="sec-{{ loop.index }}" class="svc-h2">{{ sec.h2 }}</h2>
+      <div class="svc-body">
+        {% if sec.data %}<dl class="legal-data">{% for k, v in sec.data %}<div><dt>{{ k }}</dt><dd>{{ v }}</dd></div>{% endfor %}</dl>{% endif %}
+        {% for p in sec.p or [] %}<p>{{ p }}</p>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+</div>
+</main>
+
+<section aria-label="{{ L.group.contact_h2 }}" class="dark group svc-end">
+  <div class="wrap group-in">
+{% include '_end.html.j2' %}
+  </div>
+</section>
+
+</div>
+</body>
+</html>
