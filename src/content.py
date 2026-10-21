@@ -16,7 +16,7 @@ JOMA_EMAIL = 'joma@joma.es'      # contacto general de Joma (Organization)
 FORM_ENDPOINT = 'marimar@joma.es'
 # Servidor propio de solicitudes (api/ → iniciativa en Odoo). Vacío = FormSubmit. Con ruta, la web
 # envía solo ahí y, si falla, ofrece mandarlo por correo. Activar cuando /api/salud diga "odoo": true.
-API_ENDPOINT = ''
+API_ENDPOINT = '/api/solicitud'
 # El seguimiento de pedidos está oculto por ahora: True lo vuelve a mostrar (sección, menú y enlaces).
 TRACKING = False
 # Medidas máximas de pieza (mm: largo, ancho, alto) y peso máximo (kg), confirmados por JomaPaint.
