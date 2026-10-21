@@ -55,14 +55,14 @@ HOW = {
     'es': [
         ('Envía el plano', 'Plano, foto o lista de piezas, con cantidades, color RAL y acabado.'),
         ('Presupuesto firme', 'Por escrito en menos de 24 h laborables.'),
-        ('Trae las piezas', 'A nuestra planta de Legutio, con tu transporte o tu transportista. No hacemos recogidas.'),
+        ('Trae las piezas', 'A nuestra planta de Legutio, con tu transporte o tu transportista. Los portes no están incluidos.'),
         ('Pintamos en una semana', 'Plazo estándar desde que las piezas entran en planta.'),
         ('Recoge el pedido', 'Embaladas si lo pides, listas para tu cliente.'),
     ],
     'eu': [
         ('Bidali planoa', 'Planoa, argazkia edo pieza-zerrenda, kopuruekin, RAL kolorearekin eta akaberarekin.'),
         ('Aurrekontu irmoa', 'Idatziz, 24 lanordu baino lehen.'),
-        ('Ekarri piezak', 'Legutioko gure lantegira, zure garraioarekin edo garraiolariarekin. Ez dugu jasotzerik egiten.'),
+        ('Ekarri piezak', 'Legutioko gure lantegira, zure garraioarekin edo garraiolariarekin. Garraio-kostuak ez daude barne.'),
         ('Astebetean pintatzen dugu', 'Ohiko epea, piezak lantegian sartzen direnetik.'),
         ('Jaso eskaera', 'Paketatuta, hala eskatzen baduzu, zure bezeroarentzat prest.'),
     ],
@@ -75,12 +75,12 @@ FACTS = {
 
 FAQ_COMMON = {
     'es': [
-        ('¿Recogéis o entregáis las piezas?', 'No. Las piezas se entregan y se recogen en nuestra planta de Legutio (C/ San Bartolomé 11, Pol. Ind. Goiain), con tu transporte o con el transportista que elijas. Horario: de lunes a viernes, de 7:00 a 15:00.'),
+        ('¿Recogéis o entregáis las piezas?', 'No. Las piezas se entregan y se recogen en nuestra planta de Legutio (C/ San Bartolomé 11, Pol. Ind. Goiain), con tu transporte o con el transportista que elijas. Los portes no están incluidos; si necesitas transporte, lo estudiamos caso a caso. Horario: de lunes a viernes, de 7:00 a 15:00.'),
         ('¿Cuánto tardáis?', 'El plazo estándar es de una semana desde que las piezas entran en planta. El presupuesto firme te lo enviamos antes, en menos de 24 horas laborables.'),
         ('¿Qué tamaño de pieza admitís?', 'Hasta 6 m de largo, 2 m de alto y 0,65 m de ancho, y hasta 165 kg por pieza. Si la tuya no entra, consúltanos.'),
     ],
     'eu': [
-        ('Piezak jaso edo entregatzen dituzue?', 'Ez. Piezak Legutioko gure lantegian entregatu eta jasotzen dira (San Bartolome kalea 11, Goiain industrialdea), zure garraioarekin edo zuk aukeratutako garraiolariarekin. Ordutegia: astelehenetik ostiralera, 7:00etatik 15:00etara.'),
+        ('Piezak jaso edo entregatzen dituzue?', 'Ez. Piezak Legutioko gure lantegian entregatu eta jasotzen dira (San Bartolome kalea 11, Goiain industrialdea), zure garraioarekin edo zuk aukeratutako garraiolariarekin. Garraio-kostuak ez daude barne; garraioa behar baduzu, kasuz kasu aztertuko dugu. Ordutegia: astelehenetik ostiralera, 7:00etatik 15:00etara.'),
         ('Zenbat denbora behar duzue?', 'Ohiko epea astebetekoa da, piezak lantegian sartzen direnetik. Aurrekontu irmoa lehenago bidaltzen dizugu, 24 lanordu baino lehen.'),
         ('Zer pieza-tamaina onartzen duzue?', '6 m-ko luzera, 2 m-ko altuera eta 0,65 m-ko zabalera arte, eta 165 kg arte pieza bakoitzeko. Zurea sartzen ez bada, galdetu.'),
     ],
