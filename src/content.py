@@ -189,6 +189,7 @@ ES = {
         'tel': 'Teléfono', 'mail': 'Email', 'plant': 'Planta · visitas con cita',
         'address': 'C/ San Bartolomé 11, Pol. Ind. Goiain<br>01170 Legutio, Araba',
         'division': 'Una división del Grupo Joma · Legutio, Araba',
+        'owner': 'JomaPaint es una marca de José María Gallastegui y Cía., S.A. · CIF A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Araba)',
         'legal': ['Aviso legal', 'Privacidad', 'Cookies'], 'legal_label': 'Legal',
     },
     'svc': {
@@ -408,6 +409,7 @@ EU = {
         'tel': 'Telefonoa', 'mail': 'Posta elektronikoa', 'plant': 'Lantegia · bisitak aldez aurretik hitzordua hartuta',
         'address': 'San Bartolomé kalea 11, Goiain industrialdea<br>01170 Legutio, Araba',
         'division': 'Joma taldeko dibisioa · Legutio, Araba',
+        'owner': 'JomaPaint José María Gallastegui y Cía., S.A.-ren marka da · IFZ A20029674 · San Bartolomé kalea 11, Goiain industrialdea, 01170 Legutio (Araba)',
         'legal': ['Lege-oharra', 'Pribatutasuna', 'Cookieak'], 'legal_label': 'Legezko informazioa',
     },
     'svc': {
@@ -627,6 +629,7 @@ FR = {
         'tel': 'Téléphone', 'mail': 'E-mail', 'plant': 'Usine · visites sur rendez-vous',
         'address': 'C/ San Bartolomé 11, zone industrielle de Goiain<br>01170 Legutio, Álava (Espagne)',
         'division': 'Une division du Groupe Joma · Legutio, Álava (Espagne)',
+        'owner': 'JomaPaint est une marque de José María Gallastegui y Cía., S.A. · CIF A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Álava, Espagne)',
         'legal': ['Mentions légales', 'Confidentialité', 'Cookies'], 'legal_label': 'Informations légales',
     },
     'svc': {

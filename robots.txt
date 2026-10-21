@@ -37,4 +37,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://paint.joma.es/sitemap.xml
+Sitemap: https://jomaurban.github.io/jomapaint-landing/sitemap.xml
