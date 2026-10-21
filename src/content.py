@@ -26,8 +26,8 @@ MAX_KG = 165
 ES = {
     'meta': {
         'lang': 'es', 'locale': 'es_ES', 'path': '',
-        'title': 'Termolacado y pintura en polvo en País Vasco, Vitoria-Gasteiz',
-        'description': 'Termolacado y pintura en polvo al horno sobre acero, galvanizado y aluminio en Legutio, cerca de Vitoria-Gasteiz. Imprimación rica en zinc y presupuesto en 24 h.',
+        'title': 'Termolacado, lacado y pintura en polvo en Vitoria-Gasteiz',
+        'description': 'Termolacado y pintura en polvo electrostática: lacado y recubrimiento de acero, galvanizado y aluminio en Legutio, junto a Vitoria-Gasteiz. Presupuesto en 24 h.',
         'og_title': 'JomaPaint · Termolacado en el País Vasco. Presupuesto en 24 h',
         'og_image': 'assets/og/og-es.jpg',
         'og_alt': 'Piezas metálicas recibiendo pintura en polvo en cabina',
@@ -39,9 +39,9 @@ ES = {
     'cta': 'Pedir presupuesto',
     'hero': {
         'img_alt': 'Piezas metálicas colgadas recibiendo pintura en polvo amarilla en cabina',
-        'kicker': 'Termolacado y pintura en polvo en Álava, cerca de Vitoria-Gasteiz',
+        'kicker': 'Termolacado y pintura en polvo electrostática en Álava, cerca de Vitoria-Gasteiz',
         'display': 'Sube tu plano.<br>Presupuesto en 24&#160;h.',
-        'lead': 'Termolacado, también llamado pintura electrostática o lacado al horno, de estructuras y piezas de acero, galvanizado y aluminio, del piecerío a la gran dimensión. Y con imprimación rica en zinc como alternativa al galvanizado.',
+        'lead': 'Termolacado, también llamado pintura en polvo electrostática, lacado al horno o recubrimiento en polvo, de estructuras y piezas de acero, galvanizado y aluminio, del piecerío a la gran dimensión. Y con imprimación rica en zinc como alternativa al galvanizado.',
         'upload': 'Arrastra aquí tu plano o una foto',
         'upload_hint': 'PDF, DWG, DXF, STEP, JPG o PNG. Hasta 10 MB en total',
         'track': '¿Ya tienes pedido? Síguelo aquí',
@@ -155,7 +155,7 @@ ES = {
     'faq': {
         'h2': 'Preguntas frecuentes',
         'items': [
-            ('¿Qué es el termolacado?', 'Es pintar con pintura en polvo y curarla en horno; por eso también se llama lacado al horno o pintura electrostática en polvo. El polvo se aplica con carga electrostática, funde y reticula con el calor y forma una película continua y resistente, sin disolventes.'),
+            ('¿Qué es el termolacado?', 'Es pintar con pintura en polvo y curarla en horno; por eso también se llama lacado al horno, pintura electrostática en polvo o recubrimiento en polvo (en inglés, powder coating). El polvo se aplica con carga electrostática, funde y reticula con el calor y forma una película continua y resistente, sin disolventes.'),
             ('¿Qué materiales pintáis?', 'Estructuras y piezas de acero, acero galvanizado y aluminio, también perfilería de aluminio, del piecerío a la gran dimensión: hasta 6 m de largo, 2 m de alto, 0,65 m de ancho y 165 kg por pieza.'),
             ('¿Se puede pintar en polvo el acero galvanizado o zincado?', 'Sí, con una preparación específica. El material galvanizado o zincado retiene gases de su fabricación: con la temperatura del horno de curado se liberan, afloran a la superficie y dejan burbujas o microporos que estropean el acabado. Por eso desgasificamos la pieza en el horno antes de pintar. Al pedir presupuesto, indícanos si es galvanizado en caliente, electrocincado o chapa galvanizada.'),
             ('¿Hacéis cataforesis?', 'No. Como protección anticorrosiva ofrecemos la imprimación rica en zinc, una alternativa al galvanizado o al zincado, con la capa final en pintura en polvo.'),

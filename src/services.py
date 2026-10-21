@@ -24,19 +24,19 @@ SERVICES = [
         'img': 'svc-termolacado', 'img_w': 1200, 'img_h': 800,
         'es': {
             'slug': 'termolacado-piezas-estructuras/',
-            'title': 'Termolacado de piezas y estructuras metálicas | JomaPaint',
+            'title': 'Termolacado y pintura en polvo de piezas metálicas | JomaPaint',
             'description': 'Termolacado de piezas y estructuras de acero, galvanizado y aluminio en Legutio, cerca de Vitoria-Gasteiz. Polvo poliéster, epoxi o híbrido y toda la carta RAL.',
             'og_title': 'Termolacado de piezas y estructuras · JomaPaint',
             'name': 'Termolacado de piezas y estructuras', 'crumb': 'Termolacado', 'service_type': 'Termolacado (pintura en polvo)',
             'kicker': 'Termolacado en Legutio (Álava), cerca de Vitoria-Gasteiz',
-            'h1': 'Termolacado de piezas y estructuras metálicas',
+            'h1': 'Termolacado y pintura en polvo de piezas y estructuras metálicas',
             'lead': 'Pintura en polvo curada al horno para estructuras y piezas de acero, acero galvanizado y aluminio, desde piecerío hasta gran dimensión. Elegimos el polvo según dónde vaya a vivir la pieza y la pintamos en el color y el acabado que necesites.',
             'img_alt': 'Pintura en polvo de color naranja sobre fondo negro',
             'img_cap': 'Pintura en polvo',
             'facts': [('Polvos', 'Poliéster, epoxi, híbrido', 'Según interior o exterior'), ('Colores', 'Carta RAL', 'Lisos o texturados'), ('Presupuesto firme', 'Menos de 24 h', 'En días laborables')],
             'sections': [
                 {'h2': 'Qué es el termolacado', 'p': [
-                    'El termolacado es pintura en polvo curada al horno; también se le llama lacado al horno o pintura electrostática. El polvo se aplica con una pistola que carga eléctricamente las partículas, y la pieza, conectada a tierra, las atrae: el polvo la envuelve, también en los cantos.',
+                    'El termolacado es pintura en polvo curada al horno; también se le llama lacado al horno, pintura electrostática o recubrimiento en polvo. El polvo se aplica con una pistola que carga eléctricamente las partículas, y la pieza, conectada a tierra, las atrae: el polvo la envuelve, también en los cantos.',
                     'Después, en el horno, el polvo funde, se extiende y reticula. Queda una película continua, dura y bien adherida, en una sola mano y sin disolventes.',
                 ]},
                 {'h2': 'Qué polvo para cada pieza', 'p': ['El tipo de resina decide cómo aguanta la pieza. Lo elegimos contigo según dónde vaya a estar:'],
