@@ -19,10 +19,10 @@ Bloques nuevos respecto a services.py:
 
 # Fotos tipo comunes (archivo, ES, EU)
 PH_STRUCT = ('svc-zinc-800.webp', 'Estructuras y construcción', 'Egiturak eta eraikuntza')
-PH_TUBE = ('svc-galvanizado-800.webp', 'Cerrajería, tubo y barandillas', 'Sarrailagintza, hodiak eta baranda')
+PH_TUBE = ('svc-galvanizado-800.webp', 'Cerrajería, tubo y barandillas', 'Sarrailagintza, hodiak eta barandak')
 PH_ALU = ('svc-aluminio-800.webp', 'Carpintería metálica y perfiles', 'Arotzeria metalikoa eta profilak')
 PH_SHEET = ('svc-marcaje-800.webp', 'Chapa plegada y mobiliario', 'Xafla tolestua eta altzariak')
-PH_LINE = ('piezas-colgadas.webp', 'Piecerío en serie', 'Seriezko piezak')
+PH_LINE = ('piezas-colgadas.webp', 'Piecerío en serie', 'Seriean ekoitzitako piezak')
 
 GAL_TXT = {
     'svc-zinc-800.webp': ('Vigas, pórticos, escaleras y entreplantas en acero, hasta 6 m de largo.', 'Habeak, portikoak, eskailerak eta solairuarteak altzairuz, 6 m-ko luzerara arte.'),
@@ -61,7 +61,7 @@ HOW = {
     ],
     'eu': [
         ('Bidali planoa', 'Planoa, argazkia edo pieza-zerrenda, kopuruekin, RAL kolorearekin eta akaberarekin.'),
-        ('Aurrekontu irmoa', 'Idatziz, 24 lanordu baino lehen.'),
+        ('Aurrekontu irmoa', 'Idatziz, 24 lanordu baino gutxiagoan.'),
         ('Ekarri piezak', 'Legutioko gure lantegira, zure garraioarekin edo garraiolariarekin. Garraio-kostuak ez daude barne.'),
         ('Astebetean pintatzen dugu', 'Ohiko epea, piezak lantegian sartzen direnetik.'),
         ('Jaso eskaera', 'Paketatuta, hala eskatzen baduzu, zure bezeroarentzat prest.'),
@@ -82,7 +82,7 @@ FAQ_COMMON = {
     'eu': [
         ('Piezak jaso edo entregatzen dituzue?', 'Ez. Piezak Legutioko gure lantegian entregatu eta jasotzen dira (San Bartolome kalea 11, Goiain industrialdea), zure garraioarekin edo zuk aukeratutako garraiolariarekin. Garraio-kostuak ez daude barne; garraioa behar baduzu, kasuz kasu aztertuko dugu. Ordutegia: astelehenetik ostiralera, 7:00etatik 15:00etara.'),
         ('Zenbat denbora behar duzue?', 'Ohiko epea astebetekoa da, piezak lantegian sartzen direnetik. Aurrekontu irmoa lehenago bidaltzen dizugu, 24 lanordu baino lehen.'),
-        ('Zer pieza-tamaina onartzen duzue?', '6 m-ko luzera, 2 m-ko altuera eta 0,65 m-ko zabalera arte, eta 165 kg arte pieza bakoitzeko. Zurea sartzen ez bada, galdetu.'),
+        ('Zer pieza-tamaina onartzen duzue?', 'Gehienez 6 m luze, 2 m garai eta 0,65 m zabal diren piezak onartzen ditugu, bakoitza 165 kg-koa gehienez. Zure pieza handiagoa bada, galdetu iezaguzu.'),
     ],
 }
 
@@ -127,32 +127,32 @@ ZONES = [
         },
         'eu': {
             'slug': 'termolakatzea-gasteiz-araba/',
-            'title': 'Termolakatzea Vitoria-Gasteizen eta Araban | JomaPaint',
-            'description': 'Labean lehortutako hauts-pintura Legution, Vitoria-Gasteiztik 20 minutura. Arabako industriarentzat: aurrekontua 24 orduan eta astebeteko ohiko epea.',
-            'og_title': 'Termolakatzea Vitoria-Gasteizen eta Araban · JomaPaint',
-            'name': 'Termolakatzea Vitoria-Gasteizen eta Araban', 'crumb': 'Araba', 'service_type': 'Termolakatzea (hauts-pintura)',
+            'title': 'Termolakatzea Gasteizen eta Araban | JomaPaint',
+            'description': 'Labean ondutako hauts-pintura Legution, Gasteiztik 20 bat minutura. Arabako industriarentzat: aurrekontua 24 orduan eta astebeteko ohiko epea.',
+            'og_title': 'Termolakatzea Gasteizen eta Araban · JomaPaint',
+            'name': 'Termolakatzea Gasteizen eta Araban', 'crumb': 'Araba', 'service_type': 'Termolakatzea (hauts-pintura)',
             'kicker': 'Hauts-pintura Araban',
-            'h1': 'Termolakatzea Vitoria-Gasteizen eta Araban',
+            'h1': 'Termolakatzea Gasteizen eta Araban',
             'lead': 'Legution pintatzen dugu, Jundiztik eta Ali-Gobeotik 20 bat minutura. Altzairuzko, altzairu galbanizatuzko eta aluminiozko egiturak eta piezak Arabako industriarentzat, aurrekontu irmoa 24 orduan eta astebeteko ohiko epea.',
             'img_alt': 'Kolore laranjako hauts-pintura hondo beltzean', 'img_cap': 'Hauts-pintura',
             'facts': FACTS['eu']('19 km', '20 bat min Jundizera'),
             'sections': [
                 {'h2': 'Arabako industriarentzat', 'p': [
-                    'Araban automobilgintza eta haren hornitzaileak, aeronautika, makineria eta ondasun-ekipamenduak daude, baita sarrailagintza-, arotzeria metaliko- eta galdaragintza-tailer ugari ere Jundizen, Ali-Gobeon, Lautadan eta Aiaraldean.',
+                    'Araban automobilgintza eta haren hornitzaileak, aeronautika, makineria eta ekipamendu industriala daude, baita sarrailagintza-, arotzeria metaliko- eta galdaragintza-tailer ugari ere Jundizen, Ali-Gobeon, Lautadan eta Aiaraldean.',
                     'Guztientzat pintatzen dugu tailer edo lerro batetik ateratzen dena: pieza solteak, serieak eta soldatutako multzoak, pieza bakar batetik hainbat kate betera arte.',
                 ],
                  'cards': [
                      ('Automobilgintza eta aeronautika', 'Muntaketa-tresneria, gurdiak eta markoak, euskarriak, babesak eta lerro-egiturak. Ez dugu hegaldiko piezarik pintatzen, ezta hegazkinaren edo ibilgailuaren fabrikatzailearen homologazioa behar duen piezarik ere.'),
-                     ('Makineria eta ondasun-ekipamenduak', 'Bankadak, karenatuak, makina-ateak eta -armairuak, zure markaren RAL kolorean eta eskatzen duzun distirarekin.'),
-                     ('Sarrailagintza eta eraikuntza', 'Barandak, eskailerak, itxiturak, pergolak eta egiturak, altzairuzkoak edo galbanizatuak, zinkez aberatsa den inprimazioarekin kanpoan badaude.'),
+                     ('Makineria eta ekipamendu industriala', 'Bankadak, karenatuak, makina-ateak eta -armairuak, zure markaren RAL kolorean eta eskatzen duzun distirarekin.'),
+                     ('Sarrailagintza eta eraikuntza', 'Barandak, eskailerak, itxiturak, pergolak eta egiturak, altzairuzkoak nahiz galbanizatuak. Kanpoan jartzeko badira, zinkez aberastutako inprimazioa erabiltzen dugu.'),
                  ]},
                 {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_STRUCT, PH_TUBE, PH_SHEET), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Arabako enpresekin', 'steps': HOW['eu']},
-                {'h2': 'Zein distantziatara gauden', 'p': ['Goiaingo industrialdean gaude, Legution, N-240 errepidearen ondoan, Vitoria-Gasteiz eta Bilbo artean. Lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
+                {'h2': 'Zer distantziatara gaude?', 'p': ['Goiaingo industrialdean gaude, Legution, N-240 errepidearen ondoan, Vitoria-Gasteiz eta Bilbo artean. Lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Vitoria-Gasteiz (Jundiz)', 19, 22), ('Arrasate (Gipuzkoa)', 24, 27), ('Agurain', 34, 28), ('Amurrio', 44, 40), ('Laudio', 53, 44)])},
-                {'h2': 'Pintura, piezaren tokiaren arabera', 'p': [
-                    'Lautadan eta Vitoria-Gasteizen, kanpoaldea C2 edo C3 giroa izan ohi da ISO 12944-2ren arabera: hiri-giroa edo industria-giro moderatua. Horretarako nahikoa da kanporako poliester ondo lehortua, aurretratamendu on baten gainean.',
-                    'Pieza izotz-gatza duen errepide batera, industria-gune oldarkor batera edo kostaldera badoa, sistema indartzen dugu: zinkez aberatsa den inprimazioa eta poliesterra, gure C4-H sistema, zigilua homologatzeko bidean.',
+                {'h2': 'Pintura-sistema, piezaren kokapenaren arabera', 'p': [
+                    'Lautadan eta Gasteizen, kanpoko korrosibitate-kategoria C2 edo C3 izan ohi da, ISO 12944-2 arauaren arabera: hiri- edo industria-ingurune moderatuetan. Horretarako, nahikoa izan ohi da aurretratamendu egoki baten gainean aplikatutako eta behar bezala ondutako kanporako poliesterrezko hauts-pintura.',
+                    'Pieza izotz-gatza duen errepide batera, industria-gune oldarkor batera edo kostaldera badoa, sistema indartzen dugu: zinkez aberastutako inprimazioa eta poliesterra, gure C4-H sistema, zigilua homologatzeko bidean.',
                 ]},
             ],
             'faq': FAQ_COMMON['eu'] + [
@@ -200,36 +200,36 @@ ZONES = [
         },
         'eu': {
             'slug': 'termolakatzea-gipuzkoa-donostia/',
-            'title': 'Termolakatzea Gipuzkoan eta Donostian | JomaPaint',
-            'description': 'Labean lehortutako hauts-pintura Gipuzkoako enpresentzat: Arrasate 25 minutura, Eibar 40ra eta Donostia ordubete pasatxora. Aurrekontua 24 orduan, astebeteko epea.',
-            'og_title': 'Termolakatzea Gipuzkoan eta Donostian · JomaPaint',
-            'name': 'Termolakatzea Gipuzkoan eta Donostian', 'crumb': 'Gipuzkoa', 'service_type': 'Termolakatzea (hauts-pintura)',
-            'kicker': 'Hauts-pintura Gipuzkoarentzat',
-            'h1': 'Termolakatzea Gipuzkoarentzat eta Donostiarentzat',
+            'title': 'Gipuzkoarako eta Donostiarako termolakatzea | JomaPaint',
+            'description': 'Labean ondutako hauts-pintura Gipuzkoako enpresentzat: Arrasate 25 minutura, Eibar 40ra eta Donostia ordubete pasatxora. Aurrekontua 24 orduan eta astebeteko ohiko epea.',
+            'og_title': 'Gipuzkoarako eta Donostiarako termolakatzea · JomaPaint',
+            'name': 'Gipuzkoarako eta Donostiarako termolakatzea', 'crumb': 'Gipuzkoa', 'service_type': 'Termolakatzea (hauts-pintura)',
+            'kicker': 'Gipuzkoako enpresentzako hauts-pintura',
+            'h1': 'Gipuzkoako eta Donostiako enpresentzako termolakatzea',
             'lead': 'Legutiotik Arrasatera 25 minutu daude, Eibarrera 40 eta Donostiara ordubete pasatxo. Gipuzkoako industriarentzat piezak eta egiturak pintatzen ditugu, baita kostaldera doazenak ere, aurrekontu irmoa 24 orduan.',
             'img_alt': 'Altzairu galbanizatuzko hodiak pilatuta', 'img_cap': 'Hodi galbanizatua',
             'facts': FACTS['eu']('95 km', '70 bat min Donostiara'),
             'sections': [
                 {'h2': 'Gipuzkoako industriarentzat', 'p': [
                     'Debagoienean eta Debabarrenean makina-erremintak, osagaiak, sarrailagintza eta burdineria daude; Goierrin, trenbide-materiala eta galdaragintza; Tolosaldean, Donostialdean eta Bidasoan, tailerrak, arotzeria metalikoa eta eraikuntza.',
-                    'Asko kostaldetik baino gertuago daude Legutiotik: Arrasatetik edo Bergaratik ordu erdian iristen da.',
+                    'Horietako askorentzat Legutio kostaldea baino gertuago dago: Arrasatetik edo Bergaratik ordu erdian irits daiteke.',
                 ],
                  'cards': [
-                     ('Makina-erremintak eta ondasun-ekipamenduak', 'Karenatuak, ateak, bankadak, koadroak eta armairuak zure markaren RAL kolorean, akabera berdinarekin piezatik piezara eta loteetik lotera.'),
+                     ('Makina-erremintak eta ekipamendu industriala', 'Karenatuak, ateak, bankadak, koadroak eta armairuak zure markaren RAL kolorean, akabera berdinarekin piezatik piezara eta loteetik lotera.'),
                      ('Sarrailagintza eta burdineria', 'Burdineria, euskarriak, tapak eta seriezko pieza txikiak, katean banan-banan zintzilikatuta.'),
-                     ('Arotzeria metalikoa eta eraikuntza', 'Barandak, itxiturak, eskailerak eta egiturak. Itsasotik gertu, azpian zinkez aberatsa den inprimazioarekin.'),
+                     ('Arotzeria metalikoa eta eraikuntza', 'Barandak, itxiturak, eskailerak eta egiturak. Itsasotik gertu, azpian zinkez aberastutako inprimazioarekin.'),
                  ]},
                 {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_TUBE, PH_SHEET, PH_STRUCT), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Gipuzkoako enpresekin', 'steps': HOW['eu']},
-                {'h2': 'Zein distantziatara gauden', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
+                {'h2': 'Zer distantziatara gaude?', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Arrasate', 24, 27), ('Bergara', 36, 31), ('Eibar', 48, 38), ('Elgoibar', 50, 39), ('Beasain', 59, 48), ('Tolosa', 74, 58), ('Donostia', 95, 70), ('Irun', 112, 81)])},
                 {'h2': 'Kostaldea eta haranak: ez da giro bera', 'p': [
-                    'ISO 12944-2ren arabera, gazitasun moderatuko kostaldea C4 giroa da, eta itsasoaren lehen lerroa C5era ere irits daiteke. Barnealdeko haranetan, kanpoaldea C3 izan ohi da.',
-                    'Donostiara, Pasaiara, Hondarribira edo itsasotik gertuko edozein lekutara doazen piezetarako, zinkez aberatsa den inprimazioa eta poliesterra gomendatzen ditugu: gure C4-H sistema, zigilua homologatzeko bidean. Barnealdean, kanporako poliester-geruza bakarra nahikoa izan ohi da.',
+                    'ISO 12944-2 arauaren arabera, gazitasun moderatuko kostaldeari C4 korrosibitate-kategoria dagokio, eta itsasertzeko lehen lerroan C5era ere irits daiteke. Barnealdeko haranetan C3 izan ohi da.',
+                    'Donostiara, Pasaiara, Hondarribira edo itsasotik gertuko edozein lekutara doazen piezetarako, zinkez aberastutako inprimazioa eta poliesterra gomendatzen ditugu: gure C4-H sistema, zigilua homologatzeko bidean. Barnealdean, kanporako poliester-geruza bakarra nahikoa izan ohi da.',
                 ]},
             ],
             'faq': FAQ_COMMON['eu'] + [
-                ('Nire piezak itsasoaren lehen lerrora doaz. Zer gomendatzen didazue?', 'Zinkez aberatsa den inprimazioa eta kanporako poliester-akabera, edo altzairu galbanizatutik abiatzea. Esan iezaguzu non egongo den pieza eta aurrekontuan sistema proposatuko dizugu.'),
+                ('Nire piezak itsasertzean jarriko dira. Zer gomendatzen didazue?', 'Zinkez aberastutako inprimazioa eta kanporako poliester-akabera, edo altzairu galbanizatutik abiatzea. Esan iezaguzu non egongo den pieza eta aurrekontuan sistema proposatuko dizugu.'),
             ],
         },
     },
@@ -273,36 +273,36 @@ ZONES = [
         },
         'eu': {
             'slug': 'termolakatzea-bizkaia-bilbo/',
-            'title': 'Termolakatzea Bizkaiarentzat eta Bilborentzat | JomaPaint',
-            'description': 'Labean lehortutako hauts-pintura Bizkaiko enpresentzat: Durango 35 minutura eta Bilbo ordubete baino gutxiagora. Aurrekontua 24 orduan eta astebeteko ohiko epea.',
-            'og_title': 'Termolakatzea Bizkaiarentzat eta Bilborentzat · JomaPaint',
-            'name': 'Termolakatzea Bizkaiarentzat eta Bilborentzat', 'crumb': 'Bizkaia', 'service_type': 'Termolakatzea (hauts-pintura)',
-            'kicker': 'Hauts-pintura Bizkaiarentzat',
-            'h1': 'Termolakatzea Bizkaiarentzat eta Bilborentzat',
+            'title': 'Bizkairako eta Bilborako termolakatzea | JomaPaint',
+            'description': 'Labean ondutako hauts-pintura Bizkaiko enpresentzat: Durango 35 minutura eta Bilbo ordubete baino gutxiagora. Aurrekontua 24 orduan eta astebeteko ohiko epea.',
+            'og_title': 'Bizkairako eta Bilborako termolakatzea · JomaPaint',
+            'name': 'Bizkairako eta Bilborako termolakatzea', 'crumb': 'Bizkaia', 'service_type': 'Termolakatzea (hauts-pintura)',
+            'kicker': 'Bizkaiko enpresentzako hauts-pintura',
+            'h1': 'Bizkairako eta Bilborako termolakatzea',
             'lead': 'Legutio Durangotik 35 minutura dago, eta Bilbotik ordubete baino gutxiagora. Bizkaiko industriarentzat egiturak, galdaragintza eta piezak pintatzen ditugu, aurrekontu irmoa 24 orduan eta astebeteko ohiko epea.',
             'img_alt': 'Altzairuzko egitura pintatua, torlojuz lotutako plaka batekin, behetik ikusia', 'img_cap': 'Altzairuzko egitura',
             'facts': FACTS['eu']('67 km', '55 bat min Bilbora'),
             'sections': [
                 {'h2': 'Bizkaiko industriarentzat', 'p': [
-                    'Bizkaian egitura metalikoak eta galdaragintza, ondasun-ekipamenduak, energia eta eolikoa, ontzigintza eta portu-industria daude, eta Durangaldean, forja eta osagaiak.',
+                    'Bizkaian egitura metalikoak eta galdaragintza, ekipamendu industriala, energia eta eolikoa, ontzigintza eta portu-industria daude, eta Durangaldean, forja eta osagaiak.',
                     'Pieza handiak eta soldatutako multzoak dira, askotan kanpora edo itsasadarretik eta itsasotik gertu doazenak. Gure kabinak 6 m-ko luzera eta 165 kg arteko piezak onartzen ditu.',
                 ],
                  'cards': [
-                     ('Egitura metalikoak eta galdaragintza', 'Habeak, portikoak, solairuarteak, eskailerak, markoak eta kabinan sartzen diren biltegiak, egongo diren tokirako sistema egokiarekin.'),
-                     ('Energia eta ondasun-ekipamenduak', 'Euskarriak, karenatuak, koadroak, armairuak eta egitura osagarriak, eolikorako, elektrizitaterako eta makineriarako.'),
+                     ('Egitura metalikoak eta galdaragintza', 'Habeak, portikoak, solairuarteak, eskailerak, bastidoreak eta kabinan sartzeko moduko tangak, kokatuko diren ingurunera egokitutako babes-sistemarekin.'),
+                     ('Energia eta ekipamendu industriala', 'Euskarriak, karenatuak, koadroak, armairuak eta egitura osagarriak, eolikorako, elektrizitaterako eta makineriarako.'),
                      ('Arotzeria metalikoa eta eraikuntza', 'Barandak, itxiturak, sareta-hesiak eta eskailerak, altzairuzkoak, galbanizatuak edo aluminiozkoak.'),
                  ]},
                 {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_TUBE, PH_ALU, PH_STRUCT), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Bizkaiko enpresekin', 'steps': HOW['eu']},
-                {'h2': 'Zein distantziatara gauden', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
+                {'h2': 'Zer distantziatara gaude?', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Durango', 33, 35), ('Ermua', 52, 41), ('Zamudio', 58, 55), ('Basauri', 64, 52), ('Bilbo', 67, 53), ('Barakaldo', 73, 59)])},
                 {'h2': 'Itsasadarra, portua eta kostaldea', 'p': [
-                    'ISO 12944-2ren arabera, industria-gune hezeak eta gazitasun moderatuko kostaldea C4 giroa dira; portu-inguruak eta itsasoaren lehen lerroa C5era irits daitezke.',
-                    'Bilbo Handian, portuan edo kostaldean kanpoan egongo diren egituretarako, zinkez aberatsa den inprimazioa eta poliesterra gomendatzen ditugu: gure C4-H sistema, zigilua homologatzeko bidean. Pieza galbanizatuta badator, galbanizatuaren gainean pintatzen dugu, bere aurretratamenduarekin.',
+                    'ISO 12944-2 arauaren arabera, industria-ingurune hezeak eta gazitasun moderatuko kostaldeak C4 korrosibitate-kategorian sar daitezke; portu-inguruneak eta itsasertzeko lehen lerroa C5 kategoriara irits daitezke.',
+                    'Bilbo Handian, portuan edo kostaldean kanpoan egongo diren egituretarako, zinkez aberastutako inprimazioa eta poliesterra gomendatzen ditugu: gure C4-H sistema, zigilua homologatzeko bidean. Pieza galbanizatuta badator, galbanizatuaren gainean pintatzen dugu, bere aurretratamenduarekin.',
                 ]},
             ],
             'faq': FAQ_COMMON['eu'] + [
-                ('Galbanizatutako egiturak pintatzen dituzue?', 'Bai. Sistema duplexa da: galbanizatua gehi hauts-pintura. Galbanizatuak bere aurretratamendua behar du hautsak heltzeko eta pororik ez ateratzeko. Altzairu galbanizatuaren orrian azaltzen dugu.'),
+                ('Galbanizatutako egiturak pintatzen dituzue?', 'Bai. Sistema duplexa da: galbanizazioa eta hauts-pintura uztartzen ditu. Altzairu galbanizatuak aurretratamendu berezia behar du pintura ondo itsasteko eta pororik ez sortzeko. Altzairu galbanizatuari buruzko orrian azaltzen dugu.'),
             ],
         },
     },

@@ -88,21 +88,21 @@ SERVICES = [
         'eu': {
             'slug': 'piezen-eta-egituren-termolakatzea/',
             'title': 'Pieza eta egitura metalikoen termolakatzea | JomaPaint',
-            'description': 'Altzairuzko, galbanizatuzko eta aluminiozko pieza eta egituren termolakatzea Legution, Gasteiztik gertu. Poliester, epoxi edo hauts hibridoa, RAL karta osoa.',
+            'description': 'Altzairuzko, altzairu galbanizatuzko eta aluminiozko piezen eta egituren termolakatzea Legution, Gasteiztik gertu. Poliesterrezko, epoxizko edo epoxi-poliesterrezko hauts-pintura, RAL kolore-karta osoarekin.',
             'og_title': 'Pieza eta egituren termolakatzea · JomaPaint',
             'name': 'Pieza eta egituren termolakatzea', 'crumb': 'Termolakatzea', 'service_type': 'Termolakatzea (hauts-pintura)',
             'kicker': 'Termolakatzea Legution (Araba), Gasteiztik gertu',
             'h1': 'Pieza eta egitura metalikoen termolakatzea',
-            'lead': 'Labean ontzen den hauts-pintura altzairu, altzairu galbanizatu eta aluminiozko egitura eta piezetarako, pieza txikietatik dimentsio handikoetara. Pieza non egongo den kontuan hartuta aukeratzen dugu hautsa, eta behar duzun kolore eta akaberan pintatzen dugu.',
+            'lead': 'Labean ontzen den hauts-pintura, altzairuzko, altzairu galbanizatuzko eta aluminiozko egitura eta piezetarako, pieza txikietatik handietara. Hauts-pintura piezaren erabilera eta kokapena kontuan hartuta aukeratzen dugu, eta behar duzun kolore eta akabera ematen dizkiogu.',
             'img_alt': 'Kolore laranjako hauts-pintura hondo beltzean',
             'img_cap': 'Hauts-pintura',
-            'facts': [('Hautsak', 'Poliester, epoxi, hibridoa', 'Barrurako edo kanporako'), ('Koloreak', 'RAL karta', 'Leuna edo testuraduna'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
+            'facts': [('Hautsak', 'Poliester, epoxi, hibridoa', 'Barrurako edo kanporako'), ('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
             'sections': [
                 {'h2': 'Zer da termolakatzea', 'p': [
                     'Termolakatzea labean ontzen den hauts-pintura da; labean lakatzea edo pintura elektrostatikoa ere deitzen zaio. Hautsa partikulak elektrikoki kargatzen dituen pistola batekin aplikatzen da, eta lurrera konektatutako piezak erakarri egiten ditu: hautsak pieza inguratzen du, ertzetan ere.',
                     'Ondoren, labean, hautsa urtu, hedatu eta erretikulatu egiten da. Film jarraitu, gogor eta ondo atxikia geratzen da, geruza bakarrean eta disolbatzailerik gabe.',
                 ]},
-                {'h2': 'Zein hauts pieza bakoitzerako', 'p': ['Erretxina motak erabakitzen du pieza nola iraungo den. Zurekin aukeratzen dugu, pieza non egongo den kontuan hartuta:'],
+                {'h2': 'Zein hauts-pintura erabili pieza bakoitzerako', 'p': ['Erretxina motak erabakitzen du piezak zer erresistentzia izango duen. Zurekin batera aukeratuko dugu, piezaren erabilera eta kokapena kontuan hartuta.'],
                  'cards': [
                      ('Poliesterra', 'UV erradiazioa eta eguraldia jasaten ditu. Kanporako hautsa da: egiturak, barandak, arotzeria edo hiri-altzariak. Eguzkitan etengabe dauden piezetarako hauts superiraunkorrak daude (QUALICOATen 2. klasea, 3 urtez Floridan probatuak), kolorea eta distira hobeto mantentzen dituztenak.'),
                      ('Epoxia', 'Atxikimendu eta erresistentzia kimiko oso handiak, baina eguzkitan distira galdu eta hauts zuria sortzen du. Barrualdean erabiltzen da, edo poliester-geruza baten azpiko inprimazio gisa.'),
@@ -117,7 +117,7 @@ SERVICES = [
                  ]},
                 {'h2': 'Koloreak eta akaberak', 'finishes': [('mate', 'Matea', '30 GU arte'), ('satinado', 'Satinatua', '31–70 GU'), ('brillante', 'Distiratsua', '71–100 GU'), ('texturado', 'Testuraduna', 'Markak ezkutatzen ditu')], 'finishes_cap': 'RAL 7016 lau akaberatan. Distira 60°-tan neurtuta (ISO 2813).', 'list': [
                     'RAL Classic karta osoa eta hauts-fabrikatzaileen erreferentzia zehatzak. Eskatuta, Pantone eta NCS ere bai.',
-                    'Leuna, testura finekoa edo gofratua. Testurak hobeto jasaten ditu urradurak eta euskarriaren akats txikiak ezkutatzen ditu; akabera leunak baino lodiera handixeagoa behar du.',
+                    'Leuna, testura finekoa edo gofratua. Testurak hobeto jasaten ditu urradurak eta euskarriaren akats txikiak estaltzen ditu; akabera leunak baino lodiera handixeagoa behar du.',
                     'Hiru distira-maila, 60°-tan neurtuta (ISO 2813): matea 30 GU arte, satinatua 31tik 70era eta distiratsua 71tik 100era, QUALICOATen kategorien arabera. Balio zehatza hautsaren fitxa teknikoak ematen du.',
                     'Metalizatuak eta perlatuak, hala nola titanioa edo urre-kolorea. Lagin baten gainean onartzen dira, eta eskaera osoa lote berarekin pintatzea komeni da.',
                     'Zalantzarik baduzu, aukeratutako kolore eta akaberako lagin-plaka bat bidaliko dizugu.',
@@ -125,12 +125,12 @@ SERVICES = [
                 {'h2': 'Zer pieza pintatzen ditugun', 'list': [
                     'Armairu eta inguratzaile elektrikoak.',
                     'Sarrailagintza, burdineria eta ainguraketa-elementuak.',
-                    'Makineriaren bankadak, gurdiak, markoak eta karkasak.',
+                    'Makineriarako oinarriak, gurdiak, bastidoreak eta karkasak.',
                     'Laserrez moztutako, zulakatutako eta tolestutako xafla.',
                     'Arotzeria metalikoa, egiturak, suaren aurkako ateak eta pertsianak.',
                     'Errotulu argidunak, argiztapen-gailuak eta aluminio galdatuzko piezak.',
                 ]},
-                {'h2': 'Linearen datuak', 'data': [
+                {'h2': 'Pintura-linearen ezaugarriak', 'data': [
                     ('Piezaren gehienezko neurriak', '6 × 2 × 0,65 m'),
                     ('Pieza bakoitzeko gehienezko pisua', '165 kg'),
                     ('Geruzaren lodiera', '60–80 µm'),
@@ -138,25 +138,25 @@ SERVICES = [
                 ]},
             ],
             'faq': [
-                ('Zer alde dago termolakatzearen eta pintura likidoaren artean?', 'Termolakatzeak labean ontzen den disolbatzailerik gabeko hauts-pintura erabiltzen du: geruza bakarrean film berdina, gogorra eta ondo atxikia uzten du. Pintura likidoak disolbatzailea edo ura darama, eta lodiera bera lortzeko hainbat geruza behar izaten ditu.'),
+                ('Zer alde dago termolakatzearen eta pintura likidoaren artean?', 'Termolakatzean, disolbatzailerik gabeko hauts-pintura aplikatu eta labean ontzen da. Esku bakarrean geruza uniformea, gogorra eta ondo itsatsia lortzen da. Pintura likidoa disolbatzailez edo urez osatzen da, eta lodiera bera lortzeko esku gehiago behar izaten ditu.'),
                 ('Zein hauts-pintura da hobea kanporako?', 'Poliesterrezkoa, UV erradiazioa jasaten duelako. Epoxia eguzkitan hondatzen da, eta barrualdean edo inprimazio gisa erabiltzen da.'),
                 ('Kolore-lagin bat eska dezaket?', 'Bai. Aukeratzen duzun RAL eta akaberan pintatutako lagin-plaka bat bidaliko dizugu.'),
-                ('Zer lodiera du geruzak?', 'Akabera leunean, normalean 60–80 µm; testura finean, 70–100 µm, eta gofratuan, 90–120 µm. Kontuan hartu doikuntzen eta zuloen tolerantzietan. Ez dugu maskaratzen: pintatu gabe geratu behar diren hariak, doikuntzak edo kontaktu-gainazalak babestuta etorri behar dute.'),
+                ('Zer lodiera du geruzak?', 'Akabera leunean, normalean 60–80 µm-ko lodiera lortzen da; testura finean, 70–100 µm, eta gofratuan, 90–120 µm. Kontuan izan neurri hori doikuntzen eta zuloen tolerantziak zehaztean. Ez dugu maskaratzerik egiten: pintatu gabe geratu behar duten hariak, doikuntza-eremuak eta ukipen-gainazalak babestuta ekarri behar dira.'),
                 ('Nondik eskegitzen da pieza?', 'Zulo batetik edo mihi batetik: pieza linean zehar kako batean eskegita doa, eta puntu horretan pintatu gabeko marka txiki bat geratzen da. Horregatik, ikusten ez den aldean jartzea komeni da. Piezak eskegitzeko lekurik ez badu, zuloa non egin proposatuko dizugu aurrekontuan.'),
-                ('Zer tamainatako piezak pintatzen dituzue?', '6 m-ko luzera, 2 m-ko altuera eta 0,65 m-ko zabalera arteko piezak, eta 165 kg arte pieza bakoitzeko.'),
-                ('Pieza lakatuak ukitu daitezke?', 'Kolpe txiki bat RAL bereko pintura likidoz edo spray bidez ukitu daiteke, eremua lixatu eta garbitu ondoren. Arkitekturan, ukituak ez datoz bat QUALICOAT eta GSBren jarraibideekin, eta hauts-fabrikatzaileek beren bermetik kanpo uzten dituzte ukitutako edo berriz pintatutako piezak.'),
+                ('Zer tamainatako piezak pintatzen dituzue?', 'Gehienez 6 m luze, 2 m garai eta 0,65 m zabal diren piezak, 165 kg-ko pisu-mugarekin pieza bakoitzeko.'),
+                ('Pieza lakatuetan ukituak egin daitezke?', 'Kolpe txiki bat RAL bereko pintura likidoz edo spray bidez ukitu daiteke, eremua lixatu eta garbitu ondoren. Arkitekturan, ukituak ez datoz bat QUALICOAT eta GSBren jarraibideekin, eta hauts-fabrikatzaileek beren bermetik kanpo uzten dituzte ukitutako edo berriz pintatutako piezak.'),
             ],
             'faq_n': 6,
         },
         'fr': {
             'slug': 'thermolaquage-pieces-structures/',
             'title': 'Thermolaquage de pièces et structures métalliques | JomaPaint',
-            'description': 'Thermolaquage à façon de pièces et structures en acier, galvanisé et aluminium à Legutio, au Pays basque espagnol. Poudre polyester, époxy ou hybride, nuancier RAL.',
+            'description': 'Thermolaquage à façon de pièces et structures en acier, acier galvanisé et aluminium à Legutio, au Pays basque (Espagne). Poudre polyester, époxy ou hybride, nuancier RAL.',
             'og_title': 'Thermolaquage de pièces et structures · JomaPaint',
             'name': 'Thermolaquage de pièces et structures', 'crumb': 'Thermolaquage', 'service_type': 'Thermolaquage (peinture poudre)',
             'kicker': 'Thermolaquage à façon à Legutio (Álava, Espagne), au Pays basque',
             'h1': 'Thermolaquage de pièces et structures métalliques',
-            'lead': 'Peinture poudre cuite au four pour structures et pièces en acier, acier galvanisé et aluminium, de la petite pièce aux grandes dimensions. Nous choisissons la poudre selon l’endroit où vivra la pièce et nous la peignons dans la couleur et l’aspect dont vous avez besoin.',
+            'lead': 'Peinture en poudre cuite au four pour les structures et pièces en acier, acier galvanisé et aluminium, des petites pièces aux grands formats. Nous choisissons le revêtement en fonction de l’environnement d’utilisation et réalisons la teinte et la finition souhaitées.',
             'img_alt': 'Peinture en poudre orange sur fond noir',
             'img_cap': 'Peinture poudre',
             'facts': [('Poudres', 'Polyester, époxy, hybride', 'Selon intérieur ou extérieur'), ('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Devis ferme', 'Moins de 24 h', 'Jours ouvrés')],
@@ -165,7 +165,7 @@ SERVICES = [
                     'Le thermolaquage est une peinture en poudre cuite au four ; on parle aussi de laquage au four ou de peinture électrostatique. La poudre est appliquée au pistolet, qui charge électriquement les particules ; la pièce, reliée à la terre, les attire et la poudre l’enveloppe, arêtes comprises.',
                     'Ensuite, au four, la poudre fond, se tend et réticule. Il reste un film continu, dur et bien adhérent, en une seule couche et sans solvant.',
                 ]},
-                {'h2': 'Quelle poudre pour quelle pièce', 'p': ['Le type de résine décide de la tenue de la pièce. Nous le choisissons avec vous selon son environnement :'],
+                {'h2': 'Quelle peinture en poudre pour chaque pièce ?', 'p': ['Le choix de la résine détermine la résistance du revêtement. Nous le faisons avec vous en fonction de l’environnement d’utilisation :'],
                  'cards': [
                      ('Polyester', 'Résiste aux UV et aux intempéries. C’est la poudre de l’extérieur : charpentes, garde-corps, menuiserie ou mobilier urbain. Pour une exposition permanente au soleil, il existe des poudres super-durables (classe 2 QUALICOAT, testées 3 ans en Floride) qui conservent mieux couleur et brillance.'),
                      ('Époxy', 'Adhérence et résistance chimique très élevées, mais au soleil elle perd sa brillance et farine. Elle s’utilise en intérieur ou comme primaire sous une couche de polyester.'),
@@ -180,7 +180,7 @@ SERVICES = [
                  ]},
                 {'h2': 'Couleurs et finitions', 'finishes': [('mate', 'Mat', 'Jusqu’à 30 GU'), ('satinado', 'Satiné', '31–70 GU'), ('brillante', 'Brillant', '71–100 GU'), ('texturado', 'Texturé', 'Masque les traces')], 'finishes_cap': 'RAL 7016 en quatre finitions. Brillance mesurée à 60° (ISO 2813).', 'list': [
                     'Tout le nuancier RAL Classic et des références précises de fabricants de poudre. Sur demande, Pantone et NCS également.',
-                    'Lisse, texturé fin ou texture forte (gaufré). La texture résiste mieux aux rayures et masque les petits défauts du support ; elle demande un peu plus d’épaisseur que le lisse.',
+                    'Lisse, texturé fin ou texture gaufrée. La texture résiste mieux aux rayures et masque les petits défauts du support ; elle demande un peu plus d’épaisseur que le lisse.',
                     'Trois niveaux de brillance mesurés à 60° (ISO 2813) : mat jusqu’à 30 GU, satiné de 31 à 70 et brillant de 71 à 100, selon les catégories QUALICOAT. La valeur exacte figure sur la fiche technique de la poudre.',
                     'Métallisés et nacrés, comme le titane ou le doré. Ils se valident sur échantillon, et mieux vaut peindre toute la commande avec un même lot.',
                     'En cas de doute, nous vous envoyons une plaque échantillon dans la couleur et l’aspect choisis.',
@@ -193,7 +193,7 @@ SERVICES = [
                     'Menuiserie métallique, charpente, portes coupe-feu et rideaux métalliques.',
                     'Enseignes lumineuses, luminaires et pièces de fonderie d’aluminium.',
                 ]},
-                {'h2': 'Données de la ligne', 'data': [
+                {'h2': 'Caractéristiques de la ligne', 'data': [
                     ('Dimensions maximales', '6 × 2 × 0,65 m'),
                     ('Poids maximal par pièce', '165 kg'),
                     ('Épaisseur du film', '60–80 µm'),
@@ -204,10 +204,10 @@ SERVICES = [
                 ('Quelle différence entre thermolaquage et peinture liquide ?', 'Le thermolaquage utilise une peinture en poudre sans solvant cuite au four : en une seule couche, il laisse un film régulier, dur et bien adhérent. La peinture liquide contient un solvant ou de l’eau et demande souvent plusieurs couches pour la même épaisseur.'),
                 ('Quelle peinture poudre pour l’extérieur ?', 'La poudre polyester, car elle résiste aux UV. L’époxy se dégrade au soleil et s’utilise en intérieur ou comme primaire.'),
                 ('Puis-je demander un échantillon de couleur ?', 'Oui. Nous vous envoyons une plaque échantillon peinte dans le RAL et l’aspect de votre choix.'),
-                ('Quelle est l’épaisseur du film ?', 'En lisse, on vise en général 60 à 80 µm ; en texturé fin, 70 à 100 µm, et en texture forte (gaufré), 90 à 120 µm. Prévoyez-le dans les tolérances des ajustements et des perçages. Nous ne faisons pas de masquage : les filetages, ajustements ou surfaces de contact qui doivent rester sans peinture doivent arriver déjà protégés.'),
+                ('Quelle est l’épaisseur du film ?', 'En lisse, on vise en général 60 à 80 µm ; en texturé fin, 70 à 100 µm, et en texture gaufrée, 90 à 120 µm. Prévoyez-le dans les tolérances des ajustements et des perçages. Nous ne faisons pas de masquage : les filetages, ajustements ou surfaces de contact qui doivent rester sans peinture doivent arriver déjà protégés.'),
                 ('Par où la pièce est-elle accrochée ?', 'Par un trou ou une patte : la pièce parcourt la ligne suspendue à un crochet, et ce point garde une petite marque non peinte. Mieux vaut donc le placer sur une face non visible. Si la pièce n’a pas de point d’accroche, nous vous proposons dans le devis où percer.'),
-                ('Jusqu’à quelle taille de pièce peignez-vous ?', 'Des pièces jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, et jusqu’à 165 kg par pièce.'),
-                ('Peut-on retoucher une pièce thermolaquée ?', 'Un petit choc peut se retoucher avec une peinture liquide ou une bombe du même RAL, après ponçage et nettoyage de la zone. En architecture, les retouches ne sont pas conformes aux directives QUALICOAT et GSB, et les fabricants de poudre excluent de leur garantie les pièces retouchées ou repeintes.'),
+                ('Jusqu’à quelle taille de pièce peignez-vous ?', 'Pièces jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, et 165 kg maximum par pièce.'),
+                ('Peut-on effectuer des retouches sur une pièce thermolaquée ?', 'Un petit choc peut se retoucher avec une peinture liquide ou une bombe du même RAL, après ponçage et nettoyage de la zone. En architecture, les retouches ne sont pas conformes aux directives QUALICOAT et GSB, et les fabricants de poudre excluent de leur garantie les pièces retouchées ou repeintes.'),
             ],
             'faq_n': 6,
         },
@@ -279,18 +279,18 @@ SERVICES = [
         },
         'eu': {
             'slug': 'zinkez-aberatsa-den-inprimazioa/',
-            'title': 'Zinkez aberatsa den inprimazioa, C4-H | JomaPaint',
-            'description': 'Zinkez aberatsa den inprimazioa hauts-pinturaren azpian Legution, Gasteiztik gertu: galbanizatuaren edo zinkatuaren alternatiba altzairurako. C4-H sistema.',
-            'og_title': 'Zinkez aberatsa den inprimazioa · JomaPaint',
+            'title': 'Zinkez aberastutako inprimazioa eta C4-H termolakatzea | JomaPaint',
+            'description': 'Zinkez aberastutako inprimazioa hauts-pinturaren azpian Legution, Gasteiztik gertu: galbanizatuaren edo zinkatuaren alternatiba altzairurako. C4-H sistema.',
+            'og_title': 'Zinkez aberastutako inprimazioa · JomaPaint',
             'name': 'Zinkez aberatsa den inprimazioa', 'crumb': 'Zink-inprimazioa', 'service_type': 'Zinkez aberatsa den inprimazioa',
             'kicker': 'Korrosioaren aurkako babesa Legution (Araba), Gasteiztik gertu',
-            'h1': 'Zinkez aberatsa den inprimazioa, galbanizatuaren alternatiba',
-            'lead': 'Zinkez kargatutako hauts-inprimazio batek altzairua babesten du, eta gainean poliesterrezko hauts-akabera doa, zuk aukeratutako RALean. Korrosioaren aurkako babesa behar duten altzairuzko pieza eta egituretarako, galbanizatutik edo zinkatutik pasatu gabe.',
+            'h1': 'Zinkez aberastutako inprimazioa, galbanizatzearen alternatiba',
+            'lead': 'Zink-eduki handiko hauts-inprimazioak altzairua babesten du; gainean, poliesterrezko hauts-pintura aplikatzen dugu, zuk aukeratutako RAL kolorean. Galbanizatu edo zinkatu gabe korrosioaren aurkako babesa behar duten altzairuzko pieza eta egituretarako.',
             'img_alt': 'Altzairuzko egitura pintatua, torlojuz lotutako plaka batekin, behetik ikusia',
             'img_cap': 'Erreferentziazko irudia',
             'facts': [('Korrosio-klasea', 'C4-H', 'QUALISTEELCOAT homologatzeko bidean'), ('Euskarria', 'Altzairua', 'Pieza txikietatik egituretara'), ('Ohiko epea', 'Astebete', 'Piezak iristen direnetik')],
             'sections': [
-                {'h2': 'Zer da zinkez aberatsa den inprimazioa', 'p': [
+                {'h2': 'Zer da zinkez aberastutako inprimazioa?', 'p': [
                     'Hauts-inprimazio bat da, akaberako pintura bezala, zink-karga oso handiarekin. Zinka altzairua baino noble gutxiago da: geruza urratu edo kolpatzen bada, zinka herdoiltzen da lehenik, eta altzairua babesten du. Galbanizatuak ematen duen babes katodiko edo sakrifiziozko bera da.',
                     'Gainean poliesterrezko hauts-akabera doa: kolorea, akabera eta eguraldiarekiko erresistentzia ematen ditu, eta hesi gisa jarduten du; zinka ere babesten du, eta horrela gehiago irauten du.',
                     'Altzairuaren gainean aplikatzen da: aluminioan zinkak ez du babes galbanikorik ematen.',
@@ -321,19 +321,19 @@ SERVICES = [
                     'Industrialdeetan edo gazitasun moderatuko kostaldean egongo diren piezak.',
                     'Inprimazioa eta akabera epe bakarrean behar dituzten serieak.',
                 ]},
-                {'h2': 'Linearen datuak', 'data': [
+                {'h2': 'Pintura-linearen ezaugarriak', 'data': [
                     ('Piezaren gehienezko neurriak', '6 × 2 × 0,65 m'),
                     ('Pieza bakoitzeko gehienezko pisua', '165 kg'),
                     ('Ohiko epea', 'Astebete'),
                 ]},
             ],
             'faq': [
-                ('Galbanizatuaren berdina da?', 'Ez. Biek babesten dute altzairua zinkarekin, baina bero-galbanizatuak pieza zink urtuan murgiltzen du eta geruza lodiagoa uzten du, altzairuarekin aleatua, hodien eta barrunbeen barrualdean ere. Zinkez aberatsa den inprimazioa akaberaren azpian aplikatzen den hauts-pintura bat da. Galbanizatzea bideragarria ez denean edo merezi ez duenean alternatiba bat da, ez baliokide bat.'),
+                ('Galbanizatuaren berdina da?', 'Ez. Biek babesten dute altzairua zinkarekin, baina bero-galbanizatuak pieza zink urtuan murgiltzen du eta geruza lodiagoa uzten du, altzairuarekin aleatua, hodien eta barrunbeen barrualdean ere. Zinkez aberastutako inprimazioa akaberaren azpian aplikatzen den hauts-pintura bat da. Galbanizatzea bideragarria ez denean edo merezi ez duenean alternatiba bat da, ez baliokide bat.'),
                 ('Zergatik darama hauts-pintura gainean?', 'Inprimazioak berak ez duelako eguraldia jasaten, ezta akabera ematen ere. Hauts-pinturak kolorea ematen du eta hesi gisa jarduten du, eta zinka ere babesten du; horrela gehiago irauten du.'),
                 ('Zer esan nahi du C4-Hk?', 'C4 giroa da: korrosibitate handia, industrialde batean edo gazitasun moderatuko kostaldean bezala. H aurreikusitako iraunkortasuna da: handia, 15etik 25 urtera, ISO 12944 arauaren arabera. Mantentze-lana planifikatzeko datua da, ez bermea.'),
                 ('Kataforesia egiten duzue?', 'Ez. Korrosioaren aurkako inprimazio gisa zinkez aberatsa dena eskaintzen dugu, hauts-pinturazko akaberarekin.'),
                 ('Aluminioan edo galbanizatuan balio du?', 'Aluminioan, ez: zinkak ez dio babes galbanikorik ematen. Eta altzairu galbanizatuak badu bere zinka: bere aurretratamenduarekin lakatzen da.'),
-                ('Zer tamainatako piezak sartzen dira?', '6 m-ko luzera, 2 m-ko altuera eta 0,65 m-ko zabalera arteko piezak, eta 165 kg arte.'),
+                ('Zer tamainatako piezak sartzen dira?', 'Gehienez 6 m luze, 2 m garai eta 0,65 m zabal diren piezak, 165 kg-ko pisu-mugarekin.'),
                 ('Homologatuta dago sistema?', 'C4-H sistemaren QUALISTEELCOAT zigilua homologatzeko bidean dago.'),
             ],
             'faq_n': 6,
@@ -341,7 +341,7 @@ SERVICES = [
         'fr': {
             'slug': 'primaire-riche-en-zinc/',
             'title': 'Primaire riche en zinc et thermolaquage C4-H | JomaPaint',
-            'description': 'Primaire riche en zinc sous peinture poudre à Legutio, au Pays basque espagnol : une alternative à la galvanisation ou à l’électrozingage pour l’acier. Système C4-H.',
+            'description': 'Primaire riche en zinc sous peinture poudre à Legutio, au Pays basque (Espagne) : une alternative à la galvanisation ou à l’électrozingage pour l’acier. Système C4-H.',
             'og_title': 'Primaire riche en zinc · JomaPaint',
             'name': 'Primaire riche en zinc', 'crumb': 'Primaire zinc', 'service_type': 'Primaire riche en zinc',
             'kicker': 'Protection anticorrosion à Legutio (Álava, Espagne), au Pays basque',
@@ -382,7 +382,7 @@ SERVICES = [
                     'Pièces destinées aux zones industrielles ou au littoral à salinité modérée.',
                     'Séries qui ont besoin du primaire et de la finition dans un seul délai.',
                 ]},
-                {'h2': 'Données de la ligne', 'data': [
+                {'h2': 'Caractéristiques de la ligne', 'data': [
                     ('Dimensions maximales', '6 × 2 × 0,65 m'),
                     ('Poids maximal par pièce', '165 kg'),
                     ('Délai standard', '1 semaine'),
@@ -394,7 +394,7 @@ SERVICES = [
                 ('Que signifie C4-H ?', 'C4 est l’environnement : corrosivité élevée, comme une zone industrielle ou un littoral à salinité modérée. Le H est la durabilité prévue : haute, de 15 à 25 ans, selon l’ISO 12944. Elle sert à planifier l’entretien ; ce n’est pas une garantie.'),
                 ('Faites-vous de la cataphorèse ?', 'Non. Comme primaire anticorrosion, nous proposons le primaire riche en zinc, avec une finition en peinture poudre.'),
                 ('Convient-il à l’aluminium ou à l’acier galvanisé ?', 'À l’aluminium, non : le zinc ne lui apporte pas de protection galvanique. Et l’acier galvanisé a déjà son zinc : il se thermolaque avec son propre prétraitement.'),
-                ('Quelle taille de pièce acceptez-vous ?', 'Des pièces jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, et jusqu’à 165 kg.'),
+                ('Quelle taille de pièce acceptez-vous ?', 'Pièces jusqu’à 6 m de long, 2 m de haut et 0,65 m de large, pour un poids maximal de 165 kg.'),
                 ('Le système est-il homologué ?', 'Le label QUALISTEELCOAT du système C4-H est en cours d’homologation.'),
             ],
             'faq_n': 6,
@@ -464,7 +464,7 @@ SERVICES = [
             'lead': 'Hauts-pinturaz lakatutako aluminiozko profilak eta piezak, behar duzun kolore eta akaberan. Arotzeriarako, fatxadetarako, altzarietarako eta industria-ekipoetarako, laginetik seriera.',
             'img_alt': 'Aluminiozko profil estruitu bat gertutik, hondo ilunean',
             'img_cap': 'Erreferentziazko irudia',
-            'facts': [('Koloreak', 'RAL karta', 'Leuna edo testuraduna'), ('Distira', 'Matetik distiratsura', ''), ('Gehienezko luzera', '6 m', '')],
+            'facts': [('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Distira', 'Matetik distiratsura', ''), ('Gehienezko luzera', '6 m', '')],
             'sections': [
                 {'h2': 'Aluminioak bere aurretratamendua behar du', 'p': [
                     'Aluminioa berez oxido-geruza mehe batez estaltzen da. Horrela pintatuz gero, pinturak okerrago heltzen dio eta, hezetasunarekin, korrosio filiformea ager daiteke geruzaren azpian: kolpe edo ebaki batetik aurrera egiten duten hariak.',
@@ -487,7 +487,7 @@ SERVICES = [
                     'Ez dugu maskaratzen: pintatu gabe geratu behar diren zuloek, hariek eta doikuntza-eremuek babestuta etorri behar dute.',
                     'Serieetarako, bidali sekzioaren erreferentzia edo lagin bat.',
                 ]},
-                {'h2': 'Linearen datuak', 'data': [
+                {'h2': 'Pintura-linearen ezaugarriak', 'data': [
                     ('Profilaren gehienezko luzera', '6 m'),
                     ('Aurretratamendua', 'Kromorik gabeko bihurketa kimikoa'),
                     ('Geruzaren lodiera', '60–80 µm'),
@@ -505,7 +505,7 @@ SERVICES = [
         'fr': {
             'slug': 'thermolaquage-profiles-aluminium/',
             'title': 'Thermolaquage de profilés aluminium | JomaPaint',
-            'description': 'Laquage de profilés aluminium en peinture poudre à Legutio, au Pays basque espagnol : menuiserie, façade, mobilier et industrie. Tout le nuancier RAL. Devis en 24 h.',
+            'description': 'Laquage de profilés aluminium en peinture poudre à Legutio, au Pays basque (Espagne) : menuiserie, façade, mobilier et industrie. Tout le nuancier RAL. Devis en 24 h.',
             'og_title': 'Thermolaquage de profilés aluminium · JomaPaint',
             'name': 'Thermolaquage de profilés aluminium', 'crumb': 'Profilés aluminium', 'service_type': 'Laquage aluminium',
             'kicker': 'Laquage aluminium à façon à Legutio (Álava, Espagne), au Pays basque',
@@ -516,7 +516,7 @@ SERVICES = [
             'facts': [('Couleurs', 'Nuancier RAL', 'Lisse ou texturé'), ('Brillance', 'Mat à brillant', ''), ('Longueur maximale', '6 m', '')],
             'sections': [
                 {'h2': 'L’aluminium demande son propre prétraitement', 'p': [
-                    'L’aluminium se couvre naturellement d’une fine couche d’oxyde. Peint tel quel, il accroche moins bien la peinture et, avec l’humidité, une corrosion filiforme peut apparaître sous le film : des filaments qui progressent depuis un choc ou une coupe.',
+                    'L’aluminium se couvre naturellement d’une fine couche d’oxyde. Sans préparation adaptée, la peinture adhère moins bien et, sous l’effet de l’humidité, une corrosion filiforme peut se développer sous le revêtement : de fins filaments progressent à partir d’un choc ou d’une entaille.',
                     'C’est pourquoi, avant laquage, le profilé est dégraissé puis reçoit un prétraitement de conversion chimique sans chrome qui stabilise la surface et garantit l’adhérence de la poudre.',
                 ]},
                 {'h2': 'Pour quels profilés', 'list': [
@@ -536,7 +536,7 @@ SERVICES = [
                     'Nous ne faisons pas de masquage : les perçages, filetages et zones d’ajustement qui doivent rester sans peinture doivent arriver déjà protégés.',
                     'Pour une série, envoyez la référence de la section ou un échantillon.',
                 ]},
-                {'h2': 'Données de la ligne', 'data': [
+                {'h2': 'Caractéristiques de la ligne', 'data': [
                     ('Longueur maximale de profilé', '6 m'),
                     ('Prétraitement', 'Conversion chimique sans chrome'),
                     ('Épaisseur du film', '60–80 µm'),
@@ -607,15 +607,15 @@ SERVICES = [
         'eu': {
             'slug': 'altzairu-galbanizatuaren-termolakatzea/',
             'title': 'Altzairu galbanizatuaren termolakatzea | JomaPaint',
-            'description': 'Hauts-pintura altzairu galbanizatuan Legution, Gasteiztik gertu. Gas-isurketaren aurkako prestaketa (poroak eta burbuilak): sistema duplexa, zinka + hautsa.',
+            'description': 'Altzairu galbanizatuaren hauts-pinturazko estaldura Legution, Gasteiztik gertu. Poroak eta burbuilak saihesteko prestaketa berezia eta gasgabetzea: zinka eta hauts-pintura uztartzen dituen sistema duplexa.',
             'og_title': 'Altzairu galbanizatuaren termolakatzea · JomaPaint',
             'name': 'Altzairu galbanizatuaren termolakatzea', 'crumb': 'Altzairu galbanizatua', 'service_type': 'Hauts-pintura altzairu galbanizatuan',
             'kicker': 'Hauts-pintura galbanizatuan Legution (Araba), Gasteiztik gertu',
             'h1': 'Altzairu galbanizatuaren termolakatzea',
-            'lead': 'Galbanizatua hautsez pintatzeak bere trikimailua du: zinkak gasak gordetzen ditu eta, labean, pinturan zehar ateratzen dira, poroak eta burbuilak utziz. Prestaketa egokiarekin, piezak zinkaren eta pinturaren babesa batzen ditu.',
+            'lead': 'Altzairu galbanizatua hauts-pinturaz estaltzeak arreta berezia eskatzen du: zinkak gasak atxiki ditzake, eta labean pinturatik askatzean poroak eta burbuilak sortu. Prestaketa egokiari esker, zinkaren eta pinturaren babesa uztartzen dira.',
             'img_alt': 'Altzairu galbanizatuzko hodiak pilatuta',
             'img_cap': 'Erreferentziazko irudia',
-            'facts': [('Sistema', 'Duplexa', 'Zinka + hauts-pintura'), ('Koloreak', 'RAL karta', 'Leuna edo testuraduna'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
+            'facts': [('Sistema', 'Duplexa', 'Zinka + hauts-pintura'), ('Koloreak', 'RAL kolore-karta', 'Leunak edo testuradunak'), ('Aurrekontu irmoa', '24 h baino gutxiago', 'Lanegunetan')],
             'sections': [
                 {'h2': 'Zergatik ateratzen dira poroak galbanizatuan', 'p': [
                     'Beroan galbanizatutako zinkak airea eta hezetasuna gorde ditzake kanpoko geruzako poro eta arraila txikietan. Ontze-labean pieza berotu egiten da eta gas horiek pintura urtuta dagoen unean ateratzen dira: poroak, kraterrak edo burbuilak geratzen dira. Gas-isurketa da, eta galdaketan, pieza metalizatuetan edo eztainuzko soldadura dutenetan ere gertatzen da.',
@@ -625,7 +625,7 @@ SERVICES = [
                     'Galbanizatu eta pintatzea sistema duplexa da. Zinkak altzairua babesten du eta pinturak zinka; horrela, multzoak geruza bakoitzak bere aldetik baino gehiago irauten du. Gainera, pinturak kolorea ematen du.',
                     'Bi Europako arauk arautzen dute. EN 15773 (2018) arauak beroan galbanizatutako edo sherardizatutako altzairuari hautsa nola aplikatu jasotzen du, zinkaren kalitatea eta bezeroak, galbanizatzaileak eta lakatzaileak adostu behar dutena barne. EN 13438 arauak eraikuntzarako galbanizatuaren gaineko hauts-estaldurak izan behar dituen prestazioak finkatzen ditu. Arauak dira, ez zigiluak: zure baldintza-agiriak aipatzen baditu, esan iezaguzu eta zer saiakuntza eman ditzakegun esango dizugu.',
                 ]},
-                {'h2': 'Zer galbanizatu du zure piezak?', 'p': ['Prestaketa aldatu egiten da; beraz, adierazi aurrekontua eskatzean:'],
+                {'h2': 'Zein galbanizatu-mota du zure piezak?', 'p': ['Prestaketa aldatu egiten da; beraz, adierazi aurrekontua eskatzean:'],
                  'cards': [
                      ('Beroan galbanizatua', 'Pieza zink urtuan murgiltzen da. Geruza lodia, egituretan, barandetan eta sarrailagintzan ohikoa.'),
                      ('Elektrozinkatua', 'Elektrolisi bidez metatutako zinka. Geruza mehe eta leuna, torlojugintzan eta pieza txikietan ohikoa.'),
@@ -645,7 +645,7 @@ SERVICES = [
             ],
             'faq': [
                 ('Altzairu galbanizatua hautsez pinta daiteke?', 'Bai, prestaketa berezi batekin. Galbanizatuak labean atera eta poroak utz ditzaketen gasak gordetzen ditu; beraz, pieza prestatu eta aurrez berotu egiten da pintatu aurretik.'),
-                ('Zergatik ateratzen dira burbuilak galbanizatua pintatzean?', 'Gas-isurketagatik: zinkak airea eta hezetasuna gordetzen ditu poro txikietan, eta labean berotzean oraindik urtuta dagoen pinturan zehar askatzen ditu. Pintatu aurretik labean gasak kanporatuz saihesten da, ontze-tenperaturaren gainetik, eta hautsa aplikatuz pieza fabrikatzaileak adierazitako tenperaturara hozten den bezain laster; behar izanez gero, gasak kanporatzeko formulatutako inprimazio edo hautsekin.'),
+                ('Zergatik ateratzen dira burbuilak galbanizatua pintatzean?', 'Gasgabetzeagatik: zinkak airea eta hezetasuna atxiki ditzake poro txikietan, eta labean berotzean oraindik urtuta dagoen pinturatik askatzen ditu. Hori saihesteko, pieza pintatu aurretik labean gasgabetzen da, ontze-tenperaturatik gora; ondoren, fabrikatzaileak adierazitako tenperaturara hoztu bezain laster aplikatzen da hauts-pintura. Beharrezkoa bada, gasgabetzea errazteko formulatutako inprimazioak edo hauts-pinturak erabiltzen dira.'),
                 ('Zer da sistema duplexa?', 'Galbanizatuaren eta pinturaren konbinazioa da. Zinkak altzairua babesten du, pinturak zinka, eta multzoak geruza bakoitzak bere aldetik baino gehiago irauten du.'),
                 ('Galbanizatua pintatu aurretik granallatu behar da?', 'Ez beti. Aukerak dira urratzaile bidezko ekortze leun bat, gainazala ireki eta zink oso gutxi kentzen duena (hauts-fabrikatzaileek gehienez 5–10 µm aipatzen dituzte), edo aurretratamendu kimiko bat. JomaPaint-en aurretratamendu kimikoa erabiltzen dugu, eta pintatu aurretik pieza labean desgasifikatzen dugu.'),
                 ('Zer eskatu behar diot nire galbanizatzaileari?', 'Jakin dezala pieza hautsez pintatuko dela. EN 15773 arauak aurreikusten du bezeroak, galbanizatzaileak eta lakatzaileak zinkaren kalitatea eta prestaketa adostea; zenbat eta lehenago hitz egin, orduan eta ezusteko gutxiago labean.'),
@@ -655,7 +655,7 @@ SERVICES = [
         'fr': {
             'slug': 'thermolaquage-acier-galvanise/',
             'title': 'Thermolaquage sur acier galvanisé | JomaPaint',
-            'description': 'Peinture poudre sur acier galvanisé à Legutio, au Pays basque espagnol. Préparation contre le dégazage (piqûres, cloques) : système duplex zinc + poudre.',
+            'description': 'Thermolaquage de l’acier galvanisé à Legutio, près de Vitoria-Gasteiz. Préparation spécifique et dégazage pour prévenir les porosités et les cloques : système duplex zinc et peinture en poudre.',
             'og_title': 'Thermolaquage sur acier galvanisé · JomaPaint',
             'name': 'Thermolaquage sur acier galvanisé', 'crumb': 'Acier galvanisé', 'service_type': 'Thermolaquage sur acier galvanisé',
             'kicker': 'Peinture poudre sur galvanisé à Legutio (Álava, Espagne), au Pays basque',
@@ -673,14 +673,14 @@ SERVICES = [
                     'Galvaniser puis peindre, c’est un système duplex. Le zinc protège l’acier et la peinture protège le zinc : l’ensemble dure plus longtemps que chaque couche prise séparément. Et la peinture apporte la couleur.',
                     'Deux normes européennes l’encadrent. L’EN 15773 (2018) décrit comment appliquer une poudre sur acier galvanisé à chaud ou shérardisé, y compris la qualité du zinc et ce que doivent convenir le client, le galvanisateur et le laqueur. L’EN 13438 fixe les performances exigées du revêtement poudre sur galvanisé pour le bâtiment. Ce sont des normes, pas des labels : si votre CCTP les cite, dites-le-nous et nous vous indiquerons les essais que nous pouvons fournir.',
                 ]},
-                {'h2': 'Quel galvanisé sur votre pièce ?', 'p': ['La préparation change : précisez-le dans votre demande de devis.'],
+                {'h2': 'Quel type de galvanisation présente votre pièce ?', 'p': ['La préparation change : précisez-le dans votre demande de devis.'],
                  'cards': [
                      ('Galvanisation à chaud', 'La pièce est plongée dans un bain de zinc fondu. Couche épaisse, typique des charpentes, garde-corps et serrurerie.'),
                      ('Électrozingage', 'Zinc déposé par électrolyse. Couche fine et lisse, typique de la visserie et des petites pièces.'),
                      ('Tôle galvanisée', 'Tôle galvanisée en continu, en bobine. Typique des enveloppes, carters et pièces pliées.'),
                  ]},
                 {'h2': 'Pour quelles pièces', 'list': [
-                    'Garde-corps, clôtures et portails.',
+                    'Garde-corps, clôtures et fermetures métalliques.',
                     'Charpentes, escaliers et passerelles extérieures.',
                     'Mobilier urbain et signalétique.',
                     'Supports, châssis et carters en tôle galvanisée.',
@@ -752,16 +752,16 @@ SERVICES = [
         },
         'eu': {
             'slug': 'laser-grabatua-uv-inprimaketa/',
-            'title': 'Laser bidezko grabatua eta UV inprimaketa | JomaPaint',
+            'title': 'Laser bidezko grabatua eta UV inprimaketa metalean | JomaPaint',
             'description': 'Laser bidezko grabatua, erliebedun UV inprimaketa, tanpografia eta serigrafia pieza metalikoetan Legution (Araba): logotipoak, zenbakiak eta erreferentziak.',
-            'og_title': 'Laser bidezko grabatua eta UV inprimaketa · JomaPaint',
-            'name': 'Laser bidezko grabatua eta UV inprimaketa', 'crumb': 'Laser grabatua eta UV inprimaketa', 'service_type': 'Pieza metalikoen markaketa',
+            'og_title': 'Laser bidezko grabatua eta UV inprimaketa metalean · JomaPaint',
+            'name': 'Laser bidezko grabatua eta UV inprimaketa', 'crumb': 'Laser bidezko grabatua eta UV inprimaketa', 'service_type': 'Pieza metalikoen markaketa',
             'kicker': 'Pieza metalikoen markaketa Legution (Araba), Gasteiztik gertu',
             'h1': 'Laser bidezko grabatua eta UV inprimaketa metalean',
             'lead': 'Logotipoak, zenbakiak, erreferentziak eta jarraibideak pieza berean, pintatuta edo metal biluzian. Eskaera berean pintatu eta markatzen badugu, amaituta ateratzen da.',
             'img_alt': 'Joma Skyline postontziak beltz matean, zenbakiak laserrez grabatuta',
-            'img_cap': 'Joma Skyline postontziak, laser bidezko zenbakiak',
-            'facts': [('Teknikak', '4', 'Laserra, UV, tanpografia eta serigrafia'), ('Laserra', 'Herdoilgaitza eta aluminioa', 'Eta pintura, hobeto kolore ilunetan'), ('UV', 'Pintura edo laka', 'Ez metal biluzian')],
+            'img_cap': 'Joma Skyline postontziak, laserrez grabatutako zenbakiekin',
+            'facts': [('Teknikak', '4', 'Laserra, UV, tanpografia eta serigrafia'), ('Laser bidezko markaketa', 'Altzairu herdoilgaitza eta aluminioa', 'Pintatutako piezetan ere bai, batez ere kolore ilunetan'), ('UV inprimaketa', 'Pintura edo laka', 'Ez metal biluzian')],
             'sections': [
                 {'h2': 'Zein teknika gainazal bakoitzerako', 'p': ['Azpian dagoenaren araberakoa da. Honela jokatzen dute laserrak eta UV inprimaketak:'],
                  'table': {
@@ -780,15 +780,15 @@ SERVICES = [
                     ('Serigrafia', 'Tinta sare-pantaila batean zehar pasatzen da piezara. Geruza opako eta garbiak ematen ditu gainazal lauetan.'),
                 ]},
                 {'h2': 'Zer markatzen den', 'list': [
-                    'Postontzien eta armairuen zenbakiak.',
+                    'Postontzi, loker eta armairuetako zenbakiak.',
                     'Fabrikatzailearen logotipoak eta marka.',
                     'Erreferentziak, loteak eta kodeak.',
                     'Erabilera-jarraibideak, abisuak eta ezaugarri-plakak.',
                 ]},
             ],
             'faq': [
-                ('Pinturaren gainean laserrez grabatu daiteke?', 'Bai. Laserrak pintura kentzen du markan eta azpiko metala agerian uzten du; beraz, kontrastea kolorearen araberakoa da: beltzean eta kolore ilunetan asko nabarmentzen da, eta zurian, gris argian edo pastel-tonuetan, gutxi. Marra oso finetarako edo kode txikietarako, laser bidezko markaketarako formulatutako hautsak daude. Adierazi RALa aurrekontua eskatzean.'),
-                ('UV bidez inprimatu daiteke altzairu herdoilgaitzean edo aluminioan?', 'Gordinik, ez: UV tintak ez dio ondo heltzen metal biluziari, eta inprimagailu-fabrikatzaileek berek aurretiko inprimazio bat gomendatzen dute. Geruza horrek, edo lakatze batek, metalaren itxura aldatzen du. Pintatu gabeko herdoilgaitza edo aluminioa markatu eta haien itxura gordetzeko, laserra da aukera.'),
+                ('Pinturaren gainean laser bidez grabatu daiteke?', 'Bai. Laserrak pintura kentzen du markan eta azpiko metala agerian uzten du; beraz, kontrastea kolorearen araberakoa da: beltzean eta kolore ilunetan asko nabarmentzen da, eta zurian, gris argian edo pastel-tonuetan, gutxi. Marra oso finetarako edo kode txikietarako, laser bidezko markaketarako formulatutako hautsak daude. Adierazi RALa aurrekontua eskatzean.'),
+                ('UV bidez inprima daiteke altzairu herdoilgaitzean edo aluminioan?', 'Gordinik, ez: UV tintak ez dio ondo heltzen metal biluziari, eta inprimagailu-fabrikatzaileek berek aurretiko inprimazio bat gomendatzen dute. Geruza horrek, edo lakatze batek, metalaren itxura aldatzen du. Pintatu gabeko herdoilgaitza edo aluminioa markatu eta haien itxura gordetzeko, laserra da aukera.'),
                 ('Laser bidezko grabatuak babesik gabe uzten du metala?', 'Markan, bai: laserrak pintura kentzen du eta metala agerian uzten du. Herdoilgaitzean edo aluminioan ez da arazo izaten; kanpoan egongo den karbono-altzairuan, ordea, marra hori pinturaren babesik gabe geratzen da. Kasu horretan beste teknika bat edo markaren beste kokapen bat proposatuko dizugu.'),
                 ('Zer alde dago tanpografiaren eta serigrafiaren artean?', 'Tanpografiak silikonazko tanpoi batekin transferitzen du tinta eta gainazal kurbatuetara edo pieza txikietara egokitzen da. Serigrafiak sare-pantaila batean zehar pasatzen du tinta eta hobeto dabil gainazal lauetan.'),
                 ('Pieza pintatuta eta markatuta eska dezaket batera?', 'Bai. Adierazi aurrekontu-eskaeraren oharretan, teknika, kokapena eta logotipoa barne, eta pieza pintatuta eta markatuta aterako da.'),
@@ -798,7 +798,7 @@ SERVICES = [
         'fr': {
             'slug': 'gravure-laser-impression-uv/',
             'title': 'Gravure laser et impression UV sur métal | JomaPaint',
-            'description': 'Gravure laser, impression UV en relief, tampographie et sérigraphie sur pièces métalliques à Legutio, au Pays basque espagnol : logos, numérotation, références.',
+            'description': 'Gravure laser, impression UV en relief, tampographie et sérigraphie sur pièces métalliques à Legutio, au Pays basque (Espagne) : logos, numérotation, références.',
             'og_title': 'Gravure laser et impression UV sur métal · JomaPaint',
             'name': 'Gravure laser et impression UV', 'crumb': 'Gravure laser et impression UV', 'service_type': 'Marquage de pièces métalliques',
             'kicker': 'Marquage de pièces métalliques à Legutio (Álava, Espagne), au Pays basque',
