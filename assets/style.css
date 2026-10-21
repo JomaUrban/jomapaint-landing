@@ -66,7 +66,7 @@ mark.note { background: var(--note); color: var(--ink); padding: 0 4px; border-r
 .btn-acc { background: var(--acc); color: var(--acc-fg); }
 .btn-ink { background: var(--ink); color: var(--paper); }
 .btn-line { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
-.btn[disabled] { background: #4A4945; color: #A9A7A2; cursor: not-allowed; filter: none; }
+.btn[disabled] { background: #4A4945; color: #E4E2DD; cursor: not-allowed; filter: none; }
 .row-btns { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Logotipo: logo Joma + apellido */

@@ -63,7 +63,7 @@ META = {
         },
         'eu': {
             'slug': 'hauts-pinturaren-arauak-saiakuntzak/',
-            'title': 'Hauts-pinturaren arauak eta saiakuntzak: ISO 12944, C5 eta ISO 9227',
+            'title': 'Hauts-pinturaren arauak eta saiakuntzak: ISO 12944 eta C5',
             'description': 'ISO 12944 araua zatiz zati, C1etik CXerako kategoriak, C5-M eta C5 arteko aldea, ISO 9227 gatz-lainoaren saiakuntza, hezetasuna, Kesternich, atxikimendua, distira eta EN 13438: arau bakoitzak zer neurtzen duen.',
             'og_title': 'Hauts-pinturaren arauak eta saiakuntzak · JomaPaint',
             'name': 'Hauts-pinturaren arauak eta saiakuntzak', 'crumb': 'Arauak eta saiakuntzak',
