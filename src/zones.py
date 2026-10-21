@@ -430,3 +430,38 @@ LINK_NAMES = {
     'es': {'alava': 'Vitoria-Gasteiz y Álava', 'gipuzkoa': 'Gipuzkoa y Donostia', 'bizkaia': 'Bizkaia y Bilbao', 'burgos': 'Burgos y Miranda', 'navarra': 'Navarra y Pamplona', 'rioja': 'La Rioja y Logroño'},
     'eu': {'alava': 'Vitoria-Gasteiz eta Araba', 'gipuzkoa': 'Gipuzkoa eta Donostia', 'bizkaia': 'Bizkaia eta Bilbo'},
 }
+
+
+# ---------- Francés (Álava, Gipuzkoa, Bizkaia), generado desde el castellano ----------
+import copy as _copy  # noqa: E402
+import re as _re  # noqa: E402
+import zones_fr as _ZF  # noqa: E402
+
+_KEEP = {'slug', 'img', 'img_w', 'img_h'}
+
+
+def _to_fr(obj, missing, key=None):
+    if isinstance(obj, str):
+        if key in _KEEP or not any(c.isalpha() for c in obj) or _re.fullmatch(r'[\d\s·kmhin]+', obj) or obj.endswith('.webp'):
+            return obj
+        if obj not in _ZF.FR:
+            missing.append(obj)
+            return obj
+        return _ZF.FR[obj]
+    if isinstance(obj, dict):
+        return {k: _to_fr(v, missing, k) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        out = [_to_fr(v, missing) for v in obj]
+        return tuple(out) if isinstance(obj, tuple) else out
+    return obj
+
+
+_missing = []
+for _z in ZONES:
+    if _z['key'] in _ZF.SLUGS:
+        _fr = _to_fr(_copy.deepcopy(_z['es']), _missing)
+        _fr['slug'] = _ZF.SLUGS[_z['key']]
+        _z['fr'] = _fr
+LINK_NAMES['fr'] = {k: _ZF.FR[LINK_NAMES['es'][k]] for k in _ZF.SLUGS}
+if _missing:
+    raise SystemExit('zones_fr: faltan traducciones:\n  ' + '\n  '.join(sorted(set(_missing))))

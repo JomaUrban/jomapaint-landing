@@ -516,7 +516,7 @@ FR = {
         'sectors': 'Serrurerie et quincaillerie, armoires électriques, machines et ingénierie, tôlerie laser, poinçonnée et pliée, menuiserie métallique et charpente, ateliers de soudure et d’usinage, enseignes et éclairage, fonderie d’aluminium, portes coupe-feu et rideaux métalliques, ancrages, équipements sportifs, bâtiment, mobilier urbain et négoce.',
     },
     'area': {
-        'h2': 'Où nous travaillons.',
+        'h2': 'Où nous travaillons.', 'links': 'Thermolaquage par zone',
         'lead': 'Nous peignons à Legutio, à une vingtaine de kilomètres de Vitoria-Gasteiz. Nous travaillons pour des entreprises d’Álava, de Biscaye, de Gipuzkoa et de Burgos, et nous avons des clients dans sept pays européens. Depuis Legutio, nous intervenons dans tout le nord de l’Espagne et dans le Sud-Ouest de la France.',
         'zones': [
             ('Sud-Ouest de la France', 'Pays basque (Bayonne), Béarn (Pau), Bordeaux et la Gironde, et le reste de la Nouvelle-Aquitaine.', ''),
