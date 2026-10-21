@@ -26,16 +26,22 @@ services:
       traefik.http.middlewares.jomapaint-headers.headers.referrerPolicy: strict-origin-when-cross-origin
 
   # Solicitudes de presupuesto: paint.joma.es/api/* → este contenedor.
-  # Las claves llegan en .env (lo escribe el workflow Deploy desde los secrets de GitHub).
+  # La clave de Odoo llega en .env (lo escribe el workflow Deploy desde el secret ODOO_API_KEY).
   api:
     build: ./api
     restart: unless-stopped
     networks:
       - edge
     environment:
-      RESEND_API_KEY: ${RESEND_API_KEY:-}
-      MAIL_FROM: ${MAIL_FROM:-JomaPaint web <paint@joma.es>}
-      MAIL_TO: ${MAIL_TO:-marimar@joma.es}
+      # Odoo de Joma: iniciativa en el equipo Pintura (9), asignada a Marimar (usuario 61),
+      # con aviso por email a su contacto (58764). La clave es la del usuario de ODOO_LOGIN.
+      ODOO_URL: https://erp.joma.es
+      ODOO_DB: joma
+      ODOO_LOGIN: ${ODOO_LOGIN:-txomin@joma.es}
+      ODOO_API_KEY: ${ODOO_API_KEY:-}
+      ODOO_TEAM_ID: "9"
+      ODOO_USER_ID: "61"
+      ODOO_NOTIFY_PARTNER_IDS: "58764"
       ALLOWED_ORIGINS: https://paint.joma.es
     volumes:
       - solicitudes:/data

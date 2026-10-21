@@ -477,7 +477,7 @@
       if (!q.rgpd) return;
       q.err = '';
       var d = new Date(), pad = function (n) { return ('0' + n).slice(-2); };
-      if (!q.viaFallback || !q.code) q.code = 'JP-' + String(d.getFullYear()).slice(-2) + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + Math.floor(1000 + Math.random() * 9000);
+      q.code = 'JP-' + String(d.getFullYear()).slice(-2) + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + Math.floor(1000 + Math.random() * 9000);
       var files = q.lines.map(function (l) { return l.fileObj; }).filter(Boolean).concat(q.heroFiles || []);
       var total = files.reduce(function (a, f) { return a + f.size; }, 0), attach = total <= MAXB;
       var r = state.ral, env = T.envs[q.env];
@@ -506,32 +506,34 @@
       f.method = 'POST'; f.action = 'https://formsubmit.co/' + (JP.form || ''); f.enctype = 'multipart/form-data'; f.style.display = 'none';
       Object.keys(fields).forEach(function (k) { var i = document.createElement(k === 'Referencias' || k === 'Notas' ? 'textarea' : 'input'); i.name = k; i.value = fields[k]; f.appendChild(i); });
       var hp = document.createElement('input'); hp.name = '_honey'; hp.value = ''; f.appendChild(hp);
-      if (!(JP.api && !q.viaFallback) && attach && files.length && window.DataTransfer) {
+      if (!JP.api && attach && files.length && window.DataTransfer) {
         files.forEach(function (file, n) { try { var dt = new DataTransfer(); dt.items.add(file); var fi = document.createElement('input'); fi.type = 'file'; fi.name = 'attachment' + (n ? n + 1 : ''); fi.files = dt.files; f.appendChild(fi); } catch (e) {} });
       }
       var btn = $('[data-act="next"]', aside); if (btn) { btn.disabled = true; btn.textContent = T.sending; }
-      /* Servidor propio (JP.api): mismo contenido por fetch; si falla, se sigue por FormSubmit. */
-      if (JP.api && window.fetch && window.FormData && !q.viaFallback) {
+      /* Si el envío falla o no responde, ofrece el mismo contenido por correo para no perder la solicitud. */
+      var showFallback = function () {
+        if (!btn || !document.body.contains(btn) || $('.send-slow', aside)) return;
+        var body = Object.keys(fields).filter(function (k) { return k.charAt(0) !== '_'; }).map(function (k) { return k + ': ' + fields[k]; }).join('\n');
+        var href = 'mailto:' + (JP.mail || JP.form || '') + '?subject=' + encodeURIComponent(fields._subject) + '&body=' + encodeURIComponent(body.slice(0, 1800));
+        var p = document.createElement('p'); p.className = 'send-slow'; p.setAttribute('role', 'status');
+        p.textContent = T.slow + ' ';
+        var a = document.createElement('a'); a.href = href; a.textContent = T.slowMail; p.appendChild(a);
+        btn.parentNode.insertBefore(p, btn.nextSibling);
+      };
+      /* Servidor propio (JP.api → Odoo). Si falla, aviso con el envío por correo; FormSubmit solo si JP.api está vacío. */
+      if (JP.api && window.fetch && window.FormData) {
         var fd = new FormData(f); fd.append('_t', String(T0));
         if (attach) files.forEach(function (file) { fd.append('archivo', file, file.name); });
         var ctl = window.AbortController ? new AbortController() : null, timer = setTimeout(function () { if (ctl) ctl.abort(); }, 60000);
         fetch(JP.api, { method: 'POST', body: fd, signal: ctl ? ctl.signal : undefined })
           .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || r.status); }); })
           .then(function () { clearTimeout(timer); location.href = fields._next; })
-          .catch(function () { clearTimeout(timer); q.viaFallback = true; send(); });
+          .catch(function () { clearTimeout(timer); showFallback(); });
         return;
       }
       document.body.appendChild(f);
       /* Si FormSubmit no responde en 20 s, ofrece el mismo contenido por correo para no perder la solicitud. */
-      setTimeout(function () {
-        if (!btn || !document.body.contains(btn) || $('.send-slow', aside)) return;
-        var body = Object.keys(fields).filter(function (k) { return k.charAt(0) !== '_'; }).map(function (k) { return k + ': ' + fields[k]; }).join('\n');
-        var href = 'mailto:' + (JP.form || '') + '?subject=' + encodeURIComponent(fields._subject) + '&body=' + encodeURIComponent(body.slice(0, 1800));
-        var p = document.createElement('p'); p.className = 'send-slow'; p.setAttribute('role', 'status');
-        p.textContent = T.slow + ' ';
-        var a = document.createElement('a'); a.href = href; a.textContent = T.slowMail; p.appendChild(a);
-        btn.parentNode.insertBefore(p, btn.nextSibling);
-      }, 20000);
+      setTimeout(showFallback, 20000);
       f.submit();
     };
     try {

@@ -14,8 +14,8 @@ JOMA_EMAIL = 'joma@joma.es'      # contacto general de Joma (Organization)
 # Destino del cotizador (FormSubmit). FormSubmit pide activar el destino con el primer envío
 # (clic en el email que llega a ese buzón). Se puede cambiar por la cadena aleatoria que da al activar.
 FORM_ENDPOINT = 'marimar@joma.es'
-# Servidor propio de solicitudes (api/). Vacío = solo FormSubmit. Con ruta, la web envía ahí
-# y, si falla, recurre a FormSubmit. Activar cuando /api/salud diga "correo": true.
+# Servidor propio de solicitudes (api/ → iniciativa en Odoo). Vacío = FormSubmit. Con ruta, la web
+# envía solo ahí y, si falla, ofrece mandarlo por correo. Activar cuando /api/salud diga "odoo": true.
 API_ENDPOINT = ''
 # El seguimiento de pedidos está oculto por ahora: True lo vuelve a mostrar (sección, menú y enlaces).
 TRACKING = False

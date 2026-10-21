@@ -17,9 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-      MAIL_FROM: ${{ vars.MAIL_FROM }}
-      MAIL_TO: ${{ vars.MAIL_TO }}
+      ODOO_API_KEY: ${{ secrets.ODOO_API_KEY }}
+      ODOO_LOGIN: ${{ vars.ODOO_LOGIN }}
       VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
       VPS_USER: ${{ vars.VPS_USER || 'root' }}
       VPS_PATH: ${{ vars.VPS_PATH || '/opt/jomapaint-landing' }}
@@ -63,9 +62,8 @@ jobs:
           rsync -az --delete --exclude .git --exclude node_modules --exclude .env -e ssh ./ "deploy-target:$VPS_PATH/"
           # .env del servidor de solicitudes, desde secrets/variables de GitHub (no se guarda en el repo)
           {
-            [ -n "$RESEND_API_KEY" ] && printf 'RESEND_API_KEY=%s\n' "$RESEND_API_KEY"
-            [ -n "$MAIL_FROM" ] && printf "MAIL_FROM='%s'\n" "$MAIL_FROM"
-            [ -n "$MAIL_TO" ] && printf 'MAIL_TO=%s\n' "$MAIL_TO"
+            [ -n "$ODOO_API_KEY" ] && printf 'ODOO_API_KEY=%s\n' "$ODOO_API_KEY"
+            [ -n "$ODOO_LOGIN" ] && printf 'ODOO_LOGIN=%s\n' "$ODOO_LOGIN"
             true
           } | ssh deploy-target "umask 077 && cat > '$VPS_PATH/.env'"
           ssh deploy-target "cd '$VPS_PATH' && docker compose up -d --build && docker compose ps"

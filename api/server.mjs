@@ -1,16 +1,19 @@
 // Recepción de solicitudes de presupuesto de paint.joma.es.
 // Sin dependencias: Node 22 (http, fetch, FormData nativos).
 //
-// Flujo: valida → guarda en disco (DATA_DIR) → responde al navegador → envía el
-// correo por Resend en segundo plano. Lo que no se pueda enviar se reintenta cada
-// 5 minutos, así que una caída de Resend no pierde solicitudes.
+// Flujo: valida → guarda en disco (DATA_DIR) → responde al navegador → en segundo
+// plano crea una iniciativa (crm.lead, tipo «lead») en Odoo con los planos adjuntos
+// y publica un mensaje que Odoo envía por email al equipo de pintura. Lo que no
+// entre se reintenta cada 5 minutos, así que una caída de Odoo no pierde solicitudes.
 //
 // Variables de entorno:
-//   RESEND_API_KEY   clave de Resend (sin ella se guarda pero no se envía)
-//   MAIL_FROM        remitente verificado en Resend, p. ej. "JomaPaint web <paint@joma.es>"
-//   MAIL_TO          destinatarios separados por coma (por defecto marimar@joma.es)
-//   ALLOWED_ORIGINS  orígenes permitidos separados por coma (por defecto https://paint.joma.es)
-//   DATA_DIR         carpeta de solicitudes (por defecto /data)
+//   ODOO_URL, ODOO_DB, ODOO_LOGIN   p. ej. https://erp.joma.es, joma, txomin@joma.es
+//   ODOO_API_KEY                    clave API de ese usuario (sin ella se guarda pero no se envía)
+//   ODOO_TEAM_ID                    equipo de ventas (Pintura)
+//   ODOO_USER_ID                    comercial asignado (Marimar)
+//   ODOO_NOTIFY_PARTNER_IDS         contactos que reciben el email, separados por coma
+//   ALLOWED_ORIGINS                 orígenes permitidos (por defecto https://paint.joma.es)
+//   DATA_DIR                        carpeta de solicitudes (por defecto /data)
 import http from 'node:http';
 import { Readable, Transform } from 'node:stream';
 import { createHash } from 'node:crypto';
@@ -19,10 +22,14 @@ import path from 'node:path';
 
 const PORT = Number(process.env.PORT || 3000);
 const DATA_DIR = process.env.DATA_DIR || '/data';
-const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
-const RESEND_URL = process.env.RESEND_URL || 'https://api.resend.com/emails'; // solo para pruebas
-const MAIL_FROM = process.env.MAIL_FROM || 'JomaPaint web <paint@joma.es>';
-const MAIL_TO = (process.env.MAIL_TO || 'marimar@joma.es').split(',').map((s) => s.trim()).filter(Boolean);
+const ODOO_URL = (process.env.ODOO_URL || 'https://erp.joma.es').replace(/\/$/, '');
+const ODOO_DB = process.env.ODOO_DB || 'joma';
+const ODOO_LOGIN = process.env.ODOO_LOGIN || '';
+const ODOO_API_KEY = process.env.ODOO_API_KEY || '';
+const ODOO_TEAM_ID = Number(process.env.ODOO_TEAM_ID || 0) || false;
+const ODOO_USER_ID = Number(process.env.ODOO_USER_ID || 0) || false;
+const NOTIFY = (process.env.ODOO_NOTIFY_PARTNER_IDS || '').split(',').map((s) => Number(s.trim())).filter(Boolean);
+const ODOO_READY = Boolean(ODOO_LOGIN && ODOO_API_KEY);
 const ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://paint.joma.es').split(',').map((s) => s.trim()).filter(Boolean);
 
 const MAX_BODY = 12 * 1024 * 1024;      // cuerpo completo (multipart)
@@ -51,44 +58,78 @@ const rateOk = (ip) => {
 };
 setInterval(() => { const now = Date.now(); for (const [k, v] of hits) if (!v.some((t) => now - t < RATE_WINDOW)) hits.delete(k); }, RATE_WINDOW).unref();
 
-/* ---------- correo ---------- */
-async function sendMail(dir) {
-  const meta = JSON.parse(await fs.readFile(path.join(dir, 'solicitud.json'), 'utf8'));
-  const attachments = [];
-  for (const f of meta.files.filter((x) => x.attach)) {
-    attachments.push({ filename: f.name, content: (await fs.readFile(path.join(dir, 'adjuntos', f.stored))).toString('base64') });
-  }
-  const rows = Object.entries(meta.fields);
-  const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n') + `\n\nRecibida: ${meta.receivedAt}`;
-  const html = `<table cellpadding="6" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">${rows
-    .map(([k, v]) => `<tr><th align="left" valign="top" style="border-bottom:1px solid #ddd;white-space:nowrap">${esc(k)}</th><td style="border-bottom:1px solid #ddd;white-space:pre-wrap">${esc(v)}</td></tr>`)
-    .join('')}</table><p style="font:12px Arial,sans-serif;color:#777">Recibida: ${esc(meta.receivedAt)}</p>`;
-  const r = await fetch(RESEND_URL, {
-    method: 'POST',
-    headers: { authorization: `Bearer ${RESEND_API_KEY}`, 'content-type': 'application/json', 'idempotency-key': `jomapaint/${meta.code}` },
-    body: JSON.stringify({ from: MAIL_FROM, to: MAIL_TO, reply_to: meta.email, subject: meta.subject, text, html, attachments }),
-    signal: AbortSignal.timeout(30000),
+/* ---------- Odoo (JSON-RPC, servicio «object») ---------- */
+let uid = null;
+async function rpc(service, method, args) {
+  const r = await fetch(ODOO_URL + '/jsonrpc', {
+    method: 'POST', headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', method: 'call', params: { service, method, args }, id: Date.now() }),
+    signal: AbortSignal.timeout(60000),
   });
-  if (!r.ok) throw new Error(`Resend ${r.status}: ${(await r.text()).slice(0, 300)}`);
-  return (await r.json()).id;
+  if (!r.ok) throw new Error(`Odoo HTTP ${r.status}`);
+  const j = await r.json();
+  if (j.error) throw new Error(`Odoo: ${(j.error.data && j.error.data.message) || j.error.message}`);
+  return j.result;
+}
+async function call(model, method, args, kwargs = {}) {
+  if (!uid) {
+    uid = await rpc('common', 'login', [ODOO_DB, ODOO_LOGIN, ODOO_API_KEY]);
+    if (!uid) throw new Error('Odoo: usuario o clave API no válidos');
+  }
+  return rpc('object', 'execute_kw', [ODOO_DB, uid, ODOO_API_KEY, model, method, args, kwargs]);
 }
 
+function leadHtml(meta) {
+  const rows = Object.entries(meta.fields).map(([k, v]) => `<tr><th style="text-align:left;vertical-align:top;padding:4px 12px 4px 0;white-space:nowrap">${esc(k)}</th><td style="padding:4px 0;white-space:pre-wrap">${esc(v)}</td></tr>`).join('');
+  return `<p>Solicitud de presupuesto recibida en paint.joma.es el ${esc(meta.receivedAt.replace('T', ' ').slice(0, 16))} (UTC).</p><table>${rows}</table>`;
+}
+
+// Cada paso guarda su resultado en estado.json: un reintento continúa donde se quedó
 async function deliver(dir) {
   const st = path.join(dir, 'estado.json');
   const s = JSON.parse(await fs.readFile(st, 'utf8'));
-  if (s.status !== 'pendiente') return;
-  if (!RESEND_API_KEY) return;
+  if (s.status !== 'pendiente' || !ODOO_READY) return;
+  const save = () => fs.writeFile(st, JSON.stringify(s, null, 2));
   s.attempts += 1;
   try {
-    s.resendId = await sendMail(dir);
+    const meta = JSON.parse(await fs.readFile(path.join(dir, 'solicitud.json'), 'utf8'));
+    const f = meta.fields;
+    if (!s.leadId) {
+      s.leadId = await call('crm.lead', 'create', [{
+        type: 'lead',
+        name: `Web JomaPaint · ${meta.code} · ${f['Empresa'] || f['Nombre'] || meta.email}`.slice(0, 200),
+        team_id: ODOO_TEAM_ID, user_id: ODOO_USER_ID,
+        partner_name: f['Empresa'] || false, contact_name: f['Nombre'] || false,
+        email_from: meta.email, phone: f['Teléfono'] || false, vat: f['CIF'] || false,
+        referred: 'paint.joma.es', description: leadHtml(meta),
+      }], { context: { mail_auto_subscribe_no_notify: true } });
+      await save();
+    }
+    if (!s.attachmentIds) {
+      const ids = [];
+      for (const a of meta.files.filter((x) => x.attach)) {
+        const datas = (await fs.readFile(path.join(dir, 'adjuntos', a.stored))).toString('base64');
+        ids.push(await call('ir.attachment', 'create', [{ name: a.name, datas, res_model: 'crm.lead', res_id: s.leadId }]));
+      }
+      s.attachmentIds = ids;
+      await save();
+    }
+    if (!s.messageId) {
+      const body = `Nueva solicitud de presupuesto desde la web (${meta.code}). Cliente: ${f['Empresa'] || '—'}, ${f['Nombre'] || ''} <${meta.email}>${f['Teléfono'] ? ', ' + f['Teléfono'] : ''}. El detalle está en las notas de la iniciativa${s.attachmentIds.length ? ' y los planos van adjuntos' : ''}.`;
+      s.messageId = await call('crm.lead', 'message_post', [[s.leadId]], {
+        body, subject: meta.subject, message_type: 'comment', subtype_xmlid: 'mail.mt_comment',
+        partner_ids: NOTIFY, attachment_ids: s.attachmentIds,
+      });
+    }
     s.status = 'enviada'; s.sentAt = new Date().toISOString(); delete s.lastError;
-    log('enviada', path.basename(dir), s.resendId);
+    log('en Odoo', path.basename(dir), `lead ${s.leadId}`);
   } catch (e) {
+    uid = null;
     s.lastError = String(e.message || e);
     if (s.attempts >= MAX_ATTEMPTS) s.status = 'fallida';
-    log('ERROR envío', path.basename(dir), `intento ${s.attempts}`, s.lastError);
+    log('ERROR Odoo', path.basename(dir), `intento ${s.attempts}`, s.lastError);
   }
-  await fs.writeFile(st, JSON.stringify(s, null, 2));
+  await save();
 }
 
 async function pendingDirs() {
@@ -177,7 +218,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://local');
     if (req.method === 'GET' && url.pathname === '/api/salud') {
-      return json(res, 200, { ok: true, correo: Boolean(RESEND_API_KEY), pendientes: (await pendingDirs()).length });
+      return json(res, 200, { ok: true, odoo: ODOO_READY, pendientes: (await pendingDirs()).length });
     }
     if (url.pathname === '/api/solicitud') {
       if (req.method === 'OPTIONS') {
@@ -196,6 +237,6 @@ const server = http.createServer(async (req, res) => {
 
 server.requestTimeout = 120000;
 server.listen(PORT, () => {
-  log(`api escuchando en :${PORT}`, RESEND_API_KEY ? 'correo activo' : 'SIN RESEND_API_KEY: se guarda pero no se envía');
+  log(`api escuchando en :${PORT}`, ODOO_READY ? 'Odoo activo' : 'SIN ODOO_API_KEY: se guarda pero no se envía');
   retryAll().catch((e) => log('ERROR', e));
 });
