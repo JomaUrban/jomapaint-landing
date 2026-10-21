@@ -230,7 +230,7 @@ ZONES = [
         'eu': {
             'slug': 'termolakatzea-gipuzkoa-donostia/',
             'title': 'Gipuzkoarako eta Donostiarako termolakatzea | JomaPaint',
-            'description': 'Labean ondutako hauts-pintura Gipuzkoako enpresentzat: Arrasate 25 minutura, Eibar 40ra eta Donostia ordubete pasatxora. Aurrekontua 24 orduan eta astebeteko ohiko epea.',
+            'description': 'Labean ondutako hauts-pintura Gipuzkoako enpresentzat: Arrasate 25 minutura eta Donostia ordubete pasatxora. Aurrekontua 24 orduan, ohiko epea astebete.',
             'og_title': 'Gipuzkoarako eta Donostiarako termolakatzea · JomaPaint',
             'name': 'Gipuzkoarako eta Donostiarako termolakatzea', 'crumb': 'Gipuzkoa', 'service_type': 'Termolakatzea (hauts-pintura)',
             'kicker': 'Gipuzkoako enpresentzako hauts-pintura',

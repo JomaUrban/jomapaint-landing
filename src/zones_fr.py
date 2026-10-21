@@ -335,14 +335,7 @@ FR = {'Termolacado en Vitoria-Gasteiz y Álava | JomaPaint': 'Thermolaquage pour
                                                                                                                                                                            'pour organiser votre '
                                                                                                                                                                            'venue.',
  'Termolacado en Gipuzkoa y Donostia | JomaPaint': 'Thermolaquage pour le Gipuzkoa et Saint-Sébastien | JomaPaint',
- 'Pintura en polvo al horno para empresas de Gipuzkoa: Arrasate a 25 minutos, Eibar a 40 y Donostia a algo más de una hora. Presupuesto en 24 h y plazo de una semana.': 'Peinture en poudre cuite au '
-                                                                                                                                                                         'four pour les entreprises du '
-                                                                                                                                                                         'Gipuzkoa : Arrasate à 25 '
-                                                                                                                                                                         'minutes, Eibar à 40 minutes '
-                                                                                                                                                                         'et Saint-Sébastien à un peu '
-                                                                                                                                                                         'plus d’une heure. Devis sous '
-                                                                                                                                                                         '24 h, délai habituel d’une '
-                                                                                                                                                                         'semaine.',
+ 'Pintura en polvo al horno para empresas de Gipuzkoa: Arrasate a 25 minutos, Eibar a 40 y Donostia a algo más de una hora. Presupuesto en 24 h y plazo de una semana.': 'Peinture poudre pour les entreprises du Gipuzkoa : Arrasate à 25 min, Saint-Sébastien à un peu plus d’une heure. Devis sous 24 h, délai habituel d’une semaine.',
  'Termolacado en Gipuzkoa y Donostia · JomaPaint': 'Thermolaquage pour le Gipuzkoa et Saint-Sébastien · JomaPaint',
  'Termolacado en Gipuzkoa y Donostia': 'Thermolaquage pour le Gipuzkoa et Saint-Sébastien',
  'Pintura en polvo para Gipuzkoa': 'Peinture en poudre pour les entreprises du Gipuzkoa',
@@ -530,13 +523,7 @@ FR = {'Termolacado en Vitoria-Gasteiz y Álava | JomaPaint': 'Thermolaquage pour
                                                                                                                                                                            'système adapté dans notre '
                                                                                                                                                                            'devis.',
  'Termolacado para Bizkaia y Bilbao | JomaPaint': 'Thermolaquage pour la Biscaye et Bilbao | JomaPaint',
- 'Pintura en polvo al horno para empresas de Bizkaia: Durango a 35 minutos y Bilbao a menos de una hora de Legutio. Presupuesto en 24 h y plazo estándar de una semana.': 'Peinture en poudre cuite au '
-                                                                                                                                                                          'four pour les entreprises '
-                                                                                                                                                                          'de Biscaye : Durango à 35 '
-                                                                                                                                                                          'minutes et Bilbao à moins '
-                                                                                                                                                                          'd’une heure de Legutio. '
-                                                                                                                                                                          'Devis sous 24 h et délai '
-                                                                                                                                                                          'habituel d’une semaine.',
+ 'Pintura en polvo al horno para empresas de Bizkaia: Durango a 35 minutos y Bilbao a menos de una hora de Legutio. Presupuesto en 24 h y plazo estándar de una semana.': 'Peinture poudre cuite au four pour les entreprises de Biscaye : Durango à 35 min, Bilbao à moins d’une heure de Legutio. Devis sous 24 h, délai d’une semaine.',
  'Termolacado para Bizkaia y Bilbao · JomaPaint': 'Thermolaquage pour la Biscaye et Bilbao · JomaPaint',
  'Termolacado para Bizkaia y Bilbao': 'Thermolaquage pour la Biscaye et Bilbao',
  'Pintura en polvo para Bizkaia': 'Peinture en poudre pour les entreprises de Biscaye',

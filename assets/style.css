@@ -595,6 +595,12 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .guide-arrow { position: absolute; right: 20px; top: 22px; transition: transform 160ms; }
 .guide-link:hover .guide-arrow { transform: translateX(3px); }
 .svc-hero-solo { grid-template-columns: minmax(0, 1fr); }
+.legal-hero .svc-h1 { margin: 18px 0 14px; }
+.legal-data { display: grid; gap: 0; margin: 0 0 20px; border-top: 1px solid var(--line, rgba(26,26,26,.14)); }
+.legal-data > div { display: grid; grid-template-columns: minmax(120px, 1fr) 3fr; gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--line, rgba(26,26,26,.14)); }
+.legal-data dt { font-weight: 600; }
+.legal-data dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .legal-data > div { grid-template-columns: 1fr; } }
 .svc-hero-solo .svc-hero-txt { max-width: 68ch; }
 .svc-src-sec { background: var(--paper); border-top: 1px solid var(--line); }
 .svc-src { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 4px 32px; }

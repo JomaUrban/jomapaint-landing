@@ -88,7 +88,7 @@ SERVICES = [
         'eu': {
             'slug': 'piezen-eta-egituren-termolakatzea/',
             'title': 'Pieza eta egitura metalikoen termolakatzea | JomaPaint',
-            'description': 'Altzairuzko, altzairu galbanizatuzko eta aluminiozko piezen eta egituren termolakatzea Legution, Gasteiztik gertu. Poliesterrezko, epoxizko edo epoxi-poliesterrezko hauts-pintura, RAL kolore-karta osoarekin.',
+            'description': 'Altzairuzko, galbanizatuzko eta aluminiozko piezen eta egituren termolakatzea Legution (Araba). Poliesterra, epoxia edo epoxi-poliesterra; RAL karta osoa.',
             'og_title': 'Pieza eta egituren termolakatzea · JomaPaint',
             'name': 'Pieza eta egituren termolakatzea', 'crumb': 'Termolakatzea', 'service_type': 'Termolakatzea (hauts-pintura)',
             'kicker': 'Termolakatzea Legution (Araba), Gasteiztik gertu',
@@ -151,7 +151,7 @@ SERVICES = [
         'fr': {
             'slug': 'thermolaquage-pieces-structures/',
             'title': 'Thermolaquage de pièces et structures métalliques | JomaPaint',
-            'description': 'Thermolaquage à façon de pièces et structures en acier, acier galvanisé et aluminium à Legutio, au Pays basque (Espagne). Poudre polyester, époxy ou hybride, nuancier RAL.',
+            'description': 'Thermolaquage à façon de pièces et structures en acier, acier galvanisé et aluminium à Legutio (Pays basque). Poudre polyester, époxy ou hybride, nuancier RAL.',
             'og_title': 'Thermolaquage de pièces et structures · JomaPaint',
             'name': 'Thermolaquage de pièces et structures', 'crumb': 'Thermolaquage', 'service_type': 'Thermolaquage (peinture poudre)',
             'kicker': 'Thermolaquage à façon à Legutio (Álava, Espagne), au Pays basque',
@@ -341,7 +341,7 @@ SERVICES = [
         'fr': {
             'slug': 'primaire-riche-en-zinc/',
             'title': 'Primaire riche en zinc et thermolaquage C4-H | JomaPaint',
-            'description': 'Primaire riche en zinc sous peinture poudre à Legutio, au Pays basque (Espagne) : une alternative à la galvanisation ou à l’électrozingage pour l’acier. Système C4-H.',
+            'description': 'Primaire riche en zinc sous peinture poudre à Legutio (Pays basque, Espagne) : une alternative à la galvanisation ou à l’électrozingage. Système C4-H.',
             'og_title': 'Primaire riche en zinc · JomaPaint',
             'name': 'Primaire riche en zinc', 'crumb': 'Primaire zinc', 'service_type': 'Primaire riche en zinc',
             'kicker': 'Protection anticorrosion à Legutio (Álava, Espagne), au Pays basque',
@@ -505,7 +505,7 @@ SERVICES = [
         'fr': {
             'slug': 'thermolaquage-profiles-aluminium/',
             'title': 'Thermolaquage de profilés aluminium | JomaPaint',
-            'description': 'Laquage de profilés aluminium en peinture poudre à Legutio, au Pays basque (Espagne) : menuiserie, façade, mobilier et industrie. Tout le nuancier RAL. Devis en 24 h.',
+            'description': 'Laquage de profilés aluminium en peinture poudre à Legutio (Pays basque, Espagne) : menuiserie, façade, mobilier, industrie. Nuancier RAL, devis en 24 h.',
             'og_title': 'Thermolaquage de profilés aluminium · JomaPaint',
             'name': 'Thermolaquage de profilés aluminium', 'crumb': 'Profilés aluminium', 'service_type': 'Laquage aluminium',
             'kicker': 'Laquage aluminium à façon à Legutio (Álava, Espagne), au Pays basque',
@@ -607,7 +607,7 @@ SERVICES = [
         'eu': {
             'slug': 'altzairu-galbanizatuaren-termolakatzea/',
             'title': 'Altzairu galbanizatuaren termolakatzea | JomaPaint',
-            'description': 'Altzairu galbanizatuaren hauts-pinturazko estaldura Legution, Gasteiztik gertu. Poroak eta burbuilak saihesteko prestaketa berezia eta gasgabetzea: zinka eta hauts-pintura uztartzen dituen sistema duplexa.',
+            'description': 'Altzairu galbanizatuaren termolakatzea Legution, Gasteiztik gertu. Prestaketa berezia eta gasgabetzea, poroak eta burbuilak saihesteko: zinka + hauts-pintura.',
             'og_title': 'Altzairu galbanizatuaren termolakatzea · JomaPaint',
             'name': 'Altzairu galbanizatuaren termolakatzea', 'crumb': 'Altzairu galbanizatua', 'service_type': 'Hauts-pintura altzairu galbanizatuan',
             'kicker': 'Hauts-pintura galbanizatuan Legution (Araba), Gasteiztik gertu',
@@ -655,7 +655,7 @@ SERVICES = [
         'fr': {
             'slug': 'thermolaquage-acier-galvanise/',
             'title': 'Thermolaquage sur acier galvanisé | JomaPaint',
-            'description': 'Thermolaquage de l’acier galvanisé à Legutio, près de Vitoria-Gasteiz. Préparation spécifique et dégazage pour prévenir les porosités et les cloques : système duplex zinc et peinture en poudre.',
+            'description': 'Thermolaquage de l’acier galvanisé à Legutio, près de Vitoria-Gasteiz. Préparation et dégazage contre porosités et cloques : système duplex zinc + poudre.',
             'og_title': 'Thermolaquage sur acier galvanisé · JomaPaint',
             'name': 'Thermolaquage sur acier galvanisé', 'crumb': 'Acier galvanisé', 'service_type': 'Thermolaquage sur acier galvanisé',
             'kicker': 'Peinture poudre sur galvanisé à Legutio (Álava, Espagne), au Pays basque',
