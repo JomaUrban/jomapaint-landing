@@ -33,6 +33,25 @@ GAL_TXT = {
 }
 
 
+# Fotos de sector (Unsplash, licencia libre): referencia, no trabajos de JomaPaint
+SEC_AUTOMOCION = ('sector-automocion-800.webp', 'Automoción', 'Automobilgintza')
+SEC_AERONAUTICA = ('sector-aeronautica-800.webp', 'Aeronáutica', 'Aeronautika')
+SEC_CNC = ('sector-cnc-800.webp', 'Máquina-herramienta', 'Makina-erremintak')
+SEC_ESTRUCTURA = ('sector-estructura-800.webp', 'Estructura metálica', 'Egitura metalikoa')
+SEC_SOLDADURA = ('sector-soldadura-800.webp', 'Calderería y cerrajería', 'Galdaragintza eta sarrailagintza')
+SEC_TALLER = ('sector-taller-800.webp', 'Carpintería metálica', 'Arotzeria metalikoa')
+SEC_EOLICA = ('sector-eolica-800.webp', 'Energía y eólica', 'Energia eta eolikoa')
+SEC_AGRICOLA = ('sector-agricola-800.webp', 'Maquinaria agrícola', 'Nekazaritza-makineria')
+GAL_TXT['sector-automocion-800.webp'] = ('Utillaje, bastidores, soportes y protecciones de línea.', 'Tresneria, markoak, euskarriak eta lerro-babesak.')
+GAL_TXT['sector-aeronautica-800.webp'] = ('Utillaje, carros y estructuras de montaje y de hangar.', 'Muntaketa- eta hangar-tresneria, gurdiak eta egiturak.')
+GAL_TXT['sector-cnc-800.webp'] = ('Carenados, puertas, bancadas y armarios de máquina.', 'Makinen karenatuak, ateak, bankadak eta armairuak.')
+GAL_TXT['sector-estructura-800.webp'] = ('Vigas, pórticos, celosías y entreplantas, hasta 6 m de largo.', 'Habeak, portikoak, saretak eta solairuarteak, 6 m-ko luzerara arte.')
+GAL_TXT['sector-soldadura-800.webp'] = ('Conjuntos soldados, barandillas, cierres y tubo.', 'Multzo soldatuak, barandak, itxiturak eta hodiak.')
+GAL_TXT['sector-taller-800.webp'] = ('Perfiles y bastidores de acero y aluminio para cerramientos.', 'Altzairuzko eta aluminiozko profilak eta markoak itxituretarako.')
+GAL_TXT['sector-eolica-800.webp'] = ('Soportes, armarios y estructuras auxiliares que van al exterior.', 'Kanpoan egongo diren euskarriak, armairuak eta egitura osagarriak.')
+GAL_TXT['sector-agricola-800.webp'] = ('Chasis, tolvas, aperos y protecciones a la intemperie.', 'Xasisak, tolbak, lanabesak eta babesak, kanpoan.')
+
+
 def gallery(lang, *photos):
     i = 1 if lang == 'es' else 2
     return [(f[0], f[i], GAL_TXT[f[0]][0 if lang == 'es' else 1]) for f in photos]
@@ -48,8 +67,8 @@ def km(rows):
     return out
 
 
-GAL_CAP = {'es': 'Fotos tipo de las piezas que pintamos. Salvo los buzones de Joma, son imágenes de referencia.',
-           'eu': 'Pintatzen ditugun piezen argazki adierazgarriak. Jomaren postontziak izan ezik, erreferentziazko irudiak dira.'}
+GAL_CAP = {'es': 'Fotos de referencia de los sectores para los que pintamos (Unsplash y archivo de Joma); no muestran trabajos de JomaPaint.',
+           'eu': 'Pintatzen dugun sektoreen erreferentziazko argazkiak (Unsplash eta Jomaren artxiboa); ez dira JomaPaint-en lanak.'}
 
 HOW = {
     'es': [
@@ -112,7 +131,7 @@ ZONES = [
                      ('Maquinaria y bienes de equipo', 'Bancadas, carenados, puertas y armarios de máquina, en el RAL de tu marca y con el brillo que pidas.'),
                      ('Cerrajería y construcción', 'Barandillas, escaleras, cierres, pérgolas y estructuras, en acero o galvanizado, con imprimación rica en zinc si van al exterior.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_LINE, PH_STRUCT, PH_TUBE, PH_SHEET), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_AUTOMOCION, SEC_AERONAUTICA, SEC_CNC, SEC_ESTRUCTURA), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas alavesas', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Estamos en el polígono de Goiain, en Legutio, junto a la N-240 entre Vitoria-Gasteiz y Bilbao. Distancias por carretera desde la planta, aproximadas:'],
                  'data': km([('Vitoria-Gasteiz (Júndiz)', 19, 22), ('Arrasate (Gipuzkoa)', 24, 27), ('Agurain', 34, 28), ('Amurrio', 44, 40), ('Laudio/Llodio', 53, 44)])},
@@ -146,7 +165,7 @@ ZONES = [
                      ('Makineria eta ekipamendu industriala', 'Bankadak, karenatuak, makina-ateak eta -armairuak, zure markaren RAL kolorean eta eskatzen duzun distirarekin.'),
                      ('Sarrailagintza eta eraikuntza', 'Barandak, eskailerak, itxiturak, pergolak eta egiturak, altzairuzkoak nahiz galbanizatuak. Kanpoan jartzeko badira, zinkez aberastutako inprimazioa erabiltzen dugu.'),
                  ]},
-                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_STRUCT, PH_TUBE, PH_SHEET), 'gallery_cap': GAL_CAP['eu']},
+                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', SEC_AUTOMOCION, SEC_AERONAUTICA, SEC_CNC, SEC_ESTRUCTURA), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Arabako enpresekin', 'steps': HOW['eu']},
                 {'h2': 'Zer distantziatara gaude?', 'p': ['Goiaingo industrialdean gaude, Legution, N-240 errepidearen ondoan, Vitoria-Gasteiz eta Bilbo artean. Lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Vitoria-Gasteiz (Jundiz)', 19, 22), ('Arrasate (Gipuzkoa)', 24, 27), ('Agurain', 34, 28), ('Amurrio', 44, 40), ('Laudio', 53, 44)])},
@@ -185,7 +204,7 @@ ZONES = [
                      ('Cerrajería y herrajes', 'Herrajes, soportes, tapas y pequeña pieza en serie, colgados uno a uno en la cadena.'),
                      ('Carpintería metálica y construcción', 'Barandillas, cierres, escaleras y estructuras. Cerca del mar, con imprimación rica en zinc debajo.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_LINE, PH_TUBE, PH_SHEET, PH_STRUCT), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_CNC, SEC_SOLDADURA, SEC_TALLER, SEC_ESTRUCTURA), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas guipuzcoanas', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Distancias por carretera desde la planta de Legutio, aproximadas:'],
                  'data': km([('Arrasate-Mondragón', 24, 27), ('Bergara', 36, 31), ('Eibar', 48, 38), ('Elgoibar', 50, 39), ('Beasain', 59, 48), ('Tolosa', 74, 58), ('Donostia-San Sebastián', 95, 70), ('Irun', 112, 81)])},
@@ -219,7 +238,7 @@ ZONES = [
                      ('Sarrailagintza eta burdineria', 'Burdineria, euskarriak, tapak eta seriezko pieza txikiak, katean banan-banan zintzilikatuta.'),
                      ('Arotzeria metalikoa eta eraikuntza', 'Barandak, itxiturak, eskailerak eta egiturak. Itsasotik gertu, azpian zinkez aberastutako inprimazioarekin.'),
                  ]},
-                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_TUBE, PH_SHEET, PH_STRUCT), 'gallery_cap': GAL_CAP['eu']},
+                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', SEC_CNC, SEC_SOLDADURA, SEC_TALLER, SEC_ESTRUCTURA), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Gipuzkoako enpresekin', 'steps': HOW['eu']},
                 {'h2': 'Zer distantziatara gaude?', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Arrasate', 24, 27), ('Bergara', 36, 31), ('Eibar', 48, 38), ('Elgoibar', 50, 39), ('Beasain', 59, 48), ('Tolosa', 74, 58), ('Donostia', 95, 70), ('Irun', 112, 81)])},
@@ -258,7 +277,7 @@ ZONES = [
                      ('Energía y bienes de equipo', 'Soportes, carenados, cuadros, armarios y estructuras auxiliares para eólica, eléctrica y maquinaria.'),
                      ('Carpintería metálica y construcción', 'Barandillas, cierres, celosías y escaleras en acero, galvanizado o aluminio.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_LINE, PH_TUBE, PH_ALU, PH_STRUCT), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_ESTRUCTURA, SEC_EOLICA, SEC_SOLDADURA, SEC_TALLER), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas vizcaínas', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Distancias por carretera desde la planta de Legutio, aproximadas:'],
                  'data': km([('Durango', 33, 35), ('Ermua', 52, 41), ('Zamudio', 58, 55), ('Basauri', 64, 52), ('Bilbao', 67, 53), ('Barakaldo', 73, 59)])},
@@ -292,7 +311,7 @@ ZONES = [
                      ('Energia eta ekipamendu industriala', 'Euskarriak, karenatuak, koadroak, armairuak eta egitura osagarriak, eolikorako, elektrizitaterako eta makineriarako.'),
                      ('Arotzeria metalikoa eta eraikuntza', 'Barandak, itxiturak, sareta-hesiak eta eskailerak, altzairuzkoak, galbanizatuak edo aluminiozkoak.'),
                  ]},
-                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', PH_LINE, PH_TUBE, PH_ALU, PH_STRUCT), 'gallery_cap': GAL_CAP['eu']},
+                {'h2': 'Argazki adierazgarriak', 'gallery': gallery('eu', SEC_ESTRUCTURA, SEC_EOLICA, SEC_SOLDADURA, SEC_TALLER), 'gallery_cap': GAL_CAP['eu']},
                 {'h2': 'Nola lan egiten dugun Bizkaiko enpresekin', 'steps': HOW['eu']},
                 {'h2': 'Zer distantziatara gaude?', 'p': ['Legutioko lantegitik errepidez dauden gutxi gorabeherako distantziak:'],
                  'data': km([('Durango', 33, 35), ('Ermua', 52, 41), ('Zamudio', 58, 55), ('Basauri', 64, 52), ('Bilbo', 67, 53), ('Barakaldo', 73, 59)])},
@@ -331,7 +350,7 @@ ZONES = [
                      ('Maquinaria agrícola y agroalimentaria', 'Chasis, tolvas, protecciones y carenados que van a la intemperie, con poliéster de exterior o con imprimación rica en zinc.'),
                      ('Cerrajería y construcción', 'Barandillas, cierres, naves y estructuras en acero o galvanizado.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_LINE, PH_SHEET, PH_TUBE, PH_STRUCT), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_AUTOMOCION, SEC_AGRICOLA, SEC_SOLDADURA, SEC_ESTRUCTURA), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas burgalesas', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Distancias por carretera desde la planta de Legutio, aproximadas:'],
                  'data': km([('Miranda de Ebro', 47, 38), ('Briviesca', 87, 64), ('Medina de Pomar', 110, 103), ('Burgos', 129, 92)])},
@@ -370,7 +389,7 @@ ZONES = [
                      ('Renovables y bienes de equipo', 'Soportes, armarios, carenados y estructuras auxiliares que van al exterior, con el sistema adecuado al ambiente.'),
                      ('Maquinaria agrícola y metal', 'Chasis, protecciones, piezas de máquina, barandillas y estructuras en acero o galvanizado.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_LINE, PH_STRUCT, PH_SHEET, PH_TUBE), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_AUTOMOCION, SEC_EOLICA, SEC_AGRICOLA, SEC_SOLDADURA), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas navarras', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Distancias por carretera desde la planta de Legutio, aproximadas:'],
                  'data': km([('Altsasu/Alsasua', 54, 40), ('Lizarra/Estella', 93, 78), ('Pamplona/Iruña', 103, 75), ('Tudela', 196, 133)])},
@@ -409,7 +428,7 @@ ZONES = [
                      ('Carpintería metálica y construcción', 'Perfiles y chapa de aluminio, barandillas, cierres y pérgolas en acero o galvanizado.'),
                      ('Mueble y mobiliario', 'Estructuras de mesas, sillas y estanterías, en el RAL y el acabado que pidas: mate, satinado o texturado.'),
                  ]},
-                {'h2': 'Fotos tipo', 'gallery': gallery('es', PH_ALU, PH_SHEET, PH_LINE, PH_TUBE), 'gallery_cap': GAL_CAP['es']},
+                {'h2': 'Fotos tipo', 'gallery': gallery('es', SEC_AGRICOLA, SEC_TALLER, SEC_ESTRUCTURA, PH_SHEET), 'gallery_cap': GAL_CAP['es']},
                 {'h2': 'Cómo trabajamos con empresas riojanas', 'steps': HOW['es']},
                 {'h2': 'A qué distancia estamos', 'p': ['Distancias por carretera desde la planta de Legutio, aproximadas:'],
                  'data': km([('Haro', 57, 44), ('Santo Domingo de la Calzada', 77, 61), ('Logroño', 105, 75), ('Calahorra', 149, 101), ('Arnedo', 154, 108)])},
