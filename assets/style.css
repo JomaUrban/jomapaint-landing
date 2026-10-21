@@ -14,9 +14,9 @@
   --line: rgba(26, 26, 26, 0.14);
   --line-dark: rgba(250, 249, 246, 0.14);
   --brand: #E1231D;    /* rojo Joma: marca (logotipo, sellos, detalles). Nunca en botones */
-  --acc: #0E7A4A;      /* acción (verde por defecto) */
-  --acc-fg: #FFFFFF;
-  --ok: #0E7A4A;       /* hitos completados */
+  --acc: #FBBA00;      /* acción: amarillo RAL 1023 (botones, iconos de acción), siempre con texto negro */
+  --acc-fg: #1A1A1A;
+  --ok: #0E7A4A;       /* estado «hecho/sí» (verde semántico, no es el color de acción) */
   --note: #D6E4FF;     /* anotación: dato pendiente (solo maqueta) */
   --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --pad-x: clamp(20px, 5cqi, 80px);
@@ -347,7 +347,7 @@ select.input { padding: 0 10px; }
 .logo-item { filter: grayscale(1); opacity: .62; transition: filter 200ms, opacity 200ms; }
 .logo-item:hover { filter: none; opacity: 1; }
 .logo-set a { display: block; color: inherit; text-decoration: none; }
-.logo-set a:focus-visible { outline: 2px solid var(--acc); outline-offset: 6px; }
+.logo-set a:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
 .logo-txt a:hover { color: #1A1A1A; }
 .logo-txt { font-weight: 700; font-stretch: 110%; letter-spacing: 0.02em; color: #6B6A66; white-space: nowrap; }
 
