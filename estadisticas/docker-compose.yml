@@ -1,0 +1,70 @@
+# Estadísticas web del grupo (Umami) — https://estadisticas.joma.es
+# Mismo VPS y mismo Traefik que paint.joma.es (red Docker externa `edge`).
+# Un solo panel para todas las webs: JomaPaint, Joma Urban, Normo y Joma.
+# Sin cookies: las webs no necesitan banner por esto.
+#
+# Dos entradas:
+#  - Panel: Host(${PANEL_HOST}). PANEL_HOST solo se escribe en .env cuando existe el
+#    secret UMAMI_ADMIN_PASSWORD (así el panel nunca queda abierto con la clave de fábrica).
+#  - Contador para paint.joma.es: paint.joma.es/estadisticas/script.js y /api/send,
+#    mismo dominio que la web, sin depender del DNS de estadisticas.joma.es.
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:3.4.1
+    restart: unless-stopped
+    init: true
+    environment:
+      DATABASE_URL: postgresql://umami:${POSTGRES_PASSWORD}@db:5432/umami
+      APP_SECRET: ${APP_SECRET}
+      DISABLE_TELEMETRY: "1"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - default
+      - edge
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:3000/api/heartbeat || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: edge
+      traefik.http.services.estadisticas.loadbalancer.server.port: "3000"
+      # Panel
+      traefik.http.routers.estadisticas.rule: Host(`${PANEL_HOST:-panel-desactivado.invalid}`)
+      traefik.http.routers.estadisticas.entrypoints: websecure
+      traefik.http.routers.estadisticas.tls.certresolver: letsencrypt
+      traefik.http.routers.estadisticas.service: estadisticas
+      # Contador en paint.joma.es (solo el script y el envío de visitas)
+      traefik.http.routers.estadisticas-paint.rule: Host(`paint.joma.es`) && (Path(`/estadisticas/script.js`) || Path(`/estadisticas/api/send`))
+      traefik.http.routers.estadisticas-paint.entrypoints: websecure
+      traefik.http.routers.estadisticas-paint.tls.certresolver: letsencrypt
+      traefik.http.routers.estadisticas-paint.tls.domains[0].main: paint.joma.es
+      traefik.http.routers.estadisticas-paint.middlewares: estadisticas-strip
+      traefik.http.routers.estadisticas-paint.service: estadisticas
+      traefik.http.middlewares.estadisticas-strip.stripprefix.prefixes: /estadisticas
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  db:
+
+networks:
+  edge:
+    external: true

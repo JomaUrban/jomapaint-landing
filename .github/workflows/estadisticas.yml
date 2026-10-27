@@ -1,0 +1,113 @@
+# Despliegue de Umami (estadisticas.joma.es) en el VPS de Joma cuando cambia estadisticas/.
+# Vive en este repo porque usa su secret VPS_SSH_KEY. Instrucciones: estadisticas/INSTALAR-EN-UNA-WEB.md
+# Secrets (Settings → Secrets and variables → Actions, del repo o de la organización):
+#  - VPS_SSH_KEY: el mismo que usa jomapaint-landing.
+#  - UMAMI_ADMIN_PASSWORD (opcional): contraseña del usuario admin del panel.
+#    Sin él, el panel no se publica (solo funciona el contador de visitas).
+# Variables opcionales: PANEL_HOST (por defecto estadisticas.joma.es), VPS_HOST, VPS_USER, VPS_PATH.
+name: Estadísticas (Umami)
+
+on:
+  push:
+    branches: [main]
+    paths: ['estadisticas/**', '.github/workflows/estadisticas.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: estadisticas
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
+      VPS_USER: ${{ vars.VPS_USER || 'root' }}
+      VPS_PATH: ${{ vars.VPS_PATH || '/opt/estadisticas' }}
+      PANEL_HOST: ${{ vars.PANEL_HOST || 'estadisticas.joma.es' }}
+      DEPLOY_KEY: ${{ secrets.VPS_SSH_KEY }}
+      ADMIN_PASSWORD: ${{ secrets.UMAMI_ADMIN_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Configurar SSH
+        run: |
+          if [ -z "$DEPLOY_KEY" ]; then
+            echo "::error::Falta el secret VPS_SSH_KEY (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          for i in 1 2 3 4 5; do
+            ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+            grep -q . ~/.ssh/known_hosts && break
+            sleep $((i * 5))
+          done
+          cat > ~/.ssh/config <<SSHCFG
+          Host deploy-target
+            HostName $VPS_HOST
+            User $VPS_USER
+            IdentityFile ~/.ssh/id_deploy
+            IdentitiesOnly yes
+            ControlMaster auto
+            ControlPath ~/.ssh/cm-%C
+            ControlPersist 5m
+            ConnectTimeout 20
+          SSHCFG
+          for i in 1 2 3 4 5; do ssh deploy-target true && exit 0; sleep $((i * 5)); done
+          exit 1
+
+      - name: Sincronizar y preparar .env
+        run: |
+          ssh deploy-target "mkdir -p '$VPS_PATH/backups'"
+          rsync -az --delete --exclude .env --exclude backups -e ssh ./estadisticas/ "deploy-target:$VPS_PATH/"
+          # Claves generadas en el propio servidor la primera vez; nunca pasan por GitHub.
+          ssh deploy-target "cd '$VPS_PATH' && umask 077 && touch .env && \
+            (grep -q '^APP_SECRET=' .env || echo \"APP_SECRET=\$(openssl rand -hex 32)\" >> .env) && \
+            (grep -q '^POSTGRES_PASSWORD=' .env || echo \"POSTGRES_PASSWORD=\$(openssl rand -hex 24)\" >> .env) && \
+            sed -i '/^PANEL_HOST=/d' .env"
+          # El panel solo se publica si hay contraseña propia para admin.
+          if [ -n "$ADMIN_PASSWORD" ]; then
+            ssh deploy-target "echo 'PANEL_HOST=$PANEL_HOST' >> '$VPS_PATH/.env'"
+          else
+            echo "::warning::Sin UMAMI_ADMIN_PASSWORD: el panel no se publica; el contador sí funciona."
+          fi
+
+      - name: Arrancar
+        run: |
+          ssh deploy-target "cd '$VPS_PATH' && docker compose pull -q && docker compose up -d && docker compose ps"
+          # Umami crea las tablas al arrancar; esperar a que responda.
+          ssh deploy-target "cd '$VPS_PATH' && for i in \$(seq 1 40); do docker compose exec -T umami curl -fsS http://localhost:3000/api/heartbeat >/dev/null 2>&1 && echo listo && exit 0; sleep 5; done; docker compose logs --tail 40 umami; exit 1"
+
+      - name: Dar de alta las webs
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T db psql -U umami -d umami -v ON_ERROR_STOP=1 -q" < estadisticas/seed.sql
+
+      - name: Contraseña del panel
+        if: env.ADMIN_PASSWORD != ''
+        run: |
+          # bcrypt con pgcrypto ($2a$, compatible con Umami). La contraseña va por stdin, no por argumentos.
+          {
+            echo "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
+            printf 'UPDATE "user" SET password = crypt($pw$%s$pw$, gen_salt('"'"'bf'"'"', 10)) WHERE username = '"'"'admin'"'"';\n' "$ADMIN_PASSWORD"
+          } | ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T db psql -U umami -d umami -v ON_ERROR_STOP=1 -q"
+
+      - name: Copia de seguridad diaria
+        run: |
+          ssh deploy-target "cat > /etc/cron.d/estadisticas-backup <<'CRON'
+          # Copia diaria de Umami (7 días, una por día de la semana)
+          30 3 * * * root cd $VPS_PATH && docker compose exec -T db pg_dump -U umami umami | gzip > backups/umami-\$(date +\%u).sql.gz
+          CRON
+          chmod 644 /etc/cron.d/estadisticas-backup"
+
+      - name: Comprobar el contador en paint.joma.es
+        run: |
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' https://paint.joma.es/estadisticas/script.js)
+            echo "script.js: $code"; [ "$code" = 200 ] && exit 0; sleep 5
+          done
+          exit 1
+
+      - name: Cerrar la conexión
+        if: always()
+        run: ssh -O exit deploy-target 2>/dev/null || true
