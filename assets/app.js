@@ -528,7 +528,7 @@
         fetch(JP.api, { method: 'POST', body: fd, signal: ctl ? ctl.signal : undefined })
           .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || r.status); }); })
           .then(function () { clearTimeout(timer); location.href = fields._next; })
-          .catch(function () { clearTimeout(timer); showFallback(); });
+          .catch(function () { clearTimeout(timer); if (window.umami) window.umami.track('solicitud-error'); showFallback(); });
         return;
       }
       document.body.appendChild(f);
@@ -538,7 +538,7 @@
     };
     try {
       var sent = new URLSearchParams(location.search).get('enviado');
-      if (sent && /^JP-[\d-]+$/.test(sent)) { q.code = sent; q.step = 4; history.replaceState(null, '', location.pathname + '#presupuesto'); setTimeout(function () { scrollToId('presupuesto'); }, 60); }
+      if (sent && /^JP-[\d-]+$/.test(sent)) { (function t(n) { if (window.umami && window.umami.track) window.umami.track('solicitud-enviada'); else if (n < 30) setTimeout(function () { t(n + 1); }, 300); })(0); q.code = sent; q.step = 4; history.replaceState(null, '', location.pathname + '#presupuesto'); setTimeout(function () { scrollToId('presupuesto'); }, 60); }
     } catch (e) {}
     main.addEventListener('click', handle); aside.addEventListener('click', handle); stepsEl.addEventListener('click', handle);
     main.addEventListener('change', function (e) {
