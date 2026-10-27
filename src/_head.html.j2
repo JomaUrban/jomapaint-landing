@@ -26,4 +26,6 @@
 <link rel="preload" href="{{ root }}assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 {% if M.preload_img %}<link rel="preload" as="image" href="{{ M.preload_img.src }}" imagesrcset="{{ M.preload_img.srcset }}" imagesizes="{{ M.preload_img.sizes }}" fetchpriority="high">
 {% endif %}<link rel="stylesheet" href="{{ root }}assets/style.css">
+<script defer src="https://paint.joma.es/estadisticas/script.js" data-website-id="a3a6b5ee-66b7-4893-a295-2e6e9fe188b4" data-host-url="https://paint.joma.es/estadisticas" data-domains="paint.joma.es"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="mailto:"]');if(a&&window.umami)umami.track(a.getAttribute('href').indexOf('tel:')===0?'clic-telefono':'clic-email');});</script>
 <script type="application/ld+json">{{ jsonld }}</script>
