@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laser cutting kerf: what it is, when to offset | Cortelaser</title>
+<meta name="description" content="What kerf (laser cut width) is, what values the industry publishes for fibre lasers and why you don't need to compensate for it in your drawing.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/">
+<link rel="alternate" hreflang="es" href="https://paint.joma.es/cortelaser/guias/kerf-ancho-corte-laser/">
+<link rel="alternate" hreflang="eu" href="https://paint.joma.es/cortelaser/eu/gidak/kerf-laser-ebaketa-zabalera/">
+<link rel="alternate" hreflang="en" href="https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/">
+<link rel="alternate" hreflang="fr" href="https://paint.joma.es/cortelaser/fr/guides/saignee-kerf-decoupe-laser/">
+<link rel="alternate" hreflang="x-default" href="https://paint.joma.es/cortelaser/guias/kerf-ancho-corte-laser/">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cortelaser">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="eu_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:title" content="Laser cutting kerf: what it is, when to offset | Cortelaser">
+<meta property="og:description" content="What kerf (laser cut width) is, what values the industry publishes for fibre lasers and why you don't need to compensate for it in your drawing.">
+<meta property="og:url" content="https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/">
+<meta property="og:image" content="https://paint.joma.es/cortelaser/assets/og/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Laser cutting sheet metal with sparks, Cortelaser">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../../favicon.ico" sizes="48x48">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="preload" href="../../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/css/site.css?v=0ed948ae">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://paint.joma.es/cortelaser/#joma","name":"Joma","legalName":"José María Gallastegui y Cía., S.A.","taxID":"A20029674","url":"https://www.joma.es","foundingDate":"1942","telephone":"+34945318770","department":{"@id":"https://paint.joma.es/cortelaser/#cortelaser"}},{"@type":"LocalBusiness","@id":"https://paint.joma.es/cortelaser/#cortelaser","name":"Cortelaser","description":"Upload your DXF or STEP and get a price within 24 working hours. Fibre laser cutting of sheet up to 6 mm: steel, galvanised, stainless and aluminium. Spain.","url":"https://paint.joma.es/cortelaser/","image":"https://paint.joma.es/cortelaser/assets/img/hero-laser-1200.webp","logo":"https://paint.joma.es/cortelaser/assets/icon-512.png","address":{"@type":"PostalAddress","streetAddress":"C/ San Bartolomé 11, Pol. Ind. Goiain","addressLocality":"Legutio","addressRegion":"Álava","postalCode":"01170","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":42.9432494,"longitude":-2.6490071},"parentOrganization":{"@id":"https://paint.joma.es/cortelaser/#joma"},"knowsLanguage":["es","eu","en","fr"],"areaServed":[{"@type":"AdministrativeArea","name":"Araba/Álava"},{"@type":"AdministrativeArea","name":"Bizkaia"},{"@type":"AdministrativeArea","name":"Gipuzkoa"},{"@type":"AdministrativeArea","name":"Navarre"},{"@type":"AdministrativeArea","name":"La Rioja"},{"@type":"AdministrativeArea","name":"Burgos"},{"@type":"AdministrativeArea","name":"Cantabria"},{"@type":"AdministrativeArea","name":"Pyrénées-Atlantiques"},{"@type":"AdministrativeArea","name":"Landes"},{"@type":"AdministrativeArea","name":"Gironde"},{"@type":"AdministrativeArea","name":"Spain"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cortelaser","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sheet metal laser cutting","url":"https://paint.joma.es/cortelaser/en/laser-cutting-sheet-metal/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Laser-cut sheet metal cut to size","url":"https://paint.joma.es/cortelaser/en/sheet-metal-cut-to-size/"}}]},"telephone":"+34945318770","email":"i.rodriguez@joma.es"},{"@type":"WebSite","@id":"https://paint.joma.es/cortelaser/#website","name":"Cortelaser","url":"https://paint.joma.es/cortelaser/","inLanguage":["es","eu","en","fr"],"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"}},{"@type":"WebPage","@id":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/","url":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/","inLanguage":"en","name":"Laser cutting kerf: what it is, when to offset | Cortelaser","description":"What kerf (laser cut width) is, what values the industry publishes for fibre lasers and why you don't need to compensate for it in your drawing.","isPartOf":{"@id":"https://paint.joma.es/cortelaser/#website"},"breadcrumb":{"@id":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/#ruta"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://paint.joma.es/cortelaser/assets/img/laser-cabezal-1200.webp"},"mainEntity":{"@id":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/#articulo"}},{"@type":"TechArticle","@id":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/#articulo","headline":"Laser cutting kerf: what it is and whether you should compensate for it","description":"What kerf (laser cut width) is, what values the industry publishes for fibre lasers and why you don't need to compensate for it in your drawing.","inLanguage":"en","url":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/","author":{"@id":"https://paint.joma.es/cortelaser/#joma"},"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"},"dateModified":"28 October 2026","image":"https://paint.joma.es/cortelaser/assets/img/laser-cabezal-1200.webp"},{"@type":"BreadcrumbList","@id":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/#ruta","itemListElement":[{"@type":"ListItem","position":1,"name":"Cortelaser","item":"https://paint.joma.es/cortelaser/en/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://paint.joma.es/cortelaser/en/guides/"},{"@type":"ListItem","position":3,"name":"Kerf","item":"https://paint.joma.es/cortelaser/en/guides/laser-cutting-kerf-width/"}]},{"@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"How wide is the kerf on your machines?","acceptedAnswer":{"@type":"Answer","text":"We don't publish our own figure: it depends on the material, the thickness and the parameters. We compensate for it in the cutting program."}},{"@type":"Question","name":"Should I draw the part larger to compensate for the cut?","acceptedAnswer":{"@type":"Answer","text":"No. Draw the nominal size; the offset is applied by the cutting program."}},{"@type":"Question","name":"Does kerf affect the tolerance?","acceptedAnswer":{"@type":"Answer","text":"Kerf compensation is part of the process; the final deviation is governed by the cutting tolerance, not by the kerf."}},{"@type":"Question","name":"Is the kerf the same all round the outline?","acceptedAnswer":{"@type":"Answer","text":"Not always. According to SendCutSend, it changes with geometry, assist gas and power, as well as with material. The cutting program takes those variables into account."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Skip to content</a>
+<div class="page">
+<div class="svc-top">
+  <header class="topbar">
+    <a href="../../../en/" class="lockup cl-lockup" style="--h:34px; color:#FAF9F6;" aria-label="Cortelaser · Home"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></a>
+    <nav aria-label="Main" class="mainnav">
+<a href="../../../en/#servicios">Services</a>
+<a href="../../../en/#proceso">Process</a>
+<a href="../../../en/#materiales">Materials</a>
+<a href="../../../en/guides/">Guides</a>
+<a href="../../../en/#presupuesto">Quote</a>
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="Language" class="langs">
+<a href="../../../guias/kerf-ancho-corte-laser/" hreflang="es" lang="es" title="Español">ES</a><a href="../../../eu/gidak/kerf-laser-ebaketa-zabalera/" hreflang="eu" lang="eu" title="Euskara">EU</a><a href="../../../en/guides/laser-cutting-kerf-width/" hreflang="en" lang="en" title="English" aria-current="page">EN</a><a href="../../../fr/guides/saignee-kerf-decoupe-laser/" hreflang="fr" lang="fr" title="Français">FR</a>      </nav>
+      <a href="../../../en/#presupuesto" class="btn btn-acc btn-sm">Get a quote</a>
+    </div>
+  </header></div>
+
+<main id="contenido">
+<section class="svc-hero" aria-labelledby="h1">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../../en/">Home</a></li>
+<li><a href="../../../en/guides/">Guides</a></li>
+          <li><span aria-current="page">Kerf</span></li>
+        </ol>
+      </nav>
+      <div class="svc-hero-grid">
+        <div class="svc-hero-txt">
+<p class="svc-kicker">Guide · Design</p>          <h1 id="h1" class="svc-h1">Laser cutting kerf: what it is and whether you should compensate for it</h1>
+<p class="hero-lead">Kerf in laser cutting is the strip of material the beam melts and blows away. It is small, but it exists, and it affects fits, inside corners and the finest details. The important thing for you: draw to nominal size.</p><div class="row-btns">
+            <a href="../../../en/#presupuesto" class="btn btn-acc btn-lg">Request a quote</a>
+<a href="../../../en/guides/" class="btn btn-ghost btn-lg">All guides</a>
+          </div>        </div>
+<figure class="svc-fig"><picture><source type="image/avif" srcset="../../../assets/img/laser-cabezal-480.avif 480w, ../../../assets/img/laser-cabezal-800.avif 800w, ../../../assets/img/laser-cabezal-1200.avif 1200w, ../../../assets/img/laser-cabezal-1920.avif 1920w" sizes="(min-width: 900px) 46vw, 100vw"><img src="../../../assets/img/laser-cabezal-800.webp" srcset="../../../assets/img/laser-cabezal-480.webp 480w, ../../../assets/img/laser-cabezal-800.webp 800w, ../../../assets/img/laser-cabezal-1200.webp 1200w, ../../../assets/img/laser-cabezal-1920.webp 1920w" sizes="(min-width: 900px) 46vw, 100vw" width="1200" height="800" alt="Laser cutting head cutting a sheet on a slat bed, with sparks" fetchpriority="high"></picture><figcaption>Photo: Cemrecan Yurtman / Unsplash.</figcaption></figure>      </div>
+    </div>
+  </div>
+</section>
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    <section class="svc-row" id="que-es" aria-labelledby="h-que-es">
+  <h2 id="h-que-es" class="svc-h2">What is kerf in laser cutting?</h2>
+  <div class="svc-body">
+    <p>Kerf, or cut width, is the width of the slot the cut leaves behind. In laser cutting, the beam melts the metal and the assist gas blows it out under the sheet. That material disappears.</p>
+<p>If the machine followed your line exactly, the part would come out smaller than drawn, by half a kerf on each side, and the holes larger. That is why the cutting program offsets the path.</p>
+<p>A narrow kerf is one of the advantages of laser: it removes little material and, according to Fractory, limits the heat-affected zone. That is why laser allows finer details than plasma or oxy-fuel in thin sheet.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="ancho" aria-labelledby="h-ancho">
+  <h2 id="h-ancho" class="svc-h2">How wide is the kerf of a fibre laser?</h2>
+  <div class="svc-body">
+    <p>There is no single figure. These are the values published by several industry sources:</p>
+<div class="svc-table-wrap" role="region" aria-label="Laser cut width according to different sources" tabindex="0"><table class="svc-table cl-table tnum">
+<caption class="sr">Laser cut width according to different sources</caption>    <thead><tr><th scope="col">Source</th><th scope="col">What it says</th><th scope="col">Context</th></tr></thead>
+    <tbody><tr><th scope="row">Fabcon</th><td>0.1–0.4 mm</td><td>Depending on thickness</td></tr><tr><th scope="row">Durma (machine manufacturer)</th><td>0.10–0.25 mm in 0.5–3 mm steel or stainless; 0.25–0.50 mm in 4–12 mm carbon steel</td><td>Reference ranges for fibre</td></tr><tr><th scope="row">SendCutSend</th><td>0.15–1 mm</td><td>Fibre laser, depending on thickness</td></tr><tr><th scope="row">Fractory</th><td>Around 0.3 mm</td><td>Indicative value for laser</td></tr><tr><th scope="row">Fractory (service page)</th><td>Under 0.5 mm</td><td>For most materials</td></tr></tbody>
+  </table></div>
+<p class="svc-note">These are general industry rules, not measurements of our machines. The sources agree on the order of magnitude (tenths of a millimetre) and that it grows with thickness; they differ at the top end because SendCutSend includes thick plate.</p><p>We cut sheet up to 6 mm. In that range, all the sources talk about tenths of a millimetre.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="factores" aria-labelledby="h-factores">
+  <h2 id="h-factores" class="svc-h2">What does the cut width depend on?</h2>
+  <div class="svc-body">
+    <ul class="svc-list"><li><strong>Thickness.</strong> More thickness, more kerf. It is the variable every source mentions.</li><li><strong>Material and alloy.</strong> Each material melts and is blown out differently.</li><li><strong>Optics and focus.</strong> The beam width depends on the focal length of the lens.</li><li><strong>Power and assist gas.</strong> They change the melt pool and how it is expelled.</li><li><strong>Geometry.</strong> SendCutSend points out that the kerf also changes with the shape being cut.</li></ul>
+<p>That is why the kerf is set by whoever programs the machine, with their cutting parameters for each material and thickness. The assist gas, for example, also changes the edge: we look at it in <a href="../../../en/guides/nitrogen-vs-oxygen-laser-cutting/">nitrogen or oxygen</a>.</p>
+<p>For you, the practical consequence is this: there is no number you can subtract in your drawing that works in every case. Durma puts it this way: don't add or subtract a fixed figure on every line.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="compensar" aria-labelledby="h-compensar">
+  <h2 id="h-compensar" class="svc-h2">Do you have to compensate for kerf in your drawing?</h2>
+  <div class="svc-body">
+    <p>No. Draw the part to its nominal size. The cutting program (CAM) offsets the path by roughly half a kerf: outwards on the outer outline and inwards on holes and slots.</p>
+<p>If you compensate for it as well, it is compensated twice: the part comes out large and the holes small. Press brake and laser manufacturer Durma sums it up like this: if the cutter already applies the offset on the machine, don't compensate in CAD as well.</p>
+<p class="cl-call"><strong>In practice</strong> If a dimension is critical (a fit, a shaft, a bearing), state it in the notes or on a PDF. We review the file and confirm what we can guarantee on that dimension.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="encajes" aria-labelledby="h-encajes">
+  <h2 id="h-encajes" class="svc-h2">Kerf and parts that have to fit together</h2>
+  <div class="svc-body">
+    <p>In a slot that takes a tab, or in two parts that fit together, the kerf is already compensated. What you have to draw is the clearance you want between them, in nominal dimensions. We explain it in <a href="../../../en/guides/tab-and-slot-sheet-metal-design/">tab and slot design</a>.</p>
+<p>Also bear in mind the cutting tolerance, which adds to the clearance. You will find it in <a href="../../../en/guides/laser-cutting-tolerances-iso-2768-iso-9013/">laser cutting tolerances</a>.</p>
+<p>Common-line cutting is a separate case: two parts sharing the same line. SendCutSend does not accept it and explains that, between such parts, the real gap ends up between 0.15 and 0.30 mm depending on the material. If you design parts that touch, separate them into different files.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="detalles" aria-labelledby="h-detalles">
+  <h2 id="h-detalles" class="svc-h2">Kerf, inside corners and small details</h2>
+  <div class="svc-body">
+    <p>There are no perfectly sharp inside corners: the minimum radius is of the order of the cut width, according to SendCutSend. If another part has to fit into that corner, leave a small relief.</p>
+<p>Details narrower than the kerf disappear. In practice, the limit is set not by the kerf but by heat: holes, slots and bridges have larger minimums, which depend on thickness. You will find them in <a href="../../../en/guides/minimum-hole-size-laser-cutting/">minimum hole, slot and bridge</a>.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="procesos" aria-labelledby="h-procesos">
+  <h2 id="h-procesos" class="svc-h2">Laser kerf compared with other processes</h2>
+  <div class="svc-body">
+    <div class="svc-table-wrap" role="region" aria-label="Indicative cut width by process (Fractory)" tabindex="0"><table class="svc-table cl-table tnum">
+<caption class="sr">Indicative cut width by process (Fractory)</caption>    <thead><tr><th scope="col">Process</th><th scope="col">Indicative kerf</th></tr></thead>
+    <tbody><tr><th scope="row">Laser</th><td>≈ 0.3 mm</td></tr><tr><th scope="row">Waterjet</th><td>≈ 0.9 mm</td></tr><tr><th scope="row">Oxy-fuel</th><td>≈ 1.1 mm</td></tr><tr><th scope="row">Plasma</th><td>3.8 mm</td></tr></tbody>
+  </table></div>
+<p class="svc-note">Source: Fractory. In plasma and oxy-fuel the kerf grows a lot with thickness. We compare the processes in <a href="../../../en/guides/laser-plasma-waterjet-punching/">laser, plasma, waterjet or punching</a>.</p><p class="cl-call">Draw to nominal size and <a href="../../../en/#presupuesto">upload your file</a>: we take care of the kerf.</p>
+
+  </div>
+</section>
+
+  </div>
+</div>
+
+<section aria-labelledby="h-faq" class="section svc-faq-sec" id="preguntas">
+  <div class="wrap svc-faq">
+    <h2 id="h-faq" class="svc-h2">Frequently asked questions</h2>
+    <div class="faq">
+<details><summary><span>How wide is the kerf on your machines?</span><span class="plus" aria-hidden="true">+</span></summary><p>We don't publish our own figure: it depends on the material, the thickness and the parameters. We compensate for it in the cutting program.</p></details>
+<details><summary><span>Should I draw the part larger to compensate for the cut?</span><span class="plus" aria-hidden="true">+</span></summary><p>No. Draw the nominal size; the offset is applied by the cutting program.</p></details>
+<details><summary><span>Does kerf affect the tolerance?</span><span class="plus" aria-hidden="true">+</span></summary><p>Kerf compensation is part of the process; the final deviation is governed by the cutting tolerance, not by the kerf.</p></details>
+<details><summary><span>Is the kerf the same all round the outline?</span><span class="plus" aria-hidden="true">+</span></summary><p>Not always. According to SendCutSend, it changes with geometry, assist gas and power, as well as with material. The cutting program takes those variables into account.</p></details>
+    </div>
+  </div>
+</section>
+<section aria-labelledby="h-src" class="section svc-src-sec" id="fuentes">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">Sources</h2>
+    <div>
+      <ul class="svc-src">
+<li><a href="https://fabcon.com/articles/?p=544" rel="noopener" target="_blank">Fabcon · Laser cutting tolerances by feature</a></li>
+<li><a href="https://www.durmapress.com/laser-cutting-kerf/" rel="noopener" target="_blank">Durma · What laser cutting kerf is</a></li>
+<li><a href="https://sendcutsend.com/what-is-kerf-in-laser-cutting/" rel="noopener" target="_blank">SendCutSend · What is kerf in laser cutting</a></li>
+<li><a href="https://sendcutsend.com/guidelines/laser-cutting/" rel="noopener" target="_blank">SendCutSend · Laser cutting guidelines</a></li>
+<li><a href="https://fractory.com/what-is-cutting-kerf/" rel="noopener" target="_blank">Fractory · What is cutting kerf: process comparison</a></li>
+<li><a href="https://fractory.com/es/corte-laser/" rel="noopener" target="_blank">Fractory · Sheet metal laser cutting (Spanish)</a></li>
+      </ul>
+<p class="svc-note">Updated: 28 October 2026</p>    </div>
+  </div>
+</section>
+</main>
+
+<section aria-label="Let's talk about your parts." class="dark group svc-end">
+  <div class="wrap group-in">
+<div class="svc-rel">
+      <h2 id="h-rel" class="h3">Keep reading</h2>
+      <ul class="units">
+<li>
+          <a href="../../../en/guides/minimum-hole-size-laser-cutting/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/guia-calibre-480.avif 480w, ../../../assets/img/guia-calibre-800.avif 800w, ../../../assets/img/guia-calibre-1200.avif 1200w, ../../../assets/img/guia-calibre-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/guia-calibre-800.webp" srcset="../../../assets/img/guia-calibre-480.webp 480w, ../../../assets/img/guia-calibre-800.webp 800w, ../../../assets/img/guia-calibre-1200.webp 1200w, ../../../assets/img/guia-calibre-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Minimum hole, slot and bridge</span>
+            <span class="unit-d">Tables by thickness and material, from several sources, with their differences.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../en/guides/laser-cutting-tolerances-iso-2768-iso-9013/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/guia-calibre-480.avif 480w, ../../../assets/img/guia-calibre-800.avif 800w, ../../../assets/img/guia-calibre-1200.avif 1200w, ../../../assets/img/guia-calibre-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/guia-calibre-800.webp" srcset="../../../assets/img/guia-calibre-480.webp 480w, ../../../assets/img/guia-calibre-800.webp 800w, ../../../assets/img/guia-calibre-1200.webp 1200w, ../../../assets/img/guia-calibre-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Tolerances: ISO 2768 and ISO 9013</span>
+            <span class="unit-d">ISO 2768 for dimensions, ISO 9013 for the edge and how to dimension the drawing.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../en/guides/laser-cutting-design-rules/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/laser-chispas-480.avif 480w, ../../../assets/img/laser-chispas-800.avif 800w, ../../../assets/img/laser-chispas-1200.avif 1200w, ../../../assets/img/laser-chispas-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/laser-chispas-800.webp" srcset="../../../assets/img/laser-chispas-480.webp 480w, ../../../assets/img/laser-chispas-800.webp 800w, ../../../assets/img/laser-chispas-1200.webp 1200w, ../../../assets/img/laser-chispas-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Designing parts for laser cutting</span>
+            <span class="unit-d">Holes, distances, bridges, kerf and cutting gas: the rules that avoid surprises.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../en/guides/laser-plasma-waterjet-punching/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/laser-maquina-480.avif 480w, ../../../assets/img/laser-maquina-800.avif 800w, ../../../assets/img/laser-maquina-1200.avif 1200w, ../../../assets/img/laser-maquina-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/laser-maquina-800.webp" srcset="../../../assets/img/laser-maquina-480.webp 480w, ../../../assets/img/laser-maquina-800.webp 800w, ../../../assets/img/laser-maquina-1200.webp 1200w, ../../../assets/img/laser-maquina-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Laser, plasma, waterjet or punching</span>
+            <span class="unit-d">Which process suits you by thickness, accuracy, edge and quantity.</span>
+          </a>
+        </li>
+      </ul>
+    </div>    <div class="contact">
+      <div class="contact-head">
+        <div class="contact-h">
+          <h2 class="h-xl">Let's talk about your parts.</h2>
+          <p class="lead">Igor Rodríguez will help you. Write to us or call Monday to Friday, 7:00 to 15:00 (Spanish time).</p>
+        </div>
+        <a href="../../../en/#presupuesto" class="btn btn-acc btn-lg">Request a quote</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+34945318770"><span class="c-l">Phone</span><span class="c-v tnum">+34 945 31 87 70</span></a>
+        <a href="mailto:i.rodriguez@joma.es"><span class="c-l">Email</span><span class="c-v">i.rodriguez@joma.es</span></a>
+        <div><span class="c-l">Plant · visits by appointment</span><span class="c-v c-addr">C/ San Bartolomé 11, Pol. Ind. Goiain<br>01170 Legutio, Araba, Spain</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="Services and guides" class="foot-svc">
+<a href="../../../en/laser-cutting-sheet-metal/">Sheet metal laser cutting</a><a href="../../../en/sheet-metal-cut-to-size/">Sheet metal cut to size</a><a href="../../../en/laser-cutting-cold-rolled-steel/">Cold-rolled steel</a><a href="../../../en/laser-cutting-electrogalvanised-steel/">Electrogalvanised steel</a><a href="../../../en/laser-cutting-galvanised-steel/">Galvanised steel</a><a href="../../../en/laser-cutting-aluminium/">Aluminium</a><a href="../../../en/laser-cutting-stainless-steel/">Stainless steel</a><a href="../../../en/guides/" class="foot-guide">Technical guides</a><a href="../../../en/guides/prepare-dxf-step-file-laser-cutting/" class="foot-guide">How to prepare the file for laser cutting</a><a href="../../../en/guides/laser-cutting-design-rules/" class="foot-guide">Designing parts for laser cutting</a><a href="../../../en/guides/laser-cutting-tolerances-iso-2768-iso-9013/" class="foot-guide">Tolerances: ISO 2768 and ISO 9013</a><a href="../../../en/guides/laser-plasma-waterjet-punching/" class="foot-guide">Laser, plasma, waterjet or punching</a><a href="../../../en/guides/sheet-metal-laser-cutting-cost/" class="foot-guide">What determines laser cutting price</a><a href="../../../en/guides/dxf-file-errors-laser-cutting/" class="foot-guide">DXF errors and how to fix them</a><a href="../../../en/guides/export-dxf-for-laser-cutting/" class="foot-guide">How to export a DXF for laser cutting</a><a href="../../../en/guides/laser-cutting-kerf-width/" class="foot-guide" aria-current="page">Laser cutting kerf width</a><a href="../../../en/guides/micro-joints-laser-cutting/" class="foot-guide">Micro-joints and bridges</a><a href="../../../en/guides/minimum-hole-size-laser-cutting/" class="foot-guide">Minimum hole, slot and bridge</a><a href="../../../en/guides/nitrogen-vs-oxygen-laser-cutting/" class="foot-guide">Laser cutting with nitrogen or oxygen</a><a href="../../../en/guides/galvanised-sheet-cut-edge-corrosion/" class="foot-guide">Does the galvanised cut edge rust?</a><a href="../../../en/guides/galvanised-vs-electrogalvanised-vs-cold-rolled-steel/" class="foot-guide">Galvanised, electrogalvanised or cold-rolled</a><a href="../../../en/guides/304-vs-316l-stainless-steel/" class="foot-guide">Stainless 304 or 316L</a><a href="../../../en/guides/aluminium-5754-vs-6082-vs-1050a/" class="foot-guide">Aluminium 5754, 1050A or 6082</a><a href="../../../en/guides/steel-grade-equivalents-en-din-aisi/" class="foot-guide">Steel and stainless equivalents table</a><a href="../../../en/guides/sheet-metal-gauge-thickness-mm/" class="foot-guide">Sheet thicknesses, gauges and tolerances</a><a href="../../../en/guides/standard-sheet-metal-sizes/" class="foot-guide">Sheet sizes and formats</a><a href="../../../en/guides/tab-and-slot-sheet-metal-design/" class="foot-guide">Tab and slot sheet metal design</a><a href="../../../en/guides/laser-cut-metal-letters/" class="foot-guide">Letters, logos and text in sheet metal</a><a href="../../../en/guides/laser-cut-metal-screens-perforated-panels/" class="foot-guide">Screens and perforated sheet without distortion</a><a href="../../../en/sheet-metal-weight-calculator/" class="foot-guide">Sheet metal weight calculator</a><a href="../../../en/sheet-metal-laser-cutting-glossary/" class="foot-guide">Sheet metal glossary</a><a href="../../../en/faq/" class="foot-guide">FAQ</a><a href="../../../en/factory-legutio/" class="foot-guide">The factory</a>      </nav>
+      <div class="foot-l">
+        <span class="lockup cl-lockup" style="--h:24px; color:#FAF9F6;"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></span>
+        <span>Custom sheet metal laser cutting, up to 6 mm, in Legutio (Álava, Spain). Shipping across Spain and Europe.</span>
+      </div>
+      <nav aria-label="Legal and languages" class="foot-nav">
+<a href="../../../en/legal-notice/">Legal notice</a><a href="../../../en/privacy/">Privacy</a><a href="../../../en/cookies/">Cookies</a><a href="../../../guias/kerf-ancho-corte-laser/" hreflang="es" lang="es">Español</a><a href="../../../eu/gidak/kerf-laser-ebaketa-zabalera/" hreflang="eu" lang="eu">Euskara</a><a href="../../../fr/guides/saignee-kerf-decoupe-laser/" hreflang="fr" lang="fr">Français</a>      </nav>
+      <p class="foot-owner">Cortelaser is a brand of José María Gallastegui y Cía., S.A. · VAT ID A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Álava)</p>
+    </footer>  </div>
+</section>
+</div>
+<script>window.CL={"lang":"en","root":"../../../","api":"../../../api/solicitud","t":{"materials":{"acero":"Cold-rolled steel (DC01)","electrozincado":"Electrogalvanised steel (DC01+ZE)","galvanizado":"Galvanised steel (DX51D+Z)","inox":"Stainless steel (304 / 316L)","aluminio":"Aluminium (5754 / 1050A)"},"mat_short":{"acero":"Cold-rolled","electrozincado":"Electrogalvanised","galvanizado":"Galvanised","inox":"Stainless","aluminio":"Aluminium"},"steps":["Parts","Delivery and contact"],"ref":"Part {n}","remove":"Remove part {n}","addFile":"Add DXF, STEP or drawing","unfile":"Change file","addLine":"Add part","fRef":"Reference or name","fRefPh":"The one you use in your workshop","fQty":"Quantity","fMat":"Material","fT":"Thickness (mm)","fTPh":"Up to 6","analyzing":"Analysing…","no_preview":"no preview","preview_aria":"Part preview","s_size":"Dimensions","s_cut":"Cut length","s_contours":"Outlines + holes","s_weight":"Weight per part","s_weight_need":"enter the thickness","msg_step":"STEP received. We review it when preparing the quote and cut its flat pattern.","msg_dwg":"DWG received. If you can, also export it to DXF to see its dimensions here.","msg_other":"File received. If it is a drawing, make sure it has all the dimensions.","msg_binary":"This is a binary DXF. Save it as ASCII DXF to see its dimensions here; we receive it either way.","msg_empty":"We found no geometry in the DXF. Check that the part is in model space and not inside a block.","msg_units":"The file uses other units: we have converted it to millimetres.","msg_open":"There are {n} open outline(s). The laser needs closed outlines: check them, or we close them ourselves if it is obvious.","msg_multi":"There are {n} parts in the same file. One per file is better; if it is intentional, say so in the notes.","msg_text":"There is text in the file. If it has to be cut, convert it to outlines; if it is notes, we ignore it.","msg_dim":"Dimensions and notes are not cut: we use the geometry at 1:1 scale.","msg_insert":"There are blocks in the file. Explode them so they are included in the analysis.","msg_spline":"There are spline curves: the preview is approximate.","msg_hole":"The smallest hole is {d} mm. As a rule of thumb it should be at least {f} times the thickness ({t} mm); we will check it.","msg_thick":"We cut sheet up to {max} mm. For thicker material, write to us first.","msg_ok":"Geometry OK: closed outlines and a single part.","asideTitle":"Your request","nRefs":"Parts: {n}","nPcs":"Units: {n}","weight":"Estimated weight","deadlineL":"Quote before","cutoff":"24 working hours. Office open Monday to Friday, 7:00 to 15:00 (Spanish time).","next":["Next: delivery and contact","Send request"],"back":"Back to parts","needRgpd":"Accept the privacy policy to send.","sending":"Sending…","dl":"{wd} {d} {m} at {h}:00","wd":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"mo":["January","February","March","April","May","June","July","August","September","October","November","December"],"delL":"Delivery","del":["I'll collect in Legutio","Shipping within Spain","Shipping to Europe"],"zip":"Delivery postcode and country","zipPh":"75001 Paris, France","when":"Date you need them","contact":[["Company","text","organization","","Empresa"],["VAT ID","text","off","","CIF"],["Name","text","name","","Nombre"],["Email","email","email","you@company.com","email"],["Phone","tel","tel","","Teléfono"]],"notes":"Notes","notesPh":"Critical dimensions, visible face, whether it is a repeat order…","paint":"I also want them powder coated","paintD":"Tick it and we coordinate the painting on a line in the same plant, straight after cutting.","rgpd":"I have read the <a href=\"{privacy}\">privacy policy<\/a> and agree to you processing my data to prepare the quote.","needEmail":"Enter a valid email so we can send you the quote.","needFile":"Add at least one file in step 1.","doneTitle":"Request {code} received.","doneLead":"We will email you the quote before {d}.","doneSteps":["We review your file: scale, outlines and holes.","We work out material, cutting and nesting.","We send you the quote in writing, with lead time."],"doneNew":"New request","err_size":"The files exceed {mb} MB in total. Send the largest ones in another request.","err_send":"We could not send the request. Try again in a moment, write to us at {email} or call {phone}.","subject":"Quote {c} · {n} part(s)","heroFiles":"{n} file(s) ready in step 1"},"maxMb":10,"prefix":"CL","dens":{"acero":7.85,"inox":7.9,"aluminio":2.66,"galvanizado":7.85,"electrozincado":7.85},"holeF":{"acero":1.0,"inox":1.5,"aluminio":1.5,"galvanizado":1.0,"electrozincado":1.0},"bed":null,"privacy":"../../../en/privacy/","maxT":6,"mats":["acero","electrozincado","galvanizado","aluminio","inox"],"grades":{"acero":["DC01","DC03","DC04"],"inox":["1.4301 (AISI 304)","1.4404 (AISI 316L)"],"aluminio":["EN AW-5754 H111","EN AW-5754 H22/H32","EN AW-1050A"],"galvanizado":["DX51D+Z"],"electrozincado":["DC01+ZE","DC03+ZE","DC04+ZE"]},"matHref":{"acero":"../../../en/laser-cutting-cold-rolled-steel/","electrozincado":"../../../en/laser-cutting-electrogalvanised-steel/","galvanizado":"../../../en/laser-cutting-galvanised-steel/","inox":"../../../en/laser-cutting-stainless-steel/","aluminio":"../../../en/laser-cutting-aluminium/"},"email":"i.rodriguez@joma.es","phone":"+34 945 31 87 70"};</script>
+<script src="../../../assets/js/site.js?v=e97333a2" defer></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diseño pestaña y ranura en chapa (tab & slot) | Cortelaser</title>
+<meta name="description" content="Diseño de pestaña y ranura en chapa cortada por láser: holgura de la ranura según espesor, tamaño y reparto de pestañas, kerf, pintura y errores típicos.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/">
+<link rel="alternate" hreflang="es" href="https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/">
+<link rel="alternate" hreflang="eu" href="https://paint.joma.es/cortelaser/eu/gidak/hegala-eta-arteka-diseinua-xafla/">
+<link rel="alternate" hreflang="en" href="https://paint.joma.es/cortelaser/en/guides/tab-and-slot-sheet-metal-design/">
+<link rel="alternate" hreflang="fr" href="https://paint.joma.es/cortelaser/fr/guides/conception-tenon-mortaise-tole/">
+<link rel="alternate" hreflang="x-default" href="https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cortelaser">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="eu_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:title" content="Diseño pestaña y ranura en chapa (tab & slot) | Cortelaser">
+<meta property="og:description" content="Diseño de pestaña y ranura en chapa cortada por láser: holgura de la ranura según espesor, tamaño y reparto de pestañas, kerf, pintura y errores típicos.">
+<meta property="og:url" content="https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/">
+<meta property="og:image" content="https://paint.joma.es/cortelaser/assets/og/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Corte láser de chapa con chispas, Cortelaser">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.ico" sizes="48x48">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="preload" href="../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css?v=0ed948ae">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://paint.joma.es/cortelaser/#joma","name":"Joma","legalName":"José María Gallastegui y Cía., S.A.","taxID":"A20029674","url":"https://www.joma.es","foundingDate":"1942","telephone":"+34945318770","department":{"@id":"https://paint.joma.es/cortelaser/#cortelaser"}},{"@type":"LocalBusiness","@id":"https://paint.joma.es/cortelaser/#cortelaser","name":"Cortelaser","description":"Sube tu DXF o STEP y recibe precio en 24 h laborables. Corte láser de fibra de chapa hasta 6 mm: acero, galvanizado, electrozincado, inox y aluminio. Álava.","url":"https://paint.joma.es/cortelaser/","image":"https://paint.joma.es/cortelaser/assets/img/hero-laser-1200.webp","logo":"https://paint.joma.es/cortelaser/assets/icon-512.png","address":{"@type":"PostalAddress","streetAddress":"C/ San Bartolomé 11, Pol. Ind. Goiain","addressLocality":"Legutio","addressRegion":"Álava","postalCode":"01170","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":42.9432494,"longitude":-2.6490071},"parentOrganization":{"@id":"https://paint.joma.es/cortelaser/#joma"},"knowsLanguage":["es","eu","en","fr"],"areaServed":[{"@type":"AdministrativeArea","name":"Araba/Álava"},{"@type":"AdministrativeArea","name":"Bizkaia"},{"@type":"AdministrativeArea","name":"Gipuzkoa"},{"@type":"AdministrativeArea","name":"Navarra"},{"@type":"AdministrativeArea","name":"La Rioja"},{"@type":"AdministrativeArea","name":"Burgos"},{"@type":"AdministrativeArea","name":"Cantabria"},{"@type":"AdministrativeArea","name":"Pyrénées-Atlantiques"},{"@type":"AdministrativeArea","name":"Landes"},{"@type":"AdministrativeArea","name":"Gironde"},{"@type":"AdministrativeArea","name":"España"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cortelaser","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Corte láser de chapa","url":"https://paint.joma.es/cortelaser/corte-laser-chapa/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Chapa cortada a medida por láser","url":"https://paint.joma.es/cortelaser/chapa-cortada-a-medida/"}}]},"telephone":"+34945318770","email":"i.rodriguez@joma.es"},{"@type":"WebSite","@id":"https://paint.joma.es/cortelaser/#website","name":"Cortelaser","url":"https://paint.joma.es/cortelaser/","inLanguage":["es","eu","en","fr"],"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"}},{"@type":"WebPage","@id":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/","url":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/","inLanguage":"es","name":"Diseño pestaña y ranura en chapa (tab & slot) | Cortelaser","description":"Diseño de pestaña y ranura en chapa cortada por láser: holgura de la ranura según espesor, tamaño y reparto de pestañas, kerf, pintura y errores típicos.","isPartOf":{"@id":"https://paint.joma.es/cortelaser/#website"},"breadcrumb":{"@id":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/#ruta"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://paint.joma.es/cortelaser/assets/img/piezas-planos-1200.webp"},"mainEntity":{"@id":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/#articulo"}},{"@type":"TechArticle","@id":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/#articulo","headline":"Ensamblar sin soldar: diseño de pestaña y ranura en chapa","description":"Diseño de pestaña y ranura en chapa cortada por láser: holgura de la ranura según espesor, tamaño y reparto de pestañas, kerf, pintura y errores típicos.","inLanguage":"es","url":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/","author":{"@id":"https://paint.joma.es/cortelaser/#joma"},"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"},"dateModified":"28 de octubre de 2026","image":"https://paint.joma.es/cortelaser/assets/img/piezas-planos-1200.webp"},{"@type":"BreadcrumbList","@id":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/#ruta","itemListElement":[{"@type":"ListItem","position":1,"name":"Cortelaser","item":"https://paint.joma.es/cortelaser/"},{"@type":"ListItem","position":2,"name":"Guías","item":"https://paint.joma.es/cortelaser/guias/"},{"@type":"ListItem","position":3,"name":"Pestaña y ranura","item":"https://paint.joma.es/cortelaser/guias/diseno-pestana-ranura-chapa/"}]},{"@type":"FAQPage","inLanguage":"es","mainEntity":[{"@type":"Question","name":"¿Qué holgura dejo entre pestaña y ranura?","acceptedAnswer":{"@type":"Answer","text":"Como punto de partida, unos 0,1 mm por lado en chapa fina y más en chapa gruesa. Las referencias publicadas varían, así que corta una prueba antes de la serie."}},{"@type":"Question","name":"¿Tengo que compensar el ancho de corte del láser en la ranura?","acceptedAnswer":{"@type":"Answer","text":"No. Dibuja la ranura a su medida final; la compensación del ancho de corte la hace el programa de corte."}},{"@type":"Question","name":"¿Cortelaser monta o suelda las piezas?","acceptedAnswer":{"@type":"Answer","text":"No. Cortamos las piezas planas; el montaje, la soldadura y el plegado los haces tú o tu proveedor."}},{"@type":"Question","name":"¿Sirve la pestaña y ranura sin soldar?","acceptedAnswer":{"@type":"Answer","text":"Sí, si la unión se fija con tornillos, remaches, adhesivo o doblando la pestaña. Para uniones estructurales críticas, añade fijaciones."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="page">
+<div class="svc-top">
+  <header class="topbar">
+    <a href="../../" class="lockup cl-lockup" style="--h:34px; color:#FAF9F6;" aria-label="Cortelaser · Inicio"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></a>
+    <nav aria-label="Principal" class="mainnav">
+<a href="../../#servicios">Servicios</a>
+<a href="../../#proceso">Proceso</a>
+<a href="../../#materiales">Materiales</a>
+<a href="../../guias/">Guías</a>
+<a href="../../#presupuesto">Presupuesto</a>
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="Idioma" class="langs">
+<a href="../../guias/diseno-pestana-ranura-chapa/" hreflang="es" lang="es" title="Español" aria-current="page">ES</a><a href="../../eu/gidak/hegala-eta-arteka-diseinua-xafla/" hreflang="eu" lang="eu" title="Euskara">EU</a><a href="../../en/guides/tab-and-slot-sheet-metal-design/" hreflang="en" lang="en" title="English">EN</a><a href="../../fr/guides/conception-tenon-mortaise-tole/" hreflang="fr" lang="fr" title="Français">FR</a>      </nav>
+      <a href="../../#presupuesto" class="btn btn-acc btn-sm">Pedir presupuesto</a>
+    </div>
+  </header></div>
+
+<main id="contenido">
+<section class="svc-hero" aria-labelledby="h1">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ruta">
+        <ol>
+          <li><a href="../../">Inicio</a></li>
+<li><a href="../../guias/">Guías</a></li>
+          <li><span aria-current="page">Pestaña y ranura</span></li>
+        </ol>
+      </nav>
+      <div class="svc-hero-grid">
+        <div class="svc-hero-txt">
+<p class="svc-kicker">Guía · Diseño</p>          <h1 id="h1" class="svc-h1">Ensamblar sin soldar: diseño de pestaña y ranura en chapa</h1>
+<p class="hero-lead">Con un buen diseño de pestaña y ranura, las piezas de chapa encajan solas, en una sola posición, y se montan sin plantillas. Estas son las reglas para que encajen a la primera, con las cifras de referencia de cada fuente.</p><div class="row-btns">
+            <a href="../../#presupuesto" class="btn btn-acc btn-lg">Pedir presupuesto</a>
+<a href="../../guias/" class="btn btn-ghost btn-lg">Todas las guías</a>
+          </div>        </div>
+<figure class="svc-fig"><picture><source type="image/avif" srcset="../../assets/img/piezas-planos-480.avif 480w, ../../assets/img/piezas-planos-800.avif 800w, ../../assets/img/piezas-planos-1200.avif 1200w, ../../assets/img/piezas-planos-1920.avif 1920w" sizes="(min-width: 900px) 46vw, 100vw"><img src="../../assets/img/piezas-planos-800.webp" srcset="../../assets/img/piezas-planos-480.webp 480w, ../../assets/img/piezas-planos-800.webp 800w, ../../assets/img/piezas-planos-1200.webp 1200w, ../../assets/img/piezas-planos-1920.webp 1920w" sizes="(min-width: 900px) 46vw, 100vw" width="1200" height="800" alt="Soportes de chapa plegada sobre un plano técnico" fetchpriority="high"></picture><figcaption>Foto: EnCata PD / Unsplash.</figcaption></figure>      </div>
+    </div>
+  </div>
+</section>
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    <section class="svc-row" id="que-es" aria-labelledby="h-que-es">
+  <h2 id="h-que-es" class="svc-h2">¿Qué es una unión de pestaña y ranura?</h2>
+  <div class="svc-body">
+    <p>Una pieza lleva salientes (pestañas, en inglés *tabs*) que entran en ranuras (*slots*) cortadas en la otra. Las ranuras sitúan las piezas en su sitio sin medir ni sujetar. Después la unión se fija con soldadura de tapón en la ranura, con remaches o tornillos, con adhesivo o doblando la pestaña.</p>
+<p>Con el láser, la ranura sale en la misma pasada que el contorno, con la precisión del programa. Por eso la técnica encaja tan bien con el corte láser: la plantilla de montaje es la propia pieza.</p>
+<ul class="svc-list"><li><strong>Menos utillaje:</strong> las piezas se sujetan entre sí mientras se sueldan o atornillan.</li><li><strong>Menos errores:</strong> si las pestañas tienen anchos distintos, la pieza solo entra en una posición (lo que en fabricación se llama *poka-yoke*).</li><li><strong>Montaje en plano:</strong> puedes enviar piezas planas y montarlas en destino.</li></ul>
+
+  </div>
+</section>
+<section class="svc-row" id="ranura" aria-labelledby="h-ranura">
+  <h2 id="h-ranura" class="svc-h2">Cómo dimensionar la ranura</h2>
+  <div class="svc-body">
+    <p>SendCutSend da dos fórmulas que sirven para cualquier proveedor:</p>
+<dl class="svc-data"><div><dt>Ancho de la ranura</dt><dd class="tnum">ancho de la pestaña + 2 × tolerancia de corte</dd></div><div><dt>Alto de la ranura</dt><dd class="tnum">espesor de la pestaña + tolerancia positiva de espesor de la chapa + 2 × tolerancia de corte</dd></div></dl>
+<p>El punto que más se olvida es el segundo: la ranura tiene que admitir la chapa más gruesa que permite la norma, no la nominal. En acero laminado en frío de 3 mm, la EN 10131 admite +0,15 mm. Tienes la tabla por material en <a href="../../guias/espesores-chapa-calibres-mm/">espesores de chapa y tolerancias</a>.</p>
+<p>Las esquinas interiores de una ranura cortada por láser no son vivas: les queda un radio del orden de la mitad del <a href="../../guias/kerf-ancho-corte-laser/">ancho de corte</a>. Si la pestaña tiene esquinas vivas, rómpelas con un pequeño chaflán para que asiente.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="holguras" aria-labelledby="h-holguras">
+  <h2 id="h-holguras" class="svc-h2">Holgura recomendada según el espesor</h2>
+  <div class="svc-body">
+    <p>Las fuentes no coinciden en una cifra única, así que te damos las dos. Son holguras <strong>por lado</strong>:</p>
+<div class="svc-table-wrap" role="region" aria-label="Holgura por lado entre pestaña y ranura (referencias publicadas)" tabindex="0"><table class="svc-table cl-table tnum">
+<caption class="sr">Holgura por lado entre pestaña y ranura (referencias publicadas)</caption>    <thead><tr><th scope="col">Espesor</th><th scope="col">SendCutSend</th><th scope="col">Fictiv</th></tr></thead>
+    <tbody><tr><th scope="row">Fino (≈ 1,5 mm)</th><td>0,08 mm</td><td>0,1–0,2 mm en general; 0,05–0,1 mm en láser</td></tr><tr><th scope="row">Medio (≈ 3,2 mm)</th><td>0,13 mm</td><td>0,1–0,2 mm en general; 0,05–0,1 mm en láser</td></tr><tr><th scope="row">Grueso (≈ 6,35 mm o más)</th><td>0,25–0,5 mm</td><td>0,1–0,2 mm en general; 0,05–0,1 mm en láser</td></tr></tbody>
+  </table></div>
+<p class="svc-note">SendCutSend publica 0,003″, 0,005″ y 0,010–0,020″ por lado para 0,060″, 0,125″ y 0,250″ (convertido a mm) y propone 0,005″ por lado como punto de partida. Fictiv da valores por proceso y avisa de que sus cifras no son del todo coherentes entre secciones.</p><p>No hemos medido todavía una holgura propia en nuestras máquinas. Para una serie, corta antes una pareja de prueba: es la forma segura de fijar la holgura con el material real.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="pestanas" aria-labelledby="h-pestanas">
+  <h2 id="h-pestanas" class="svc-h2">Tamaño y reparto de las pestañas</h2>
+  <div class="svc-body">
+    <p>Reglas prácticas publicadas por Fictiv y SendCutSend (son puntos de partida, no norma):</p>
+<ul class="svc-list"><li><strong>Ancho de la pestaña:</strong> de 1 a 1,5 veces el espesor; hasta 1,2–1,8 veces si la unión es a presión (Fictiv).</li><li><strong>Separación entre pestañas:</strong> de 3 a 6 veces el espesor (Fictiv).</li><li><strong>Número:</strong> de 2 a 4 pestañas por unión suele bastar (Fictiv).</li><li><strong>Distancia al borde:</strong> al menos 2 veces el espesor entre la ranura y el borde de la chapa (Fictiv).</li><li><strong>Largo de la pestaña:</strong> si vas a soldar en tapón, de 0,5 a 0,75 veces el espesor de la pieza que atraviesa, para que no sobresalga (SendCutSend). Si quieres doblarla o remacharla, tiene que sobresalir.</li><li><strong>Anchos distintos</strong> en un lado de la pieza para que solo entre en una posición.</li></ul>
+
+  </div>
+</section>
+<section class="svc-row" id="plegado" aria-labelledby="h-plegado">
+  <h2 id="h-plegado" class="svc-h2">Si la pieza se va a plegar o pintar</h2>
+  <div class="svc-body">
+    <p>Cortelaser solo corta: las piezas salen planas. Si una de las piezas se pliega después, en tu taller o en el de tu proveedor, envía el desarrollo calculado con los radios de quien la vaya a plegar. Fictiv recomienda separar las ranuras al menos 1,5 veces el espesor de la línea de tangencia del pliegue, y SendCutSend avisa de que la tolerancia del plegado se suma a la del encaje, sobre todo entre dos alas de la misma pieza.</p>
+<p>La pintura en polvo también cuenta. SendCutSend calcula de 0,05 a 0,13 mm por cara. Si las piezas se pintan antes de montar, la ranura tiene que ser mayor. Si necesitas pintar, coordinamos el pintado aparte.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="errores" aria-labelledby="h-errores">
+  <h2 id="h-errores" class="svc-h2">Errores típicos</h2>
+  <div class="svc-body">
+    <div class="svc-table-wrap" role="region" aria-label="Errores frecuentes en uniones de pestaña y ranura" tabindex="0"><table class="svc-table cl-table tnum">
+<caption class="sr">Errores frecuentes en uniones de pestaña y ranura</caption>    <thead><tr><th scope="col">Error</th><th scope="col">Qué pasa</th><th scope="col">Solución</th></tr></thead>
+    <tbody><tr><th scope="row">Ranura del espesor nominal exacto</th><td>La chapa más gruesa de lo nominal no entra</td><td>Suma la tolerancia positiva de espesor y la holgura</td></tr><tr><th scope="row">Pestañas todas iguales y simétricas</th><td>La pieza entra al revés</td><td>Cambia el ancho de una pestaña</td></tr><tr><th scope="row">Ranura pegada al borde</th><td>El puente se deforma o se rompe</td><td>Al menos 2 veces el espesor hasta el borde</td></tr><tr><th scope="row">Ranura sobre la zona de pliegue</th><td>Se deforma al plegar</td><td>Sepárala del pliegue</td></tr><tr><th scope="row">Pieza fina sin más apoyo que las pestañas</th><td>La unión flexa y no se autoposiciona</td><td>Más pestañas o más espesor</td></tr><tr><th scope="row">Ranuras para pieza pintada con holgura de pieza sin pintar</th><td>No entra después de pintar</td><td>Añade el espesor de la pintura</td></tr></tbody>
+  </table></div>
+
+  </div>
+</section>
+<section class="svc-row" id="prueba" aria-labelledby="h-prueba">
+  <h2 id="h-prueba" class="svc-h2">Corta una prueba antes de la serie</h2>
+  <div class="svc-body">
+    <p>Pide primero una o dos parejas de piezas con la holgura que hayas elegido. Si encajan como quieres, repite la serie con el mismo archivo. Si van duras o con juego, ajusta solo la ranura.</p>
+<p class="cl-call">Sube las piezas al <a href="../../#presupuesto">formulario de presupuesto</a> y di en observaciones que son de pestaña y ranura. Revisamos el archivo antes de cortar.</p>
+
+  </div>
+</section>
+
+  </div>
+</div>
+
+<section aria-labelledby="h-faq" class="section svc-faq-sec" id="preguntas">
+  <div class="wrap svc-faq">
+    <h2 id="h-faq" class="svc-h2">Preguntas frecuentes</h2>
+    <div class="faq">
+<details><summary><span>¿Qué holgura dejo entre pestaña y ranura?</span><span class="plus" aria-hidden="true">+</span></summary><p>Como punto de partida, unos 0,1 mm por lado en chapa fina y más en chapa gruesa. Las referencias publicadas varían, así que corta una prueba antes de la serie.</p></details>
+<details><summary><span>¿Tengo que compensar el ancho de corte del láser en la ranura?</span><span class="plus" aria-hidden="true">+</span></summary><p>No. Dibuja la ranura a su medida final; la compensación del ancho de corte la hace el programa de corte.</p></details>
+<details><summary><span>¿Cortelaser monta o suelda las piezas?</span><span class="plus" aria-hidden="true">+</span></summary><p>No. Cortamos las piezas planas; el montaje, la soldadura y el plegado los haces tú o tu proveedor.</p></details>
+<details><summary><span>¿Sirve la pestaña y ranura sin soldar?</span><span class="plus" aria-hidden="true">+</span></summary><p>Sí, si la unión se fija con tornillos, remaches, adhesivo o doblando la pestaña. Para uniones estructurales críticas, añade fijaciones.</p></details>
+    </div>
+  </div>
+</section>
+<section aria-labelledby="h-src" class="section svc-src-sec" id="fuentes">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">Fuentes</h2>
+    <div>
+      <ul class="svc-src">
+<li><a href="https://sendcutsend.com/blog/designing-sheet-metal-parts-with-tab-and-slots/" rel="noopener" target="_blank">SendCutSend · Diseño de piezas de chapa con pestaña y ranura</a></li>
+<li><a href="https://sendcutsend.com/blog/mastering-tab-and-slot-design-for-efficient-metal-fabrication/" rel="noopener" target="_blank">SendCutSend · Diseño de pestaña y ranura para fabricación</a></li>
+<li><a href="https://www.fictiv.com/articles/sheet-metal-tabs-and-slots-assembly" rel="noopener" target="_blank">Fictiv · Pestañas y ranuras en chapa</a></li>
+<li><a href="https://flateurope.arcelormittal.com/repository/fce/PDF-technical-chapters/Prcat_Toleranceandconversiontables.pdf" rel="noopener" target="_blank">ArcelorMittal · Tolerancias de espesor EN 10131 (PDF)</a></li>
+<li><a href="https://sendcutsend.com/blog/how-to-optimize-parts-for-powder-coating/" rel="noopener" target="_blank">SendCutSend · Pintura en polvo en piezas cortadas</a></li>
+      </ul>
+<p class="svc-note">Actualizado: 28 de octubre de 2026</p>    </div>
+  </div>
+</section>
+</main>
+
+<section aria-label="Hablemos de tus piezas." class="dark group svc-end">
+  <div class="wrap group-in">
+<div class="svc-rel">
+      <h2 id="h-rel" class="h3">Sigue leyendo</h2>
+      <ul class="units">
+<li>
+          <a href="../../guias/espesores-chapa-calibres-mm/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/guia-calibre-480.avif 480w, ../../assets/img/guia-calibre-800.avif 800w, ../../assets/img/guia-calibre-1200.avif 1200w, ../../assets/img/guia-calibre-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/guia-calibre-800.webp" srcset="../../assets/img/guia-calibre-480.webp 480w, ../../assets/img/guia-calibre-800.webp 800w, ../../assets/img/guia-calibre-1200.webp 1200w, ../../assets/img/guia-calibre-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Espesores de chapa, calibres y tolerancias</span>
+            <span class="unit-d">Calibre a mm para acero, galvanizado, inox y aluminio, y la tolerancia de espesor que permite cada norma.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../guias/diseno-piezas-corte-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/laser-chispas-480.avif 480w, ../../assets/img/laser-chispas-800.avif 800w, ../../assets/img/laser-chispas-1200.avif 1200w, ../../assets/img/laser-chispas-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/laser-chispas-800.webp" srcset="../../assets/img/laser-chispas-480.webp 480w, ../../assets/img/laser-chispas-800.webp 800w, ../../assets/img/laser-chispas-1200.webp 1200w, ../../assets/img/laser-chispas-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Diseño de piezas para corte láser</span>
+            <span class="unit-d">Taladros, distancias, puentes, sangría y gas de corte: las reglas que evitan sorpresas.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../guias/kerf-ancho-corte-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/laser-cabezal-480.avif 480w, ../../assets/img/laser-cabezal-800.avif 800w, ../../assets/img/laser-cabezal-1200.avif 1200w, ../../assets/img/laser-cabezal-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/laser-cabezal-800.webp" srcset="../../assets/img/laser-cabezal-480.webp 480w, ../../assets/img/laser-cabezal-800.webp 800w, ../../assets/img/laser-cabezal-1200.webp 1200w, ../../assets/img/laser-cabezal-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Kerf o ancho de corte láser</span>
+            <span class="unit-d">Qué ancho tiene, de qué depende y por qué no lo dibujas tú.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../guias/tolerancias-corte-laser-iso-2768-iso-9013/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/guia-calibre-480.avif 480w, ../../assets/img/guia-calibre-800.avif 800w, ../../assets/img/guia-calibre-1200.avif 1200w, ../../assets/img/guia-calibre-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/guia-calibre-800.webp" srcset="../../assets/img/guia-calibre-480.webp 480w, ../../assets/img/guia-calibre-800.webp 800w, ../../assets/img/guia-calibre-1200.webp 1200w, ../../assets/img/guia-calibre-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Tolerancias: ISO 2768 e ISO 9013</span>
+            <span class="unit-d">ISO 2768 para las cotas, ISO 9013 para el canto y cómo acotar el plano.</span>
+          </a>
+        </li>
+      </ul>
+    </div>    <div class="contact">
+      <div class="contact-head">
+        <div class="contact-h">
+          <h2 class="h-xl">Hablemos de tus piezas.</h2>
+          <p class="lead">Te atiende Igor Rodríguez. Escríbenos o llama de lunes a viernes, de 7:00 a 15:00.</p>
+        </div>
+        <a href="../../#presupuesto" class="btn btn-acc btn-lg">Pedir presupuesto</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+34945318770"><span class="c-l">Teléfono</span><span class="c-v tnum">+34 945 31 87 70</span></a>
+        <a href="mailto:i.rodriguez@joma.es"><span class="c-l">Email</span><span class="c-v">i.rodriguez@joma.es</span></a>
+        <div><span class="c-l">Planta · visitas con cita</span><span class="c-v c-addr">C/ San Bartolomé 11, Pol. Ind. Goiain<br>01170 Legutio, Araba</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="Servicios y guías" class="foot-svc">
+<a href="../../corte-laser-chapa/">Corte láser de chapa</a><a href="../../chapa-cortada-a-medida/">Chapa cortada a medida</a><a href="../../corte-laser-acero-laminado-frio/">Acero laminado en frío</a><a href="../../corte-laser-acero-electrozincado/">Acero electrozincado</a><a href="../../corte-laser-acero-galvanizado/">Acero galvanizado</a><a href="../../corte-laser-aluminio/">Aluminio</a><a href="../../corte-laser-acero-inoxidable/">Acero inoxidable</a><a href="../../guias/" class="foot-guide">Guías técnicas</a><a href="../../guias/preparar-archivo-dxf-step-corte-laser/" class="foot-guide">Cómo preparar el archivo para corte láser</a><a href="../../guias/diseno-piezas-corte-laser/" class="foot-guide">Diseño de piezas para corte láser</a><a href="../../guias/tolerancias-corte-laser-iso-2768-iso-9013/" class="foot-guide">Tolerancias: ISO 2768 e ISO 9013</a><a href="../../guias/corte-laser-plasma-agua-punzonado/" class="foot-guide">Láser, plasma, agua o punzonado</a><a href="../../guias/precio-corte-laser-chapa/" class="foot-guide">Qué determina el precio del corte láser</a><a href="../../guias/errores-archivo-dxf-corte-laser/" class="foot-guide">Errores en el DXF y cómo arreglarlos</a><a href="../../guias/exportar-dxf-corte-laser/" class="foot-guide">Cómo exportar un DXF para corte láser</a><a href="../../guias/kerf-ancho-corte-laser/" class="foot-guide">Kerf o ancho de corte láser</a><a href="../../guias/microuniones-corte-laser/" class="foot-guide">Microuniones y puentes</a><a href="../../guias/diametro-minimo-agujero-corte-laser/" class="foot-guide">Agujero, ranura y puente mínimos</a><a href="../../guias/corte-laser-nitrogeno-oxigeno/" class="foot-guide">Corte láser con nitrógeno u oxígeno</a><a href="../../guias/canto-chapa-galvanizada-corte-laser/" class="foot-guide">¿Se oxida el canto del galvanizado?</a><a href="../../guias/chapa-galvanizada-electrozincada-laminada-frio/" class="foot-guide">Galvanizado, electrozincado o laminado en frío</a><a href="../../guias/acero-inoxidable-304-o-316l/" class="foot-guide">Inox 304 o 316L</a><a href="../../guias/aluminio-5754-1050a-6082/" class="foot-guide">Aluminio 5754, 1050A o 6082</a><a href="../../guias/equivalencias-aceros-en-din-aisi/" class="foot-guide">Tabla de equivalencias de aceros e inoxidables</a><a href="../../guias/espesores-chapa-calibres-mm/" class="foot-guide">Espesores de chapa, calibres y tolerancias</a><a href="../../guias/medidas-formatos-chapa/" class="foot-guide">Formatos y medidas de chapa</a><a href="../../guias/diseno-pestana-ranura-chapa/" class="foot-guide" aria-current="page">Diseño de pestaña y ranura en chapa</a><a href="../../guias/letras-chapa-corte-laser/" class="foot-guide">Letras, logotipos y textos en chapa</a><a href="../../guias/celosia-chapa-corte-laser/" class="foot-guide">Celosías y chapa calada sin deformaciones</a><a href="../../calculadora-peso-chapa/" class="foot-guide">Calculadora de peso de chapa</a><a href="../../glosario-chapa-corte-laser/" class="foot-guide">Glosario de chapa</a><a href="../../preguntas-frecuentes/" class="foot-guide">Preguntas frecuentes</a><a href="../../fabrica-legutio/" class="foot-guide">La fábrica</a>      </nav>
+      <div class="foot-l">
+        <span class="lockup cl-lockup" style="--h:24px; color:#FAF9F6;"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></span>
+        <span>Corte láser de chapa a medida, hasta 6 mm, en Legutio (Álava). Envíos a toda España y Europa.</span>
+      </div>
+      <nav aria-label="Legal e idiomas" class="foot-nav">
+<a href="../../aviso-legal/">Aviso legal</a><a href="../../privacidad/">Privacidad</a><a href="../../cookies/">Cookies</a><a href="../../eu/gidak/hegala-eta-arteka-diseinua-xafla/" hreflang="eu" lang="eu">Euskara</a><a href="../../en/guides/tab-and-slot-sheet-metal-design/" hreflang="en" lang="en">English</a><a href="../../fr/guides/conception-tenon-mortaise-tole/" hreflang="fr" lang="fr">Français</a>      </nav>
+      <p class="foot-owner">Cortelaser es una marca de José María Gallastegui y Cía., S.A. · CIF A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Álava)</p>
+    </footer>  </div>
+</section>
+</div>
+<script>window.CL={"lang":"es","root":"../../","api":"../../api/solicitud","t":{"materials":{"acero":"Acero laminado en frío (DC01)","electrozincado":"Acero electrozincado (DC01+ZE)","galvanizado":"Acero galvanizado (DX51D+Z)","inox":"Acero inoxidable (304 / 316L)","aluminio":"Aluminio (5754 / 1050A)"},"mat_short":{"acero":"Laminado en frío","electrozincado":"Electrozincado","galvanizado":"Galvanizado","inox":"Inoxidable","aluminio":"Aluminio"},"steps":["Piezas","Entrega y contacto"],"ref":"Pieza {n}","remove":"Quitar la pieza {n}","addFile":"Añade DXF, STEP o plano","unfile":"Cambiar archivo","addLine":"Añadir pieza","fRef":"Referencia o nombre","fRefPh":"La que uséis en vuestro taller","fQty":"Cantidad","fMat":"Material","fT":"Espesor (mm)","fTPh":"Hasta 6","analyzing":"Analizando…","no_preview":"sin vista previa","preview_aria":"Vista previa de la pieza","s_size":"Medidas","s_cut":"Longitud de corte","s_contours":"Contornos + taladros","s_weight":"Peso por pieza","s_weight_need":"indica el espesor","msg_step":"STEP recibido. Lo revisamos al preparar el presupuesto y cortamos su desarrollo plano.","msg_dwg":"DWG recibido. Si puedes, expórtalo también a DXF para ver aquí sus medidas.","msg_other":"Archivo recibido. Si es un plano, asegúrate de que lleva todas las cotas.","msg_binary":"Es un DXF binario. Guárdalo como DXF ASCII para ver aquí sus medidas; igualmente lo recibimos.","msg_empty":"No encontramos geometría en el DXF. Comprueba que la pieza está en el espacio modelo y no en un bloque.","msg_units":"El archivo está en otras unidades: lo hemos pasado a milímetros.","msg_open":"Hay {n} contorno(s) abierto(s). El láser necesita contornos cerrados: revísalos o los cerramos nosotros si es evidente.","msg_multi":"Hay {n} piezas en el mismo archivo. Mejor una por archivo; si es a propósito, indícalo en observaciones.","msg_text":"Hay textos en el archivo. Si se tienen que cortar, conviértelos a contornos; si son notas, los ignoramos.","msg_dim":"Las cotas y notas no se cortan: usamos la geometría a escala 1:1.","msg_insert":"Hay bloques en el archivo. Explótalos para que entren en el análisis.","msg_spline":"Hay curvas spline: la vista previa es aproximada.","msg_hole":"El taladro más pequeño mide {d} mm. Como regla general conviene que sea al menos {f} veces el espesor ({t} mm); lo revisamos.","msg_thick":"Cortamos chapa de hasta {max} mm. Para más espesor, escríbenos antes.","msg_ok":"Geometría correcta: contornos cerrados y una sola pieza.","asideTitle":"Tu solicitud","nRefs":"Piezas: {n}","nPcs":"Unidades: {n}","weight":"Peso estimado","deadlineL":"Presupuesto antes del","cutoff":"24 h laborables. Oficina de lunes a viernes, de 7:00 a 15:00.","next":["Siguiente: entrega y contacto","Enviar solicitud"],"back":"Volver a las piezas","needRgpd":"Acepta la política de privacidad para enviar.","sending":"Enviando…","dl":"{wd} {d} de {m} a las {h}:00","wd":["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],"mo":["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],"delL":"Entrega","del":["Recojo en Legutio","Envío en España","Envío a Europa"],"zip":"Código postal y país de entrega","zipPh":"01170 Legutio, España","when":"Fecha que necesitas","contact":[["Empresa","text","organization","","Empresa"],["CIF / NIF","text","off","","CIF"],["Nombre","text","name","","Nombre"],["Email","email","email","tu@empresa.com","email"],["Teléfono","tel","tel","","Teléfono"]],"notes":"Observaciones","notesPh":"Cotas críticas, cara vista, si es una repetición…","paint":"También quiero pintarlas en polvo","paintD":"Márcalo y te coordinamos el pintado en una línea de la misma planta, todo seguido.","rgpd":"He leído la <a href=\"{privacy}\">política de privacidad<\/a> y acepto que tratéis mis datos para preparar el presupuesto.","needEmail":"Indica un email válido para enviarte el presupuesto.","needFile":"Añade al menos un archivo en el paso 1.","doneTitle":"Solicitud {code} recibida.","doneLead":"Te enviamos el presupuesto por email antes del {d}.","doneSteps":["Revisamos tu archivo: escala, contornos y taladros.","Calculamos material, corte y anidado.","Te enviamos el presupuesto por escrito, con plazo."],"doneNew":"Nueva solicitud","err_size":"Los archivos superan {mb} MB en total. Envía los más grandes en otra solicitud.","err_send":"No hemos podido enviar la solicitud. Inténtalo de nuevo en un momento, escríbenos a {email} o llama al {phone}.","subject":"Presupuesto {c} · {n} pieza(s)","heroFiles":"{n} archivo(s) listos en el paso 1"},"maxMb":10,"prefix":"CL","dens":{"acero":7.85,"inox":7.9,"aluminio":2.66,"galvanizado":7.85,"electrozincado":7.85},"holeF":{"acero":1.0,"inox":1.5,"aluminio":1.5,"galvanizado":1.0,"electrozincado":1.0},"bed":null,"privacy":"../../privacidad/","maxT":6,"mats":["acero","electrozincado","galvanizado","aluminio","inox"],"grades":{"acero":["DC01","DC03","DC04"],"inox":["1.4301 (AISI 304)","1.4404 (AISI 316L)"],"aluminio":["EN AW-5754 H111","EN AW-5754 H22/H32","EN AW-1050A"],"galvanizado":["DX51D+Z"],"electrozincado":["DC01+ZE","DC03+ZE","DC04+ZE"]},"matHref":{"acero":"../../corte-laser-acero-laminado-frio/","electrozincado":"../../corte-laser-acero-electrozincado/","galvanizado":"../../corte-laser-acero-galvanizado/","inox":"../../corte-laser-acero-inoxidable/","aluminio":"../../corte-laser-aluminio/"},"email":"i.rodriguez@joma.es","phone":"+34 945 31 87 70"};</script>
+<script src="../../assets/js/site.js?v=e97333a2" defer></script>
+</body>
+</html>
