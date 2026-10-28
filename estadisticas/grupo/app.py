@@ -26,7 +26,12 @@ BY_ID = {s['id']: s for s in SITES}
 PERIODS = {'7': ('7 días', 7), '30': ('30 días', 30), '90': ('90 días', 90), '365': ('12 meses', 365)}
 CONTACT_EVENTS = ('clic-telefono', 'clic-email', 'clic-whatsapp')
 LEAD = 'solicitud-enviada'
-COLORS = ['#2F6F8F', '#C4532F', '#6A8D3A', '#8A5A9E', '#C99A2E', '#3E8E7E', '#9C4A5A']
+COLORS = ['#2F6F8F', '#C4532F', '#6A8D3A', '#8A5A9E', '#C99A2E', '#3E8E7E', '#9C4A5A', '#5E6E7E']
+
+
+def color(i):
+    # una web más que colores no rompe la página: se repite la paleta
+    return COLORS[i % len(COLORS)]
 CHANNELS = [('buscadores', 'Buscadores'), ('directo', 'Directo'), ('redes', 'Redes'),
             ('enlaces', 'Enlaces'), ('pago', 'Pago'), ('campañas', 'Campañas')]
 SEARCH = ('google.', 'bing.', 'duckduckgo.', 'yahoo.', 'ecosia.', 'qwant.', 'yandex.', 'brave.', 'startpage.',
@@ -160,7 +165,7 @@ def chart(data):
             h = v / top * (H - pb - pt)
             y -= h
             out.append(f'<rect x="{pl + i * bw + 1:.1f}" y="{y:.1f}" width="{max(bw - 2, 1):.1f}" height="{h:.1f}" '
-                       f'fill="{COLORS[j]}"><title>{esc(s["name"])} · {d:%d/%m}: {n(v)}</title></rect>')
+                       f'fill="{color(j)}"><title>{esc(s["name"])} · {d:%d/%m}: {n(v)}</title></rect>')
         step = max(1, len(days) // 8)
         if i % step == 0:
             out.append(f'<text x="{pl + i * bw + bw / 2:.1f}" y="{H - 6}" class="ax" text-anchor="middle">{d:%d/%m}</text>')
@@ -218,7 +223,7 @@ def page(days_key):
             c, p = cur.get(s['id'], z), prev.get(s['id'], z)
             cv = c['leads'] / c['visits'] * 100 if c['visits'] else 0
             rows.append(
-                f'<tr><td><span class="dot" style="background:{COLORS[i]}"></span>'
+                f'<tr><td><span class="dot" style="background:{color(i)}"></span>'
                 f'<a href="{esc(s["url"])}" target="_blank" rel="noopener">{esc(s["name"])}</a>'
                 f'<div class="sub">{ago(d["last"].get(s["id"]))}</div></td>'
                 f'<td class="num">{n(c["visitors"])}</td><td class="num">{n(c["visits"])} {delta(c["visits"], p["visits"])}</td>'
@@ -226,7 +231,7 @@ def page(days_key):
                 f'<td class="num">{n(c["contacts"])}</td><td class="num">{n(c["downloads"])}</td>'
                 f'<td class="mixc">{mixbar(d["mix"][s["id"]])}</td></tr>')
     legend_ch = ''.join(f'<span><i style="background:var(--ch{i})"></i>{l}</span>' for i, (_, l) in enumerate(CHANNELS))
-    legend_s = ''.join(f'<span><i style="background:{COLORS[i]}"></i>{esc(s["name"])}</span>' for i, s in enumerate(SITES))
+    legend_s = ''.join(f'<span><i style="background:{color(i)}"></i>{esc(s["name"])}</span>' for i, s in enumerate(SITES))
 
     top_entries = sorted(d['entries'].items(), key=lambda kv: -kv[1])[:12]
     ent_html = ''.join(
@@ -282,11 +287,12 @@ td a{{color:var(--ink);font-weight:600;text-decoration:none}}td a:hover{{text-de
 .fr{{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;margin:10px 0}}
 .fl{{font-size:14px}}.fb{{background:var(--line);height:14px;border-radius:7px;overflow:hidden}}.fb i{{display:block;height:100%;background:var(--ch0)}}
 .fv{{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}}
+.acts{{display:flex;flex-wrap:wrap;gap:10px;align-items:center}}.btn{{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:8px;color:inherit;text-decoration:none;font-weight:600;font-size:14px}}.btn:hover,.btn:focus-visible{{border-color:currentColor}}
 footer{{color:var(--mut);font-size:12.5px;margin-top:8px}}footer a{{color:var(--mut)}}
 </style></head><body><div class="wrap">
 <header><div><h1>Webs del grupo <span>· {label}</span></h1>
 <div class="sub">Desde el {start} · comparado con el periodo anterior · sin cookies</div></div>
-<nav class="tabs">{tabs}</nav></header>
+<div class="acts"><nav class="tabs">{tabs}</nav><a class="btn" href="/dashboard">Abrir panel de Umami</a></div></header>
 <section class="kpis">{kpis}</section>
 <section class="card"><h2>Visitantes por día</h2>{chart}<div class="legend">{legend_s}</div></section>
 <section class="card"><h2>Por web</h2><div class="tw"><table><thead><tr><th>Web</th><th class="num">Visitantes</th>

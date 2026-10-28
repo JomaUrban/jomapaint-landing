@@ -76,6 +76,16 @@ services:
       traefik.http.routers.estadisticas-grupo.entrypoints: websecure
       traefik.http.routers.estadisticas-grupo.tls.certresolver: letsencrypt
       traefik.http.services.estadisticas-grupo.loadbalancer.server.port: "8000"
+      # Vista por defecto: quien escribe estadisticas.joma.es entra al resumen del grupo.
+      # La navegación interna de Umami (cabecera RSC) no se toca: tras el login sigue en el panel.
+      traefik.http.routers.estadisticas-inicio.rule: Host(`${PANEL_HOST:-panel-desactivado.invalid}`) && Path(`/`) && !Header(`RSC`, `1`)
+      traefik.http.routers.estadisticas-inicio.priority: "1000"
+      traefik.http.routers.estadisticas-inicio.entrypoints: websecure
+      traefik.http.routers.estadisticas-inicio.tls.certresolver: letsencrypt
+      traefik.http.routers.estadisticas-inicio.service: estadisticas-grupo
+      traefik.http.routers.estadisticas-inicio.middlewares: estadisticas-a-grupo
+      traefik.http.middlewares.estadisticas-a-grupo.redirectregex.regex: ^https?://([^/]+)/?(\?.*)?$$
+      traefik.http.middlewares.estadisticas-a-grupo.redirectregex.replacement: https://$${1}/grupo
 
   db:
     image: postgres:15-alpine

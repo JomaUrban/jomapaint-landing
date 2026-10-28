@@ -52,7 +52,7 @@ ACC = 'Solicitudes, teléfono, email, WhatsApp y descargas'
 def summary():
     g1, g2, g3 = ['P', 'U', 'J', 'L'], ['N', 'B', 'C'], ['E', 'US']
     rows = [
-        text('Grupo Joma · visitas de todas las webs. Elige el periodo arriba. Detalle de cada web en Boards.'),
+        text('Grupo Joma · visitas de todas las webs. Elige el periodo arriba. Detalle de cada web en Boards. Resumen ejecutivo del grupo (KPIs, conversión, canales): estadisticas.joma.es/grupo'),
         row(*[comp('RealtimeActiveUsers', f'{W[k][1]} · ahora', site=k) for k in ['P', 'U', 'N', 'B']]),
         text('Joma · JomaPaint · Joma Urban · Cortelaser'),
         row(*[comp('WebsiteMetricsBar', W[k][1], site=k) for k in g1]),
