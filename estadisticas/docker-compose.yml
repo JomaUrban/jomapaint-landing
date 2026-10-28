@@ -54,6 +54,29 @@ services:
       traefik.http.routers.estadisticas-paint.service: estadisticas
       traefik.http.middlewares.estadisticas-strip.stripprefix.prefixes: /estadisticas
 
+  # Resumen del grupo (KPIs de todas las webs): estadisticas.joma.es/grupo.
+  # Lee la base de Umami con un rol de solo lectura. Usuario y contraseña: los del panel.
+  grupo:
+    build: ./grupo
+    restart: unless-stopped
+    environment:
+      GRUPO_DSN: host=db port=5432 dbname=umami user=grupo password=${GRUPO_DB_PASSWORD}
+      GRUPO_USER: admin
+      GRUPO_PASSWORD: ${GRUPO_PASSWORD:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - default
+      - edge
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: edge
+      traefik.http.routers.estadisticas-grupo.rule: Host(`${PANEL_HOST:-panel-desactivado.invalid}`) && PathPrefix(`/grupo`)
+      traefik.http.routers.estadisticas-grupo.entrypoints: websecure
+      traefik.http.routers.estadisticas-grupo.tls.certresolver: letsencrypt
+      traefik.http.services.estadisticas-grupo.loadbalancer.server.port: "8000"
+
   db:
     image: postgres:15-alpine
     restart: unless-stopped
