@@ -15,8 +15,9 @@ W = {
     'US': ('1272970f-f4e1-4967-9c29-0de23b16aee3', 'Joma Urban (staging)', '5f0c1a8e-2b7d-4c1e-9a10-000000000006'),
     'B':  ('4f420787-9477-4bcc-a5d2-08beb430530f', 'Buzonia',    '5f0c1a8e-2b7d-4c1e-9a10-000000000007'),
     'C':  ('d27dbbce-5e95-4968-b8ec-254fb596cd68', 'Buzones Costasol', '5f0c1a8e-2b7d-4c1e-9a10-000000000008'),
+    'L':  ('a4b8062f-1394-4c5e-b19b-093ceac38c9e', 'Cortelaser', '5f0c1a8e-2b7d-4c1e-9a10-000000000009'),
 }
-ORDER = ['P', 'U', 'J', 'N', 'B', 'C', 'E', 'US']
+ORDER = ['P', 'U', 'J', 'L', 'N', 'B', 'C', 'E', 'US']
 
 _n = [0]
 def _id(p):
@@ -49,11 +50,11 @@ def table(title, kind, site=None, limit=10, desc=None):
 ACC = 'Solicitudes, teléfono, email, WhatsApp y descargas'
 
 def summary():
-    g1, g2, g3 = ['P', 'U', 'J'], ['N', 'B', 'C'], ['E', 'US']
+    g1, g2, g3 = ['P', 'U', 'J', 'L'], ['N', 'B', 'C'], ['E', 'US']
     rows = [
         text('Grupo Joma · visitas de todas las webs. Elige el periodo arriba. Detalle de cada web en Boards.'),
         row(*[comp('RealtimeActiveUsers', f'{W[k][1]} · ahora', site=k) for k in ['P', 'U', 'N', 'B']]),
-        text('Joma · JomaPaint · Joma Urban'),
+        text('Joma · JomaPaint · Joma Urban · Cortelaser'),
         row(*[comp('WebsiteMetricsBar', W[k][1], site=k) for k in g1]),
         text('Normo · Buzonia · Buzones Costasol'),
         row(*[comp('WebsiteMetricsBar', W[k][1], site=k) for k in g2]),
