@@ -6,6 +6,7 @@
 # Dos entradas:
 #  - Panel: Host(${PANEL_HOST}). PANEL_HOST solo se escribe en .env cuando existe el
 #    secret UMAMI_ADMIN_PASSWORD (así el panel nunca queda abierto con la clave de fábrica).
+#  - Contador para las demás webs: estadisticas.joma.es/script.js y /api/send, siempre.
 #  - Contador para paint.joma.es: paint.joma.es/estadisticas/script.js y /api/send,
 #    mismo dominio que la web, sin depender del DNS de estadisticas.joma.es.
 services:
@@ -37,6 +38,13 @@ services:
       traefik.http.routers.estadisticas.entrypoints: websecure
       traefik.http.routers.estadisticas.tls.certresolver: letsencrypt
       traefik.http.routers.estadisticas.service: estadisticas
+      # Contador para las demás webs: estadisticas.joma.es/script.js y /api/send,
+      # siempre publicados (también sin contraseña de panel).
+      traefik.http.routers.estadisticas-tracker.rule: Host(`estadisticas.joma.es`) && (Path(`/script.js`) || Path(`/api/send`))
+      traefik.http.routers.estadisticas-tracker.entrypoints: websecure
+      traefik.http.routers.estadisticas-tracker.tls.certresolver: letsencrypt
+      traefik.http.routers.estadisticas-tracker.tls.domains[0].main: estadisticas.joma.es
+      traefik.http.routers.estadisticas-tracker.service: estadisticas
       # Contador en paint.joma.es (solo el script y el envío de visitas)
       traefik.http.routers.estadisticas-paint.rule: Host(`paint.joma.es`) && (Path(`/estadisticas/script.js`) || Path(`/estadisticas/api/send`))
       traefik.http.routers.estadisticas-paint.entrypoints: websecure
