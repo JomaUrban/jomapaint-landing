@@ -1,0 +1,9 @@
+[
+  {"key": "joma",      "id": "86cc56b6-fb47-4115-87a9-3eda024bf97d", "name": "Joma",             "group": "Joma",  "url": "https://joma.es"},
+  {"key": "paint",     "id": "a3a6b5ee-66b7-4893-a295-2e6e9fe188b4", "name": "JomaPaint",        "group": "Joma",  "url": "https://paint.joma.es"},
+  {"key": "urban",     "id": "72937a60-e911-4d1e-bf34-4e358686f870", "name": "Joma Urban",       "group": "Joma",  "url": "https://jomaurban.com"},
+  {"key": "normo",     "id": "7d999b89-c4ff-4e67-83cc-b6f5cd541703", "name": "Normo",            "group": "Normo", "url": "https://normo.es"},
+  {"key": "buzonia",   "id": "4f420787-9477-4bcc-a5d2-08beb430530f", "name": "Buzonia",          "group": "Normo", "url": "https://buzonia.com"},
+  {"key": "costasol",  "id": "d27dbbce-5e95-4968-b8ec-254fb596cd68", "name": "Buzones Costasol", "group": "Normo", "url": "https://buzonescostasol.com"},
+  {"key": "ekilabs",   "id": "f9227910-44f9-4cc7-9834-24ef6ec1fb9b", "name": "Ekilabs",          "group": "Ekilabs", "url": "https://ekilabs.com"}
+]
