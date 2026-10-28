@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exportar un DXF para corte láser desde tu CAD | Cortelaser</title>
+<meta name="description" content="Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD, Illustrator e Inkscape, paso a paso, con el desarrollo plano.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/">
+<link rel="alternate" hreflang="es" href="https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/">
+<link rel="alternate" hreflang="eu" href="https://paint.joma.es/cortelaser/eu/gidak/dxf-esportatu-laser-ebaketa/">
+<link rel="alternate" hreflang="en" href="https://paint.joma.es/cortelaser/en/guides/export-dxf-for-laser-cutting/">
+<link rel="alternate" hreflang="fr" href="https://paint.joma.es/cortelaser/fr/guides/exporter-dxf-decoupe-laser/">
+<link rel="alternate" hreflang="x-default" href="https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cortelaser">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="eu_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:title" content="Exportar un DXF para corte láser desde tu CAD | Cortelaser">
+<meta property="og:description" content="Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD, Illustrator e Inkscape, paso a paso, con el desarrollo plano.">
+<meta property="og:url" content="https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/">
+<meta property="og:image" content="https://paint.joma.es/cortelaser/assets/og/og-es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Corte láser de chapa con chispas, Cortelaser">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.ico" sizes="48x48">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="preload" href="../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css?v=0ed948ae">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://paint.joma.es/cortelaser/#joma","name":"Joma","legalName":"José María Gallastegui y Cía., S.A.","taxID":"A20029674","url":"https://www.joma.es","foundingDate":"1942","telephone":"+34945318770","department":{"@id":"https://paint.joma.es/cortelaser/#cortelaser"}},{"@type":"LocalBusiness","@id":"https://paint.joma.es/cortelaser/#cortelaser","name":"Cortelaser","description":"Sube tu DXF o STEP y recibe precio en 24 h laborables. Corte láser de fibra de chapa hasta 6 mm: acero, galvanizado, electrozincado, inox y aluminio. Álava.","url":"https://paint.joma.es/cortelaser/","image":"https://paint.joma.es/cortelaser/assets/img/hero-laser-1200.webp","logo":"https://paint.joma.es/cortelaser/assets/icon-512.png","address":{"@type":"PostalAddress","streetAddress":"C/ San Bartolomé 11, Pol. Ind. Goiain","addressLocality":"Legutio","addressRegion":"Álava","postalCode":"01170","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":42.9432494,"longitude":-2.6490071},"parentOrganization":{"@id":"https://paint.joma.es/cortelaser/#joma"},"knowsLanguage":["es","eu","en","fr"],"areaServed":[{"@type":"AdministrativeArea","name":"Araba/Álava"},{"@type":"AdministrativeArea","name":"Bizkaia"},{"@type":"AdministrativeArea","name":"Gipuzkoa"},{"@type":"AdministrativeArea","name":"Navarra"},{"@type":"AdministrativeArea","name":"La Rioja"},{"@type":"AdministrativeArea","name":"Burgos"},{"@type":"AdministrativeArea","name":"Cantabria"},{"@type":"AdministrativeArea","name":"Pyrénées-Atlantiques"},{"@type":"AdministrativeArea","name":"Landes"},{"@type":"AdministrativeArea","name":"Gironde"},{"@type":"AdministrativeArea","name":"España"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cortelaser","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Corte láser de chapa","url":"https://paint.joma.es/cortelaser/corte-laser-chapa/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Chapa cortada a medida por láser","url":"https://paint.joma.es/cortelaser/chapa-cortada-a-medida/"}}]},"telephone":"+34945318770","email":"i.rodriguez@joma.es"},{"@type":"WebSite","@id":"https://paint.joma.es/cortelaser/#website","name":"Cortelaser","url":"https://paint.joma.es/cortelaser/","inLanguage":["es","eu","en","fr"],"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"}},{"@type":"WebPage","@id":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/","url":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/","inLanguage":"es","name":"Exportar un DXF para corte láser desde tu CAD | Cortelaser","description":"Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD, Illustrator e Inkscape, paso a paso, con el desarrollo plano.","isPartOf":{"@id":"https://paint.joma.es/cortelaser/#website"},"breadcrumb":{"@id":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/#ruta"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://paint.joma.es/cortelaser/assets/img/piezas-planos-1200.webp"},"mainEntity":{"@id":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/#articulo"}},{"@type":"TechArticle","@id":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/#articulo","headline":"Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD e Illustrator o Inkscape","description":"Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD, Illustrator e Inkscape, paso a paso, con el desarrollo plano.","inLanguage":"es","url":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/","author":{"@id":"https://paint.joma.es/cortelaser/#joma"},"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"},"dateModified":"28 de octubre de 2026","image":"https://paint.joma.es/cortelaser/assets/img/piezas-planos-1200.webp"},{"@type":"BreadcrumbList","@id":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/#ruta","itemListElement":[{"@type":"ListItem","position":1,"name":"Cortelaser","item":"https://paint.joma.es/cortelaser/"},{"@type":"ListItem","position":2,"name":"Guías","item":"https://paint.joma.es/cortelaser/guias/"},{"@type":"ListItem","position":3,"name":"Exportar un DXF","item":"https://paint.joma.es/cortelaser/guias/exportar-dxf-corte-laser/"}]},{"@type":"FAQPage","inLanguage":"es","mainEntity":[{"@type":"Question","name":"¿Puedo enviar el STEP en lugar del DXF?","acceptedAnswer":{"@type":"Answer","text":"Sí, lo aceptamos. El DXF tiene una ventaja: el formulario te enseña la pieza y sus medidas al subirlo."}},{"@type":"Question","name":"¿Exporto las líneas de plegado?","acceptedAnswer":{"@type":"Answer","text":"No hacen falta para cortar. Si tu programa las incluye, déjalas en otra capa y avísanos en observaciones."}},{"@type":"Question","name":"¿Qué versión de DXF elijo?","acceptedAnswer":{"@type":"Answer","text":"Cualquier DXF en formato ASCII. El formulario lee en el navegador versiones de R12 a 2018; si tu archivo es de otra, lo revisamos nosotros."}},{"@type":"Question","name":"Mi DXF de Illustrator sale con otro tamaño, ¿qué hago?","acceptedAnswer":{"@type":"Answer","text":"Revisa la escala de exportación: 1 milímetro = 1 unidad. Al subirlo, comprueba en el formulario la medida total."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="page">
+<div class="svc-top">
+  <header class="topbar">
+    <a href="../../" class="lockup cl-lockup" style="--h:34px; color:#FAF9F6;" aria-label="Cortelaser · Inicio"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></a>
+    <nav aria-label="Principal" class="mainnav">
+<a href="../../#servicios">Servicios</a>
+<a href="../../#proceso">Proceso</a>
+<a href="../../#materiales">Materiales</a>
+<a href="../../guias/">Guías</a>
+<a href="../../#presupuesto">Presupuesto</a>
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="Idioma" class="langs">
+<a href="../../guias/exportar-dxf-corte-laser/" hreflang="es" lang="es" title="Español" aria-current="page">ES</a><a href="../../eu/gidak/dxf-esportatu-laser-ebaketa/" hreflang="eu" lang="eu" title="Euskara">EU</a><a href="../../en/guides/export-dxf-for-laser-cutting/" hreflang="en" lang="en" title="English">EN</a><a href="../../fr/guides/exporter-dxf-decoupe-laser/" hreflang="fr" lang="fr" title="Français">FR</a>      </nav>
+      <a href="../../#presupuesto" class="btn btn-acc btn-sm">Pedir presupuesto</a>
+    </div>
+  </header></div>
+
+<main id="contenido">
+<section class="svc-hero" aria-labelledby="h1">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ruta">
+        <ol>
+          <li><a href="../../">Inicio</a></li>
+<li><a href="../../guias/">Guías</a></li>
+          <li><span aria-current="page">Exportar un DXF</span></li>
+        </ol>
+      </nav>
+      <div class="svc-hero-grid">
+        <div class="svc-hero-txt">
+<p class="svc-kicker">Guía · Archivos</p>          <h1 id="h1" class="svc-h1">Cómo exportar un DXF para corte láser desde SolidWorks, Fusion, Inventor, FreeCAD, AutoCAD e Illustrator o Inkscape</h1>
+<p class="hero-lead">Para exportar un DXF para corte láser no hace falta un programa concreto, pero cada uno esconde la opción en un sitio distinto. Aquí tienes la ruta de menús de cada programa, comprobada en su documentación, y qué revisar antes de subir el archivo.</p><div class="row-btns">
+            <a href="../../#presupuesto" class="btn btn-acc btn-lg">Pedir presupuesto</a>
+<a href="../../guias/" class="btn btn-ghost btn-lg">Todas las guías</a>
+          </div>        </div>
+<figure class="svc-fig"><picture><source type="image/avif" srcset="../../assets/img/piezas-planos-480.avif 480w, ../../assets/img/piezas-planos-800.avif 800w, ../../assets/img/piezas-planos-1200.avif 1200w, ../../assets/img/piezas-planos-1920.avif 1920w" sizes="(min-width: 900px) 46vw, 100vw"><img src="../../assets/img/piezas-planos-800.webp" srcset="../../assets/img/piezas-planos-480.webp 480w, ../../assets/img/piezas-planos-800.webp 800w, ../../assets/img/piezas-planos-1200.webp 1200w, ../../assets/img/piezas-planos-1920.webp 1920w" sizes="(min-width: 900px) 46vw, 100vw" width="1200" height="800" alt="Soportes de chapa plegada sobre planos técnicos impresos" fetchpriority="high"></picture><figcaption>Foto: EnCata PD / Unsplash.</figcaption></figure>      </div>
+    </div>
+  </div>
+</section>
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    <section class="svc-row" id="antes" aria-labelledby="h-antes">
+  <h2 id="h-antes" class="svc-h2">Antes de exportar, en cualquier programa</h2>
+  <div class="svc-body">
+    <ol class="svc-steps"><li><span class="svc-step-n tnum" aria-hidden="true">01</span><strong>Pieza plana, a 1:1 y en mm</strong><span>Exporta la cara plana de la pieza o su desarrollo, no una vista en perspectiva.</span></li><li><span class="svc-step-n tnum" aria-hidden="true">02</span><strong>Una pieza por archivo</strong><span>Las cantidades se indican en el formulario, no copiando la pieza.</span></li><li><span class="svc-step-n tnum" aria-hidden="true">03</span><strong>Solo la geometría de corte</strong><span>Sin cotas, marcos, cajetín ni líneas de construcción.</span></li><li><span class="svc-step-n tnum" aria-hidden="true">04</span><strong>Curvas simples</strong><span>Si el programa lo ofrece, convierte las splines en polilíneas o arcos.</span></li><li><span class="svc-step-n tnum" aria-hidden="true">05</span><strong>DXF ASCII</strong><span>Si hay opción, elige ASCII antes que binario.</span></li></ol>
+<p>Si algo falla al abrir el archivo, la <a href="../../guias/errores-archivo-dxf-corte-laser/">guía de errores en el DXF</a> explica cómo encontrarlo y corregirlo.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="solidworks" aria-labelledby="h-solidworks">
+  <h2 id="h-solidworks" class="svc-h2">Cómo exportar un DXF desde SolidWorks</h2>
+  <div class="svc-body">
+    <p>SolidWorks tiene dos caminos para una pieza de chapa, según su propio blog técnico:</p>
+<ol class="svc-olist"><li><strong>Desde la cara plana.</strong> Con la pieza desplegada, clic derecho sobre la cara y <strong>Export to DXF/DWG</strong> (Exportar a DXF/DWG). La vista la define la propia cara.</li><li><strong>Desde el desarrollo.</strong> Clic derecho sobre la operación <strong>Flat-Pattern</strong> (Chapa desplegada) del gestor de operaciones. En el cuadro de salida elige exportar <strong>Sheet metal</strong> y, para corte, solo la geometría.</li><li><strong>Con Archivo > Guardar como > DXF.</strong> Vale para cualquier pieza plana, pero tienes que elegir una vista normal a la pieza.</li></ol>
+<p>Al guardar, SolidWorks abre una herramienta de limpieza con vista previa: úsala para quitar entidades que no se cortan.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="fusion" aria-labelledby="h-fusion">
+  <h2 id="h-fusion" class="svc-h2">Cómo exportar un DXF desde Fusion</h2>
+  <div class="svc-body">
+    <ul class="svc-list"><li><strong>Desde un boceto.</strong> Crea un boceto sobre la cara superior de la pieza y termínalo. En el navegador, clic derecho sobre el boceto y guarda como DXF. Autodesk recomienda este método frente a Archivo > Exportar, que según su blog solo funciona bien en piezas muy simples.</li><li><strong>Desde el desarrollo de chapa.</strong> Con la pieza en chapa, crea el desarrollo (<strong>Create Flat Pattern</strong>) y usa <strong>Export Flat Pattern as DXF</strong>. Marca la opción de convertir splines en polilíneas.</li><li><strong>Versión gratuita.</strong> Según SendCutSend, la versión gratuita no permite exportar DXF desde el menú Archivo. La alternativa es el desarrollo: clic derecho sobre él en el navegador y guardar como DXF.</li></ul>
+<p>El desarrollo exportado desde Fusion incluye siempre las líneas de plegado. Avísanos en observaciones para que no se corten.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="inventor" aria-labelledby="h-inventor">
+  <h2 id="h-inventor" class="svc-h2">Cómo exportar un DXF desde Inventor</h2>
+  <div class="svc-body">
+    <ol class="svc-olist"><li>En una pieza de chapa de un solo cuerpo: pestaña <strong>Sheet Metal</strong> > panel <strong>Flat Pattern</strong> > <strong>Create Flat Pattern</strong>.</li><li>En el navegador, clic derecho sobre el nodo <strong>Flat Pattern</strong> > <strong>Save Copy As</strong>.</li><li>En <strong>Save as type</strong> elige DXF y guarda.</li><li>En el cuadro de opciones de exportación del desarrollo elige la versión de DXF, apaga en la pestaña de capas las que no son de corte (por ejemplo, las líneas de plegado) y, en la de geometría, simplifica las splines y fusiona los contornos en polilíneas si tu flujo lo pide.</li></ol>
+<p>Para una sola cara plana, Inventor tiene <strong>Export Face As</strong> en el menú contextual de la cara, también a DXF o DWG.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="freecad" aria-labelledby="h-freecad">
+  <h2 id="h-freecad" class="svc-h2">Cómo exportar un DXF desde FreeCAD</h2>
+  <div class="svc-body">
+    <ul class="svc-list"><li><strong>Pieza de chapa.</strong> Instala el banco de trabajo SheetMetal desde <strong>Tools > Addon manager</strong>. Selecciona la cara de referencia y pulsa <strong>Unfold</strong>. En el panel, ajusta el factor K de tu material, marca <strong>Generate projection sketch</strong> y exporta el desarrollo a DXF desde ese mismo panel.</li><li><strong>Pieza plana o boceto.</strong> Selecciona el objeto y usa <strong>File > Export</strong>, con el tipo <strong>Autodesk DXF 2D (*.dxf)</strong>. Es el exportador del módulo Draft.</li></ul>
+
+  </div>
+</section>
+<section class="svc-row" id="autocad" aria-labelledby="h-autocad">
+  <h2 id="h-autocad" class="svc-h2">Cómo guardar un DXF desde AutoCAD</h2>
+  <div class="svc-body">
+    <ol class="svc-olist"><li>Deja la pieza sola en el espacio modelo, con <strong>INSUNITS</strong> en 4 (milímetros).</li><li>Limpia con <strong>OVERKILL</strong> y une contornos con <strong>JOIN</strong>.</li><li><strong>SAVEAS</strong> (Guardar como) y elige un tipo de archivo DXF.</li><li>En el cuadro de guardado, <strong>Tools > Options</strong> (Herramientas > Opciones) abre las opciones de DXF: formato <strong>ASCII</strong> o binario, si guardas solo los objetos seleccionados y los decimales de precisión.</li></ol>
+
+  </div>
+</section>
+<section class="svc-row" id="vectorial" aria-labelledby="h-vectorial">
+  <h2 id="h-vectorial" class="svc-h2">Cómo exportar un DXF desde Illustrator o Inkscape</h2>
+  <div class="svc-body">
+    
+    <h3 class="cl-h3">Illustrator</h3>
+    <ol class="svc-olist"><li>Convierte el texto en contornos (<strong>Texto > Crear contornos</strong>).</li><li><strong>Archivo > Exportar > Exportar como</strong> y elige <strong>AutoCAD Interchange File (DXF)</strong>.</li><li>En las opciones, pon la escala a <strong>1 milímetro = 1 unidad</strong>. Marca <strong>Outline Text</strong> si queda algún texto y <strong>Export Selected Art Only</strong> si solo quieres lo seleccionado.</li></ol>
+<p>Si dibujaste el logotipo a otro tamaño, escálalo a su medida real antes de exportar. En el foro de Adobe hay casos en que la opción DXF no aparece con mesas de trabajo muy grandes.</p>
+
+    <h3 class="cl-h3">Inkscape</h3>
+    <ol class="svc-olist"><li>Convierte textos y formas a trayectos: <strong>Trayecto > Objeto a trayecto</strong>. El exportador DXF de Inkscape solo admite trayectos, rectángulos y clones.</li><li><strong>Archivo > Guardar como</strong> y elige <strong>Desktop Cutting Plotter (AutoCAD DXF R14) (*.dxf)</strong>.</li><li>En las opciones, desmarca usar la unidad del documento y elige <strong>mm</strong> como unidad base, o trabaja ya el documento en mm. Si tu programa de destino no lee curvas, activa <strong>Flatten Béziers</strong>.</li></ol>
+
+  </div>
+</section>
+<section class="svc-row" id="desarrollo" aria-labelledby="h-desarrollo">
+  <h2 id="h-desarrollo" class="svc-h2">Si la pieza se va a plegar: exporta el desarrollo</h2>
+  <div class="svc-body">
+    <p>Cortamos chapa plana; no plegamos. Si la pieza se va a plegar después, en tu taller o en el de otro proveedor, envía el desarrollo plano calculado con el radio y el factor K de quien la vaya a plegar. Un desarrollo calculado con otros valores sale con medidas distintas una vez plegado.</p>
+<p>Las líneas de plegado no se cortan. Ponlas en otra capa o bórralas, y avísanos en observaciones.</p>
+<p class="cl-call">Cuando lo tengas, <a href="../../#presupuesto">sube el DXF al formulario</a>: verás la pieza, sus medidas y los avisos al momento, y te enviamos el presupuesto en 24 h laborables.</p>
+
+  </div>
+</section>
+
+  </div>
+</div>
+
+<section aria-labelledby="h-faq" class="section svc-faq-sec" id="preguntas">
+  <div class="wrap svc-faq">
+    <h2 id="h-faq" class="svc-h2">Preguntas frecuentes</h2>
+    <div class="faq">
+<details><summary><span>¿Puedo enviar el STEP en lugar del DXF?</span><span class="plus" aria-hidden="true">+</span></summary><p>Sí, lo aceptamos. El DXF tiene una ventaja: el formulario te enseña la pieza y sus medidas al subirlo.</p></details>
+<details><summary><span>¿Exporto las líneas de plegado?</span><span class="plus" aria-hidden="true">+</span></summary><p>No hacen falta para cortar. Si tu programa las incluye, déjalas en otra capa y avísanos en observaciones.</p></details>
+<details><summary><span>¿Qué versión de DXF elijo?</span><span class="plus" aria-hidden="true">+</span></summary><p>Cualquier DXF en formato ASCII. El formulario lee en el navegador versiones de R12 a 2018; si tu archivo es de otra, lo revisamos nosotros.</p></details>
+<details><summary><span>Mi DXF de Illustrator sale con otro tamaño, ¿qué hago?</span><span class="plus" aria-hidden="true">+</span></summary><p>Revisa la escala de exportación: 1 milímetro = 1 unidad. Al subirlo, comprueba en el formulario la medida total.</p></details>
+    </div>
+  </div>
+</section>
+<section aria-labelledby="h-src" class="section svc-src-sec" id="fuentes">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">Fuentes</h2>
+    <div>
+      <ul class="svc-src">
+<li><a href="https://blogs.solidworks.com/products/solidworks/creating-dxf-files/" rel="noopener" target="_blank">SOLIDWORKS · Creating DXF files in SolidWorks</a></li>
+<li><a href="https://goengineer.com/blog/solidworks-sheet-metal-export-flat-pattern-dxf-file" rel="noopener" target="_blank">GoEngineer · Exportar el desarrollo de SolidWorks a DXF</a></li>
+<li><a href="https://www.autodesk.com/products/fusion-360/blog/how-to-export-dxf-files-from-autodesk-fusion/" rel="noopener" target="_blank">Autodesk · How to export DXF files from Fusion</a></li>
+<li><a href="https://sendcutsend.com/blog/4-ways-to-export-a-dxf-from-fusion-360/" rel="noopener" target="_blank">SendCutSend · 4 formas de exportar un DXF desde Fusion</a></li>
+<li><a href="https://sendcutsend.com/faq/how-to-export-dxf-from-the-free-version-of-fusion/" rel="noopener" target="_blank">SendCutSend · DXF desde la versión gratuita de Fusion</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2022/ENU/Inventor-Help/files/GUID-772414ED-A283-4A02-878E-AD0A114F5BA3.htm" rel="noopener" target="_blank">Autodesk · Desarrollos en Inventor</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2023/ENU/Inventor-Help/files/GUID-93636DA1-3B31-4EA7-8406-F0CE816310CA.htm" rel="noopener" target="_blank">Autodesk · Opciones de exportación del desarrollo (Inventor)</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2020/ENU/Inventor-Help/files/GUID-5EE0993A-643E-4575-9D20-3803804753E1.htm" rel="noopener" target="_blank">Autodesk · Exportar caras y desarrollos (Inventor)</a></li>
+<li><a href="https://blog.freecad.org/2025/07/11/tutorial-getting-started-with-the-sheetmetal-workbench/" rel="noopener" target="_blank">FreeCAD · Tutorial del banco SheetMetal</a></li>
+<li><a href="https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/Draft/Init.py" rel="noopener" target="_blank">FreeCAD · Código del exportador DXF (Draft)</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2021/ENU/AutoCAD-LT/files/GUID-1FF801F9-7FEE-4494-854D-4704A7784232.htm" rel="noopener" target="_blank">Autodesk · Orden SAVEAS</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-LT/files/GUID-0FC24222-2C6A-4068-8ECF-DB7DDCEE6656.htm" rel="noopener" target="_blank">Autodesk · Opciones de DXF al guardar</a></li>
+<li><a href="https://github.com/DoESLiverpool/somebody-should/wiki/LaserCutterIllustrator" rel="noopener" target="_blank">DoES Liverpool · DXF desde Illustrator para corte láser</a></li>
+<li><a href="https://community.adobe.com/t5/illustrator-discussions/dxf-format-missing-from-illustrator-export-options/m-p/14506653" rel="noopener" target="_blank">Foro de Adobe · DXF ausente en las opciones de exportación</a></li>
+<li><a href="https://gitlab.com/inkscape/extensions/-/blob/master/dxf_outlines.inx" rel="noopener" target="_blank">Inkscape · Extensión de salida DXF R14</a></li>
+      </ul>
+<p class="svc-note">Actualizado: 28 de octubre de 2026</p>    </div>
+  </div>
+</section>
+</main>
+
+<section aria-label="Hablemos de tus piezas." class="dark group svc-end">
+  <div class="wrap group-in">
+<div class="svc-rel">
+      <h2 id="h-rel" class="h3">Sigue leyendo</h2>
+      <ul class="units">
+<li>
+          <a href="../../guias/errores-archivo-dxf-corte-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/guia-cad-480.avif 480w, ../../assets/img/guia-cad-800.avif 800w, ../../assets/img/guia-cad-1200.avif 1200w, ../../assets/img/guia-cad-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/guia-cad-800.webp" srcset="../../assets/img/guia-cad-480.webp 480w, ../../assets/img/guia-cad-800.webp 800w, ../../assets/img/guia-cad-1200.webp 1200w, ../../assets/img/guia-cad-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Errores en el DXF y cómo arreglarlos</span>
+            <span class="unit-d">Contornos abiertos, duplicados, unidades, texto, bloques y cotas: cómo detectarlos y corregirlos.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../guias/preparar-archivo-dxf-step-corte-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/guia-cad-480.avif 480w, ../../assets/img/guia-cad-800.avif 800w, ../../assets/img/guia-cad-1200.avif 1200w, ../../assets/img/guia-cad-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/guia-cad-800.webp" srcset="../../assets/img/guia-cad-480.webp 480w, ../../assets/img/guia-cad-800.webp 800w, ../../assets/img/guia-cad-1200.webp 1200w, ../../assets/img/guia-cad-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Cómo preparar el archivo para corte láser</span>
+            <span class="unit-d">DXF y DWG a escala 1:1, contornos cerrados, STEP de un solo cuerpo y PDF acotado.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../guias/kerf-ancho-corte-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/laser-cabezal-480.avif 480w, ../../assets/img/laser-cabezal-800.avif 800w, ../../assets/img/laser-cabezal-1200.avif 1200w, ../../assets/img/laser-cabezal-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/laser-cabezal-800.webp" srcset="../../assets/img/laser-cabezal-480.webp 480w, ../../assets/img/laser-cabezal-800.webp 800w, ../../assets/img/laser-cabezal-1200.webp 1200w, ../../assets/img/laser-cabezal-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Kerf o ancho de corte láser</span>
+            <span class="unit-d">Qué ancho tiene, de qué depende y por qué no lo dibujas tú.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../corte-laser-chapa/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../assets/img/laser-cabezal-480.avif 480w, ../../assets/img/laser-cabezal-800.avif 800w, ../../assets/img/laser-cabezal-1200.avif 1200w, ../../assets/img/laser-cabezal-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../assets/img/laser-cabezal-800.webp" srcset="../../assets/img/laser-cabezal-480.webp 480w, ../../assets/img/laser-cabezal-800.webp 800w, ../../assets/img/laser-cabezal-1200.webp 1200w, ../../assets/img/laser-cabezal-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Corte láser de chapa</span>
+            <span class="unit-d">Contornos, taladros y calados en chapa de hasta 6 mm, desde una pieza.</span>
+          </a>
+        </li>
+      </ul>
+    </div>    <div class="contact">
+      <div class="contact-head">
+        <div class="contact-h">
+          <h2 class="h-xl">Hablemos de tus piezas.</h2>
+          <p class="lead">Te atiende Igor Rodríguez. Escríbenos o llama de lunes a viernes, de 7:00 a 15:00.</p>
+        </div>
+        <a href="../../#presupuesto" class="btn btn-acc btn-lg">Pedir presupuesto</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+34945318770"><span class="c-l">Teléfono</span><span class="c-v tnum">+34 945 31 87 70</span></a>
+        <a href="mailto:i.rodriguez@joma.es"><span class="c-l">Email</span><span class="c-v">i.rodriguez@joma.es</span></a>
+        <div><span class="c-l">Planta · visitas con cita</span><span class="c-v c-addr">C/ San Bartolomé 11, Pol. Ind. Goiain<br>01170 Legutio, Araba</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="Servicios y guías" class="foot-svc">
+<a href="../../corte-laser-chapa/">Corte láser de chapa</a><a href="../../chapa-cortada-a-medida/">Chapa cortada a medida</a><a href="../../corte-laser-acero-laminado-frio/">Acero laminado en frío</a><a href="../../corte-laser-acero-electrozincado/">Acero electrozincado</a><a href="../../corte-laser-acero-galvanizado/">Acero galvanizado</a><a href="../../corte-laser-aluminio/">Aluminio</a><a href="../../corte-laser-acero-inoxidable/">Acero inoxidable</a><a href="../../guias/" class="foot-guide">Guías técnicas</a><a href="../../guias/preparar-archivo-dxf-step-corte-laser/" class="foot-guide">Cómo preparar el archivo para corte láser</a><a href="../../guias/diseno-piezas-corte-laser/" class="foot-guide">Diseño de piezas para corte láser</a><a href="../../guias/tolerancias-corte-laser-iso-2768-iso-9013/" class="foot-guide">Tolerancias: ISO 2768 e ISO 9013</a><a href="../../guias/corte-laser-plasma-agua-punzonado/" class="foot-guide">Láser, plasma, agua o punzonado</a><a href="../../guias/precio-corte-laser-chapa/" class="foot-guide">Qué determina el precio del corte láser</a><a href="../../guias/errores-archivo-dxf-corte-laser/" class="foot-guide">Errores en el DXF y cómo arreglarlos</a><a href="../../guias/exportar-dxf-corte-laser/" class="foot-guide" aria-current="page">Cómo exportar un DXF para corte láser</a><a href="../../guias/kerf-ancho-corte-laser/" class="foot-guide">Kerf o ancho de corte láser</a><a href="../../guias/microuniones-corte-laser/" class="foot-guide">Microuniones y puentes</a><a href="../../guias/diametro-minimo-agujero-corte-laser/" class="foot-guide">Agujero, ranura y puente mínimos</a><a href="../../guias/corte-laser-nitrogeno-oxigeno/" class="foot-guide">Corte láser con nitrógeno u oxígeno</a><a href="../../guias/canto-chapa-galvanizada-corte-laser/" class="foot-guide">¿Se oxida el canto del galvanizado?</a><a href="../../guias/chapa-galvanizada-electrozincada-laminada-frio/" class="foot-guide">Galvanizado, electrozincado o laminado en frío</a><a href="../../guias/acero-inoxidable-304-o-316l/" class="foot-guide">Inox 304 o 316L</a><a href="../../guias/aluminio-5754-1050a-6082/" class="foot-guide">Aluminio 5754, 1050A o 6082</a><a href="../../guias/equivalencias-aceros-en-din-aisi/" class="foot-guide">Tabla de equivalencias de aceros e inoxidables</a><a href="../../guias/espesores-chapa-calibres-mm/" class="foot-guide">Espesores de chapa, calibres y tolerancias</a><a href="../../guias/medidas-formatos-chapa/" class="foot-guide">Formatos y medidas de chapa</a><a href="../../guias/diseno-pestana-ranura-chapa/" class="foot-guide">Diseño de pestaña y ranura en chapa</a><a href="../../guias/letras-chapa-corte-laser/" class="foot-guide">Letras, logotipos y textos en chapa</a><a href="../../guias/celosia-chapa-corte-laser/" class="foot-guide">Celosías y chapa calada sin deformaciones</a><a href="../../calculadora-peso-chapa/" class="foot-guide">Calculadora de peso de chapa</a><a href="../../glosario-chapa-corte-laser/" class="foot-guide">Glosario de chapa</a><a href="../../preguntas-frecuentes/" class="foot-guide">Preguntas frecuentes</a><a href="../../fabrica-legutio/" class="foot-guide">La fábrica</a>      </nav>
+      <div class="foot-l">
+        <span class="lockup cl-lockup" style="--h:24px; color:#FAF9F6;"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></span>
+        <span>Corte láser de chapa a medida, hasta 6 mm, en Legutio (Álava). Envíos a toda España y Europa.</span>
+      </div>
+      <nav aria-label="Legal e idiomas" class="foot-nav">
+<a href="../../aviso-legal/">Aviso legal</a><a href="../../privacidad/">Privacidad</a><a href="../../cookies/">Cookies</a><a href="../../eu/gidak/dxf-esportatu-laser-ebaketa/" hreflang="eu" lang="eu">Euskara</a><a href="../../en/guides/export-dxf-for-laser-cutting/" hreflang="en" lang="en">English</a><a href="../../fr/guides/exporter-dxf-decoupe-laser/" hreflang="fr" lang="fr">Français</a>      </nav>
+      <p class="foot-owner">Cortelaser es una marca de José María Gallastegui y Cía., S.A. · CIF A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Álava)</p>
+    </footer>  </div>
+</section>
+</div>
+<script>window.CL={"lang":"es","root":"../../","api":"../../api/solicitud","t":{"materials":{"acero":"Acero laminado en frío (DC01)","electrozincado":"Acero electrozincado (DC01+ZE)","galvanizado":"Acero galvanizado (DX51D+Z)","inox":"Acero inoxidable (304 / 316L)","aluminio":"Aluminio (5754 / 1050A)"},"mat_short":{"acero":"Laminado en frío","electrozincado":"Electrozincado","galvanizado":"Galvanizado","inox":"Inoxidable","aluminio":"Aluminio"},"steps":["Piezas","Entrega y contacto"],"ref":"Pieza {n}","remove":"Quitar la pieza {n}","addFile":"Añade DXF, STEP o plano","unfile":"Cambiar archivo","addLine":"Añadir pieza","fRef":"Referencia o nombre","fRefPh":"La que uséis en vuestro taller","fQty":"Cantidad","fMat":"Material","fT":"Espesor (mm)","fTPh":"Hasta 6","analyzing":"Analizando…","no_preview":"sin vista previa","preview_aria":"Vista previa de la pieza","s_size":"Medidas","s_cut":"Longitud de corte","s_contours":"Contornos + taladros","s_weight":"Peso por pieza","s_weight_need":"indica el espesor","msg_step":"STEP recibido. Lo revisamos al preparar el presupuesto y cortamos su desarrollo plano.","msg_dwg":"DWG recibido. Si puedes, expórtalo también a DXF para ver aquí sus medidas.","msg_other":"Archivo recibido. Si es un plano, asegúrate de que lleva todas las cotas.","msg_binary":"Es un DXF binario. Guárdalo como DXF ASCII para ver aquí sus medidas; igualmente lo recibimos.","msg_empty":"No encontramos geometría en el DXF. Comprueba que la pieza está en el espacio modelo y no en un bloque.","msg_units":"El archivo está en otras unidades: lo hemos pasado a milímetros.","msg_open":"Hay {n} contorno(s) abierto(s). El láser necesita contornos cerrados: revísalos o los cerramos nosotros si es evidente.","msg_multi":"Hay {n} piezas en el mismo archivo. Mejor una por archivo; si es a propósito, indícalo en observaciones.","msg_text":"Hay textos en el archivo. Si se tienen que cortar, conviértelos a contornos; si son notas, los ignoramos.","msg_dim":"Las cotas y notas no se cortan: usamos la geometría a escala 1:1.","msg_insert":"Hay bloques en el archivo. Explótalos para que entren en el análisis.","msg_spline":"Hay curvas spline: la vista previa es aproximada.","msg_hole":"El taladro más pequeño mide {d} mm. Como regla general conviene que sea al menos {f} veces el espesor ({t} mm); lo revisamos.","msg_thick":"Cortamos chapa de hasta {max} mm. Para más espesor, escríbenos antes.","msg_ok":"Geometría correcta: contornos cerrados y una sola pieza.","asideTitle":"Tu solicitud","nRefs":"Piezas: {n}","nPcs":"Unidades: {n}","weight":"Peso estimado","deadlineL":"Presupuesto antes del","cutoff":"24 h laborables. Oficina de lunes a viernes, de 7:00 a 15:00.","next":["Siguiente: entrega y contacto","Enviar solicitud"],"back":"Volver a las piezas","needRgpd":"Acepta la política de privacidad para enviar.","sending":"Enviando…","dl":"{wd} {d} de {m} a las {h}:00","wd":["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],"mo":["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],"delL":"Entrega","del":["Recojo en Legutio","Envío en España","Envío a Europa"],"zip":"Código postal y país de entrega","zipPh":"01170 Legutio, España","when":"Fecha que necesitas","contact":[["Empresa","text","organization","","Empresa"],["CIF / NIF","text","off","","CIF"],["Nombre","text","name","","Nombre"],["Email","email","email","tu@empresa.com","email"],["Teléfono","tel","tel","","Teléfono"]],"notes":"Observaciones","notesPh":"Cotas críticas, cara vista, si es una repetición…","paint":"También quiero pintarlas en polvo","paintD":"Márcalo y te coordinamos el pintado en una línea de la misma planta, todo seguido.","rgpd":"He leído la <a href=\"{privacy}\">política de privacidad<\/a> y acepto que tratéis mis datos para preparar el presupuesto.","needEmail":"Indica un email válido para enviarte el presupuesto.","needFile":"Añade al menos un archivo en el paso 1.","doneTitle":"Solicitud {code} recibida.","doneLead":"Te enviamos el presupuesto por email antes del {d}.","doneSteps":["Revisamos tu archivo: escala, contornos y taladros.","Calculamos material, corte y anidado.","Te enviamos el presupuesto por escrito, con plazo."],"doneNew":"Nueva solicitud","err_size":"Los archivos superan {mb} MB en total. Envía los más grandes en otra solicitud.","err_send":"No hemos podido enviar la solicitud. Inténtalo de nuevo en un momento, escríbenos a {email} o llama al {phone}.","subject":"Presupuesto {c} · {n} pieza(s)","heroFiles":"{n} archivo(s) listos en el paso 1"},"maxMb":10,"prefix":"CL","dens":{"acero":7.85,"inox":7.9,"aluminio":2.66,"galvanizado":7.85,"electrozincado":7.85},"holeF":{"acero":1.0,"inox":1.5,"aluminio":1.5,"galvanizado":1.0,"electrozincado":1.0},"bed":null,"privacy":"../../privacidad/","maxT":6,"mats":["acero","electrozincado","galvanizado","aluminio","inox"],"grades":{"acero":["DC01","DC03","DC04"],"inox":["1.4301 (AISI 304)","1.4404 (AISI 316L)"],"aluminio":["EN AW-5754 H111","EN AW-5754 H22/H32","EN AW-1050A"],"galvanizado":["DX51D+Z"],"electrozincado":["DC01+ZE","DC03+ZE","DC04+ZE"]},"matHref":{"acero":"../../corte-laser-acero-laminado-frio/","electrozincado":"../../corte-laser-acero-electrozincado/","galvanizado":"../../corte-laser-acero-galvanizado/","inox":"../../corte-laser-acero-inoxidable/","aluminio":"../../corte-laser-aluminio/"},"email":"i.rodriguez@joma.es","phone":"+34 945 31 87 70"};</script>
+<script src="../../assets/js/site.js?v=e97333a2" defer></script>
+</body>
+</html>

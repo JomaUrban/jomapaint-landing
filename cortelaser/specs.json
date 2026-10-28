@@ -1,0 +1,302 @@
+{
+ "brand": "Cortelaser",
+ "owner": {
+  "legal_name": "José María Gallastegui y Cía., S.A.",
+  "cif": "A20029674",
+  "address": "C/ San Bartolomé 11, Pol. Ind. Goiain",
+  "postal_code": "01170",
+  "city": "Legutio",
+  "region": "Álava",
+  "country": "ES"
+ },
+ "materials": {
+  "acero": {
+   "density": 7.85,
+   "grades": [
+    {
+     "name": "DC01",
+     "norm": "EN 10130",
+     "props": "Re 140–280 MPa · Rm 270–410 MPa · A80 ≥ 28 % (0,7–3 mm)",
+     "src": "arcelor_dc01"
+    },
+    {
+     "name": "DC03",
+     "norm": "EN 10130",
+     "props": "Re 140–240 MPa · Rm 270–370 MPa · A80 ≥ 34 % (0,7–2 mm)",
+     "src": "arcelor_dc01"
+    },
+    {
+     "name": "DC04",
+     "norm": "EN 10130",
+     "props": "Re 140–210 MPa · Rm 270–350 MPa · A80 ≥ 38 % (0,7–2 mm)",
+     "src": "arcelor_dc01"
+    }
+   ],
+   "hole_min_factor": 1.0,
+   "img": "mat-acero"
+  },
+  "inox": {
+   "density": 7.9,
+   "grades": [
+    {
+     "name": "1.4301 (AISI 304)",
+     "norm": "EN 10088-2",
+     "props": "Rp0,2 ≥ 230 MPa · Rm 540–750 MPa · A80 45 %",
+     "src": "outokumpu_core"
+    },
+    {
+     "name": "1.4404 (AISI 316L)",
+     "norm": "EN 10088-2",
+     "props": "Rp0,2 ≥ 240 MPa · Rm 530–680 MPa · Mo 2,1 %",
+     "src": "outokumpu_supra"
+    }
+   ],
+   "hole_min_factor": 1.5,
+   "img": "mat-inox"
+  },
+  "aluminio": {
+   "density": 2.66,
+   "grades": [
+    {
+     "name": "EN AW-5754 H111",
+     "norm": "EN 485-2",
+     "props": "Rm 190–240 MPa · Rp0,2 ≥ 80 MPa",
+     "src": "wieland_5754"
+    },
+    {
+     "name": "EN AW-5754 H22/H32",
+     "norm": "EN 485-2",
+     "props": "Rm 220–270 MPa · Rp0,2 ≥ 130 MPa",
+     "src": "wieland_5754"
+    },
+    {
+     "name": "EN AW-1050A",
+     "norm": "EN 485-2",
+     "props": "Rm 60–95 MPa (O/H111) · 2,70 kg/dm³",
+     "src": "wieland_1050"
+    }
+   ],
+   "hole_min_factor": 1.5,
+   "img": "mat-aluminio"
+  },
+  "galvanizado": {
+   "density": 7.85,
+   "grades": [
+    {
+     "name": "DX51D+Z",
+     "norm": "EN 10346",
+     "props": "Rm 270–500 MPa · A80 ≥ 22 %",
+     "src": "arcelor_dx51"
+    }
+   ],
+   "zinc": [
+    [
+     "Z100",
+     "7"
+    ],
+    [
+     "Z140",
+     "10"
+    ],
+    [
+     "Z200",
+     "14"
+    ],
+    [
+     "Z275",
+     "20"
+    ],
+    [
+     "Z350",
+     "25"
+    ],
+    [
+     "Z450",
+     "31"
+    ],
+    [
+     "Z600",
+     "42"
+    ]
+   ],
+   "hole_min_factor": 1.0,
+   "img": "mat-galvanizado"
+  },
+  "electrozincado": {
+   "density": 7.85,
+   "grades": [
+    {
+     "name": "DC01+ZE",
+     "norm": "EN 10152",
+     "props": "Re 140–280 MPa · Rm 270–410 MPa · A80 ≥ 28 % (0,7–3 mm)",
+     "src": "arcelor_ze"
+    },
+    {
+     "name": "DC03+ZE",
+     "norm": "EN 10152",
+     "props": "Re 140–240 MPa · Rm 270–370 MPa · A80 ≥ 34 % (0,7–2 mm)",
+     "src": "arcelor_ze"
+    },
+    {
+     "name": "DC04+ZE",
+     "norm": "EN 10152",
+     "props": "Re 140–220 MPa · Rm 270–350 MPa · A80 ≥ 37 % (0,7–2 mm)",
+     "src": "arcelor_ze"
+    }
+   ],
+   "zinc": [
+    [
+     "ZE25/25",
+     "2,5",
+     "18"
+    ],
+    [
+     "ZE50/50",
+     "5",
+     "36"
+    ],
+    [
+     "ZE0/25",
+     "0 / 2,5",
+     "0 / 18"
+    ],
+    [
+     "ZE0/50",
+     "0 / 5",
+     "0 / 36"
+    ]
+   ],
+   "hole_min_factor": 1.0,
+   "img": "mat-acero"
+  }
+ },
+ "iso2768": {
+  "ranges": [
+   "0,5–3",
+   ">3–6",
+   ">6–30",
+   ">30–120",
+   ">120–400",
+   ">400–1000",
+   ">1000–2000",
+   ">2000–4000"
+  ],
+  "f": [
+   "±0,05",
+   "±0,05",
+   "±0,1",
+   "±0,15",
+   "±0,2",
+   "±0,3",
+   "±0,5",
+   "—"
+  ],
+  "m": [
+   "±0,1",
+   "±0,1",
+   "±0,2",
+   "±0,3",
+   "±0,5",
+   "±0,8",
+   "±1,2",
+   "±2"
+  ],
+  "c": [
+   "±0,2",
+   "±0,3",
+   "±0,5",
+   "±0,8",
+   "±1,2",
+   "±2",
+   "±3",
+   "±4"
+  ],
+  "v": [
+   "—",
+   "±0,5",
+   "±1",
+   "±1,5",
+   "±2,5",
+   "±4",
+   "±6",
+   "±8"
+  ]
+ },
+ "sources": {
+  "arcelor_dc01": "https://industry.arcelormittal.com/catalogue/B10/EN",
+  "arcelor_dx51": "https://industry.arcelormittal.com/catalogue/E20/EN",
+  "arcelor_ze": "https://industry.arcelormittal.com/catalogue/E10/EN",
+  "ssab_ze": "https://www.ssab.com/en/brands-and-products/steel-categories/coated-steel/electrogalvanized-coating",
+  "hse_zinc": "https://www.hse.gov.uk/foi/internalops/ocs/600-699/668_30/668_30id.htm",
+  "fabricator_fiber": "https://www.thefabricator.com/thefabricator/article/lasercutting/how-the-fiber-laser-changed-the-rules-of-metal-fabrication",
+  "ipg_reflective": "https://www.ipgphotonics.com/en/lasercube/laser-cutting-reflective-metals",
+  "bodor": "https://www.bodor.com/",
+  "arvedi": "https://www.arvedi.it/en/acciaieria/products/hot-rolled-steels/non-alloyed-structural-steels-as-per-en-10025-2/",
+  "outokumpu_core": "https://otke-cdn.outokumpu.com/-/media/files/products/core/outokumpu-core-range-datasheet.pdf",
+  "outokumpu_supra": "https://otke-cdn.outokumpu.com/-/media/files/products/supra/outokumpu-supra-range-datasheet.pdf",
+  "wieland_5754": "https://www.wieland.com/cn/content/download/17126/file/EN-AW-5754_walz_EN.pdf",
+  "wieland_1050": "https://www.wieland.com/cn/content/download/17152/file/EN-AW-1050A_EN.pdf",
+  "thyssen_s235": "https://ucpcdn.thyssenkrupp.com/_legacy/UCPthyssenkruppBAMXFrance/assets.files/product_pdf/carbon_flat_steel_/plates_and_slabs_carbon_steel/s235jr_1_0038_11_2016_engl.pdf",
+  "metallservice_alu": "https://www.metallservice.ch/msm/msm-home/services/metall-lexion/mechanische-kennwerte-f%C3%BCr-walzblankes-aluminium-halbzeug.pdf",
+  "fabcon_rules": "https://fabcon.com/articles/?p=544",
+  "fabcon_price": "https://fabcon.com/articles/?p=536",
+  "machinedesign": "https://www.machinedesign.com/mechanical/tips-making-sheet-metal-parts",
+  "wila_v": "https://wilatooling.com/knowledge-innovation/knowledge-articles/v-opening",
+  "fabricator_die": "https://www.thefabricator.com/thefabricator/article/bending/bending-basics-dissecting-bend-deductions-and-die-openings",
+  "fabricator_flange": "https://www.thefabricator.com/article/bending/press-brake-bending-tips-for-forming-tapered-bends-and-determining-minimum-flange-lengths",
+  "fabricator_k": "https://www.thefabricator.com/thefabricator/article/bending/analyzing-the-k-factor-in-sheet-metal-bending-part-ii",
+  "fabricator_springback": "https://www.thefabricator.com/article/bending/bending-basics-the-hows-and-whys-of-springback-and-springforward",
+  "fabricator_oxide": "https://www.thefabricator.com/article/finishing/finishing-off-oxide-layer-problems",
+  "pfonline_oxide": "https://pfonline.com/articles/pretreating-laser-cut-parts",
+  "tailorsteel_bend": "https://www.247tailorsteel.com/en/bending-guidelines",
+  "ssab_bend": "https://www.ssab.com/en/support/how-to-process/how-to-bend/how-to-press-brake/how-to-set-up-the-work-piece/recommendations",
+  "trumpf_fusion": "https://www.trumpf.com/en_GB/applications/laser-cutting/fusion-cutting/",
+  "trumpf_trulaser": "https://trumpf.com/en_SG/products/machines-systems/2d-laser-cutting-machines/trulaser-1030-fiber-1040-fiber-1060-fiber",
+  "iso2768_table": "https://amesweb.info/fits-tolerances/iso-2768-linear-dimensions-tolerances.aspx",
+  "iso9013_guide": "https://www.laserspechub.com/guides/iso-9013-practical-guide",
+  "iso9013_std": "https://www.boutique.afnor.org/en-gb/standard/iso-90132017/thermal-cutting-classification-of-thermal-cuts-geometrical-product-specific/xs023822/124112",
+  "hypertherm": "https://fandmmag.com/2011/12/deciding-on-the-right-sheet-and-plate-cutting-process/2",
+  "minifaber": "https://www.minifaber.com/blog-minifaber/punching-advantages-limitations-and-comparison-laser-cutting",
+  "coatingsworld_edge": "https://www.coatingsworld.com/issues/2019-05-01/view_technical-papers/powder-coating-advances-for-edge-corrosion-protection",
+  "galv_outgassing": "https://www.hotdipgalvanizing.com/technical-resources/powder-coating-adhesion-and-outgassing-galvanized-steel",
+  "pcimag_masking": "https://www.pcimag.com/articles/print/107459-powder-coating-masking-fundamentals",
+  "scs_files": "https://sendcutsend.com/guidelines/3d-files",
+  "scs_cnc": "https://sendcutsend.com/cnc-guidelines",
+  "scs_problems": "https://sendcutsend.com/what-are-common-problems-to-look-for-in-my-files/",
+  "scs_powder": "https://sendcutsend.com/blog/how-to-optimize-parts-for-powder-coating/",
+  "din6935": "https://www.dinmedia.de/de/norm/din-6935/144419944"
+ },
+ "capabilities": {
+  "laser": {
+   "brand": "Bodor",
+   "source": "fibra",
+   "model": null,
+   "power_kw": null,
+   "bed": "gran formato",
+   "bed_mm": null,
+   "max_thickness_mm": 6,
+   "max_thickness_by_material": {
+    "laminado": null,
+    "electrozincado": null,
+    "galvanizado": null,
+    "aluminio": null,
+    "inox": null
+   }
+  },
+  "stock_thickness_mm": {
+   "laminado": null,
+   "electrozincado": null,
+   "galvanizado": null,
+   "aluminio": null,
+   "inox": null
+  },
+  "materials": [
+   "laminado",
+   "electrozincado",
+   "galvanizado",
+   "aluminio",
+   "inox"
+  ]
+ },
+ "note": "null = dato sin confirmar"
+}

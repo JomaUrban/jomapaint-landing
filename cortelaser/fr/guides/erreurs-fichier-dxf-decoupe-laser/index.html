@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erreurs dans un fichier DXF pour la découpe laser | Cortelaser</title>
+<meta name="description" content="Les erreurs de fichier DXF qui bloquent une commande de découpe laser : contours ouverts, doublons, unités, texte, blocs, splines et cotes. Comment les corriger.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/">
+<link rel="alternate" hreflang="es" href="https://paint.joma.es/cortelaser/guias/errores-archivo-dxf-corte-laser/">
+<link rel="alternate" hreflang="eu" href="https://paint.joma.es/cortelaser/eu/gidak/dxf-fitxategiaren-akatsak-laser-ebaketa/">
+<link rel="alternate" hreflang="en" href="https://paint.joma.es/cortelaser/en/guides/dxf-file-errors-laser-cutting/">
+<link rel="alternate" hreflang="fr" href="https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/">
+<link rel="alternate" hreflang="x-default" href="https://paint.joma.es/cortelaser/guias/errores-archivo-dxf-corte-laser/">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cortelaser">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="eu_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Erreurs dans un fichier DXF pour la découpe laser | Cortelaser">
+<meta property="og:description" content="Les erreurs de fichier DXF qui bloquent une commande de découpe laser : contours ouverts, doublons, unités, texte, blocs, splines et cotes. Comment les corriger.">
+<meta property="og:url" content="https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/">
+<meta property="og:image" content="https://paint.joma.es/cortelaser/assets/og/og-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Découpe laser de tôle avec étincelles, Cortelaser">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../../favicon.ico" sizes="48x48">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<link rel="manifest" href="../../../site.webmanifest">
+<link rel="preload" href="../../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/css/site.css?v=0ed948ae">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://paint.joma.es/cortelaser/#joma","name":"Joma","legalName":"José María Gallastegui y Cía., S.A.","taxID":"A20029674","url":"https://www.joma.es","foundingDate":"1942","telephone":"+34945318770","department":{"@id":"https://paint.joma.es/cortelaser/#cortelaser"}},{"@type":"LocalBusiness","@id":"https://paint.joma.es/cortelaser/#cortelaser","name":"Cortelaser","description":"Envoyez votre DXF ou STEP, prix en 24 h ouvrées. Découpe laser fibre de tôle jusqu'à 6 mm : acier, galvanisé, électrozingué, inox, aluminium. Espagne.","url":"https://paint.joma.es/cortelaser/","image":"https://paint.joma.es/cortelaser/assets/img/hero-laser-1200.webp","logo":"https://paint.joma.es/cortelaser/assets/icon-512.png","address":{"@type":"PostalAddress","streetAddress":"C/ San Bartolomé 11, Pol. Ind. Goiain","addressLocality":"Legutio","addressRegion":"Álava","postalCode":"01170","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":42.9432494,"longitude":-2.6490071},"parentOrganization":{"@id":"https://paint.joma.es/cortelaser/#joma"},"knowsLanguage":["es","eu","en","fr"],"areaServed":[{"@type":"AdministrativeArea","name":"Araba/Álava"},{"@type":"AdministrativeArea","name":"Bizkaia"},{"@type":"AdministrativeArea","name":"Gipuzkoa"},{"@type":"AdministrativeArea","name":"Navarre"},{"@type":"AdministrativeArea","name":"La Rioja"},{"@type":"AdministrativeArea","name":"Burgos"},{"@type":"AdministrativeArea","name":"Cantabrie"},{"@type":"AdministrativeArea","name":"Pyrénées-Atlantiques"},{"@type":"AdministrativeArea","name":"Landes"},{"@type":"AdministrativeArea","name":"Gironde"},{"@type":"AdministrativeArea","name":"Espagne"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cortelaser","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Découpe laser de tôle","url":"https://paint.joma.es/cortelaser/fr/decoupe-laser-tole/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tôle découpée sur mesure au laser","url":"https://paint.joma.es/cortelaser/fr/tole-decoupee-sur-mesure/"}}]},"telephone":"+34945318770","email":"i.rodriguez@joma.es"},{"@type":"WebSite","@id":"https://paint.joma.es/cortelaser/#website","name":"Cortelaser","url":"https://paint.joma.es/cortelaser/","inLanguage":["es","eu","en","fr"],"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"}},{"@type":"WebPage","@id":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/","url":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/","inLanguage":"fr","name":"Erreurs dans un fichier DXF pour la découpe laser | Cortelaser","description":"Les erreurs de fichier DXF qui bloquent une commande de découpe laser : contours ouverts, doublons, unités, texte, blocs, splines et cotes. Comment les corriger.","isPartOf":{"@id":"https://paint.joma.es/cortelaser/#website"},"breadcrumb":{"@id":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/#ruta"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://paint.joma.es/cortelaser/assets/img/guia-cad-1200.webp"},"mainEntity":{"@id":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/#articulo"}},{"@type":"TechArticle","@id":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/#articulo","headline":"Les erreurs dans le DXF qui bloquent une commande, et comment les corriger","description":"Les erreurs de fichier DXF qui bloquent une commande de découpe laser : contours ouverts, doublons, unités, texte, blocs, splines et cotes. Comment les corriger.","inLanguage":"fr","url":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/","author":{"@id":"https://paint.joma.es/cortelaser/#joma"},"publisher":{"@id":"https://paint.joma.es/cortelaser/#joma"},"dateModified":"28 octobre 2026","image":"https://paint.joma.es/cortelaser/assets/img/guia-cad-1200.webp"},{"@type":"BreadcrumbList","@id":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/#ruta","itemListElement":[{"@type":"ListItem","position":1,"name":"Cortelaser","item":"https://paint.joma.es/cortelaser/fr/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://paint.joma.es/cortelaser/fr/guides/"},{"@type":"ListItem","position":3,"name":"Erreurs dans le DXF","item":"https://paint.joma.es/cortelaser/fr/guides/erreurs-fichier-dxf-decoupe-laser/"}]},{"@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Fermez-vous vous-mêmes un contour ouvert ?","acceptedAnswer":{"@type":"Answer","text":"Si l'écart est évident, nous le fermons et nous vous le signalons. S'il n'est pas clair ce que vous vouliez dessiner, nous vous posons la question avant de chiffrer."}},{"@type":"Question","name":"Puis-je envoyer le plan coté dans le même DXF ?","acceptedAnswer":{"@type":"Answer","text":"Mieux vaut éviter. Envoyez le DXF avec la géométrie seule et, si vous le souhaitez, un PDF coté à part."}},{"@type":"Question","name":"Quelle version de DXF utiliser ?","acceptedAnswer":{"@type":"Answer","text":"Un DXF au format ASCII. Si votre logiciel propose le binaire, passez l'option en ASCII."}},{"@type":"Question","name":"Comment savoir si le fichier est en millimètres ?","acceptedAnswer":{"@type":"Answer","text":"Mesurez la pièce entière dans votre CAO avant d'exporter. À l'envoi du DXF, le formulaire vous montre les dimensions qu'il a lues."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Aller au contenu</a>
+<div class="page">
+<div class="svc-top">
+  <header class="topbar">
+    <a href="../../../fr/" class="lockup cl-lockup" style="--h:34px; color:#FAF9F6;" aria-label="Cortelaser · Accueil"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></a>
+    <nav aria-label="Principal" class="mainnav">
+<a href="../../../fr/#servicios">Services</a>
+<a href="../../../fr/#proceso">Procédé</a>
+<a href="../../../fr/#materiales">Matériaux</a>
+<a href="../../../fr/guides/">Guides</a>
+<a href="../../../fr/#presupuesto">Devis</a>
+    </nav>
+    <div class="topbar-end">
+      <nav aria-label="Langue" class="langs">
+<a href="../../../guias/errores-archivo-dxf-corte-laser/" hreflang="es" lang="es" title="Español">ES</a><a href="../../../eu/gidak/dxf-fitxategiaren-akatsak-laser-ebaketa/" hreflang="eu" lang="eu" title="Euskara">EU</a><a href="../../../en/guides/dxf-file-errors-laser-cutting/" hreflang="en" lang="en" title="English">EN</a><a href="../../../fr/guides/erreurs-fichier-dxf-decoupe-laser/" hreflang="fr" lang="fr" title="Français" aria-current="page">FR</a>      </nav>
+      <a href="../../../fr/#presupuesto" class="btn btn-acc btn-sm">Demander un devis</a>
+    </div>
+  </header></div>
+
+<main id="contenido">
+<section class="svc-hero" aria-labelledby="h1">
+  <div class="svc-hero-in">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../../../fr/">Accueil</a></li>
+<li><a href="../../../fr/guides/">Guides</a></li>
+          <li><span aria-current="page">Erreurs dans le DXF</span></li>
+        </ol>
+      </nav>
+      <div class="svc-hero-grid">
+        <div class="svc-hero-txt">
+<p class="svc-kicker">Guide · Fichiers</p>          <h1 id="h1" class="svc-h1">Les erreurs dans le DXF qui bloquent une commande, et comment les corriger</h1>
+<p class="hero-lead">Une erreur dans le fichier DXF pour la découpe laser bloque en général la commande avant même qu'elle n'arrive à la machine. Voici les défauts que nous voyons le plus, comment les trouver dans AutoCAD, QCAD ou LibreCAD et comment les régler avant l'envoi.</p><div class="row-btns">
+            <a href="../../../fr/#presupuesto" class="btn btn-acc btn-lg">Demander un devis</a>
+<a href="../../../fr/guides/" class="btn btn-ghost btn-lg">Tous les guides</a>
+          </div>        </div>
+<figure class="svc-fig"><picture><source type="image/avif" srcset="../../../assets/img/guia-cad-480.avif 480w, ../../../assets/img/guia-cad-800.avif 800w, ../../../assets/img/guia-cad-1200.avif 1200w, ../../../assets/img/guia-cad-1920.avif 1920w" sizes="(min-width: 900px) 46vw, 100vw"><img src="../../../assets/img/guia-cad-800.webp" srcset="../../../assets/img/guia-cad-480.webp 480w, ../../../assets/img/guia-cad-800.webp 800w, ../../../assets/img/guia-cad-1200.webp 1200w, ../../../assets/img/guia-cad-1920.webp 1920w" sizes="(min-width: 900px) 46vw, 100vw" width="1200" height="800" alt="Ordinateur portable affichant un plan technique" fetchpriority="high"></picture><figcaption>Photo : Greg Rosenke / Unsplash.</figcaption></figure>      </div>
+    </div>
+  </div>
+</section>
+<div class="section svc-main">
+  <div class="wrap svc-rows">
+    <section class="svc-row" id="tabla" aria-labelledby="h-tabla">
+  <h2 id="h-tabla" class="svc-h2">Quelles erreurs du fichier DXF bloquent une commande de découpe laser ?</h2>
+  <div class="svc-body">
+    <p>La machine découpe la géométrie telle qu'elle est dans le fichier. Elle n'interprète ni les cotes ni les notes, et elle ne devine pas ce que vous vouliez dessiner. Voici les erreurs types d'un fichier DXF pour la découpe laser, ce qu'elles provoquent et la manière rapide de les corriger :</p>
+<div class="svc-table-wrap" role="region" aria-label="Erreurs fréquentes dans les fichiers DXF pour la découpe laser" tabindex="0"><table class="svc-table cl-table tnum">
+<caption class="sr">Erreurs fréquentes dans les fichiers DXF pour la découpe laser</caption>    <thead><tr><th scope="col">Erreur</th><th scope="col">Ce qui se passe</th><th scope="col">Comment la corriger</th></tr></thead>
+    <tbody><tr><th scope="row">Contour ouvert</th><td>Il n'y a pas de parcours fermé à découper</td><td>Joignez les extrémités (JOIN dans AutoCAD) ou redessinez le tronçon</td></tr><tr><th scope="row">Lignes en double ou superposées</th><td>Le laser passe deux fois au même endroit</td><td>OVERKILL dans AutoCAD ; Detect Duplicates dans QCAD</td></tr><tr><th scope="row">Unités ou échelle erronées</th><td>La pièce sort 25,4 ou 10 fois plus grande ou plus petite</td><td>Dessinez à 1:1 en mm et vérifiez la dimension hors tout</td></tr><tr><th scope="row">Texte non converti</th><td>Le texte n'est pas de la géométrie de découpe</td><td>Convertissez-le en contours (TXTEXP, Explode)</td></tr><tr><th scope="row">Blocs non décomposés</th><td>La géométrie risque de ne pas être lue, ou d'être mal lue</td><td>Décomposez les blocs avant d'exporter</td></tr><tr><th scope="row">Splines très fines</th><td>Des milliers de petits segments ou des courbes mal lues</td><td>Convertissez en polyligne ou en arcs</td></tr><tr><th scope="row">Cotes, cadres ou cartouche</th><td>Ils seraient découpés comme s'ils faisaient partie de la pièce</td><td>Supprimez-les ou sortez-les du fichier</td></tr><tr><th scope="row">Plusieurs pièces dans un fichier</th><td>Nous ne savons pas combien vous en voulez de chacune</td><td>Une pièce par fichier</td></tr><tr><th scope="row">Exporté depuis l'espace papier</th><td>Échelle de la fenêtre de présentation, cadre compris</td><td>Exportez depuis l'espace objet</td></tr></tbody>
+  </table></div>
+<p class="svc-note">Synthèse établie par nos soins à partir de l'aide d'Autodesk, de QCAD et de LibreCAD et des consignes de fichier de SendCutSend (sources en fin de page).</p>
+  </div>
+</section>
+<section class="svc-row" id="contornos" aria-labelledby="h-contornos">
+  <h2 id="h-contornos" class="svc-h2">Contours ouverts et lignes en double</h2>
+  <div class="svc-body">
+    
+    <h3 class="cl-h3">Contours ouverts</h3>
+    <p>Chaque contour doit commencer et finir au même point. Un écart d'un centième ne se voit pas à l'écran, mais le programme de découpe ne sait pas quel côté est la pièce et quel côté est la chute.</p>
+<p>Dans AutoCAD, la commande <strong>JOIN</strong> (JOINDRE) réunit des objets en un seul. Selon l'aide d'Autodesk, les lignes doivent se toucher bout à bout ou être colinéaires ; sinon, JOIN les ignore. Si le contour n'est toujours pas fermé après JOIN, il y a un vrai trou : zoomez sur la zone et redessinez le tronçon.</p>
+<p>Un contrôle simple : sélectionnez le contour. S'il s'agit d'une seule polyligne fermée, c'est bon. Si ce sont des tronçons isolés qui se sélectionnent, vérifiez les jonctions.</p>
+
+    <h3 class="cl-h3">Lignes en double ou superposées</h3>
+    <p>Elles apparaissent en copiant-collant, en fusionnant des dessins ou en exportant depuis la 3D. Deux lignes l'une sur l'autre font passer la tête deux fois : plus de temps, plus de chaleur et un chant moins bon. SendCutSend, par exemple, rejette automatiquement les fichiers 2D qui contiennent des trajectoires en double.</p>
+<p>Dans AutoCAD, <strong>OVERKILL</strong> supprime les lignes, arcs et polylignes en double ou superposés, et fusionne ceux qui se chevauchent en partie. Dans QCAD, <strong>Detect Duplicates</strong> (raccourci MD) trouve les doublons exacts, mais pas les chevauchements partiels ; pour les tronçons de longueur nulle, il y a <strong>Detect Zero-Length Entities</strong> (MZ).</p>
+
+  </div>
+</section>
+<section class="svc-row" id="unidades" aria-labelledby="h-unidades">
+  <h2 id="h-unidades" class="svc-h2">Échelle, unités et espace papier</h2>
+  <div class="svc-body">
+    <p>Dessinez la pièce à l'échelle 1:1 et en millimètres. Les cotes écrites ne comptent pas : la machine utilise la géométrie.</p>
+<p>Un DXF enregistre dans son en-tête l'unité du dessin. Dans AutoCAD, c'est la variable <strong>INSUNITS</strong> : 0 signifie « sans unité », 1 les pouces et 4 les millimètres. Si votre fichier est en pouces, tout sort multiplié ou divisé par 25,4. Si vous avez dessiné en centimètres, par 10.</p>
+<p>Dans QCAD, vous pouvez changer l'unité du dessin avec <strong>Edit > Convert Drawing Unit</strong> (raccourci CU), qui met à l'échelle toute la géométrie. Quel que soit le logiciel, le test définitif consiste à mesurer la pièce entière avant d'exporter.</p>
+<p>Autre erreur classique : exporter depuis une présentation (espace papier). Le DXF peut sortir à l'échelle de la fenêtre de présentation, avec le cadre et le cartouche dedans. Exportez toujours depuis l'espace objet, avec la pièce seule.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="texto" aria-labelledby="h-texto">
+  <h2 id="h-texto" class="svc-h2">Texte, blocs et splines</h2>
+  <div class="svc-body">
+    <ul class="svc-list"><li><strong>Texte.</strong> Un texte « vivant » est une référence à une police, pas un contour. Convertissez-le en géométrie. Dans AutoCAD, <strong>TXTEXP</strong> (des Express Tools) décompose le texte en géométrie. Dans QCAD, <strong>Explode</strong> (raccourci XP) convertit les textes en polylignes. LibreCAD dispose de <strong>Explode Text into Letters</strong> (raccourci xt) et de <strong>Explode</strong> (xp). Vérifiez ensuite que les lettres sont bien des contours fermés.</li><li><strong>Îlots.</strong> Le centre d'un O, d'un A ou d'un B tombe à la découpe. Si vous voulez le conserver, reliez l'îlot par des ponts ou utilisez une typographie pochoir. Nous l'expliquons dans <a href="../../../fr/guides/micro-attaches-decoupe-laser/">micro-attaches et ponts</a>.</li><li><strong>Blocs.</strong> Une référence de bloc (INSERT) est de la géométrie « emballée ». Décomposez-la (EXPLODE dans AutoCAD, Explode dans QCAD et LibreCAD) pour qu'elle devienne des lignes, des arcs et des polylignes ordinaires.</li><li><strong>Splines.</strong> Certaines exportations transforment les courbes en splines à très nombreux points. Autodesk explique qu'en convertissant une spline en polyligne, la courbe est remplacée par des segments droits avec une précision de 0 à 99 %. Dans QCAD, Explode convertit les splines en polylignes faites d'arcs tangents. Si possible, utilisez des arcs.</li></ul>
+
+  </div>
+</section>
+<section class="svc-row" id="cotas" aria-labelledby="h-cotas">
+  <h2 id="h-cotas" class="svc-h2">Cotes, cadres et plusieurs pièces dans le même fichier</h2>
+  <div class="svc-body">
+    <p>Un plan de fabrication et un fichier de découpe, ce n'est pas la même chose. Le fichier de découpe ne contient que la ligne de découpe.</p>
+<p>Les cotes en tant qu'entités de cotation peuvent être ignorées. Le problème, ce sont les cotes, flèches, cadres ou cartouches déjà décomposés en lignes : pour la machine, c'est de la géométrie, et ils seraient découpés. Supprimez-les ou mettez-les dans un plan séparé en PDF.</p>
+<p>Mettez une pièce par fichier. Si vous envoyez cinq pièces dans un DXF, nous ne savons pas combien vous en voulez de chacune, ni si vous les avez imbriquées vous-même exprès. Les quantités se saisissent dans le formulaire : une ligne par pièce.</p>
+<p class="cl-call"><strong>Astuce</strong> Les lignes de pliage, les axes ou les repères vont sur un autre calque, et vous le signalez dans les remarques pour qu'ils ne soient pas découpés. Nous ne plions pas : nous découpons la tôle plane.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="formatos" aria-labelledby="h-formatos">
+  <h2 id="h-formatos" class="svc-h2">Les fichiers qui ne conviennent pas comme fichier de découpe</h2>
+  <div class="svc-body">
+    <ul class="svc-list"><li><strong>DXF binaire.</strong> Enregistrez-le en DXF ASCII. Dans AutoCAD, la boîte d'options DXF de « Enregistrer sous » permet de choisir ASCII ou binaire.</li><li><strong>DXF avec faces 3D.</strong> En exportant depuis un logiciel 3D sans passer par une vue à plat, le fichier peut contenir des faces ou des surfaces en trop. SendCutSend le cite parmi les erreurs d'exportation les plus courantes.</li><li><strong>STL, photos ou images.</strong> Un maillage ou une image n'a pas de contours exacts. Ils servent de référence, mais pour fabriquer il nous faut un DXF, un STEP ou un PDF coté.</li><li><strong>Fichier de 0 × 0.</strong> Si le fichier est vide à l'ouverture ou mesure zéro, la pièce n'a pas été sélectionnée à l'export. Exportez de nouveau avec la pièce sélectionnée.</li></ul>
+
+  </div>
+</section>
+<section class="svc-row" id="formulario" aria-labelledby="h-formulario">
+  <h2 id="h-formulario" class="svc-h2">Ce que détecte le formulaire à l'envoi d'un DXF</h2>
+  <div class="svc-body">
+    <p>Lorsque vous ajoutez un DXF dans le <a href="../../../fr/#presupuesto">formulaire de devis</a>, votre navigateur l'analyse sur-le-champ, sans l'envoyer encore. Il vous montre la pièce dessinée, ses dimensions et la longueur de découpe, et vous alerte s'il trouve :</p>
+<ul class="svc-list"><li>Des contours ouverts, signalés dans l'aperçu.</li><li>Plusieurs pièces dans le même fichier.</li><li>Des textes, des cotes, des blocs non décomposés ou des splines.</li><li>Un fichier en pouces, en centimètres ou en mètres : il le convertit en millimètres et vous le signale.</li><li>Un DXF binaire ou un fichier sans géométrie dans l'espace objet.</li><li>Des perçages trop petits pour le matériau et l'épaisseur choisis.</li></ul>
+<p>Il ne détecte pas tout. Les lignes en double, par exemple, ne se voient pas toujours dans l'aperçu. C'est pourquoi nous vérifions chaque fichier à la main avant de vous envoyer le devis en 24 h ouvrées.</p>
+
+  </div>
+</section>
+<section class="svc-row" id="checklist" aria-labelledby="h-checklist">
+  <h2 id="h-checklist" class="svc-h2">Check-list avant d'envoyer le fichier</h2>
+  <div class="svc-body">
+    <ol class="svc-olist"><li>Pièce à l'échelle 1:1 et en millimètres, dimension hors tout vérifiée.</li><li>Exportée depuis l'espace objet.</li><li>Contours fermés, sans doublons ni tronçons de longueur nulle.</li><li>Textes convertis en contours et blocs décomposés.</li><li>Ni cotes, ni cadres, ni cartouche dans la géométrie.</li><li>Une pièce par fichier, en DXF ASCII.</li><li>Perçages au-dessus du minimum pour l'épaisseur : consultez le <a href="../../../fr/guides/diametre-minimum-trou-decoupe-laser/">tableau du perçage minimal</a>.</li></ol>
+<p class="cl-call">Ensuite, <a href="../../../fr/#presupuesto">envoyez votre DXF et demandez un devis</a>. Si vous exportez depuis un logiciel 3D, suivez le <a href="../../../fr/guides/exporter-dxf-decoupe-laser/">guide d'export logiciel par logiciel</a>.</p>
+
+  </div>
+</section>
+
+  </div>
+</div>
+
+<section aria-labelledby="h-faq" class="section svc-faq-sec" id="preguntas">
+  <div class="wrap svc-faq">
+    <h2 id="h-faq" class="svc-h2">Questions fréquentes</h2>
+    <div class="faq">
+<details><summary><span>Fermez-vous vous-mêmes un contour ouvert ?</span><span class="plus" aria-hidden="true">+</span></summary><p>Si l'écart est évident, nous le fermons et nous vous le signalons. S'il n'est pas clair ce que vous vouliez dessiner, nous vous posons la question avant de chiffrer.</p></details>
+<details><summary><span>Puis-je envoyer le plan coté dans le même DXF ?</span><span class="plus" aria-hidden="true">+</span></summary><p>Mieux vaut éviter. Envoyez le DXF avec la géométrie seule et, si vous le souhaitez, un PDF coté à part.</p></details>
+<details><summary><span>Quelle version de DXF utiliser ?</span><span class="plus" aria-hidden="true">+</span></summary><p>Un DXF au format ASCII. Si votre logiciel propose le binaire, passez l'option en ASCII.</p></details>
+<details><summary><span>Comment savoir si le fichier est en millimètres ?</span><span class="plus" aria-hidden="true">+</span></summary><p>Mesurez la pièce entière dans votre CAO avant d'exporter. À l'envoi du DXF, le formulaire vous montre les dimensions qu'il a lues.</p></details>
+    </div>
+  </div>
+</section>
+<section aria-labelledby="h-src" class="section svc-src-sec" id="fuentes">
+  <div class="wrap svc-faq">
+    <h2 id="h-src" class="svc-h2">Sources</h2>
+    <div>
+      <ul class="svc-src">
+<li><a href="https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-LT/files/GUID-0916FE53-F816-4C40-AA5E-5E8CBFD7F73F.htm" rel="noopener" target="_blank">Autodesk · Commande OVERKILL (AutoCAD LT)</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-DidYouKnow/files/GUID-29D46150-7550-420A-B151-73BE44146665.htm" rel="noopener" target="_blank">Autodesk · Joindre des objets 2D (JOIN)</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-LT/files/GUID-A58A87BB-482B-4042-A00A-EEF55A2B4FD8.htm" rel="noopener" target="_blank">Autodesk · Variable INSUNITS</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-LT/files/GUID-71F69647-809E-42BA-B65B-357F3FFD0CAA.htm" rel="noopener" target="_blank">Autodesk · Modifier des splines</a></li>
+<li><a href="https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-LT/files/GUID-0FC24222-2C6A-4068-8ECF-DB7DDCEE6656.htm" rel="noopener" target="_blank">Autodesk · Options DXF à l'enregistrement</a></li>
+<li><a href="https://www.cadforum.cz/en/command.asp?cmd=TXTEXP" rel="noopener" target="_blank">CADforum · Commande TXTEXP</a></li>
+<li><a href="https://qcad.org/doc/qcad/latest/reference/en/index.php?page=scripts/Modify/Explode/doc/Explode" rel="noopener" target="_blank">QCAD · Explode</a></li>
+<li><a href="https://qcad.org/doc/qcad/latest/reference/en/index.php?page=scripts/Edit/ConvertUnit/doc/ConvertUnit" rel="noopener" target="_blank">QCAD · Convert Drawing Unit</a></li>
+<li><a href="https://qcad.org/rsforum/viewtopic.php?p=32307" rel="noopener" target="_blank">Forum QCAD · Detect Duplicates et chevauchements</a></li>
+<li><a href="https://librecad.readthedocs.io/en/latest/ref/tools.html" rel="noopener" target="_blank">LibreCAD · Référence des outils</a></li>
+<li><a href="https://sendcutsend.com/guidelines/laser-cutting/" rel="noopener" target="_blank">SendCutSend · Consignes pour la découpe laser</a></li>
+<li><a href="https://sendcutsend.com/what-are-common-problems-to-look-for-in-my-files/" rel="noopener" target="_blank">SendCutSend · Problèmes de fichier fréquents</a></li>
+      </ul>
+<p class="svc-note">Mis à jour : 28 octobre 2026</p>    </div>
+  </div>
+</section>
+</main>
+
+<section aria-label="Parlons de vos pièces." class="dark group svc-end">
+  <div class="wrap group-in">
+<div class="svc-rel">
+      <h2 id="h-rel" class="h3">À lire aussi</h2>
+      <ul class="units">
+<li>
+          <a href="../../../fr/guides/exporter-dxf-decoupe-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/piezas-planos-480.avif 480w, ../../../assets/img/piezas-planos-800.avif 800w, ../../../assets/img/piezas-planos-1200.avif 1200w, ../../../assets/img/piezas-planos-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/piezas-planos-800.webp" srcset="../../../assets/img/piezas-planos-480.webp 480w, ../../../assets/img/piezas-planos-800.webp 800w, ../../../assets/img/piezas-planos-1200.webp 1200w, ../../../assets/img/piezas-planos-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Comment exporter un DXF pour la découpe laser</span>
+            <span class="unit-d">Le chemin exact dans chaque logiciel, la pièce plane et le développé de tôlerie.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../fr/guides/preparer-fichier-dxf-step-decoupe-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/guia-cad-480.avif 480w, ../../../assets/img/guia-cad-800.avif 800w, ../../../assets/img/guia-cad-1200.avif 1200w, ../../../assets/img/guia-cad-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/guia-cad-800.webp" srcset="../../../assets/img/guia-cad-480.webp 480w, ../../../assets/img/guia-cad-800.webp 800w, ../../../assets/img/guia-cad-1200.webp 1200w, ../../../assets/img/guia-cad-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Comment préparer le fichier pour la découpe laser</span>
+            <span class="unit-d">DXF et DWG à l'échelle 1:1, contours fermés, STEP à corps unique et PDF coté.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../fr/guides/diametre-minimum-trou-decoupe-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/guia-calibre-480.avif 480w, ../../../assets/img/guia-calibre-800.avif 800w, ../../../assets/img/guia-calibre-1200.avif 1200w, ../../../assets/img/guia-calibre-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/guia-calibre-800.webp" srcset="../../../assets/img/guia-calibre-480.webp 480w, ../../../assets/img/guia-calibre-800.webp 800w, ../../../assets/img/guia-calibre-1200.webp 1200w, ../../../assets/img/guia-calibre-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Perçage, rainure et pont minimaux</span>
+            <span class="unit-d">Des tableaux par épaisseur et par matériau, issus de plusieurs sources, avec leurs écarts.</span>
+          </a>
+        </li>
+<li>
+          <a href="../../../fr/guides/conception-pieces-decoupe-laser/" class="unit">
+<span class="unit-img"><picture><source type="image/avif" srcset="../../../assets/img/laser-chispas-480.avif 480w, ../../../assets/img/laser-chispas-800.avif 800w, ../../../assets/img/laser-chispas-1200.avif 1200w, ../../../assets/img/laser-chispas-1920.avif 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw"><img src="../../../assets/img/laser-chispas-800.webp" srcset="../../../assets/img/laser-chispas-480.webp 480w, ../../../assets/img/laser-chispas-800.webp 800w, ../../../assets/img/laser-chispas-1200.webp 1200w, ../../../assets/img/laser-chispas-1920.webp 1920w" sizes="(min-width: 1100px) 300px, (min-width: 600px) 45vw, 100vw" width="800" height="533" alt="" loading="lazy" decoding="async"></picture></span>            <span class="unit-t">Conception de pièces pour la découpe laser</span>
+            <span class="unit-d">Perçages, distances, ponts, saignée et gaz de coupe : les règles qui évitent les surprises.</span>
+          </a>
+        </li>
+      </ul>
+    </div>    <div class="contact">
+      <div class="contact-head">
+        <div class="contact-h">
+          <h2 class="h-xl">Parlons de vos pièces.</h2>
+          <p class="lead">Votre interlocuteur est Igor Rodríguez. Écrivez-nous ou appelez du lundi au vendredi, de 7 h à 15 h.</p>
+        </div>
+        <a href="../../../fr/#presupuesto" class="btn btn-acc btn-lg">Demander un devis</a>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+34945318770"><span class="c-l">Téléphone</span><span class="c-v tnum">+34 945 31 87 70</span></a>
+        <a href="mailto:i.rodriguez@joma.es"><span class="c-l">E-mail</span><span class="c-v">i.rodriguez@joma.es</span></a>
+        <div><span class="c-l">Usine · visites sur rendez-vous</span><span class="c-v c-addr">C/ San Bartolomé 11, Pol. Ind. Goiain<br>01170 Legutio, Araba (Espagne)</span></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <nav aria-label="Services et guides" class="foot-svc">
+<a href="../../../fr/decoupe-laser-tole/">Découpe laser de tôle</a><a href="../../../fr/tole-decoupee-sur-mesure/">Tôle découpée sur mesure</a><a href="../../../fr/decoupe-laser-acier/">Acier laminé à froid</a><a href="../../../fr/decoupe-laser-acier-electrozingue/">Acier électrozingué</a><a href="../../../fr/decoupe-laser-acier-galvanise/">Acier galvanisé</a><a href="../../../fr/decoupe-laser-aluminium/">Aluminium</a><a href="../../../fr/decoupe-laser-inox/">Acier inoxydable</a><a href="../../../fr/guides/" class="foot-guide">Guides techniques</a><a href="../../../fr/guides/preparer-fichier-dxf-step-decoupe-laser/" class="foot-guide">Comment préparer le fichier pour la découpe laser</a><a href="../../../fr/guides/conception-pieces-decoupe-laser/" class="foot-guide">Conception de pièces pour la découpe laser</a><a href="../../../fr/guides/tolerances-decoupe-laser-iso-2768-iso-9013/" class="foot-guide">Tolérances : ISO 2768 et ISO 9013</a><a href="../../../fr/guides/decoupe-laser-plasma-jet-eau-poinconnage/" class="foot-guide">Laser, plasma, jet d'eau ou poinçonnage</a><a href="../../../fr/guides/prix-decoupe-laser-tole/" class="foot-guide">Ce qui détermine le prix de la découpe laser</a><a href="../../../fr/guides/erreurs-fichier-dxf-decoupe-laser/" class="foot-guide" aria-current="page">Erreurs dans le DXF et comment les corriger</a><a href="../../../fr/guides/exporter-dxf-decoupe-laser/" class="foot-guide">Comment exporter un DXF pour la découpe laser</a><a href="../../../fr/guides/saignee-kerf-decoupe-laser/" class="foot-guide">Saignée (kerf) de la découpe laser</a><a href="../../../fr/guides/micro-attaches-decoupe-laser/" class="foot-guide">Micro-attaches et ponts</a><a href="../../../fr/guides/diametre-minimum-trou-decoupe-laser/" class="foot-guide">Perçage, rainure et pont minimaux</a><a href="../../../fr/guides/decoupe-laser-azote-oxygene/" class="foot-guide">Découpe laser à l'azote ou à l'oxygène</a><a href="../../../fr/guides/chant-tole-galvanisee-decoupe-laser/" class="foot-guide">Le chant du galvanisé rouille-t-il ?</a><a href="../../../fr/guides/tole-galvanisee-electrozinguee-laminee-a-froid/" class="foot-guide">Galvanisé, électrozingué ou laminé à froid</a><a href="../../../fr/guides/inox-304-ou-316l/" class="foot-guide">Inox 304 ou 316L</a><a href="../../../fr/guides/aluminium-5754-1050a-6082/" class="foot-guide">Aluminium 5754, 1050A ou 6082</a><a href="../../../fr/guides/equivalences-aciers-en-din-aisi/" class="foot-guide">Tableau d'équivalences des aciers et des inox</a><a href="../../../fr/guides/epaisseurs-tole-jauges-mm/" class="foot-guide">Épaisseurs de tôle, jauges et tolérances</a><a href="../../../fr/guides/dimensions-formats-tole/" class="foot-guide">Formats et dimensions de tôle</a><a href="../../../fr/guides/conception-tenon-mortaise-tole/" class="foot-guide">Conception tenon-mortaise en tôlerie</a><a href="../../../fr/guides/lettres-tole-decoupe-laser/" class="foot-guide">Lettres, logos et textes en tôle</a><a href="../../../fr/guides/claustra-tole-ajouree-decoupe-laser/" class="foot-guide">Claustras et tôle ajourée sans déformation</a><a href="../../../fr/calcul-poids-tole/" class="foot-guide">Calculateur de poids de tôle</a><a href="../../../fr/glossaire-decoupe-laser-tole/" class="foot-guide">Glossaire de la tôlerie</a><a href="../../../fr/questions-frequentes/" class="foot-guide">Questions fréquentes</a><a href="../../../fr/usine-legutio/" class="foot-guide">L'usine</a>      </nav>
+      <div class="foot-l">
+        <span class="lockup cl-lockup" style="--h:24px; color:#FAF9F6;"><svg class="cl-mark" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" fill="#FF6A13"/><path d="M8 26 L26 8" stroke="#1A1A1A" stroke-width="3.2" stroke-linecap="square"/><path d="M8 13 V8 H13 M21 26 H26 V21" fill="none" stroke="#1A1A1A" stroke-width="2"/></svg><span class="rule"></span><span class="paint">CORTELASER</span></span>
+        <span>Découpe laser de tôle sur mesure, jusqu'à 6 mm, à Legutio (Álava, Espagne). Livraison dans toute l'Espagne et en Europe.</span>
+      </div>
+      <nav aria-label="Mentions légales et langues" class="foot-nav">
+<a href="../../../fr/mentions-legales/">Mentions légales</a><a href="../../../fr/confidentialite/">Confidentialité</a><a href="../../../fr/cookies/">Cookies</a><a href="../../../guias/errores-archivo-dxf-corte-laser/" hreflang="es" lang="es">Español</a><a href="../../../eu/gidak/dxf-fitxategiaren-akatsak-laser-ebaketa/" hreflang="eu" lang="eu">Euskara</a><a href="../../../en/guides/dxf-file-errors-laser-cutting/" hreflang="en" lang="en">English</a>      </nav>
+      <p class="foot-owner">Cortelaser est une marque de José María Gallastegui y Cía., S.A. · CIF A20029674 · C/ San Bartolomé 11, Pol. Ind. Goiain, 01170 Legutio (Álava)</p>
+    </footer>  </div>
+</section>
+</div>
+<script>window.CL={"lang":"fr","root":"../../../","api":"../../../api/solicitud","t":{"materials":{"acero":"Acier laminé à froid (DC01)","electrozincado":"Acier électrozingué (DC01+ZE)","galvanizado":"Acier galvanisé (DX51D+Z)","inox":"Acier inoxydable (304 / 316L)","aluminio":"Aluminium (5754 / 1050A)"},"mat_short":{"acero":"Laminé à froid","electrozincado":"Électrozingué","galvanizado":"Galvanisé","inox":"Inox","aluminio":"Aluminium"},"steps":["Pièces","Livraison et contact"],"ref":"Pièce {n}","remove":"Retirer la pièce {n}","addFile":"Ajoutez un DXF, un STEP ou un plan","unfile":"Changer de fichier","addLine":"Ajouter une pièce","fRef":"Référence ou nom","fRefPh":"Celle que vous utilisez dans votre atelier","fQty":"Quantité","fMat":"Matériau","fT":"Épaisseur (mm)","fTPh":"Jusqu'à 6","analyzing":"Analyse en cours…","no_preview":"pas d'aperçu","preview_aria":"Aperçu de la pièce","s_size":"Dimensions","s_cut":"Longueur de découpe","s_contours":"Contours + perçages","s_weight":"Poids par pièce","s_weight_need":"indiquez l'épaisseur","msg_step":"STEP reçu. Nous le vérifions en préparant le devis et nous découpons son développé à plat.","msg_dwg":"DWG reçu. Si possible, exportez-le aussi en DXF pour voir ici ses dimensions.","msg_other":"Fichier reçu. S'il s'agit d'un plan, vérifiez qu'il porte toutes les cotes.","msg_binary":"C'est un DXF binaire. Enregistrez-le en DXF ASCII pour voir ici ses dimensions ; nous le recevons quand même.","msg_empty":"Aucune géométrie trouvée dans le DXF. Vérifiez que la pièce est dans l'espace objet et pas dans un bloc.","msg_units":"Le fichier est dans d'autres unités : nous l'avons converti en millimètres.","msg_open":"Il y a {n} contour(s) ouvert(s). Le laser a besoin de contours fermés : vérifiez-les, ou nous les fermons nous-mêmes si c'est évident.","msg_multi":"Il y a {n} pièces dans le même fichier. Mieux vaut une pièce par fichier ; si c'est voulu, indiquez-le dans les remarques.","msg_text":"Le fichier contient des textes. S'ils doivent être découpés, convertissez-les en contours ; si ce sont des notes, nous les ignorons.","msg_dim":"Les cotes et les notes ne sont pas découpées : nous utilisons la géométrie à l'échelle 1:1.","msg_insert":"Le fichier contient des blocs. Décomposez-les pour qu'ils soient pris en compte dans l'analyse.","msg_spline":"Le fichier contient des splines : l'aperçu est approximatif.","msg_hole":"Le plus petit perçage mesure {d} mm. En règle générale, il vaut mieux qu'il fasse au moins {f} fois l'épaisseur ({t} mm) ; nous le vérifions.","msg_thick":"Nous découpons la tôle jusqu'à {max} mm. Pour une épaisseur supérieure, écrivez-nous avant.","msg_ok":"Géométrie correcte : contours fermés et une seule pièce.","asideTitle":"Votre demande","nRefs":"Pièces : {n}","nPcs":"Unités : {n}","weight":"Poids estimé","deadlineL":"Devis avant le","cutoff":"24 h ouvrées. Bureau du lundi au vendredi, de 7 h à 15 h.","next":["Suivant : livraison et contact","Envoyer la demande"],"back":"Revenir aux pièces","needRgpd":"Acceptez la politique de confidentialité pour envoyer la demande.","sending":"Envoi en cours…","dl":"{wd} {d} {m} à {h} h","wd":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"mo":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],"delL":"Livraison","del":["Retrait à Legutio","Envoi en Espagne","Envoi en Europe"],"zip":"Code postal et pays de livraison","zipPh":"64100 Bayonne, France","when":"Date souhaitée","contact":[["Entreprise","text","organization","","Empresa"],["N° de TVA / SIRET","text","off","","CIF"],["Nom","text","name","","Nombre"],["E-mail","email","email","vous@entreprise.fr","email"],["Téléphone","tel","tel","","Teléfono"]],"notes":"Remarques","notesPh":"Cotes critiques, face visible, s'il s'agit d'une répétition…","paint":"Je souhaite aussi les faire peindre en poudre","paintD":"Cochez la case et nous coordonnons la peinture sur une ligne de la même usine, à la suite.","rgpd":"J'ai lu la <a href=\"{privacy}\">politique de confidentialité<\/a> et j'accepte que vous traitiez mes données pour préparer le devis.","needEmail":"Indiquez une adresse e-mail valide pour recevoir le devis.","needFile":"Ajoutez au moins un fichier à l'étape 1.","doneTitle":"Demande {code} reçue.","doneLead":"Nous vous envoyons le devis par e-mail avant le {d}.","doneSteps":["Nous vérifions votre fichier : échelle, contours et perçages.","Nous calculons la matière, la découpe et l'imbrication.","Nous vous envoyons le devis par écrit, avec le délai."],"doneNew":"Nouvelle demande","err_size":"Les fichiers dépassent {mb} Mo au total. Envoyez les plus lourds dans une autre demande.","err_send":"Nous n'avons pas pu envoyer la demande. Réessayez dans un instant, écrivez-nous à {email} ou appelez le {phone}.","subject":"Devis {c} · {n} pièce(s)","heroFiles":"{n} fichier(s) prêt(s) à l'étape 1"},"maxMb":10,"prefix":"CL","dens":{"acero":7.85,"inox":7.9,"aluminio":2.66,"galvanizado":7.85,"electrozincado":7.85},"holeF":{"acero":1.0,"inox":1.5,"aluminio":1.5,"galvanizado":1.0,"electrozincado":1.0},"bed":null,"privacy":"../../../fr/confidentialite/","maxT":6,"mats":["acero","electrozincado","galvanizado","aluminio","inox"],"grades":{"acero":["DC01","DC03","DC04"],"inox":["1.4301 (AISI 304)","1.4404 (AISI 316L)"],"aluminio":["EN AW-5754 H111","EN AW-5754 H22/H32","EN AW-1050A"],"galvanizado":["DX51D+Z"],"electrozincado":["DC01+ZE","DC03+ZE","DC04+ZE"]},"matHref":{"acero":"../../../fr/decoupe-laser-acier/","electrozincado":"../../../fr/decoupe-laser-acier-electrozingue/","galvanizado":"../../../fr/decoupe-laser-acier-galvanise/","inox":"../../../fr/decoupe-laser-inox/","aluminio":"../../../fr/decoupe-laser-aluminium/"},"email":"i.rodriguez@joma.es","phone":"+34 945 31 87 70"};</script>
+<script src="../../../assets/js/site.js?v=e97333a2" defer></script>
+</body>
+</html>

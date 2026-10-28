@@ -55,9 +55,41 @@ services:
       traefik.http.routers.jomapaint-api.middlewares: jomapaint-headers
       traefik.http.services.jomapaint-api.loadbalancer.server.port: "3000"
 
+  # Cortelaser (vista previa en paint.joma.es/cortelaser/): solicitudes de corte láser.
+  # paint.joma.es/cortelaser/api/* → este contenedor, sin el prefijo /cortelaser.
+  # Iniciativa en Odoo asignada a Igor Rodríguez (usuario 6), sin equipo fijo (toma el suyo),
+  # con aviso por email a Igor (7), Marimar (58764) y Jox (57532). Misma clave que JomaPaint.
+  cortelaser-api:
+    build: ./cortelaser-api
+    restart: unless-stopped
+    networks:
+      - edge
+    environment:
+      SITE_NAME: cortelaser
+      ODOO_URL: https://erp.joma.es
+      ODOO_DB: joma
+      ODOO_LOGIN: ${ODOO_LOGIN:-txomin@joma.es}
+      ODOO_API_KEY: ${ODOO_API_KEY:-}
+      ODOO_USER_ID: "6"
+      ODOO_NOTIFY_PARTNER_IDS: "7,58764,57532"
+      ALLOWED_ORIGINS: https://paint.joma.es
+    volumes:
+      - solicitudes-cortelaser:/data
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: edge
+      traefik.http.routers.cortelaser-api.rule: Host(`paint.joma.es`) && PathPrefix(`/cortelaser/api/`)
+      traefik.http.routers.cortelaser-api.entrypoints: websecure
+      traefik.http.routers.cortelaser-api.tls.certresolver: letsencrypt
+      traefik.http.routers.cortelaser-api.tls.domains[0].main: paint.joma.es
+      traefik.http.routers.cortelaser-api.middlewares: cortelaser-strip,jomapaint-headers
+      traefik.http.middlewares.cortelaser-strip.stripprefix.prefixes: /cortelaser
+      traefik.http.services.cortelaser-api.loadbalancer.server.port: "3000"
+
 volumes:
   # Copia de cada solicitud y sus planos (aunque el correo falle).
   solicitudes:
+  solicitudes-cortelaser:
 
 networks:
   # Red del Traefik del VPS (la crea el stack de JomaUrban/Web-JomaUrban).
