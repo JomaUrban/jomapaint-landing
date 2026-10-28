@@ -1,0 +1,48 @@
+# Diagnóstico de estadisticas.joma.es (manual): estado de los contenedores, log del resumen
+# del grupo y la consulta del resumen ejecutada dentro del contenedor. No muestra contraseñas.
+name: Estadísticas · diagnóstico
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    env:
+      VPS_HOST: ${{ vars.VPS_HOST || '158.220.125.149' }}
+      VPS_USER: ${{ vars.VPS_USER || 'root' }}
+      VPS_PATH: ${{ vars.VPS_PATH || '/opt/estadisticas' }}
+      DEPLOY_KEY: ${{ secrets.VPS_SSH_KEY }}
+    steps:
+      - name: Configurar SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          cat > ~/.ssh/config <<SSHCFG
+          Host deploy-target
+            HostName $VPS_HOST
+            User $VPS_USER
+            IdentityFile ~/.ssh/id_deploy
+            IdentitiesOnly yes
+            ConnectTimeout 20
+          SSHCFG
+
+      - name: Contenedores
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose ps"
+
+      - name: Log del resumen
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose logs --tail 60 grupo"
+
+      - name: Consulta del resumen
+        run: |
+          ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T grupo python -c 'import traceback, app
+          for k in (\"30\",):
+              try:
+                  app.page(k); print(\"ok\", k)
+              except Exception:
+                  traceback.print_exc()'" || true
+
+      - name: Permisos del rol grupo
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T db psql -U umami -d umami -c \"SELECT grantee, table_name, privilege_type FROM information_schema.role_table_grants WHERE grantee='grupo'\" -c 'SELECT count(*) FROM website_event'"
