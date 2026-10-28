@@ -10,7 +10,8 @@ FROM (VALUES
   ('1272970f-f4e1-4967-9c29-0de23b16aee3', 'Joma Urban (staging)', 'staging.jomaurban.com'),
   ('f9227910-44f9-4cc7-9834-24ef6ec1fb9b', 'Ekilabs',    'ekilabs.com'),
   ('4f420787-9477-4bcc-a5d2-08beb430530f', 'Buzonia',    'buzonia.com'),
-  ('d27dbbce-5e95-4968-b8ec-254fb596cd68', 'Buzones Costasol', 'buzonescostasol.com')
+  ('d27dbbce-5e95-4968-b8ec-254fb596cd68', 'Buzones Costasol', 'buzonescostasol.com'),
+  ('a4b8062f-1394-4c5e-b19b-093ceac38c9e', 'Cortelaser', 'paint.joma.es')
 ) AS v(id, name, domain)
 CROSS JOIN (SELECT user_id FROM "user" WHERE username = 'admin' AND deleted_at IS NULL LIMIT 1) u
 ON CONFLICT (website_id) DO NOTHING;

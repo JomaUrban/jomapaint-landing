@@ -21,6 +21,7 @@ En el layout común, dentro de `<head>`:
 | Ekilabs | `f9227910-44f9-4cc7-9834-24ef6ec1fb9b` | `ekilabs.com,www.ekilabs.com` |
 | Buzonia | `4f420787-9477-4bcc-a5d2-08beb430530f` | `buzonia.com,www.buzonia.com` |
 | Buzones Costasol | `d27dbbce-5e95-4968-b8ec-254fb596cd68` | `buzonescostasol.com,www.buzonescostasol.com` |
+| Cortelaser | `a4b8062f-1394-4c5e-b19b-093ceac38c9e` | `paint.joma.es,cortelaser.ai,www.cortelaser.ai` (hoy en paint.joma.es/cortelaser/) |
 | Joma Urban (staging, provisional) | `1272970f-f4e1-4967-9c29-0de23b16aee3` | `staging.jomaurban.com` |
 
 - `data-domains` limita la medición a producción: en staging o en local el script se carga pero no cuenta nada. Por eso se puede poner ya en la web de staging.

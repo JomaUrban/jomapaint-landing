@@ -245,9 +245,10 @@
         if (!res[0] || !res[1].ok) throw new Error(res[1].error || 'http');
         if (res[1].code) q.code = res[1].code;
         q.sending = false; q.step = 3; render(); scrollTo();
+        if (window.umami) window.umami.track('solicitud-enviada');
         var dn = $('#q-done'); if (dn) dn.focus({ preventScroll: true });
       })
-      .catch(function () { q.sending = false; q.err = fmt(T.err_send, { email: C.email || '', phone: C.phone || '' }); render(); });
+      .catch(function () { if (window.umami) window.umami.track('solicitud-error'); q.sending = false; q.err = fmt(T.err_send, { email: C.email || '', phone: C.phone || '' }); render(); });
   };
   render();
 })();
