@@ -18,6 +18,8 @@ En el layout común, dentro de `<head>`:
 | Joma Urban | `72937a60-e911-4d1e-bf34-4e358686f870` | `jomaurban.com,www.jomaurban.com` |
 | Normo | `7d999b89-c4ff-4e67-83cc-b6f5cd541703` | `normo.es,www.normo.es` |
 | Joma | `86cc56b6-fb47-4115-87a9-3eda024bf97d` | `joma.es,www.joma.es` |
+| Ekilabs | `f9227910-44f9-4cc7-9834-24ef6ec1fb9b` | `ekilabs.com,www.ekilabs.com` |
+| Joma Urban (staging, provisional) | `1272970f-f4e1-4967-9c29-0de23b16aee3` | `staging.jomaurban.com` |
 
 - `data-domains` limita la medición a producción: en staging o en local el script se carga pero no cuenta nada. Por eso se puede poner ya en la web de staging.
 - **Astro (Joma Urban):** en el layout base, dentro de `<head>`. Si Astro procesa el `<script>`, añadir `is:inline`:
