@@ -83,6 +83,9 @@ jobs:
       - name: Dar de alta las webs
         run: ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T db psql -U umami -d umami -v ON_ERROR_STOP=1 -q" < estadisticas/seed.sql
 
+      - name: Tableros
+        run: ssh deploy-target "cd '$VPS_PATH' && docker compose exec -T db psql -U umami -d umami -v ON_ERROR_STOP=1 -q" < estadisticas/boards.sql
+
       - name: Contraseña del panel
         if: env.ADMIN_PASSWORD != ''
         run: |
